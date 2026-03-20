@@ -1,0 +1,76 @@
+# ==========================================
+# Patient / sensitive data (MUST exclude)
+# ==========================================
+sample_data/
+experiment_results_v3/
+experiment_results_ssl/
+archive/
+pretrained_v2/
+
+# NIfTI brain scans
+*.nii
+*.nii.gz
+
+# Model checkpoints
+*.pth
+*.pt
+*.h5
+*.ckpt
+*.pkl
+
+# Large compressed archives
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env
+
+# ==========================================
+# LaTeX auxiliary files
+# ==========================================
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.xdv
+
+# ==========================================
+# IDE / OS
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Misc
+# ==========================================
+*.NVIDIA*
+logs/
+outputs/
