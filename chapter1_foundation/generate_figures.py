@@ -310,6 +310,7 @@ def fig1_training_dynamics(by_model, save_dir):
 
 def fig2_classification(by_model, save_dir):
     set_nature_style()
+
     best_name = "Ours (Atlas+AnatDist)"
     if best_name not in by_model:
         best_name = list(by_model.keys())[0]
@@ -318,79 +319,112 @@ def fig2_classification(by_model, save_dir):
     all_yp = np.concatenate([np.array(x) for x in by_model[best_name]["test_y_pred"]])
     all_yprob = np.concatenate([np.array(x) for x in by_model[best_name]["test_y_prob"]])
 
-    fig = plt.figure(figsize=(8.0, 3.2))
-    gs = gridspec.GridSpec(1, 3, width_ratios=[1, 1.2, 1.8], wspace=0.40)
+    fig = plt.figure(figsize=(7.2, 4.8))
+    gs = gridspec.GridSpec(
+        2, 2,
+        height_ratios=[1.0, 0.9],
+        hspace=0.38,
+        wspace=0.32
+    )
+
+    FONT_LABEL = 9.5
+    FONT_TICK = 8.5
+    FONT_LEGEND = 8
 
     # --- a: Confusion Matrix ---
-    ax0 = fig.add_subplot(gs[0])
+    ax0 = fig.add_subplot(gs[0, 0])
+
     cm = np.zeros((3, 3), dtype=int)
     for t, p in zip(all_yt, all_yp):
         cm[int(t), int(p)] += 1
     cm_norm = cm.astype(float) / np.maximum(cm.sum(axis=1, keepdims=True), 1)
 
-    cmap = LinearSegmentedColormap.from_list("nature_blue", ["#ffffff", "#4E79A7"])
-    im = ax0.imshow(cm_norm, cmap=cmap, vmin=0, vmax=1, aspect="equal")
+    cm_cmap = LinearSegmentedColormap.from_list(
+        "fig1_red", ["#FBEAE8", "#E8A9A0", "#C73737", "#8B1A1A"])
+    ax0.imshow(cm_norm, cmap=cm_cmap, vmin=0, vmax=1)
+
     for i in range(3):
         for j in range(3):
-            color = "white" if cm_norm[i, j] > 0.6 else "black"
-            ax0.text(j, i, f"{cm[i, j]}\n({cm_norm[i, j]:.0%})",
-                     ha="center", va="center", fontsize=7, color=color, fontweight="bold")
-    ax0.set_xticks([0, 1, 2]); ax0.set_yticks([0, 1, 2])
-    ax0.set_xticklabels(CLASS_NAMES); ax0.set_yticklabels(CLASS_NAMES)
-    ax0.set_xlabel("Predicted"); ax0.set_ylabel("True")
+            txt = f"{cm_norm[i, j]*100:.1f}%"
+            color = "white" if cm_norm[i, j] > 0.5 else "black"
+            ax0.text(j, i, txt, ha="center", va="center",
+                     fontsize=8.5, color=color,
+                     fontweight="bold" if i == j else "normal")
+
+    ax0.set_xticks([0, 1, 2])
+    ax0.set_yticks([0, 1, 2])
+    ax0.set_xticklabels(CLASS_NAMES, fontsize=FONT_TICK)
+    ax0.set_yticklabels(CLASS_NAMES, fontsize=FONT_TICK)
+    ax0.set_xlabel("Predicted", fontsize=FONT_LABEL)
+    ax0.set_ylabel("True", fontsize=FONT_LABEL)
     _panel_label(ax0, "a")
 
     # --- b: ROC Curves ---
-    ax1 = fig.add_subplot(gs[1])
+    ax1 = fig.add_subplot(gs[0, 1])
+
     for c in range(3):
         binary = (all_yt == c).astype(int)
         scores = all_yprob[:, c]
         fprs, tprs = _roc_curve(binary, scores)
         auc_val = _binary_auc(binary, scores)
-        ax1.plot(fprs, tprs, color=CLASS_COLORS[c], lw=1.5,
-                 label=f"{CLASS_NAMES[c]} (AUC = {auc_val:.3f})")
-    ax1.plot([0, 1], [0, 1], "--", color="#cccccc", lw=0.8)
-    ax1.set_xlabel("False Positive Rate"); ax1.set_ylabel("True Positive Rate")
-    ax1.legend(fontsize=6.5, loc="lower right")
-    ax1.set_xlim(-0.02, 1.02); ax1.set_ylim(-0.02, 1.02)
+        ax1.plot(fprs, tprs, lw=1.8,
+                 label=f"{CLASS_NAMES[c]} (AUC={auc_val:.3f})")
+
+    ax1.plot([0, 1], [0, 1], "--", color="#999999", lw=1)
+    ax1.set_xlabel("False Positive Rate", fontsize=FONT_LABEL)
+    ax1.set_ylabel("True Positive Rate", fontsize=FONT_LABEL)
+    ax1.tick_params(labelsize=FONT_TICK)
+    ax1.legend(fontsize=FONT_LEGEND, frameon=False)
+    ax1.set_xlim(0, 1)
+    ax1.set_ylim(0, 1)
     _panel_label(ax1, "b")
 
-    # --- c: Metrics Table ---
-    ax2 = fig.add_subplot(gs[2])
-    ax2.axis("off")
-    metrics_all = compute_all_metrics(all_yt, all_yp, all_yprob)
-    columns = ["Metric", "CN", "MCI", "AD", "Macro"]
-    cell_data = []
-    for metric_name, key in [("Prec.", "per_class_precision"),
-                              ("Recall", "per_class_recall"),
-                              ("F1", "per_class_f1"),
-                              ("AUC", "per_class_auc"),
-                              ("Spec.", "per_class_specificity")]:
-        row = [metric_name]
-        vals = list(metrics_all[key].values())
-        row += [f"{v:.3f}" for v in vals]
-        row.append(f"{np.mean(vals):.3f}")
-        cell_data.append(row)
+    # --- c: Performance Comparison (bar plot) ---
+    ax2 = fig.add_subplot(gs[1, :])
 
-    tbl = ax2.table(cellText=cell_data, colLabels=columns,
-                    loc="center", cellLoc="center")
-    tbl.auto_set_font_size(False)
-    tbl.set_fontsize(7.5)
-    tbl.auto_set_column_width(col=list(range(len(columns))))
-    tbl.scale(1, 1.5)
-    for key, cell in tbl.get_celld().items():
-        cell.set_linewidth(0.4)
-        cell.set_edgecolor("#cccccc")
-        if key[0] == 0:
-            cell.set_facecolor("#f0f0f0")
-            cell.set_text_props(fontweight="bold")
-        if key[1] == 0 and key[0] > 0:
-            cell.set_text_props(fontweight="bold")
-    _panel_label(ax2, "c", x=-0.05)
+    model_names = list(by_model.keys())
+    auc_means = []
+    auc_stds = []
 
-    fig.tight_layout()
+    for name in model_names:
+        aucs = []
+        for yt, yp, yprob in zip(
+            by_model[name]["test_y_true"],
+            by_model[name]["test_y_pred"],
+            by_model[name]["test_y_prob"]
+        ):
+            yt = np.array(yt)
+            yprob = np.array(yprob)
+            per_class_auc = []
+            for c in range(3):
+                binary = (yt == c).astype(int)
+                per_class_auc.append(_binary_auc(binary, yprob[:, c]))
+            aucs.append(np.mean(per_class_auc))
+        auc_means.append(np.mean(aucs))
+        auc_stds.append(np.std(aucs))
+
+    x = np.arange(len(model_names))
+    bars = ax2.bar(x, auc_means, yerr=auc_stds, capsize=3,
+                   edgecolor="black", linewidth=0.6)
+
+    for i, name in enumerate(model_names):
+        bars[i].set_color(MODEL_COLORS.get(name, "#9AA0A6"))
+
+    for i in range(len(model_names)):
+        ax2.text(i, auc_means[i] + 0.01, f"{auc_means[i]:.3f}",
+                 ha='center', fontsize=7)
+
+    display_names = [MODEL_DISPLAY.get(n, n) for n in model_names]
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(display_names, rotation=20, ha="right",
+                        fontsize=FONT_TICK)
+    ax2.set_ylabel("Macro AUC", fontsize=FONT_LABEL)
+    ax2.set_ylim(0.45, 1.0)
+    ax2.tick_params(labelsize=FONT_TICK)
+    _panel_label(ax2, "c")
+
     _save(fig, save_dir, "fig2_classification")
-    print("  Fig 2: Classification Performance")
+    print("  Fig 2: Classification Performance (Upgraded)")
 
 
 # ---------------------------------------------------------------------------

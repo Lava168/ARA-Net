@@ -251,7 +251,7 @@ def plot_heatmaps(summary: Dict, out_dir: Path, k_hit: int):
         (axes[0], cas_mat, "Error-conditioned CAS"),
         (axes[1], hit_mat, f"Error-conditioned Hit@{k_hit} (AD-key)"),
     ]:
-        im = ax.imshow(mat, vmin=np.nanmin(mat), vmax=np.nanmax(mat), cmap="viridis")
+        im = ax.imshow(mat, vmin=np.nanmin(mat), vmax=np.nanmax(mat), cmap="RdBu_r")
         ax.set_xticks(range(3)); ax.set_xticklabels(CLASS_NAMES)
         ax.set_yticks(range(3)); ax.set_yticklabels(CLASS_NAMES)
         ax.set_xlabel("Predicted"); ax.set_ylabel("True")
@@ -262,7 +262,9 @@ def plot_heatmaps(summary: Dict, out_dir: Path, k_hit: int):
                     txt = "—"
                 else:
                     txt = f"{mat[i,j]:.3f}\n(n={n_mat[i,j]})"
-                ax.text(j, i, txt, ha="center", va="center", color="white" if not math.isnan(mat[i,j]) and mat[i,j] > (np.nanmin(mat)+np.nanmax(mat))/2 else "black", fontsize=7)
+                mid = (np.nanmin(mat) + np.nanmax(mat)) / 2
+                use_white = not math.isnan(mat[i, j]) and abs(mat[i, j] - mid) > (np.nanmax(mat) - np.nanmin(mat)) * 0.3
+                ax.text(j, i, txt, ha="center", va="center", color="white" if use_white else "black", fontsize=7)
         fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
 
     fig.suptitle("Interpretability under correct vs misclassified cases", y=1.02, fontweight="bold")
@@ -270,57 +272,151 @@ def plot_heatmaps(summary: Dict, out_dir: Path, k_hit: int):
     _save(fig, out_dir, "FigS_error_conditioned_heatmaps")
 
 
+def _sem(arr):
+    """Standard error of the mean."""
+    n = len(arr)
+    return np.std(arr, ddof=0) / np.sqrt(n) if n > 1 else 0.0
+
+
 def plot_key_error_bars(rows: List[SampleRow], out_dir: Path, k_hit: int):
     """
-    Focus on clinically relevant confusions:
-      - MCI->CN
-      - MCI->AD
-    Compare against correct MCI->MCI.
+    Unified figure: three MCI error-mode groups, three metrics.
+    Left panel: CAS & Hit@k.  Right panel: cosine to class prototypes.
+    Error bars = SEM (standard error of the mean), not raw SD.
+    Color palette derived from RdBu to match Fig1 attention heatmap.
     """
     set_nature_style()
 
     def sel(t: int, p: int):
         return [r for r in rows if r.true == t and r.pred == p]
 
-    groups = [
-        ("MCI→MCI (correct)", sel(1, 1)),
-        ("MCI→CN (error)", sel(1, 0)),
-        ("MCI→AD (error)", sel(1, 2)),
-    ]
-    # If a group has no samples (rare), drop it.
-    groups = [(name, g) for name, g in groups if len(g) > 0]
-    if not groups:
+    group_labels = ["MCI\u2192MCI\n(correct)", "MCI\u2192CN\n(error)", "MCI\u2192AD\n(error)"]
+    group_data = [sel(1, 1), sel(1, 0), sel(1, 2)]
+    keep = [(lbl, g) for lbl, g in zip(group_labels, group_data) if len(g) > 0]
+    if not keep:
         return
+    group_labels = [k[0] for k in keep]
+    group_data = [k[1] for k in keep]
 
-    cas_means = [np.mean([x.cas for x in g]) for _, g in groups]
-    hit_means = [np.mean([x.hitk for x in g]) for _, g in groups]
-    cos_pred_means = []
-    for name, g in groups:
-        # Cosine to predicted-class prototype: pick per-sample predicted label.
-        c = np.mean([ [x.cos_to_cn, x.cos_to_mci, x.cos_to_ad][x.pred] for x in g ])
-        cos_pred_means.append(c)
+    cas_m, cas_se, hit_m, hit_se, n_counts = [], [], [], [], []
+    for g in group_data:
+        ca = np.array([x.cas for x in g])
+        hi = np.array([x.hitk for x in g])
+        cas_m.append(ca.mean()); cas_se.append(_sem(ca))
+        hit_m.append(hi.mean()); hit_se.append(_sem(hi))
+        n_counts.append(len(g))
 
-    x = np.arange(len(groups))
-    fig, axes = plt.subplots(1, 3, figsize=(9.2, 3.0))
-    axes[0].bar(x, cas_means, color="#C73737", edgecolor="white")
-    axes[0].set_title("CAS (AD-key share)", fontweight="bold")
-    axes[0].set_xticks(x); axes[0].set_xticklabels([n for n, _ in groups], rotation=25, ha="right")
-    axes[0].set_ylim(0, max(cas_means) * 1.25)
+    from matplotlib.colors import to_rgba
 
-    axes[1].bar(x, hit_means, color="#3B82C4", edgecolor="white")
-    axes[1].set_title(f"Hit@{k_hit} (AD-key)", fontweight="bold")
-    axes[1].set_xticks(x); axes[1].set_xticklabels([n for n, _ in groups], rotation=25, ha="right")
-    axes[1].set_ylim(0, 1.0)
+    CLR_CAS  = "#B2182B"
+    CLR_HIT  = "#2166AC"
+    CLR_COS2 = "#4393C3"
+    CLR_COS3 = "#92C5DE"
 
-    axes[2].bar(x, cos_pred_means, color="#2CA6A4", edgecolor="white")
-    axes[2].set_title("Cosine to predicted prototype", fontweight="bold")
-    axes[2].set_xticks(x); axes[2].set_xticklabels([n for n, _ in groups], rotation=25, ha="right")
-    axes[2].set_ylim(0, 1.0)
+    ng = len(group_labels)
+    x = np.arange(ng)
+    bw = 0.30
 
-    for ax in axes:
-        ax.grid(axis="y")
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.5, 4.0),
+                                    gridspec_kw={"width_ratios": [1.2, 1], "wspace": 0.32})
 
-    fig.tight_layout()
+    # ── Left panel: CAS & Hit@k ──
+    ax1.bar(x - bw/2, cas_m, bw, label="CAS (AD-key share)",
+            color=to_rgba(CLR_CAS, 0.85), edgecolor="white", linewidth=0.8, zorder=3)
+    ax1.errorbar(x - bw/2, cas_m, yerr=cas_se, fmt="none",
+                 ecolor=to_rgba(CLR_CAS, 0.6), elinewidth=1.2, capsize=4, capthick=1.0, zorder=4)
+
+    ax1.bar(x + bw/2, hit_m, bw, label=f"Hit@{k_hit} (AD-key)",
+            color=to_rgba(CLR_HIT, 0.85), edgecolor="white", linewidth=0.8, zorder=3)
+    ax1.errorbar(x + bw/2, hit_m, yerr=hit_se, fmt="none",
+                 ecolor=to_rgba(CLR_HIT, 0.6), elinewidth=1.2, capsize=4, capthick=1.0, zorder=4)
+
+    lbl_offset = 0.010
+    for i in range(ng):
+        ax1.text(x[i] - bw/2, cas_m[i] + cas_se[i] + lbl_offset, f"{cas_m[i]:.3f}",
+                 ha="center", va="bottom", fontsize=8, color=CLR_CAS, fontweight="bold")
+        ax1.text(x[i] + bw/2, hit_m[i] + hit_se[i] + lbl_offset, f"{hit_m[i]:.3f}",
+                 ha="center", va="bottom", fontsize=8, color=CLR_HIT, fontweight="bold")
+
+    y_top = max(max(c + e for c, e in zip(cas_m, cas_se)),
+                max(h + e for h, e in zip(hit_m, hit_se))) * 1.30
+    ax1.set_ylim(0, y_top)
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(group_labels, fontsize=9, linespacing=1.1)
+    ax1.set_ylabel("Score", fontsize=10)
+    ax1.set_title("(a)  CAS & Hit@5", fontsize=11, fontweight="bold", pad=10)
+    for i in range(ng):
+        ax1.text(x[i], -0.18, f"n = {n_counts[i]}", ha="center", va="top",
+                 fontsize=7.5, color="#777777", fontstyle="italic",
+                 transform=ax1.get_xaxis_transform())
+
+    for sp in ["top", "right"]:
+        ax1.spines[sp].set_visible(False)
+    for sp in ["left", "bottom"]:
+        ax1.spines[sp].set_color("#CCCCCC")
+    ax1.tick_params(colors="#333333")
+    ax1.yaxis.grid(True, linestyle="--", alpha=0.25, zorder=0)
+    ax1.set_axisbelow(True)
+    leg1 = ax1.legend(fontsize=8, loc="upper left", frameon=True,
+                      framealpha=0.92, edgecolor="#CCCCCC", borderpad=0.6)
+    leg1.get_frame().set_linewidth(0.5)
+
+    # ── Right panel: Cosine to each class prototype ──
+    cos_cn_m  = [np.mean([r.cos_to_cn for r in g]) for g in group_data]
+    cos_mci_m = [np.mean([r.cos_to_mci for r in g]) for g in group_data]
+    cos_ad_m  = [np.mean([r.cos_to_ad for r in g]) for g in group_data]
+    cos_cn_se  = [_sem([r.cos_to_cn for r in g]) for g in group_data]
+    cos_mci_se = [_sem([r.cos_to_mci for r in g]) for g in group_data]
+    cos_ad_se  = [_sem([r.cos_to_ad for r in g]) for g in group_data]
+
+    bw2 = 0.24
+    offsets = [-bw2, 0, bw2]
+    cos_data = [
+        ("cos(CN proto.)",  cos_cn_m,  cos_cn_se,  CLR_COS3),
+        ("cos(MCI proto.)", cos_mci_m, cos_mci_se, CLR_COS2),
+        ("cos(AD proto.)",  cos_ad_m,  cos_ad_se,  CLR_CAS),
+    ]
+    for idx, (label, vals, ses, clr) in enumerate(cos_data):
+        pos = x + offsets[idx]
+        ax2.bar(pos, vals, bw2, label=label,
+                color=to_rgba(clr, 0.8), edgecolor="white", linewidth=0.8, zorder=3)
+        ax2.errorbar(pos, vals, yerr=ses, fmt="none",
+                     ecolor=to_rgba(clr, 0.55), elinewidth=1.2, capsize=3, capthick=1.0, zorder=4)
+        for p, v, se in zip(pos, vals, ses):
+            ax2.text(p, v + se + 0.0008, f".{int(round(v*1000)) % 1000:03d}",
+                     ha="center", va="bottom", fontsize=7, color=clr, fontweight="bold")
+
+    all_cos = cos_cn_m + cos_mci_m + cos_ad_m
+    all_ses = cos_cn_se + cos_mci_se + cos_ad_se
+    lo = min(v - 3*s for v, s in zip(all_cos, all_ses))
+    hi = max(v + 3*s for v, s in zip(all_cos, all_ses))
+    pad = (hi - lo) * 0.25
+    ax2.set_ylim(lo - pad, hi + pad * 1.5)
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(group_labels, fontsize=9, linespacing=1.1)
+    ax2.set_ylabel("Cosine Similarity", fontsize=10)
+    ax2.set_title("(b)  Cosine to Class Prototypes", fontsize=11, fontweight="bold", pad=10)
+    for i in range(ng):
+        ax2.text(x[i], -0.18, f"n = {n_counts[i]}", ha="center", va="top",
+                 fontsize=7.5, color="#777777", fontstyle="italic",
+                 transform=ax2.get_xaxis_transform())
+
+    for sp in ["top", "right"]:
+        ax2.spines[sp].set_visible(False)
+    for sp in ["left", "bottom"]:
+        ax2.spines[sp].set_color("#CCCCCC")
+    ax2.tick_params(colors="#333333")
+    ax2.yaxis.grid(True, linestyle="--", alpha=0.25, zorder=0)
+    ax2.set_axisbelow(True)
+    leg2 = ax2.legend(fontsize=8, loc="lower left", frameon=True,
+                      framealpha=0.92, edgecolor="#CCCCCC", borderpad=0.6)
+    leg2.get_frame().set_linewidth(0.5)
+
+    fig.subplots_adjust(left=0.07, right=0.97, bottom=0.22, top=0.82, wspace=0.30)
+    fig.suptitle("MCI Error-Mode Analysis: Interpretability Metrics",
+                 fontsize=12.5, fontweight="bold", y=0.93)
+    fig.text(0.5, 0.02, "Error bars = SEM (standard error of the mean)",
+             ha="center", fontsize=7.5, color="#999999", fontstyle="italic")
     _save(fig, out_dir, "FigS_key_error_modes_MCI")
 
 
