@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "ARA-Net: Atlas-Guided Region Attention for Alzheimer's Disease Classification from Structural MRI"
+message: "If you use this software, please cite our paper."
+type: software
+authors:
+  - family-names: "Zhao"
+    given-names: "Yuanqin"
+    affiliation: "ARA-Net authors"
+repository-code: "https://github.com/Lava168/ARA-Net"
+license: Apache-2.0
+keywords:
+  - alzheimer's disease
+  - structural MRI
+  - 3D CNN
+  - attention mechanism
+  - anatomical atlas
+  - interpretable deep learning
+  - medical image analysis
+preferred-citation:
+  type: article
+  title: "ARA-Net: Atlas-Guided Region Attention for Alzheimer's Disease Classification and Interpretation from Structural MRI"
+  authors:
+    - family-names: "Zhao"
+      given-names: "Yuanqin"
+  year: 2026
+  journal: "Medical Image Analysis (under review)"
+  notes: "Final journal reference will be updated upon acceptance."
