@@ -10,10 +10,6 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Status](https://img.shields.io/badge/MedIA-under%20review-orange.svg)]()
 
-<img src="assets/fig_attention_heatmap.png" width="92%" alt="ARA-Net atlas-guided region attention pattern on a CN/MCI/AD cohort"/>
-
-<sub><i>ARA-Net assigns interpretable, region-level attention weights to 21 anatomically meaningful brain regions, recovering canonical AD-related medial-temporal predominance without any per-region supervision.</i></sub>
-
 </div>
 
 ---
@@ -56,26 +52,7 @@ The full architecture is implemented in [`chapter1_foundation/models/atlas_guide
 
 ---
 
-## Key results
-
-<table>
-<tr>
-<td width="50%" align="center">
-<img src="assets/fig_rdi_lollipop.png" width="100%" alt="Region Disease Index lollipop plot"/>
-<br/><sub><b>Fig. A</b> — Region Disease Index (RDI). Hippocampus, entorhinal cortex and amygdala dominate, recovering the canonical AD signature without explicit supervision.</sub>
-</td>
-<td width="50%" align="center">
-<img src="assets/fig_disease_gradient.png" width="100%" alt="Disease gradient CN to MCI to AD"/>
-<br/><sub><b>Fig. B</b> — Monotonic disease gradient: regional attention shifts smoothly from CN → MCI → AD, consistent with progressive medial-temporal atrophy.</sub>
-</td>
-</tr>
-<tr>
-<td width="100%" colspan="2" align="center">
-<img src="assets/fig_clinical_alignment.png" width="80%" alt="Clinical alignment with cognitive scores"/>
-<br/><sub><b>Fig. C</b> — Per-subject ARA-Net attention correlates with MMSE / CDR scores, supporting use of regional attention as an imaging biomarker.</sub>
-</td>
-</tr>
-</table>
+## Headline numbers
 
 | Metric (5-fold × 6 seeds, ADNI 2,401 scans) | ARA-Net | Plain 3D CNN | ResNet-18 3D | ViT-3D |
 |---|:-:|:-:|:-:|:-:|
@@ -85,6 +62,90 @@ The full architecture is implemented in [`chapter1_foundation/models/atlas_guide
 | Inference (per volume, A100) | **< 2 s** | 0.6 s | 0.7 s | 1.1 s |
 
 > Numbers are summarized from the manuscript; see [Reproducing the paper](#reproducing-the-paper-results) below to regenerate them.
+
+---
+
+## Figures (in paper order)
+
+### Fig. 1 — Region attention heatmap (received)
+
+<p align="center">
+  <img src="assets/fig01_attention_heatmap.png" width="92%" alt="Mean attention received per brain region across CN, MCI, AD."/>
+</p>
+
+> Mean attention **received** per brain region across diagnostic groups (CN, MCI, AD). Dashed red boxes indicate AD-key regions (hippocampus, amygdala, ventricles).
+
+### Fig. 2 — Self-attention heatmap (diagonal)
+
+<p align="center">
+  <img src="assets/fig02_self_attention_heatmap.png" width="92%" alt="Self-attention diagonal per brain region across CN, MCI, AD."/>
+</p>
+
+> Self-attention (diagonal) per brain region across diagnostic groups.
+
+### Fig. 3 — Region Discriminability Index (RDI)
+
+<p align="center">
+  <img src="assets/fig03_rdi_lollipop.png" width="80%" alt="RDI lollipop chart, AD vs CN."/>
+</p>
+
+> Region Discriminability Index (|Cohen's *d*|, AD vs CN). Diamond markers indicate known AD-affected regions. Dotted line = medium effect threshold.
+
+### Fig. 4 — Distributions in AD-key regions
+
+<p align="center">
+  <img src="assets/fig04_violin_key_regions.png" width="92%" alt="Violin and box plots of attention weights in six AD-key regions."/>
+</p>
+
+> Attention weight distributions in six AD-key brain regions. Violin + box plots with trend line (dashed green) connecting group means. ** *p* < 0.01, *** *p* < 0.001 (Kruskal–Wallis).
+
+### Fig. 5 — Disease progression gradient
+
+<p align="center">
+  <img src="assets/fig05_disease_gradient.png" width="92%" alt="Monotonic disease gradient: regions increasing or decreasing attention CN to MCI to AD."/>
+</p>
+
+> Disease progression gradient in region attention. (a) Regions with monotonically **increasing** attention CN → MCI → AD. (b) Regions with monotonically **decreasing** attention.
+
+### Fig. 6 — Alignment with Braak neuropathology
+
+<p align="center">
+  <img src="assets/fig06_braak_scatter.png" width="70%" alt="RDI vs Braak vulnerability rank scatter."/>
+</p>
+
+> RDI vs Braak neuropathological vulnerability rank. Red = AD-key regions. Dashed line = linear fit.
+
+### Fig. 7 — Clinical alignment
+
+<p align="center">
+  <img src="assets/fig07_clinical_alignment.png" width="92%" alt="Clinical Alignment Score and top-12 discriminative regions per diagnosis."/>
+</p>
+
+> (a) Clinical Alignment Score: proportion of attention difference in AD-key regions. (b) Grouped bar chart of top-12 discriminative regions by diagnosis.
+
+### Fig. 8 — Cross-dataset consistency on IXI
+
+<p align="center">
+  <img src="assets/fig08_cross_ixi.png" width="92%" alt="ADNI vs IXI cross-dataset attention consistency on CN subjects."/>
+</p>
+
+> Cross-dataset attention consistency (ADNI vs IXI, CN subjects). (a) Slope chart of 21 regions. (b) Identity scatter.
+
+### Fig. 9 — Cross-dataset generalization on OASIS
+
+<p align="center">
+  <img src="assets/fig09_cross_oasis.png" width="92%" alt="ADNI vs OASIS top-10 divergent regions per diagnostic group."/>
+</p>
+
+> Cross-dataset attention generalization (ADNI vs OASIS). Top-10 divergent regions per diagnostic group; cosine similarity annotated.
+
+### Fig. 10 — Cross-dataset interpretability summary
+
+<p align="center">
+  <img src="assets/fig10_consistency_summary.png" width="92%" alt="Cosine similarity and Spearman rank correlation summary."/>
+</p>
+
+> Summary of cross-dataset interpretability generalization. (a) Cosine similarity of attention profiles. (b) Spearman rank correlation.
 
 ---
 
@@ -160,7 +221,7 @@ python -m chapter1_foundation.run_experiment_v3 \
 ### Inference on a single volume
 
 ```python
-import torch, nibabel as nib, numpy as np
+import torch, numpy as np
 from chapter1_foundation.models import AtlasGuidedAttentionModel
 
 model = AtlasGuidedAttentionModel(num_classes=3).cuda().eval()
@@ -219,7 +280,7 @@ ARA-Net/
 ├── requirements.txt          # Python dependencies
 ├── configs/
 │   └── default.yaml          # paper hyper-parameters
-├── assets/                   # README figures
+├── assets/                   # README figures (Fig. 1 - Fig. 10, in paper order)
 └── chapter1_foundation/
     ├── __init__.py
     ├── Dockerfile            # reproducible CUDA environment
