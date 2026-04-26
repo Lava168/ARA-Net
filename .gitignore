@@ -74,3 +74,12 @@ Thumbs.db
 *.NVIDIA*
 logs/
 outputs/
+
+# ==========================================
+# Manuscript / private writing (do NOT publish)
+# ==========================================
+Manuscript file.docx
+*.docx
+*.doc
+*.pptx
+*.ppt
