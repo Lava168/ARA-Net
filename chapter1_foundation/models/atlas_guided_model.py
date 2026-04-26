@@ -1,12 +1,32 @@
-"""
-Chapter 1: Atlas-Guided Attention Model (ARA-Net)
+"""ARA-Net: Atlas-Guided Region Attention Model.
 
-Architecture: 3D CNN encoder -> region-pooled atlas attention -> classifier.
+Reference: Manuscript Section 2.3 ("ARA-Net Architecture") and Fig. 1.
 
-Key insight: instead of running self-attention over all spatial tokens (252),
-we pool features by anatomical region (21 regions), reducing the sequence
-length dramatically. This makes the attention mechanism tractable with limited
-training data while providing directly interpretable region-level attention.
+Pipeline (four modules, in order):
+    Module I   — FastSurfer / FreeSurfer parcellation of the input T1w MRI
+                 into 21 anatomical regions (handled outside this file; the
+                 segmentation is supplied as the ``segmentation`` argument).
+    Module II  — A 4-stage 3D CNN encoder with stride-2 down-samplings.
+                 Input  : (B, 1, 96, 112, 96)
+                 Output : (B, C_feat, 6, 7, 6)   with C_feat = ``feature_dim``
+    Module III — Atlas-guided region pooling. The segmentation is downsampled
+                 to the encoder feature grid (6 × 7 × 6) and used to pool
+                 voxel features into N = 21 region tokens (B, 21, C_feat).
+                 A validity mask prevents attention to anatomically absent
+                 regions (Eq. 2 in the manuscript).
+    Module IV  — Multi-head anatomy-guided self-attention over the 21 tokens
+                 (L = 2 layers, H = 4 heads, head_dim = C_feat / H = 32),
+                 followed by mean-pooling and a 3-class MLP head
+                 ``Linear(C, C) → GELU → Dropout(0.3) → Linear(C, 3)``.
+
+Key shape contract (manuscript Eq. 1 + §2.3):
+    B × 1  × 96 × 112 × 96
+       └──> B × 128 ×  6 ×   7 ×  6        (feature volume)
+       └──> B × 21  × 128                   (region tokens)
+       └──> B × 3                           (logits CN / MCI / AD)
+
+The 21 anatomical region IDs follow the FreeSurfer subcortical atlas as
+remapped in :data:`chapter1_foundation.data.foundation_loader._FS_LABELS`.
 """
 from __future__ import annotations
 
@@ -45,14 +65,30 @@ class ResBlock3D(nn.Module):
 
 
 class FeatureEncoder3D(nn.Module):
+    """Four-stage residual 3D CNN encoder (Manuscript §2.3, Module II).
+
+    Channel schedule (with defaults):
+
+        stem   : 1   →  32          (3×3×3 conv, stride 1)
+        stage 0: 32  →  32          (stride 2)
+        stage 1: 32  →  64          (stride 2)
+        stage 2: 64  →  128         (stride 2, capped at ``max_channels``)
+        stage 3: 128 →  128         (stride 2, capped at ``max_channels``)
+
+    The cap at ``max_channels`` (defaults to the attention dimension
+    ``feature_dim`` = 128) keeps the parameter count consistent with the
+    manuscript-reported ~3.2 M total parameters.
+    """
+
     def __init__(self, in_channels: int = 1, base_channels: int = 32,
-                 num_stages: int = 4, dropout: float = 0.1):
+                 num_stages: int = 4, dropout: float = 0.1,
+                 max_channels: int = 128):
         super().__init__()
         self.stem = ConvBlock3D(in_channels, base_channels)
         self.stages = nn.ModuleList()
         in_ch = base_channels
         for i in range(num_stages):
-            out_ch = base_channels * (2 ** i)
+            out_ch = min(base_channels * (2 ** i), max_channels)
             self.stages.append(nn.Sequential(
                 ConvBlock3D(in_ch, out_ch, stride=2),
                 ResBlock3D(out_ch, dropout=dropout),
@@ -183,7 +219,10 @@ class AtlasGuidedAttentionModel(nn.Module):
         self.use_atlas_conditioning = use_atlas_conditioning
         self.num_regions = num_regions
 
-        self.encoder = FeatureEncoder3D(in_channels, base_channels, dropout=dropout * 0.5)
+        self.encoder = FeatureEncoder3D(
+            in_channels, base_channels, dropout=dropout * 0.5,
+            max_channels=feature_dim,
+        )
         self.proj = nn.Sequential(
             nn.Conv3d(self.encoder.out_channels, feature_dim, 1),
             nn.BatchNorm3d(feature_dim),
@@ -263,4 +302,25 @@ class AtlasGuidedAttentionModel(nn.Module):
 
 
 def create_model(**kwargs) -> AtlasGuidedAttentionModel:
+    """Factory helper that returns an :class:`AtlasGuidedAttentionModel`.
+
+    Default keyword arguments correspond to the manuscript-reported
+    configuration:
+
+        in_channels=1, base_channels=32, feature_dim=128, num_heads=4,
+        num_classes=3, num_regions=21, dropout=0.3, num_attn_layers=2.
+    """
     return AtlasGuidedAttentionModel(**kwargs)
+
+
+# ---------------------------------------------------------------------------
+# Manuscript shape contract (used by tests/test_shapes.py)
+# ---------------------------------------------------------------------------
+EXPECTED_INPUT_SHAPE = (1, 96, 112, 96)        # (C, D, H, W)  per Manuscript §2.3
+EXPECTED_FEATURE_SHAPE = (128, 6, 7, 6)        # post-encoder + 1×1 projection
+EXPECTED_NUM_REGION_TOKENS = 21
+EXPECTED_FEATURE_DIM = 128
+EXPECTED_NUM_HEADS = 4
+EXPECTED_HEAD_DIM = EXPECTED_FEATURE_DIM // EXPECTED_NUM_HEADS  # 32
+EXPECTED_NUM_ATTN_LAYERS = 2
+EXPECTED_NUM_CLASSES = 3

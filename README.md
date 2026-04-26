@@ -480,6 +480,29 @@ fine-tuning gets strong region structure and late epochs maximize discrimination
 **Pre-trained checkpoints** corresponding to the manuscript's reported numbers will be
 released on Zenodo upon paper acceptance and the DOI added here.
 
+### One-line reproduction
+
+A wrapper script is provided that calls the runner with the paper protocol:
+
+```bash
+bash scripts/reproduce_paper.sh /path/to/cache_real
+```
+
+### Verifying the implementation against the manuscript
+
+Smoke tests that pin every shape / hyper-parameter to Manuscript §2.3 / §2.5 ship
+with the repository:
+
+```bash
+python -m pytest tests/test_shapes.py -q
+```
+
+The suite checks the input → feature → token → logits shape contract
+`(B, 1, 96, 112, 96) → (B, 128, 6, 7, 6) → (B, 21, 128) → (B, 3)`,
+the attention configuration `L = 2 / H = 4 / d_h = 32`, the MLP head
+`Linear(128, 128) → GELU → Dropout(0.3) → Linear(128, 3)`, and that the
+anatomical regularizer reproduces Eq. (6) verbatim with α = 0.05, β = 0.005.
+
 ---
 
 ## Comparison with state-of-the-art (ADNI three-class)
@@ -518,20 +541,24 @@ ARA-Net/
 ├── CITATION.cff              # one-click cite metadata
 ├── requirements.txt          # Python dependencies
 ├── configs/
-│   └── default.yaml          # paper hyper-parameters
+│   └── default.yaml          # paper hyper-parameters (Eq. 6 / §2.5 protocol)
+├── scripts/
+│   └── reproduce_paper.sh    # 6-seed × 5-fold benchmark wrapper
+├── tests/
+│   └── test_shapes.py        # forward-shape + Eq. 6 contract tests
 ├── assets/                   # 7 manuscript figures (Fig. 1 – Fig. 7)
 └── chapter1_foundation/
     ├── __init__.py
     ├── Dockerfile            # reproducible CUDA environment
     ├── models/
-    │   ├── atlas_guided_model.py    # ARA-Net
+    │   ├── atlas_guided_model.py    # ARA-Net (manuscript §2.3 / Fig. 1)
     │   └── baselines.py             # ResNet-18 3D, ViT 3D, Plain CNN
     ├── losses/
-    │   └── geodesic_loss.py         # entropy + L1 anatomical regularizer
+    │   └── geodesic_loss.py         # AnatomicalRegularizationLoss (Eq. 6)
     ├── data/
     │   └── foundation_loader.py     # RealCachedDataset, kfold_split
     ├── utils/
-    ├── augmentation.py              # 3D MRI augmentation
+    ├── augmentation.py              # 3D MRI augmentation (LR-flip + swap, …)
     ├── metrics.py                   # AUC, F1, BAcc, ROC, bootstrap CI
     ├── preprocess_adni15t.py        # ADNI → cache builder
     ├── preprocess_oasis.py          # OASIS → cache builder

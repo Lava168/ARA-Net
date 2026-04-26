@@ -35,8 +35,16 @@ from chapter1_foundation.models import (
     AtlasGuidedAttentionModel, create_model,
     ResNet3D, ViT3D, PlainCNN3D,
 )
-from chapter1_foundation.losses.geodesic_loss import AnatomicalDistanceLoss
+from chapter1_foundation.losses import (
+    AnatomicalRegularizationLoss,
+    AnatomicalDistanceLoss,  # legacy, kept for back-compat
+    lambda_anneal,
+)
 from chapter1_foundation.augmentation import get_train_augmentation
+
+
+# Manuscript-reported full protocol: 6 seeds × 5 folds = 30 independent runs.
+PAPER_SEEDS = [42, 153, 264, 375, 486, 597]
 
 
 class _NumpyEncoder(json.JSONEncoder):
@@ -125,13 +133,24 @@ def build_model(model_name: str, use_atlas: bool, device: torch.device,
     raise ValueError(f"Unknown model: {model_name}")
 
 
-def get_lr_scheduler(optimizer, warmup_epochs: int, total_epochs: int):
-    """Linear warmup + cosine annealing."""
+def get_lr_scheduler(optimizer, warmup_epochs: int, total_epochs: int,
+                     base_lr: float = 5e-4, min_lr: float = 1e-6):
+    """Linear warm-up (``warmup_epochs``) followed by cosine annealing
+    from ``base_lr`` down to ``min_lr``.
+
+    Mirrors Manuscript §2.5: "linear warmup over 5 epochs, then cosine
+    annealing to 10⁻⁶".
+    """
+    floor_ratio = max(0.0, min(1.0, min_lr / max(base_lr, 1e-12)))
+
     def lr_lambda(epoch):
         if epoch < warmup_epochs:
-            return (epoch + 1) / warmup_epochs
+            return (epoch + 1) / max(warmup_epochs, 1)
         progress = (epoch - warmup_epochs) / max(total_epochs - warmup_epochs, 1)
-        return 0.5 * (1 + np.cos(np.pi * progress))
+        progress = min(max(progress, 0.0), 1.0)
+        cosine = 0.5 * (1 + np.cos(np.pi * progress))      # 1 → 0 over remainder
+        return floor_ratio + (1.0 - floor_ratio) * cosine  # → min_lr / base_lr at end
+
     return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
 
@@ -160,14 +179,24 @@ def compute_region_distances(seg_down):
 
 def train_one_epoch(model, loader, optimizer, criterion, anat_loss_fn,
                     device, use_anat_dist, anat_weight, model_name, epoch, total_epochs,
-                    mixup_alpha=0.4):
+                    mixup_alpha=0.0):
+    """Train one epoch.
+
+    The anatomical-regularizer weight follows the annealed ``λ(t)`` schedule
+    of Manuscript Eq. (7); ``anat_weight`` plays the role of ``λ_max``.
+    MixUp (``mixup_alpha > 0``) is *not* part of the manuscript protocol and
+    is disabled by default; it is exposed only for ablation experiments.
+    """
     model.train()
     total_loss, total_ce, total_anat = 0., 0., 0.
     correct, total = 0, 0
     grad_norm_sum = 0.
     n_batches = 0
 
-    dynamic_anat_w = anat_weight * max(0.1, 1.0 - epoch / total_epochs)
+    # λ(t) ∈ [0.1·λ_max, λ_max] — Manuscript Eq. (7).
+    dynamic_anat_w = anat_weight * lambda_anneal(
+        epoch - 1, total_epochs, lambda_max=1.0, lambda_min=0.1
+    )
     use_mixup = mixup_alpha > 0 and epoch > 5
 
     for batch in loader:
@@ -294,6 +323,7 @@ def run_single(
     freeze_encoder_epochs: int = 0,
     tb_writer: Optional[SummaryWriter] = None,
     run_name: str = "",
+    mixup_alpha: float = 0.0,
 ) -> Dict:
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -307,11 +337,8 @@ def run_single(
     cw = class_weights.to(device) if class_weights is not None else None
     criterion = LabelSmoothingCE(num_classes=3, smoothing=label_smoothing, weight=cw)
     criterion = criterion.to(device)
-    anat_loss_fn = AnatomicalDistanceLoss(
-        distance_weight=0.0,
-        entropy_weight=0.05,
-        sparsity_weight=0.005,
-    )
+    # Manuscript Eq. (6): ℒ_anat = α · H(A) − β · ‖Ā‖₁ ,  α = 0.05, β = 0.005.
+    anat_loss_fn = AnatomicalRegularizationLoss(alpha=0.05, beta=0.005)
 
     encoder_frozen = False
     if pretrained_encoder and freeze_encoder_epochs > 0 and hasattr(model, 'encoder'):
@@ -322,7 +349,8 @@ def run_single(
 
     trainable_params = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(trainable_params, lr=lr, weight_decay=weight_decay)
-    scheduler = get_lr_scheduler(optimizer, warmup_epochs, epochs)
+    scheduler = get_lr_scheduler(optimizer, warmup_epochs, epochs,
+                                 base_lr=lr, min_lr=1e-6)
 
     best_val_bacc = 0.
     best_state = None
@@ -336,13 +364,14 @@ def run_single(
             encoder_frozen = False
             optimizer = torch.optim.AdamW(model.parameters(), lr=lr * 0.1,
                                           weight_decay=weight_decay)
-            scheduler = get_lr_scheduler(optimizer, 2, epochs - ep + 1)
+            scheduler = get_lr_scheduler(optimizer, 2, epochs - ep + 1,
+                                         base_lr=lr * 0.1, min_lr=1e-6)
             print(f"      Encoder unfrozen at ep {ep}, lr reduced to {lr*0.1:.1e}", flush=True)
 
         t0 = time.time()
         tr = train_one_epoch(model, train_loader, optimizer, criterion,
                              anat_loss_fn, device, use_anat_dist, anat_weight,
-                             model_name, ep, epochs)
+                             model_name, ep, epochs, mixup_alpha=mixup_alpha)
         vl = evaluate(model, val_loader, device)
         scheduler.step()
         dt = time.time() - t0
@@ -441,9 +470,15 @@ def main():
     parser.add_argument("--batch_size", type=int, default=4)
     parser.add_argument("--lr", type=float, default=5e-4)
     parser.add_argument("--patience", type=int, default=20)
-    parser.add_argument("--anat_weight", type=float, default=0.05)
-    parser.add_argument("--n_folds", type=int, default=5)
-    parser.add_argument("--seeds", type=int, nargs="+", default=[42, 153, 264, 375, 486])
+    parser.add_argument("--anat_weight", type=float, default=0.05,
+                        help="λ_max for the anatomical regularizer (Eq. 6 / Eq. 7)")
+    parser.add_argument("--n_folds", type=int, default=5,
+                        help="Number of CV folds per seed (manuscript: 5)")
+    parser.add_argument("--seeds", type=int, nargs="+", default=PAPER_SEEDS,
+                        help="Random seeds; manuscript uses 6 seeds for 30 total runs")
+    parser.add_argument("--mixup_alpha", type=float, default=0.0,
+                        help="MixUp α; default 0 disables MixUp to match manuscript "
+                             "protocol. Set >0 only for ablation experiments.")
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--augment", action="store_true", default=True)
     parser.add_argument("--warmup", type=int, default=5)
@@ -484,12 +519,17 @@ def main():
         args.patience = 0
 
     print("=" * 70, flush=True)
-    print("Chapter 1: Atlas-Guided Attention — Full Experiment (v2)", flush=True)
+    print("ARA-Net Full Experiment  (Manuscript §2.5 protocol)", flush=True)
     print("=" * 70, flush=True)
     print(f"Device: {device}", flush=True)
-    print(f"Folds: {args.n_folds}, Seeds: {args.seeds}, Epochs: {args.epochs}", flush=True)
-    print(f"LR: {args.lr}, WD: {args.weight_decay}, Dropout: {args.dropout}", flush=True)
-    print(f"Warmup: {args.warmup}, Label Smooth: {args.label_smoothing}", flush=True)
+    print(f"Folds: {args.n_folds}, Seeds: {args.seeds} (n={len(args.seeds)}), "
+          f"Epochs: {args.epochs}", flush=True)
+    print(f"LR: {args.lr} → 1e-6 (cosine), WD: {args.weight_decay}, "
+          f"Dropout: {args.dropout}", flush=True)
+    print(f"Warmup: {args.warmup}, Label Smooth: {args.label_smoothing}, "
+          f"MixUp α: {args.mixup_alpha}", flush=True)
+    print(f"Anatomical regularizer λ_max: {args.anat_weight} "
+          f"(α=0.05, β=0.005, Eq. 6 + Eq. 7)", flush=True)
     print(f"Augmentation: {args.augment}, Include synth: {args.include_synth}", flush=True)
     if args.pretrained_encoder:
         print(f"Pretrained encoder: {args.pretrained_encoder}", flush=True)
@@ -630,6 +670,7 @@ def main():
                         freeze_encoder_epochs=args.freeze_encoder_epochs,
                         tb_writer=tb_writer,
                         run_name=run_name,
+                        mixup_alpha=args.mixup_alpha,
                     )
                     res["fold"] = fold_i
                     res["config_name"] = cfg["name"]
@@ -688,7 +729,7 @@ def main():
         tb_writer.close()
 
     args_dict = vars(args)
-    args_dict["version"] = "v2"
+    args_dict["version"] = "v3"
     args_path = output_dir / "experiment_args.json"
     with open(args_path, "w") as f:
         json.dump(args_dict, f, indent=2)

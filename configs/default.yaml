@@ -1,26 +1,62 @@
-# ARA-Net Experiment Configuration (Chapter 1)
-# Override via command-line: --lr 0.0003 etc.
+# ARA-Net default configuration — exact manuscript protocol (§2.3 – §2.5).
+# CLI flags override these values; YAML overrides defaults but yields to flags.
 
-# Training
-epochs: 60
+# ---------------------------------------------------------------------------
+# Model architecture (Manuscript Fig. 1 / §2.3)
+# ---------------------------------------------------------------------------
+model:
+  in_channels: 1            # T1w MRI is single-channel
+  base_channels: 32         # stem feature width
+  feature_dim: 128          # d in the attention block
+  num_attn_layers: 2        # L = 2
+  num_heads: 4              # H = 4 → head_dim = d / H = 32
+  num_classes: 3            # CN / MCI / AD
+  num_regions: 21           # FreeSurfer subcortical atlas regions used by ARA-Net
+  dropout: 0.3
+  use_atlas_conditioning: true
+
+# Expected forward-pass shape contract (used by tests/test_shapes.py):
+#   input:    (B, 1, 96, 112, 96)
+#   feature:  (B, 128, 6, 7, 6)
+#   tokens:   (B, 21, 128)
+#   logits:   (B, 3)
+
+# ---------------------------------------------------------------------------
+# Loss — anatomical regularizer (Manuscript Eq. 6 + Eq. 7)
+# ---------------------------------------------------------------------------
+loss:
+  alpha: 0.05               # entropy weight   (α in Eq. 6)
+  beta: 0.005               # L1 weight        (β in Eq. 6)
+  lambda_max: 1.0           # λ(0) in Eq. 7
+  lambda_min: 0.1           # λ(T) in Eq. 7
+# CLI flag --anat_weight maps to lambda_max.
+anat_weight: 1.0
+
+# ---------------------------------------------------------------------------
+# Optimization (Manuscript §2.5)
+# ---------------------------------------------------------------------------
+epochs: 80
 batch_size: 4
-lr: 0.0005
-weight_decay: 0.001
+lr: 0.0005                  # AdamW base learning rate (5e-4)
+min_lr: 0.000001            # cosine annealing target (1e-6)
+weight_decay: 0.001         # 1e-3
 dropout: 0.3
-patience: 15
-
-# Schedule
-warmup_epochs: 5
+patience: 20
+grad_clip: 1.0              # ‖g‖₂ ≤ 1.0
+warmup: 5                   # linear warm-up epochs
 label_smoothing: 0.1
-freeze_encoder_epochs: 10
+freeze_encoder_epochs: 10   # only used when fine-tuning from SSL checkpoint
 
-# Loss
-anat_weight: 0.05
+# MixUp is *not* used in the manuscript. Set > 0 only for ablation studies.
+mixup_alpha: 0.0
 
-# Data
-n_folds: 5
+# ---------------------------------------------------------------------------
+# Data + cross-validation (Manuscript §2.4 + §2.5)
+# ---------------------------------------------------------------------------
+n_folds: 5                  # 5-fold subject-level CV
 include_synth: true
-augment: true
+augment: true               # train-time 3D MRI augmentation pipeline
 
-# Seeds (for single-seed runs; multi-seed use --seeds 42 153 264 375 486 597)
-seeds: [42]
+# 6 seeds × 5 folds = 30 runs in the paper. Override on the command line for
+# single-seed debugging, e.g. `--seeds 42`.
+seeds: [42, 153, 264, 375, 486, 597]
