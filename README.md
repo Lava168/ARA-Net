@@ -60,21 +60,131 @@ learned attention recovers established AD neuropathology and remains stable acro
 
 ## Method
 
+<!--
+  ARA-Net pipeline overview.
+  Render: GitHub Mermaid (>= 10.x).  Style: top-journal pastel palette,
+  4 modules grouped as subgraphs, side branches for interpretability and
+  anatomical regularization.
+-->
+
 ```mermaid
+%%{ init: {
+      "theme": "base",
+      "themeVariables": {
+        "fontFamily": "Helvetica, Arial, sans-serif",
+        "fontSize":   "13px",
+        "primaryColor":      "#FFFFFF",
+        "primaryTextColor":  "#1F2937",
+        "primaryBorderColor":"#1F2937",
+        "lineColor":         "#374151",
+        "edgeLabelBackground":"#FFFFFF"
+      },
+      "flowchart": { "curve": "basis", "htmlLabels": true, "padding": 8 }
+} }%%
 flowchart LR
-    A["T1w MRI<br/>(B, 1, 96, 112, 96)"] --> S["FastSurfer<br/>segmentation"]
-    A --> B["3D CNN encoder<br/>(4-stage residual,<br/>stride-2 ×4)"]
-    B --> C["Feature volume<br/>(B, 128, 6, 7, 6)"]
-    S --> AT["21-region atlas mask<br/>(downsampled to 6×7×6)"]
-    AT --> D["Atlas-guided<br/>region pooling<br/>(voxel-count<br/>weighted)"]
-    C --> D
-    D --> E["Region tokens<br/>(B, 21, 128)"]
-    E --> F["Multi-head<br/>self-attention<br/>(L = 2, H = 4)"]
-    F --> G["Mean-pool<br/>+ MLP head"]
-    G --> H["3-class logits<br/>CN / MCI / AD"]
-    F -. interpret .-> I["Per-region<br/>attention<br/>(21-d vector)"]
-    F -. regularize .-> J["L_anat = α·H(A) + β·‖Ā‖₁<br/>α=0.05, β=0.005,<br/>λ(t) annealed"]
+
+    %% ============================================================
+    %%  Input
+    %% ============================================================
+    IN(["T1w MRI<br/><span style='font-size:11px;color:#6B7280'>1 × 96 × 112 × 96</span>"]):::input
+
+    %% ============================================================
+    %%  Module I — Atlas Segmentation
+    %% ============================================================
+    subgraph M1 ["<b>Module I</b> · Atlas Segmentation"]
+      direction TB
+      A1["FastSurfer / FreeSurfer<br/>parcellation"]:::proc1
+      A2["21-region label map<br/><span style='font-size:11px;color:#6B7280'>96 × 112 × 96</span>"]:::tens1
+      A1 --> A2
+    end
+
+    %% ============================================================
+    %%  Module II — 3D CNN Encoder
+    %% ============================================================
+    subgraph M2 ["<b>Module II</b> · 3D CNN Encoder"]
+      direction TB
+      B1["Stem Conv 3³<br/>32 ch"]:::proc2
+      B2["Stage 1 ↓2"]:::proc2
+      B3["Stage 2 ↓2"]:::proc2
+      B4["Stage 3 ↓2"]:::proc2
+      B5["Stage 4 ↓2"]:::proc2
+      B6["Feature volume<br/><span style='font-size:11px;color:#6B7280'>128 × 6 × 7 × 6</span>"]:::tens2
+      B1 --> B2 --> B3 --> B4 --> B5 --> B6
+    end
+
+    %% ============================================================
+    %%  Module III — Atlas-Guided Region Pooling
+    %% ============================================================
+    subgraph M3 ["<b>Module III</b> · Atlas-Guided Region Pooling"]
+      direction TB
+      C1["Downsample mask<br/><span style='font-size:11px;color:#6B7280'>→ 6 × 7 × 6</span>"]:::proc3
+      C2["Voxel-count<br/>weighted pooling"]:::proc3
+      C3["21 region tokens<br/><span style='font-size:11px;color:#6B7280'>21 × 128</span>"]:::tens3
+      C1 --> C2 --> C3
+    end
+
+    %% ============================================================
+    %%  Module IV — Anatomy-Guided Attention + Classifier
+    %% ============================================================
+    subgraph M4 ["<b>Module IV</b> · Anatomy-Guided Attention"]
+      direction TB
+      D1["Multi-head self-attention<br/><span style='font-size:11px;color:#6B7280'>L = 2 · H = 4 · d_h = 32</span>"]:::proc4
+      D2["Mean-pool + MLP head<br/><span style='font-size:11px;color:#6B7280'>128 → 128 → 3</span>"]:::proc4
+      D3{{"Logits<br/>CN · MCI · AD"}}:::output
+      D1 --> D2 --> D3
+    end
+
+    %% ============================================================
+    %%  Cross-module wiring
+    %% ============================================================
+    IN -- raw volume --> B1
+    IN -- raw volume --> A1
+    A2 -- atlas mask --> C1
+    B6 -- features  --> C2
+    C3 ===> D1
+
+    %% ============================================================
+    %%  Side branches: interpretability + regularization
+    %% ============================================================
+    D1 -. interpret .-> INTERP[("Per-region attention<br/><span style='font-size:11px;color:#6B7280'>21-d biomarker</span>")]:::interp
+    D1 -. regularize .-> REG[/"𝓛<sub>anat</sub> = α·H(A) − β·‖Ā‖₁<br/><span style='font-size:11px;color:#6B7280'>α=0.05 · β=0.005 · λ(t) annealed</span>"/]:::reg
+
+    %% ============================================================
+    %%  Styling — Nature-style pastel modules
+    %% ============================================================
+    classDef input  fill:#FFFFFF,stroke:#111827,stroke-width:2px,color:#111827,font-weight:bold
+    classDef output fill:#E9DFF7,stroke:#5B3E96,stroke-width:2.5px,color:#2E1F52,font-weight:bold
+
+    classDef proc1 fill:#EAF3FB,stroke:#1F4E79,stroke-width:1.4px,color:#143E61
+    classDef tens1 fill:#BFDBEE,stroke:#1F4E79,stroke-width:2px,  color:#143E61
+
+    classDef proc2 fill:#E8F4EA,stroke:#2E7D43,stroke-width:1.4px,color:#1B4F2A
+    classDef tens2 fill:#BEE2C5,stroke:#2E7D43,stroke-width:2px,  color:#1B4F2A
+
+    classDef proc3 fill:#FCF1DC,stroke:#A06B14,stroke-width:1.4px,color:#5C3D0A
+    classDef tens3 fill:#F5DCA1,stroke:#A06B14,stroke-width:2px,  color:#5C3D0A
+
+    classDef proc4 fill:#F1E9F8,stroke:#5B3E96,stroke-width:1.4px,color:#2E1F52
+
+    classDef interp fill:#FDE9DD,stroke:#C0533A,stroke-width:1.4px,color:#7A2A18,font-style:italic
+    classDef reg    fill:#F4DCDC,stroke:#A33B3B,stroke-width:1.4px,color:#5A1F1F,font-style:italic
+
+    %% Subgraph backdrops
+    style M1 fill:#F5FAFD,stroke:#1F4E79,stroke-width:1.3px,color:#143E61
+    style M2 fill:#F4FAF6,stroke:#2E7D43,stroke-width:1.3px,color:#1B4F2A
+    style M3 fill:#FDF8EC,stroke:#A06B14,stroke-width:1.3px,color:#5C3D0A
+    style M4 fill:#F8F3FB,stroke:#5B3E96,stroke-width:1.3px,color:#2E1F52
+
+    linkStyle default stroke:#374151,stroke-width:1.4px
 ```
+
+> **Reading the diagram.** The four colored modules correspond exactly to those in
+> Manuscript §2.3 / Fig. 1. Solid arrows trace the forward path; the **bold double
+> arrow** marks the bottleneck where 252 voxel-grid features are compressed into a
+> 21-token anatomical sequence. Dashed branches highlight the two outputs that make
+> ARA-Net interpretable by construction: a 21-d **per-region attention biomarker** and
+> the **anatomical regularizer** that keeps attention concentrated on a small,
+> clinically meaningful set of regions.
 
 ARA-Net comprises four modules (Manuscript §2.3 and Fig. 1):
 
