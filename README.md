@@ -42,6 +42,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
 - `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
+- `reports/v6_final_model/public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
 
 The public reports intentionally exclude row-level subject/scan prediction files and dataset-derived identifiers.
 
@@ -119,6 +120,12 @@ Generate the core reviewer-evidence matrix:
 
 ```bash
 python scripts/generate_core_reviewer_evidence_matrix.py
+```
+
+Generate the public release manifest:
+
+```bash
+python scripts/generate_public_release_manifest.py
 ```
 
 ## Python Dependencies

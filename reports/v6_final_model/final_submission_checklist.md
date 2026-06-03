@@ -55,9 +55,10 @@
   - `scripts/generate_v6_final_figures.py`
 - [x] Final reports present in `reports/v6_final_model/`.
 - [x] Core reviewer matrix script present: `scripts/generate_core_reviewer_evidence_matrix.py`.
-- [ ] Prepare GitHub release folder with scripts, README, environment notes, and de-identified manifests.
-- [ ] Add statement that raw ADNI/AIBL/OASIS/IXI data are governed by their source-access agreements.
-- [ ] Add statement that derived manifests, split definitions, model code, and analysis scripts will be released.
+- [x] Public release manifest script present: `scripts/generate_public_release_manifest.py`.
+- [x] GitHub release evidence folder prepared with README, public manifest, aggregate reports, and figures.
+- [x] Add statement that raw ADNI/AIBL/OASIS/IXI data are governed by their source-access agreements.
+- [x] Add statement that derived manifests, split definitions, model code, and analysis scripts will be released.
 
 ## Citation / Reference Cleanup
 
