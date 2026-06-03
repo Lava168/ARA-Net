@@ -43,6 +43,8 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
 - `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
+- `reports/v6_final_model/final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
+- `reports/v6_final_model/final_submission_closure_packet.md`: final manuscript-integration packet for Figure 1, OASIS handling, citations, and terminology.
 - `reports/v6_final_model/claim_boundary_audit.md`: generated public-file audit for reviewer-safe claim boundaries.
 - `reports/v6_final_model/public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
 

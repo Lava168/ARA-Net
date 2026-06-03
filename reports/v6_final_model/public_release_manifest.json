@@ -92,8 +92,8 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 6605,
-      "sha256": "4d118078de4812e41ef60d3b59ddd3fbe9f133c4435165d55703d80c1acd2c9e",
+      "bytes": 6887,
+      "sha256": "ddeeac2ab0d9b4d7c2c11a07328762194bf22e2ae3e69516c1d4796e359e4b84",
       "role": "Public repository file."
     },
     {
@@ -428,15 +428,15 @@
     {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 2065,
-      "sha256": "36d6abfbef3f36288aab353a062a8692773d6e0af5a2a346459c2c8ec0a201ba",
+      "bytes": 2301,
+      "sha256": "76acaff3c5ca3304dd454945893a0f90ba1bf5be69c85a4d70484cc6f42ce4d1",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
-      "bytes": 34247,
-      "sha256": "ceb88c3764e5047955482aefc9efa34a99a58ec1065135a6450361ba52a68079",
+      "bytes": 31291,
+      "sha256": "a21cd025db8609dad514183dd56a2635d1201903c67466980ed85ffc952b04d7",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -540,8 +540,8 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 4195,
-      "sha256": "266514e89a378c641d7d048532cbb2c87a41bfbe85cc53283c40b5789b90db5c",
+      "bytes": 4449,
+      "sha256": "10baf1c0c523aab15a6601d0d58e1f085a1cb6f0048a5798addf33bf02eb9931",
       "role": "Public repository file."
     },
     {
@@ -554,8 +554,8 @@
     {
       "path": "reports/v6_final_model/reviewer_response_v6_matrix.md",
       "category": "aggregate_reports",
-      "bytes": 4708,
-      "sha256": "2a9966088ab82f467f79626e3f22a19700375ffa21381147e51a382e99537716",
+      "bytes": 4745,
+      "sha256": "579a274ef68b2bb6e13e30af88c5826a0cdef02278cd71d3579a2e1c8907c3ea",
       "role": "Public repository file."
     },
     {
@@ -624,8 +624,8 @@
     {
       "path": "scripts/audit_claim_boundaries.py",
       "category": "analysis_code",
-      "bytes": 9359,
-      "sha256": "b707b92a3cbd51f94de1aac0f35a87e6626fa5238da9829fe0939fa5418e2ce4",
+      "bytes": 9427,
+      "sha256": "58e2a6fb4e464ce89b314edd10dad24fb757950803734635ab8f5f23b0eec9ae",
       "role": "Public overclaim audit script."
     },
     {
@@ -687,8 +687,8 @@
     {
       "path": "scripts/generate_public_release_manifest.py",
       "category": "analysis_code",
-      "bytes": 10008,
-      "sha256": "a01c455766e5e331e5bfe9a5f74c790d56de4983512ee8b2f23f73099b0a98bf",
+      "bytes": 10317,
+      "sha256": "a4556448014d6f3de4bf6ed1e0d5bce60cd6db37109c0de91f9c3948eb8c328d",
       "role": "Reproducible analysis or report-generation script."
     },
     {

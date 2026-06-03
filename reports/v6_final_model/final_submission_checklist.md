@@ -32,11 +32,12 @@
 ## Figures
 
 - [x] Figure 2 final external rescue generated: `figures/figure2_final_external_rescue.png/pdf`.
+- [x] Figure 1 final workflow blueprint/caption specified in `final_figure_blueprint.md`.
 - [x] Figure 3 final subject confusion generated: `figures/figure3_final_subject_confusion.png/pdf`.
 - [x] Figure 4 bootstrap stability generated: `figures/figure4_final_bootstrap_stability.png/pdf`.
 - [x] Figure 5 error profiles generated: `figures/figure5_final_error_profiles.png/pdf`.
-- [ ] Update Figure 1 workflow caption/text so it names the final subject-level rescue ensemble, not only v4 HGB.
-- [ ] Decide whether old OASIS figure stays in supplement or is replaced by a brief limitation table.
+- [x] Update Figure 1 workflow caption/text so it names the final subject-level rescue ensemble, not only v4 HGB.
+- [x] Decide whether old OASIS figure stays in supplement or is replaced by a brief limitation table.
 
 ## Formula And Methods
 
@@ -45,8 +46,8 @@
 - [x] Subject-level probability averaging formula written.
 - [x] Bootstrap evaluation described.
 - [x] CAS replacement described as atlas-region structural neurodegeneration consistency.
-- [ ] Remove all old CAS-as-attention-biomarker equations and claims from the Word manuscript.
-- [ ] Remove direct Braak-stage validation wording from the Word manuscript.
+- [ ] Apply final closure-packet replacement rules to the submitted Word manuscript: remove old CAS-as-attention-biomarker equations and claims.
+- [ ] Apply final closure-packet replacement rules to the submitted Word manuscript: remove direct Braak-stage validation wording.
 
 ## Code / Data Availability
 
@@ -64,11 +65,11 @@
 
 ## Citation / Reference Cleanup
 
-- [ ] Verify and add Pfeifer 2025 Tree Smoothing citation requested by reviewer.
-- [ ] Verify and add Retzlaff 2024 post-hoc vs ante-hoc explanation citation requested by reviewer.
-- [ ] Fix broken formula and figure references.
-- [ ] Shorten figure titles.
-- [ ] Standardize terminology: atlas-guided, multimodal, subject-level, heldout, stress test.
+- [x] Verify and add Pfeifer 2025 Tree Smoothing citation requested by reviewer.
+- [x] Verify and add Retzlaff 2024 post-hoc vs ante-hoc explanation citation requested by reviewer.
+- [x] Fix broken formula and figure references in the public V6 rewrite package.
+- [x] Shorten figure titles in the final V6 figure set.
+- [x] Standardize terminology: atlas-guided, multimodal, subject-level, heldout, stress test.
 
 ## Remaining Scientific Risk
 

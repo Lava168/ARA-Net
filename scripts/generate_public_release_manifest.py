@@ -113,6 +113,10 @@ def role(path: Path) -> str:
     text = str(path)
     if text == "reports/v6_final_model/core_reviewer_evidence_matrix.md":
         return "Three-core-issue reviewer evidence matrix."
+    if text == "reports/v6_final_model/final_figure_blueprint.md":
+        return "Panel-by-panel final figure blueprint."
+    if text == "reports/v6_final_model/final_submission_closure_packet.md":
+        return "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
     if text == "reports/v6_final_model/claim_boundary_audit.md":
         return "Public claim-boundary audit for reviewer-safe wording."
     if text == "reports/v6_final_model/final_rescue_model_summary_public.json":

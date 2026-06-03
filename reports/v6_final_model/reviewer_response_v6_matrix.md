@@ -18,10 +18,10 @@ The revised manuscript is no longer a patched attention-classifier paper; it is 
 | Need clinical/volumetric comparator | Solved | Clinical-only RF BAcc 0.835; v4 atlas+clinical and final ensemble shown | Present clinical-only as comparator/upper bound, not main model |
 | Need error analysis | Solved | AIBL transitions and feature groups in `final_model_error_analysis.md` | Add Results subsection and Figure 5 |
 | Formula placeholders / unclear formula | Solved in v6 text | Log-probability pooling, temperature, class offsets, subject averaging formulas written | Replace old formula placeholders with Methods equations |
-| Figure 1 / parcellation / workflow unclear | Mostly solved | v4 Figure 1 exists; v6 Figures 2-5 updated | Update Figure 1 caption to final model; replace old external/confusion figures with v6 figures |
+| Figure 1 / parcellation / workflow unclear | Solved at blueprint level | V6 Figure 1 workflow/caption specified; V6 Figures 2-5 already available | Generate Figure 1 only after blueprint approval |
 | Code unavailable | Needs final repository packaging | Scripts are present locally and on server | Add Code Availability statement and prepare GitHub release folder |
 | Computational resources unclear | Needs text only | Server training and local post-hoc scripts used | Add Methods appendix paragraph describing CPU/GPU/server environment once exact hardware is known |
-| Citation updates requested | Needs literature pass | Pfeifer 2025 and Retzlaff 2024 need verification/citation formatting | Add to references after bibliographic verification |
+| Citation updates requested | Solved for public package | Pfeifer 2025 Tree Smoothing and Retzlaff 2024 post-hoc vs ante-hoc citations verified in closure packet | Add both references to Word manuscript reference list |
 
 ## Reviewer-Safe Claim Language
 
