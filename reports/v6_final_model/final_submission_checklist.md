@@ -17,6 +17,7 @@
 - [x] AIBL heldout subject-level confusion matrix generated.
 - [x] Internal subject-level confusion matrix generated.
 - [x] AIBL MCI/AD error-profile table generated.
+- [x] Core reviewer-evidence matrix generated for external classification, CAS replacement, and Braak-alternative validation.
 
 ## Manuscript Rewrite
 
@@ -53,6 +54,7 @@
   - `scripts/final_rescue_model_package.py`
   - `scripts/generate_v6_final_figures.py`
 - [x] Final reports present in `reports/v6_final_model/`.
+- [x] Core reviewer matrix script present: `scripts/generate_core_reviewer_evidence_matrix.py`.
 - [ ] Prepare GitHub release folder with scripts, README, environment notes, and de-identified manifests.
 - [ ] Add statement that raw ADNI/AIBL/OASIS/IXI data are governed by their source-access agreements.
 - [ ] Add statement that derived manifests, split definitions, model code, and analysis scripts will be released.

@@ -32,6 +32,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `scripts/rescue_probability_optimizer.py`: probability ensemble, calibration, and subject-level averaging.
 - `scripts/final_rescue_model_package.py`: final metrics, bootstrap, and error-analysis package generation.
 - `scripts/generate_v6_final_figures.py`: final v6 manuscript figures.
+- `scripts/generate_core_reviewer_evidence_matrix.py`: reproducible evidence matrix for external validation, CAS replacement, and Braak-alternative biological validation.
 - `deployment/research_inference.py`: CLI for research inference from base-model class probabilities.
 - `deployment/research_api.py`: HTTP API and static web-console server for research deployment.
 - `deployment/final_ensemble_config.json`: locked final ensemble weights, offsets, and temperature.
@@ -40,6 +41,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `docs/DATA_CARD.md`: data provenance and public-release boundary.
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
+- `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
 
 The public reports intentionally exclude row-level subject/scan prediction files and dataset-derived identifiers.
 
@@ -111,6 +113,12 @@ python scripts/generate_v6_final_figures.py \
   --table2 reports/v4/tables/table2_classification.csv \
   --table-dir reports/v6_final_model/tables \
   --out-dir reports/v6_final_model/figures
+```
+
+Generate the core reviewer-evidence matrix:
+
+```bash
+python scripts/generate_core_reviewer_evidence_matrix.py
 ```
 
 ## Python Dependencies
