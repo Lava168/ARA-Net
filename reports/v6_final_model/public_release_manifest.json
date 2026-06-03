@@ -1,8 +1,8 @@
 {
-  "file_count": 110,
+  "file_count": 115,
   "category_counts": {
-    "aggregate_reports": 45,
-    "analysis_code": 28,
+    "aggregate_reports": 48,
+    "analysis_code": 30,
     "deployment": 4,
     "documentation": 8,
     "environment": 2,
@@ -92,8 +92,8 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 7165,
-      "sha256": "1d0b705dea38fe39f039f458657512c1d0a0a0dc8b14d242a7331d1953ece1d7",
+      "bytes": 7279,
+      "sha256": "b48ebf1d4acabb5dc9b96ddf0c64ecd1bf17def7acc8f70dbd323c0888da323c",
       "role": "Public repository file."
     },
     {
@@ -426,17 +426,31 @@
       "role": "Public repository file."
     },
     {
+      "path": "reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md",
+      "category": "aggregate_reports",
+      "bytes": 1172,
+      "sha256": "2e56c5a068ba44f13a21e5fe6da41978e9c6284d9e2ae5c22471da93f11217ce",
+      "role": "Structural QA report for the generated V6 DOCX."
+    },
+    {
+      "path": "reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx",
+      "category": "aggregate_reports",
+      "bytes": 49090,
+      "sha256": "84945dbf695efaa042c6c8aec5a03edbf930c4382b9a012dfa398c70b71728fc",
+      "role": "Generated V6 Word manuscript replacement draft."
+    },
+    {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 2634,
-      "sha256": "643adc2bc711f2cd5bf363e027639659ef9ef24c1eaafdfed43c4f3227e58370",
+      "bytes": 3374,
+      "sha256": "54c45f60919d62963a7ac9fb7238d07ed90e5bb98609bb95d2f2f46c8ed8f820",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
-      "bytes": 31174,
-      "sha256": "fa9145a5e0961f18282eba9d3c585f5720b5cd602df649b36f5375a38954830c",
+      "bytes": 31166,
+      "sha256": "7268976ec7e513e4805e9de6515af581e27ab8892153173f69fb4d6744cbd550",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -547,8 +561,8 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 4853,
-      "sha256": "8c1219444eb900b3107dfb6ba6755407d2434f01c89ee5167aee4dfaf4e511a4",
+      "bytes": 5454,
+      "sha256": "c79d9961ba3884e42ebb127b9a9a56edfd4d272bd95ea7ed833e3294397cf3f5",
       "role": "Public repository file."
     },
     {
@@ -561,8 +575,8 @@
     {
       "path": "reports/v6_final_model/manuscript_v6_full_draft.md",
       "category": "aggregate_reports",
-      "bytes": 25321,
-      "sha256": "854c42f025f0d70f51986e9956e020f546e5c02b112bb8926e21693aefdb2832",
+      "bytes": 24983,
+      "sha256": "a326ba374161ab3e007f530ec19ebc16783e2cb76d143dd588f34aaa5c57ee00",
       "role": "Full V6 manuscript draft for replacing the old Word manuscript body."
     },
     {
@@ -622,6 +636,13 @@
       "role": "Generated claim-boundary audit for the uploaded Word manuscript."
     },
     {
+      "path": "reports/v6_final_model/word_manuscript_claim_audit_v6_docx.md",
+      "category": "aggregate_reports",
+      "bytes": 3943,
+      "sha256": "806a1c2f75ed34316b6e8ddaddc451c49a081f6ea69ccdf7dd20d3c1f708fc0c",
+      "role": "Word claim-boundary audit for the generated V6 DOCX."
+    },
+    {
       "path": "reports/v6_final_model/word_manuscript_rewrite_map.md",
       "category": "aggregate_reports",
       "bytes": 9051,
@@ -666,8 +687,8 @@
     {
       "path": "scripts/audit_word_manuscript_claims.py",
       "category": "analysis_code",
-      "bytes": 8513,
-      "sha256": "0c10373e0a1ddb66fed9cb0f8051617433f632624ebcdb21910c3099acd8d994",
+      "bytes": 8520,
+      "sha256": "df03e159af5e956bbf05649d4b9651884c8062bfd75a873d43a0e07f1ed3f93a",
       "role": "Word manuscript claim-boundary audit script."
     },
     {
@@ -683,6 +704,13 @@
       "bytes": 8732,
       "sha256": "35605c2519df8b5fe8f3a27f4de5ee3282cc7ae54c382b0582387670d3386990",
       "role": "Reproducible analysis or report-generation script."
+    },
+    {
+      "path": "scripts/build_v6_manuscript_docx.py",
+      "category": "analysis_code",
+      "bytes": 12380,
+      "sha256": "292a2bcb436c5e47da5a10bb9097ca0d06232842d56d57a891888146bd57af83",
+      "role": "DOCX builder for the V6 manuscript replacement draft."
     },
     {
       "path": "scripts/evaluate_external_ad_datasets.py",
@@ -729,8 +757,8 @@
     {
       "path": "scripts/generate_public_release_manifest.py",
       "category": "analysis_code",
-      "bytes": 10993,
-      "sha256": "48ced512622717b14c495dea7a3efe28923e61206ff760b77194be5645971205",
+      "bytes": 11691,
+      "sha256": "e8cf50842e97b648c8053cd21101c7c5f68a2b3b227207ebbb59416c08afe096",
       "role": "Reproducible analysis or report-generation script."
     },
     {
@@ -753,6 +781,13 @@
       "bytes": 9540,
       "sha256": "6096bd336cdcbe796cf2a2293101b20db51ece0ba468581f3ebd823fe617d78a",
       "role": "Reproducible analysis or report-generation script."
+    },
+    {
+      "path": "scripts/qa_v6_manuscript_docx.py",
+      "category": "analysis_code",
+      "bytes": 6243,
+      "sha256": "1990e2c7e19f9e0d1a20de84676133859318c2540cc0eeee637b35dc9bc69dd1",
+      "role": "Structural DOCX QA script for the V6 manuscript replacement draft."
     },
     {
       "path": "scripts/rank_hybrid_candidates.py",

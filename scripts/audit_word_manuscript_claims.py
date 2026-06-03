@@ -71,19 +71,19 @@ RULES = [
         "attention_cas_biomarker_claim",
         "blocker",
         re.compile(
-            r"\b(CAS|Clinical Alignment Score|Attention-as-Biomarker|attention)[^.]{0,180}\b"
+            r"\b(CAS\b|Clinical Alignment Score|Attention-as-Biomarker|attention\b)[^.]{0,180}\b"
             r"(validat|biomarker|clinical alignment|Braak|neuropatholog|disease progression|diagnostic explanation|interpretability)",
             re.I,
         ),
         "Replace attention/CAS biomarker language with atlas structural neurodegeneration consistency.",
-        False,
+        True,
     ),
     Rule(
         "direct_braak_claim",
         "blocker",
-        re.compile(r"\b(Braak|neuropatholog)[^.]{0,180}\b(validat|correlat|proof|support|consistent|align|correspond)", re.I),
+        re.compile(r"\b(Braak\b|neuropatholog\w*)[^.]{0,180}\b(validat|correlat|proof|support|consistent|align|correspond)", re.I),
         "Remove direct Braak-stage validation language; use MRI neurodegeneration proxy wording.",
-        False,
+        True,
     ),
     Rule(
         "oasis_success_claim",

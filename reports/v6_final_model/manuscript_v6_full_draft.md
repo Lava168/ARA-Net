@@ -2,13 +2,13 @@
 
 ## Abstract
 
-**Background:** Structural MRI models for Alzheimer's disease (AD) staging are often evaluated within a single cohort, and interpretability claims may depend on attention or saliency measures whose biological validity is difficult to verify. The original ARA-Net manuscript relied heavily on atlas-guided attention and attention-based clinical alignment, but peer review identified three central weaknesses: insufficient external classification evidence, an invalid Clinical Alignment Score (CAS), and non-significant Braak-related validation.
+**Background:** Structural MRI models for Alzheimer's disease (AD) staging are often evaluated within a single cohort, and biological interpretation can be overstated when external classification and regional disease-consistency evidence are weak. The original ARA-Net submission had three central weaknesses: insufficient external classification evidence, an unsupported interpretability score, and non-significant disease-stage biological validation.
 
-**Methods:** We rebuilt the study as an atlas-guided multimodal AD staging framework with leakage-free subject-level cohort construction. ADNI was used for training, validation, and internal testing. AIBL was split into adaptation training, adaptation validation, and a locked heldout external test. IXI served as a healthy negative-control cohort, and OASIS was retained only as an external stress test. Atlas-derived MRI regional features were combined with core clinical variables and calibrated through a probability rescue ensemble using log-probability pooling, class offsets, temperature scaling, and subject-level probability averaging. The original attention-only CAS and direct Braak-stage claim were removed and replaced by an atlas structural neurodegeneration consistency analysis.
+**Methods:** We rebuilt the study as an atlas-guided multimodal AD staging framework with leakage-free subject-level cohort construction. ADNI was used for training, validation, and internal testing. AIBL was split into adaptation training, adaptation validation, and a locked heldout external test. IXI served as a healthy negative-control cohort, and OASIS was retained only as an external stress test. Atlas-derived MRI regional features were combined with core clinical variables and calibrated through a probability rescue ensemble using log-probability pooling, class offsets, temperature scaling, and subject-level probability averaging. The old interpretability-centered biological claim was removed and replaced by an atlas structural neurodegeneration consistency analysis.
 
 **Results:** The original v3 model failed to support external generalization, with AIBL balanced accuracy of 0.399 and IXI healthy CN retention of 0.439. The locked final subject-level rescue ensemble achieved AIBL heldout accuracy of 0.903, balanced accuracy of 0.833, macro AUC of 0.937, and AD-vs-CN AUC of 1.000. CN/MCI/AD recall was 0.961/0.686/0.852. Bootstrap 95% confidence intervals were 0.759-0.899 for balanced accuracy, 0.531-0.839 for MCI recall, and 0.710-0.966 for AD recall. IXI healthy CN retention was 1.000. AIBL errors were concentrated near MCI/AD boundaries, with no AD subject misclassified as CN. OASIS transfer remained weak and is reported as a limitation. The AIBL heldout AD-key atlas-volume consistency score was 0.510 versus a uniform regional null of 0.286, with bootstrap CI 0.479-0.526 and permutation p=0.026.
 
-**Conclusion:** The revised work supports a domain-adapted, subject-level, atlas-guided multimodal AD staging framework with strong locked AIBL heldout performance, preserved IXI healthy specificity, and atlas-region structural neurodegeneration consistency. It does not claim pure zero-shot transfer, solved OASIS generalization, direct Braak-stage validation, or deployment-ready clinical performance.
+**Conclusion:** The revised work supports a domain-adapted, subject-level, atlas-guided multimodal AD staging framework with strong locked AIBL heldout performance, preserved IXI healthy specificity, and atlas-region structural neurodegeneration consistency. It does not claim pure zero-shot transfer, solved OASIS generalization, postmortem stage validation, or deployment-ready clinical performance.
 
 ## Keywords
 
@@ -16,17 +16,15 @@ Alzheimer's disease; structural MRI; atlas-guided multimodal learning; external 
 
 ## Abbreviations
 
-AD, Alzheimer's disease; ADNI, Alzheimer's Disease Neuroimaging Initiative; AIBL, Australian Imaging, Biomarkers and Lifestyle study; AUC, area under the receiver-operating-characteristic curve; BAcc, balanced accuracy; CAS, Clinical Alignment Score; CDR-SB, Clinical Dementia Rating Sum of Boxes; CN, cognitively normal; IXI, Information eXtraction from Images dataset; MCI, mild cognitive impairment; MMSE, Mini-Mental State Examination; OASIS, Open Access Series of Imaging Studies; sMRI, structural magnetic resonance imaging.
-
-CAS is retained here only as a historical term describing the removed attention-only analysis from the original manuscript.
+AD, Alzheimer's disease; ADNI, Alzheimer's Disease Neuroimaging Initiative; AIBL, Australian Imaging, Biomarkers and Lifestyle study; AUC, area under the receiver-operating-characteristic curve; BAcc, balanced accuracy; CDR-SB, Clinical Dementia Rating Sum of Boxes; CN, cognitively normal; IXI, Information eXtraction from Images dataset; MCI, mild cognitive impairment; MMSE, Mini-Mental State Examination; OASIS, Open Access Series of Imaging Studies; sMRI, structural magnetic resonance imaging.
 
 ## 1. Introduction
 
 Structural MRI is widely used in Alzheimer's disease research because it captures neurodegeneration patterns including medial temporal atrophy, ventricular enlargement, and broader brain-volume change. Machine learning can use these signals to support CN/MCI/AD staging, but a model intended for scientific or translational use must demonstrate more than within-cohort classification performance. It must also show leakage-aware external evaluation, clear error behavior across clinically important classes, and appropriately bounded biological interpretation.
 
-The original ARA-Net manuscript attempted to address interpretability using atlas-guided region attention. However, the evidence available in that version did not support the central claims. First, cross-dataset generalization was inferred primarily from attention similarity rather than from external classification. Second, the attention-based CAS was below a uniform AD-key region null, so it could not support the claim that attention concentration demonstrated clinical alignment. Third, the reported Braak-related analysis was non-significant and did not justify direct neuropathological validation language.
+The original ARA-Net submission attempted to use regional explanation patterns as biological evidence. However, the evidence available in that version did not support the central claims. First, cross-dataset generalization was inferred primarily from explanation similarity rather than from external classification. Second, the old clinical-alignment score was below a uniform AD-key regional null, so it could not support the claim that the explanation pattern demonstrated clinical alignment. Third, the disease-stage biological analysis was non-significant and did not justify postmortem-stage validation language.
 
-Recent explainable-AI work distinguishes post-hoc explanation from ante-hoc interpretability and emphasizes that explanation tools require task-specific validation. This distinction matters here: attention values can be useful for visualization or hypothesis generation, but attention concentration alone should not be treated as a validated biomarker. Accordingly, the revised manuscript changes both the experimental target and the claim boundary. The biological analysis is limited to atlas-region structural MRI neurodegeneration consistency rather than attention as a biomarker or direct Braak-stage validation.
+Recent explainable-AI work distinguishes post-hoc explanation from ante-hoc interpretability and emphasizes that explanation tools require task-specific validation. This distinction matters here: visualization scores can be useful for hypothesis generation, but concentration of an explanation score alone should not be treated as a validated biomarker. Accordingly, the revised manuscript changes both the experimental target and the claim boundary. The biological analysis is limited to atlas-region structural MRI neurodegeneration consistency rather than explanation-score biomarker discovery or postmortem-stage validation.
 
 We therefore rebuilt the study rather than making a narrow revision. The revised framework uses subject-level multi-cohort manifests, AIBL adaptation with a locked external heldout split, IXI healthy negative-control testing, OASIS stress testing, comparator models, bootstrap uncertainty, and MCI/AD error analysis. The final classifier is an atlas-guided multimodal probability ensemble that combines regional MRI features and core clinical variables, then averages repeated scans at subject level for the primary endpoint.
 
@@ -37,7 +35,7 @@ The revised contributions are:
 3. IXI healthy negative-control evaluation to quantify false impairment predictions.
 4. Comparator analyses including atlas-only, cascade, atlas+clinical, clinical-only, biomarker-enhanced, and final ensemble models.
 5. Subject-level MCI/AD error analysis showing whether disease errors collapse into CN or remain near adjacent disease-stage boundaries.
-6. Replacement of the invalid attention-only CAS and unsupported direct Braak claim with atlas structural neurodegeneration consistency analysis.
+6. Replacement of the unsupported interpretability-centered biological claim with atlas structural neurodegeneration consistency analysis.
 
 ## 2. Methods
 
@@ -66,7 +64,7 @@ The primary endpoint was AIBL locked heldout subject-level CN/MCI/AD staging. Th
 
 MRI features were extracted from a 21-region atlas and included regional volumetric and intensity summaries. The main multimodal feature set combined atlas-derived MRI features with core clinical variables, including age, sex, education, APOE4, MMSE, and CDR-SB where available. Extended cognitive, biomarker, and volumetric clinical variables were used in sensitivity or comparator models rather than as the central scientific claim.
 
-The revised model should be described as atlas-guided and multimodal. It should not be framed as a primarily attention-based model. Attention-based analyses from the original manuscript are treated as historical context and are not used as validated biological evidence.
+The revised model should be described as atlas-guided and multimodal. The primary scientific evidence is classification performance, healthy negative-control specificity, error analysis, and atlas structural neurodegeneration consistency.
 
 ### 2.3 Candidate models and final rescue ensemble
 
@@ -112,9 +110,9 @@ The goal of this analysis was to determine whether errors reflected complete col
 
 ### 2.6 Structural neurodegeneration consistency
 
-The original attention-only CAS was removed because it did not provide valid evidence that attention weights were biomarkers. The revised biological analysis instead tests whether disease-associated atlas volume changes concentrate in a priori AD-relevant regions: bilateral hippocampus, bilateral amygdala, and bilateral lateral ventricles. The score was compared against a uniform regional null using bootstrap confidence intervals and permutation testing.
+The old interpretability-centered score was removed because it did not provide valid biological evidence. The revised biological analysis instead tests whether disease-associated atlas volume changes concentrate in a priori AD-relevant regions: bilateral hippocampus, bilateral amygdala, and bilateral lateral ventricles. The score was compared against a uniform regional null using bootstrap confidence intervals and permutation testing.
 
-This analysis is an MRI neurodegeneration proxy. It is not direct Braak-stage validation, and it does not imply that attention maps are biomarkers.
+This analysis is an MRI neurodegeneration proxy. It does not provide postmortem-stage validation or explanation-map biomarker evidence.
 
 ### 2.7 Open-source research deployment and clinical-use boundary
 
@@ -128,7 +126,7 @@ The software is released as an open-source research prototype for retrospective 
 
 The original v3 model did not support the earlier cross-dataset generalization claim. On AIBL, it achieved accuracy 0.606, balanced accuracy 0.399, and macro AUC 0.597. On IXI, only 0.439 of healthy controls were retained as CN, indicating a high false impairment rate.
 
-These results justify the central change in the revised manuscript: external evidence is no longer inferred from attention similarity. It is evaluated directly using heldout subject-level classification and a healthy negative-control cohort.
+These results justify the central change in the revised manuscript: external evidence is no longer inferred from explanation similarity. It is evaluated directly using heldout subject-level classification and a healthy negative-control cohort.
 
 ### 3.2 Locked final external subject-level result
 
@@ -178,7 +176,7 @@ This internal result should be interpreted as a calibration limitation rather th
 
 The AD-key atlas-volume consistency score exceeded the uniform regional null in AIBL heldout. The score was 0.510 compared with a uniform null of 0.286, with score difference 0.225, bootstrap CI 0.479-0.526, and permutation p=0.026.
 
-Across all labeled AD-relevant data, the AD-key consistency score was 0.426 versus a uniform null of 0.286, with permutation p=0.0207. The ADNI-only internal check remained non-significant, with score 0.342 and p=0.1843. These results support a bounded structural MRI neurodegeneration proxy while making clear that direct Braak-stage validation is not available.
+Across all labeled AD-relevant data, the AD-key consistency score was 0.426 versus a uniform null of 0.286, with permutation p=0.0207. The ADNI-only internal check remained non-significant, with score 0.342 and p=0.1843. These results support a bounded structural MRI neurodegeneration proxy while making clear that postmortem-stage validation is not available.
 
 ### 3.7 OASIS stress test
 
@@ -186,23 +184,23 @@ OASIS remained weak without OASIS tuning. The final subject-level model achieved
 
 ## 4. Discussion
 
-The revised study addresses the major weaknesses of the original manuscript by changing both the evidence base and the claim boundary. Cross-dataset generalization is no longer inferred from attention similarity. It is evaluated using a locked AIBL heldout subject-level test and an IXI healthy negative-control cohort. The invalid attention-only CAS is removed and replaced by an atlas-region structural neurodegeneration consistency analysis. The non-significant Braak result is no longer used to claim direct neuropathological staging.
+The revised study addresses the major weaknesses of the original manuscript by changing both the evidence base and the claim boundary. Cross-dataset generalization is no longer inferred from explanation similarity. It is evaluated using a locked AIBL heldout subject-level test and an IXI healthy negative-control cohort. The unsupported interpretability-centered biological claim is removed and replaced by an atlas-region structural neurodegeneration consistency analysis. The non-significant disease-stage result is no longer used to claim direct pathological staging.
 
 The final model is strongest when interpreted as a domain-adapted external AD staging framework. AIBL adaptation data were used for model fitting and calibration, but AIBL heldout endpoint units remained locked and were not used for final endpoint evaluation. This distinction is important: the work does not solve pure ADNI-to-AIBL zero-shot staging, but it does demonstrate that anatomically grounded MRI features and core clinical variables can support robust heldout subject-level staging within an external cohort.
 
 The error analysis clarifies the clinical meaning of the remaining failures. On AIBL heldout, AD subjects were not missed as CN; residual AD errors were classified as MCI. MCI errors were split between correct MCI and AD, with only two MCI subjects classified as CN. This pattern is preferable to a model that preserves overall accuracy by collapsing minority disease classes into CN, but it also shows that precise MCI/AD boundary staging remains challenging.
 
-The biological analysis is intentionally bounded. The AIBL heldout atlas-volume consistency result supports disease-consistent structural MRI change in AD-relevant regions. It does not demonstrate that attention maps are biomarkers, and it does not provide direct Braak-stage validation. This narrower claim is more defensible and better aligned with the available data.
+The biological analysis is intentionally bounded. The AIBL heldout atlas-volume consistency result supports disease-consistent structural MRI change in AD-relevant regions. It does not demonstrate explanation-map biomarkers, and it does not provide postmortem-stage validation. This narrower claim is more defensible and better aligned with the available data.
 
 Several limitations remain. OASIS transfer is not solved and should be treated as a stress-test failure requiring larger and cleaner external cohorts. The internal subject-level calibration pattern remains modest, especially for CN specificity within the internal split. Clinical variables contain substantial diagnostic signal, as shown by the clinical-only comparator. The 21-region atlas is anatomically interpretable but coarse, and finer parcellations may better capture cortical AD patterns. Finally, although AIBL heldout performance is strong, the model is not presented as deployment-ready clinical software; it is best framed as an open-source research prototype requiring prospective validation.
 
 ## 5. Conclusion
 
-This revised work is a substantive rebuild of the original ARA-Net study. It replaces unsupported attention-based interpretability claims with locked external subject-level classification, healthy negative-control specificity, bootstrap uncertainty, MCI/AD error analysis, and a bounded atlas structural neurodegeneration consistency analysis. The strongest supported claim is domain-adapted external AD staging with an MRI neurodegeneration proxy, not pure zero-shot generalization, direct Braak-stage validation, OASIS success, or clinical deployment readiness.
+This revised work is a substantive rebuild of the original ARA-Net study. It replaces unsupported interpretability-centered claims with locked external subject-level classification, healthy negative-control specificity, bootstrap uncertainty, MCI/AD error analysis, and a bounded atlas structural neurodegeneration consistency analysis. The strongest supported claim is domain-adapted external AD staging with an MRI neurodegeneration proxy, not pure zero-shot generalization, postmortem-stage validation, OASIS success, or clinical deployment readiness.
 
 ## Figure captions
 
-**Figure 1. Revised ARA-Net V6 study framework.** The revised workflow uses subject-level cohort construction, atlas-guided multimodal feature extraction, a locked rescue probability ensemble, and subject-level probability averaging. The primary endpoint is locked AIBL heldout CN/MCI/AD staging, with IXI healthy-control CN retention as a specificity endpoint. OASIS is retained as an external stress test rather than a successful validation cohort. The original attention-only CAS and direct Braak-stage claims are replaced by atlas structural neurodegeneration consistency analysis and explicit claim-boundary language.
+**Figure 1. Revised ARA-Net V6 study framework.** The revised workflow uses subject-level cohort construction, atlas-guided multimodal feature extraction, a locked rescue probability ensemble, and subject-level probability averaging. The primary endpoint is locked AIBL heldout CN/MCI/AD staging, with IXI healthy-control CN retention as a specificity endpoint. OASIS is retained as an external stress test rather than a successful validation cohort. The original interpretability-centered biological claim is replaced by atlas structural neurodegeneration consistency analysis and explicit claim-boundary language.
 
 **Figure 2. External classification performance.** External performance across the failed v3 baseline, rebuilt v4 atlas+clinical model, final scan-level ensemble, final subject-level ensemble, and clinical-only comparator. The locked primary result is the final subject-level AIBL heldout endpoint.
 
@@ -210,7 +208,7 @@ This revised work is a substantive rebuild of the original ARA-Net study. It rep
 
 **Figure 4. Bootstrap stability of the locked primary endpoint.** Bootstrap distributions and 95% confidence intervals for AIBL heldout subject-level balanced accuracy, macro AUC, MCI recall, and AD recall.
 
-**Figure 5. Structural neurodegeneration consistency and claim boundary.** The original attention-only CAS is removed. The revised analysis tests atlas structural neurodegeneration consistency in a priori AD-relevant regions and reports this as an MRI proxy, not attention as a biomarker or direct Braak-stage validation.
+**Figure 5. Structural neurodegeneration consistency and claim boundary.** The revised analysis tests atlas structural neurodegeneration consistency in a priori AD-relevant regions and reports this as an MRI proxy rather than explanation-map biomarker evidence or postmortem-stage validation.
 
 ## Code and data availability
 

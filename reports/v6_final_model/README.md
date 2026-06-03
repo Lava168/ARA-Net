@@ -8,6 +8,9 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 - `core_reviewer_evidence_matrix.md`: generated matrix for the three core revision issues: external classification, CAS replacement, and Braak-alternative biological validation.
 - `final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
 - `manuscript_v6_full_draft.md`: full V6 manuscript draft for replacing the old Word manuscript body.
+- `ARA-Net_V6_full_manuscript_draft.docx`: generated V6 Word manuscript replacement draft.
+- `word_manuscript_claim_audit_v6_docx.md`: Word claim-boundary audit for the generated V6 DOCX.
+- `ARA-Net_V6_full_manuscript_docx_qa.md`: structural DOCX QA report and render-status note.
 - `final_submission_closure_packet.md`: final manuscript-integration packet for Figure 1, OASIS handling, citations, and terminology.
 - `word_manuscript_claim_audit.md`: generated claim-boundary audit for the uploaded Word manuscript.
 - `word_manuscript_rewrite_map.md`: section-by-section rewrite map for converting the old Word manuscript into the V6 submission.
@@ -42,6 +45,18 @@ Regenerate the public release manifest:
 
 ```bash
 python scripts/generate_public_release_manifest.py
+```
+
+Build and audit the generated V6 DOCX:
+
+```bash
+/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
+  scripts/build_v6_manuscript_docx.py
+
+/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
+  scripts/audit_word_manuscript_claims.py \
+  --docx reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx \
+  --output reports/v6_final_model/word_manuscript_claim_audit_v6_docx.md
 ```
 
 Run the public deployment smoke test:

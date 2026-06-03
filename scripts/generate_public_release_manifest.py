@@ -117,6 +117,16 @@ def role(path: Path) -> str:
         return "Panel-by-panel final figure blueprint."
     if text == "reports/v6_final_model/manuscript_v6_full_draft.md":
         return "Full V6 manuscript draft for replacing the old Word manuscript body."
+    if text == "reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx":
+        return "Generated V6 Word manuscript replacement draft."
+    if text == "reports/v6_final_model/word_manuscript_claim_audit_v6_docx.md":
+        return "Word claim-boundary audit for the generated V6 DOCX."
+    if text == "reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md":
+        return "Structural QA report for the generated V6 DOCX."
+    if text == "scripts/build_v6_manuscript_docx.py":
+        return "DOCX builder for the V6 manuscript replacement draft."
+    if text == "scripts/qa_v6_manuscript_docx.py":
+        return "Structural DOCX QA script for the V6 manuscript replacement draft."
     if text == "reports/v6_final_model/final_submission_closure_packet.md":
         return "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
     if text == "reports/v6_final_model/word_manuscript_claim_audit.md":

@@ -1,10 +1,10 @@
 # Claim Boundary Audit
 
 - Status: **pass**
-- Files scanned: 74
+- Files scanned: 78
 - Blocker findings: 0
 - Warning findings: 0
-- Allowed safe-context mentions: 216
+- Allowed safe-context mentions: 202
 
 ## Interpretation
 
@@ -23,8 +23,8 @@ No warning-level positive clinical-use claims were detected.
 | file | line | rule | text |
 |---|---:|---|---|
 | `README.md` | 5 | clinical_deployment_ready_claim | This repository contains the reproducible analysis scripts, research deployment wrapper, and manuscript-supporting reports for the revised ARA-Net project. The current public package is framed as an **open-source deployable research prototype**, not as a clinical diagnostic device. |
-| `README.md` | 61 | clinical_deployment_ready_claim | This software is not intended for direct clinical deployment or standalone diagnosis. It is a research-grade, retrospective validation pipeline intended to support further prospective evaluation. Clinical use would require prospective multi-center validation, scanner/protocol robustness testing, local calibration, workflow integration, uncertainty reporting, cybersecurity review, and regulatory assessment. |
-| `README.md` | 61 | diagnosis_or_patient_care_claim | This software is not intended for direct clinical deployment or standalone diagnosis. It is a research-grade, retrospective validation pipeline intended to support further prospective evaluation. Clinical use would require prospective multi-center validation, scanner/protocol robustness testing, local calibration, workflow integration, uncertainty reporting, cybersecurity review, and regulatory assessment. |
+| `README.md` | 62 | clinical_deployment_ready_claim | This software is not intended for direct clinical deployment or standalone diagnosis. It is a research-grade, retrospective validation pipeline intended to support further prospective evaluation. Clinical use would require prospective multi-center validation, scanner/protocol robustness testing, local calibration, workflow integration, uncertainty reporting, cybersecurity review, and regulatory assessment. |
+| `README.md` | 62 | diagnosis_or_patient_care_claim | This software is not intended for direct clinical deployment or standalone diagnosis. It is a research-grade, retrospective validation pipeline intended to support further prospective evaluation. Clinical use would require prospective multi-center validation, scanner/protocol robustness testing, local calibration, workflow integration, uncertainty reporting, cybersecurity review, and regulatory assessment. |
 | `deployment/final_ensemble_config.json` | 47 | diagnosis_or_patient_care_claim | "not_intended_for": "Direct clinical diagnosis, treatment selection, emergency decision-making, or unsupervised patient care.", |
 | `deployment/final_ensemble_config.json` | 48 | clinical_deployment_ready_claim | "clinical_use_notice": "Not a medical device. Not cleared or approved for clinical use." |
 | `docs/CLINICAL_VALIDATION_PROTOCOL.md` | 53 | clinical_deployment_ready_claim | If the software is intended to provide diagnostic recommendations from MRI/clinical data, it may fall within medical-device software or Software as a Medical Device frameworks, depending on jurisdiction and intended use. Formal regulatory assessment is required before clinical deployment. |
@@ -102,4 +102,4 @@ No warning-level positive clinical-use claims were detected.
 | `reports/v6_final_model/final_figure_blueprint.md` | 105 | clinical_deployment_ready_claim | - Do not make clinical deployment readiness a visual claim. |
 | `reports/v6_final_model/final_rescue_model_lock_report.md` | 42 | oasis_success_claim | Use the model as evidence for domain-adapted external heldout AD staging and healthy negative-control specificity. Do not claim pure zero-shot transfer, solved OASIS generalization, direct Braak staging, or clinical deployment readiness. |
 | `reports/v6_final_model/final_rescue_model_lock_report.md` | 42 | clinical_deployment_ready_claim | Use the model as evidence for domain-adapted external heldout AD staging and healthy negative-control specificity. Do not claim pure zero-shot transfer, solved OASIS generalization, direct Braak staging, or clinical deployment readiness. |
-| ... | ... | ... | 136 additional safe-context mentions omitted. |
+| ... | ... | ... | 122 additional safe-context mentions omitted. |

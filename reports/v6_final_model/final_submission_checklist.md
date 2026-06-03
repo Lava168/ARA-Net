@@ -28,6 +28,9 @@
 - [x] Results updated with final main model, comparator models, error analysis, biological consistency, and OASIS limitation.
 - [x] Discussion rewritten with honest claim boundary.
 - [x] Full V6 manuscript draft generated for replacing the old Word manuscript body.
+- [x] Generated V6 DOCX manuscript replacement draft.
+- [x] Generated V6 DOCX passed Word claim-boundary audit with 0 blockers and 0 warnings.
+- [x] Generated V6 DOCX passed structural QA; visual render QA remains environment-blocked by missing LibreOffice dynamic library.
 - [x] Cover letter core paragraph drafted.
 
 ## Figures
@@ -47,9 +50,10 @@
 - [x] Subject-level probability averaging formula written.
 - [x] Bootstrap evaluation described.
 - [x] CAS replacement described as atlas-region structural neurodegeneration consistency.
-- [ ] Apply final closure-packet replacement rules to the submitted Word manuscript: remove old CAS-as-attention-biomarker equations and claims.
-- [ ] Apply final closure-packet replacement rules to the submitted Word manuscript: remove direct Braak-stage validation wording.
+- [x] Apply final closure-packet replacement rules in the generated V6 Word manuscript: remove old CAS-as-attention-biomarker equations and claims.
+- [x] Apply final closure-packet replacement rules in the generated V6 Word manuscript: remove direct Braak-stage validation wording.
 - [x] Word manuscript claim audit generated for old CAS/Braak/OASIS/clinical-deployment language.
+- [x] Word manuscript claim audit generated for the V6 DOCX replacement draft.
 - [x] Word manuscript section-level rewrite map generated.
 
 ## Code / Data Availability
@@ -76,7 +80,8 @@
 
 ## Remaining Scientific Risk
 
-- Current uploaded Word manuscript is still old attention-as-biomarker text and fails the Word claim audit; it needs section-level rewriting before resubmission.
+- The old uploaded Word manuscript remains a failed historical draft; use the generated V6 DOCX replacement draft for resubmission work.
+- Visual DOCX render QA could not be completed in this local environment because the bundled LibreOffice is missing `/opt/homebrew/opt/little-cms2/lib/liblcms2.2.dylib`; rerun visual QA on a machine with a working LibreOffice/Word renderer before journal submission.
 - OASIS remains weak and must not be sold as solved.
 - Internal subject-level BAcc remains modest; write it as calibration limitation, not primary failure.
 - Clinical-only comparator is strong; use it as a transparent upper bound.
