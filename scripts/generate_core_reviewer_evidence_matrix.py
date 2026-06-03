@@ -190,10 +190,10 @@ def build_report(summary: dict, neuro_rows: list[dict], class_rows: list[dict], 
     ]
 
     metrics_rows = [
-        ["AIBL heldout subject", str(int(aibl["n"])), fmt(aibl["acc"]), fmt(aibl["balanced_acc"]), fmt(aibl["macro_auc_ovr"]), fmt(aibl["ad_vs_cn_auc"]), fmt_recall(aibl)],
-        ["IXI healthy subject", str(int(ixi["n"])), fmt(ixi["acc"]), fmt(ixi["balanced_acc"]), "NA", f"CN retention {fmt(ixi['cn_retention_rate'])}", fmt_recall(ixi)],
-        ["OASIS stress subject", str(int(oasis["n"])), fmt(oasis["acc"]), fmt(oasis["balanced_acc"]), fmt(oasis["macro_auc_ovr"]), fmt(oasis["ad_vs_cn_auc"]), fmt_recall(oasis)],
-        ["Internal subject", str(int(internal["n"])), fmt(internal["acc"]), fmt(internal["balanced_acc"]), fmt(internal["macro_auc_ovr"]), fmt(internal["ad_vs_cn_auc"]), fmt_recall(internal)],
+        ["AIBL heldout subject-level unit", str(int(aibl["n"])), fmt(aibl["acc"]), fmt(aibl["balanced_acc"]), fmt(aibl["macro_auc_ovr"]), fmt(aibl["ad_vs_cn_auc"]), fmt_recall(aibl)],
+        ["IXI healthy subject-level unit", str(int(ixi["n"])), fmt(ixi["acc"]), fmt(ixi["balanced_acc"]), "NA", f"CN retention {fmt(ixi['cn_retention_rate'])}", fmt_recall(ixi)],
+        ["OASIS stress subject-level unit", str(int(oasis["n"])), fmt(oasis["acc"]), fmt(oasis["balanced_acc"]), fmt(oasis["macro_auc_ovr"]), fmt(oasis["ad_vs_cn_auc"]), fmt_recall(oasis)],
+        ["Internal subject-level unit", str(int(internal["n"])), fmt(internal["acc"]), fmt(internal["balanced_acc"]), fmt(internal["macro_auc_ovr"]), fmt(internal["ad_vs_cn_auc"]), fmt_recall(internal)],
     ]
 
     lines = [
@@ -222,6 +222,8 @@ def build_report(summary: dict, neuro_rows: list[dict], class_rows: list[dict], 
         ),
         "",
         "## Primary Metrics Snapshot",
+        "",
+        "Here, `n` denotes evaluable subject-level endpoint units after repeated-scan probability aggregation. In longitudinal cohorts, the split inventory may contain fewer unique participants than endpoint units if a participant contributes distinct diagnostic-state labels over time.",
         "",
         *line_table(
             ["cohort", "n", "Acc", "BAcc", "macro AUC", "AD-vs-CN / specificity", "recall CN/MCI/AD"],

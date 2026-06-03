@@ -6,9 +6,11 @@ Primary model: subject-level balanced rescue probability ensemble, tuned on ADNI
 
 Primary endpoint: locked AIBL heldout subject-level CN/MCI/AD staging, with IXI healthy CN retention as the specificity check.
 
+`endpoint n` denotes evaluable subject-level units after repeated-scan probability aggregation. In longitudinal cohorts, a participant can contribute distinct diagnostic-state endpoint units over time; this is separate from the unique-participant split inventory used to prevent leakage.
+
 ## Main Subject-Level Result
 
-| split | n | Acc | BAcc | macro AUC | AD-vs-CN AUC/CN retention | CN/MCI/AD recall | BAcc 95% CI | MCI recall 95% CI | AD recall 95% CI |
+| split | endpoint n | Acc | BAcc | macro AUC | AD-vs-CN AUC/CN retention | CN/MCI/AD recall | BAcc 95% CI | MCI recall 95% CI | AD recall 95% CI |
 |---|---:|---:|---:|---:|---|---|---|---|---|
 | val | 97 | 0.526 | 0.536 | 0.742 | AD-vs-CN 0.897 | 0.333/0.574/0.700 | 0.434-0.640 | 0.436-0.721 | 0.500-0.895 |
 | internal_test | 96 | 0.458 | 0.448 | 0.719 | AD-vs-CN 0.921 | 0.241/0.553/0.550 | 0.344-0.552 | 0.413-0.694 | 0.333-0.773 |
@@ -19,7 +21,7 @@ Primary endpoint: locked AIBL heldout subject-level CN/MCI/AD staging, with IXI 
 
 ## Scan-Level Reference
 
-| split | n | Acc | BAcc | macro AUC | AD-vs-CN AUC/CN retention | CN/MCI/AD recall | BAcc 95% CI | MCI recall 95% CI | AD recall 95% CI |
+| split | endpoint n | Acc | BAcc | macro AUC | AD-vs-CN AUC/CN retention | CN/MCI/AD recall | BAcc 95% CI | MCI recall 95% CI | AD recall 95% CI |
 |---|---:|---:|---:|---:|---|---|---|---|---|
 | val | 355 | 0.549 | 0.579 | 0.759 | AD-vs-CN 0.922 | 0.408/0.578/0.750 | 0.524-0.628 | 0.503-0.654 | 0.642-0.855 |
 | internal_test | 360 | 0.486 | 0.471 | 0.742 | AD-vs-CN 0.916 | 0.333/0.579/0.500 | 0.418-0.524 | 0.506-0.653 | 0.385-0.614 |

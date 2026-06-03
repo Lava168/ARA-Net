@@ -27,6 +27,8 @@ This repository includes aggregate metrics, figures, and manuscript-level summar
 | OASIS external | 99 | 99 | stress test |
 | IXI external | 581 | 581 | healthy negative-control test |
 
+These subject counts are unique-participant split-inventory counts. Final metric tables may report evaluable subject-level endpoint units after repeated-scan probability aggregation; in longitudinal cohorts, a participant can contribute distinct diagnostic-state endpoint units over time.
+
 ## Access Requirements
 
 Users must obtain raw data access through the original data providers and comply with all applicable data-use agreements.

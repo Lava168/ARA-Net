@@ -8,7 +8,7 @@ Generated during the rescue run after the v4 rewrite.
 
 Fast subject-level probability averaging also improved the AIBL result:
 
-- AIBL heldout subjects: Acc 0.903, BAcc 0.833, AUC 0.937, AD-vs-CN AUC 1.000.
+- AIBL heldout subject-level endpoint units: Acc 0.903, BAcc 0.833, AUC 0.937, AD-vs-CN AUC 1.000.
 - Subject-level recall CN/MCI/AD: 0.961 / 0.686 / 0.852.
 - IXI healthy retention: 1.000.
 - Internal subject-level recall CN/MCI/AD: 0.241 / 0.553 / 0.550.

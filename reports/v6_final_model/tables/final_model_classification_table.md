@@ -1,6 +1,6 @@
 # Final Classification Table For The Revised Manuscript
 
-| model / protocol | evaluation unit | test cohort | n | Acc | BAcc | macro AUC | AD-vs-CN AUC / CN retention | recall CN/MCI/AD | role |
+| model / protocol | evaluation unit | test cohort | endpoint n | Acc | BAcc | macro AUC | AD-vs-CN AUC / CN retention | recall CN/MCI/AD | role |
 |---|---|---|---:|---:|---:|---:|---|---|---|
 | Old v3 ensemble | scan | AIBL external | 1307 | 0.606 | 0.399 | 0.597 | NA | NA | Failed external baseline |
 | Old v3 ensemble | scan | IXI healthy | 581 | 0.439 | 0.439 | NA | CN retention 0.439 | 0.439/0.000/0.000 | Failed healthy specificity baseline |
@@ -12,4 +12,4 @@
 | Final rescue ensemble | subject | OASIS stress test | 99 | 0.586 | 0.334 | 0.554 | AD-vs-CN AUC 0.371 | 0.966/0.034/0.000 | Limitation, not a claimed validation |
 | Clinical-only RF comparator | scan | AIBL heldout | 397 | 0.922 | 0.835 | 0.957 | AD-vs-CN AUC 0.997 | 0.970/0.755/0.780 | Clinical comparator / upper bound |
 
-Primary manuscript claim: the locked final subject-level ensemble is the main model, while the scan-level result is a reference analysis and the clinical-only model is a comparator rather than the central atlas-guided model.
+Primary manuscript claim: the locked final subject-level ensemble is the main model, while the scan-level result is a reference analysis and the clinical-only model is a comparator rather than the central atlas-guided model. `endpoint n` denotes evaluable endpoint units; the split inventory reports unique participants separately.

@@ -44,6 +44,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
 - `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
 - `reports/v6_final_model/final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
+- `reports/v6_final_model/manuscript_v6_full_draft.md`: full V6 manuscript draft for replacing the old Word manuscript body.
 - `reports/v6_final_model/final_submission_closure_packet.md`: final manuscript-integration packet for Figure 1, OASIS handling, citations, and terminology.
 - `reports/v6_final_model/word_manuscript_rewrite_map.md`: section-by-section rewrite map for converting the old Word manuscript into the V6 submission.
 - `reports/v6_final_model/claim_boundary_audit.md`: generated public-file audit for reviewer-safe claim boundaries.

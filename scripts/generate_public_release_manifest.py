@@ -115,6 +115,8 @@ def role(path: Path) -> str:
         return "Three-core-issue reviewer evidence matrix."
     if text == "reports/v6_final_model/final_figure_blueprint.md":
         return "Panel-by-panel final figure blueprint."
+    if text == "reports/v6_final_model/manuscript_v6_full_draft.md":
+        return "Full V6 manuscript draft for replacing the old Word manuscript body."
     if text == "reports/v6_final_model/final_submission_closure_packet.md":
         return "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
     if text == "reports/v6_final_model/word_manuscript_claim_audit.md":
@@ -160,9 +162,11 @@ def forbidden_matches(paths: list[Path]) -> list[str]:
 
 
 def build_manifest(paths: list[Path], excluded_outputs: set[str]) -> dict:
+    restricted = forbidden_matches(paths)
+    excluded_from_public_list = set(excluded_outputs) | set(restricted)
     files = []
     for path in paths:
-        if str(path) in excluded_outputs:
+        if str(path) in excluded_from_public_list:
             continue
         files.append(
             {
@@ -174,7 +178,6 @@ def build_manifest(paths: list[Path], excluded_outputs: set[str]) -> dict:
             }
         )
     counts = Counter(item["category"] for item in files)
-    restricted = forbidden_matches(paths)
     return {
         "file_count": len(files),
         "category_counts": dict(sorted(counts.items())),
@@ -188,7 +191,7 @@ def build_manifest(paths: list[Path], excluded_outputs: set[str]) -> dict:
             "raw_data_note": "Raw ADNI, AIBL, OASIS, and IXI data are governed by source data-use agreements and are not redistributed.",
             "public_scope": "Code, deployment wrapper, aggregate reports, final figures, documentation, and toy probability examples.",
         },
-        "manifest_note": "The manifest output files are excluded from their own file list to avoid self-referential hashes.",
+        "manifest_note": "Manifest output files and tracked restricted artifacts are excluded from the public file list.",
         "reproduction_commands": REPRODUCTION_COMMANDS,
         "files": files,
     }

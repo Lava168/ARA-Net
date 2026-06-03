@@ -27,6 +27,7 @@
 - [x] Methods updated with subject-level splits, ensemble formula, subject averaging, bootstrap, error analysis.
 - [x] Results updated with final main model, comparator models, error analysis, biological consistency, and OASIS limitation.
 - [x] Discussion rewritten with honest claim boundary.
+- [x] Full V6 manuscript draft generated for replacing the old Word manuscript body.
 - [x] Cover letter core paragraph drafted.
 
 ## Figures

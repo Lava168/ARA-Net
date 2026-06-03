@@ -9,7 +9,7 @@ This generated matrix consolidates the evidence that the revised ARA-Net work is
 - `reports/v6_final_model/final_rescue_model_summary_public.json` sha256:1248b2f9da44
 - `reports/v4/tables/table4_neurodegeneration.csv` sha256:d1ecf85ce88d
 - `reports/v4/tables/table2_classification.csv` sha256:9eac4ffe8c26
-- `deployment/final_ensemble_config.json` sha256:388ccf80aff5
+- `deployment/final_ensemble_config.json` sha256:11f8d381391a
 
 ## Locked Model
 
@@ -32,12 +32,14 @@ This generated matrix consolidates the evidence that the revised ARA-Net work is
 
 ## Primary Metrics Snapshot
 
+Here, `n` denotes evaluable subject-level endpoint units after repeated-scan probability aggregation. In longitudinal cohorts, the split inventory may contain fewer unique participants than endpoint units if a participant contributes distinct diagnostic-state labels over time.
+
 | cohort | n | Acc | BAcc | macro AUC | AD-vs-CN / specificity | recall CN/MCI/AD |
 | --- | --- | --- | --- | --- | --- | --- |
-| AIBL heldout subject | 216 | 0.903 | 0.833 | 0.937 | 1.000 | 0.961/0.686/0.852 |
-| IXI healthy subject | 581 | 1.000 | 1.000 | NA | CN retention 1.000 | 1.000/0.000/0.000 |
-| OASIS stress subject | 99 | 0.586 | 0.334 | 0.554 | 0.371 | 0.966/0.034/0.000 |
-| Internal subject | 96 | 0.458 | 0.448 | 0.719 | 0.921 | 0.241/0.553/0.550 |
+| AIBL heldout subject-level unit | 216 | 0.903 | 0.833 | 0.937 | 1.000 | 0.961/0.686/0.852 |
+| IXI healthy subject-level unit | 581 | 1.000 | 1.000 | NA | CN retention 1.000 | 1.000/0.000/0.000 |
+| OASIS stress subject-level unit | 99 | 0.586 | 0.334 | 0.554 | 0.371 | 0.966/0.034/0.000 |
+| Internal subject-level unit | 96 | 0.458 | 0.448 | 0.719 | 0.921 | 0.241/0.553/0.550 |
 
 ## Reviewer-Safe Claim
 

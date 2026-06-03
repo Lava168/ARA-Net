@@ -1,7 +1,7 @@
 {
-  "file_count": 109,
+  "file_count": 110,
   "category_counts": {
-    "aggregate_reports": 44,
+    "aggregate_reports": 45,
     "analysis_code": 28,
     "deployment": 4,
     "documentation": 8,
@@ -39,7 +39,7 @@
     "raw_data_note": "Raw ADNI, AIBL, OASIS, and IXI data are governed by source data-use agreements and are not redistributed.",
     "public_scope": "Code, deployment wrapper, aggregate reports, final figures, documentation, and toy probability examples."
   },
-  "manifest_note": "The manifest output files are excluded from their own file list to avoid self-referential hashes.",
+  "manifest_note": "Manifest output files and tracked restricted artifacts are excluded from the public file list.",
   "reproduction_commands": [
     {
       "name": "Research CLI smoke test",
@@ -92,15 +92,15 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 7040,
-      "sha256": "4ac54dfd54383bdd5030057ef983e16b3006ac5095b6c3853ea19145da90b11f",
+      "bytes": 7165,
+      "sha256": "1d0b705dea38fe39f039f458657512c1d0a0a0dc8b14d242a7331d1953ece1d7",
       "role": "Public repository file."
     },
     {
       "path": "deployment/final_ensemble_config.json",
       "category": "deployment",
-      "bytes": 1666,
-      "sha256": "388ccf80aff5319f07b4de71a0effab21a71ea12e38e5e34ffb56b6e89396a27",
+      "bytes": 1663,
+      "sha256": "11f8d381391a43741943fd61a1c96d4c88c637689cc4ea01c71f969fe821763c",
       "role": "Locked deployable ensemble configuration."
     },
     {
@@ -127,15 +127,15 @@
     {
       "path": "docs/DATA_CARD.md",
       "category": "documentation",
-      "bytes": 1392,
-      "sha256": "82937951944bd362fd0b2342af6486756a869bcd62a238aefdf5f493276e34a1",
+      "bytes": 1682,
+      "sha256": "01c0c7d68111eb7a264d6870d2bd3495162035bd5066a51fbf275d4eff56f5e3",
       "role": "Public documentation and claim-boundary document."
     },
     {
       "path": "docs/MODEL_CARD.md",
       "category": "documentation",
-      "bytes": 2259,
-      "sha256": "1eb97767eb2727b308ffd7acd212e57c19dc8972c74808f8419be2e3e562650d",
+      "bytes": 2447,
+      "sha256": "0505dd364222919c768259117aca91b07d809f4e643d3dbe17390b9d65cbdfd3",
       "role": "Public documentation and claim-boundary document."
     },
     {
@@ -421,22 +421,22 @@
     {
       "path": "reports/v5_rescue/rescue_status.md",
       "category": "aggregate_reports",
-      "bytes": 3652,
-      "sha256": "d777e7ff6fe11bed444095da8c8da539655a5d8c6db00d47b3b25a6ee8e1cc47",
+      "bytes": 3672,
+      "sha256": "6194263d1267201e654afbe5f6b3cb248ae3fe764d4041cc4009e648db3ba800",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 2532,
-      "sha256": "dba95f11a87b84fedc79fb76c44806d963617808000771e90a2f06b9e469e74a",
+      "bytes": 2634,
+      "sha256": "643adc2bc711f2cd5bf363e027639659ef9ef24c1eaafdfed43c4f3227e58370",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
       "bytes": 31174,
-      "sha256": "6e55a6af2355bc1308a1d1a1633ac611158bde4e461ecd20bbe90284735bb816",
+      "sha256": "fa9145a5e0961f18282eba9d3c585f5720b5cd602df649b36f5375a38954830c",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -449,8 +449,8 @@
     {
       "path": "reports/v6_final_model/core_reviewer_evidence_matrix.md",
       "category": "aggregate_reports",
-      "bytes": 4590,
-      "sha256": "c0525dfb80806f24d15f7904a35cd78d2610c3a9d1986a244c7e0a2c20f1ff80",
+      "bytes": 4913,
+      "sha256": "2197d755812ed05e67a44c58b34e0ca0f00e95989fc8705a918d13bd715955bf",
       "role": "Three-core-issue reviewer evidence matrix."
     },
     {
@@ -533,8 +533,8 @@
     {
       "path": "reports/v6_final_model/final_rescue_model_lock_report.md",
       "category": "aggregate_reports",
-      "bytes": 3084,
-      "sha256": "a9433ba9381cce14b167137b261b373085028d09f64518e5324f479e12440433",
+      "bytes": 3391,
+      "sha256": "e15c745c0f691ac319784bb58c4a1cdc5b002463313886e72b210e986e08ee7a",
       "role": "Public repository file."
     },
     {
@@ -547,8 +547,8 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 4768,
-      "sha256": "05ad8a6ea151a9a52fc8a93ccf16f35c170047c18665d5b1cd71e8c574f1deb6",
+      "bytes": 4853,
+      "sha256": "8c1219444eb900b3107dfb6ba6755407d2434f01c89ee5167aee4dfaf4e511a4",
       "role": "Public repository file."
     },
     {
@@ -559,10 +559,17 @@
       "role": "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
     },
     {
+      "path": "reports/v6_final_model/manuscript_v6_full_draft.md",
+      "category": "aggregate_reports",
+      "bytes": 25321,
+      "sha256": "854c42f025f0d70f51986e9956e020f546e5c02b112bb8926e21693aefdb2832",
+      "role": "Full V6 manuscript draft for replacing the old Word manuscript body."
+    },
+    {
       "path": "reports/v6_final_model/manuscript_v6_rewrite_package.md",
       "category": "aggregate_reports",
-      "bytes": 15295,
-      "sha256": "c666f5344e9a82a7cd1674f4340d9553c52b7e6aebfeaea74461c5cef8dba63d",
+      "bytes": 15586,
+      "sha256": "5af34abdf0dd09ba81ad96d0d810f5c72680ea1d4e71271be47ac0d27dec700b",
       "role": "Public repository file."
     },
     {
@@ -589,8 +596,8 @@
     {
       "path": "reports/v6_final_model/tables/final_model_classification_table.md",
       "category": "aggregate_reports",
-      "bytes": 1794,
-      "sha256": "215d3ba073e290cfeb18697f979fab6389277a7dc10aa677fd05a90f1f32ac7e",
+      "bytes": 1910,
+      "sha256": "737ecbcb91a80aa2ffa6fec9b5068d7a6f186e82d937a04417a707c5071aa466",
       "role": "Aggregate final v6 table."
     },
     {
@@ -617,8 +624,8 @@
     {
       "path": "reports/v6_final_model/word_manuscript_rewrite_map.md",
       "category": "aggregate_reports",
-      "bytes": 8998,
-      "sha256": "424fc685a90326b708b8e3b8dcbd05a4fbbae058617561274e3ac0bcce039d17",
+      "bytes": 9051,
+      "sha256": "9419af33a25165949c45217e9ffe57d31218d5d0c4ce9daa43f4c0372ed5e95c",
       "role": "Section-level map for rewriting the old Word manuscript into the V6 submission."
     },
     {
@@ -701,15 +708,15 @@
     {
       "path": "scripts/final_rescue_model_package.py",
       "category": "analysis_code",
-      "bytes": 36347,
-      "sha256": "1537e957c53ca5370961def45f5d388b05773f5f797ea93e76ed06dd833cdc81",
+      "bytes": 36667,
+      "sha256": "1d89b8f65004e9eb3006350197dfc8907f226e8219db33ff9ea5254979e41e59",
       "role": "Reproducible analysis or report-generation script."
     },
     {
       "path": "scripts/generate_core_reviewer_evidence_matrix.py",
       "category": "analysis_code",
-      "bytes": 11876,
-      "sha256": "44960bcf9657ee5cdefb2aec44cedae7acd13927a29a401b19ff0d3a9c0d63c6",
+      "bytes": 12221,
+      "sha256": "61e24050582408d25e1fdb7e46e3261f9943911b5ee3b9d61a526e1864751069",
       "role": "Reproducible analysis or report-generation script."
     },
     {
@@ -722,8 +729,8 @@
     {
       "path": "scripts/generate_public_release_manifest.py",
       "category": "analysis_code",
-      "bytes": 10760,
-      "sha256": "6bed873bba3ff19810326206c2a50595d1e90db240f066d0a2ef5053170b7098",
+      "bytes": 10993,
+      "sha256": "48ced512622717b14c495dea7a3efe28923e61206ff760b77194be5645971205",
       "role": "Reproducible analysis or report-generation script."
     },
     {

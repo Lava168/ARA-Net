@@ -18,10 +18,10 @@ Current Word audit: `word_manuscript_claim_audit.md`
 | Word area | current problem | action | source to use |
 |---|---|---|---|
 | Title | Frames paper as "Atlas-Guided Region Attention". | Replace with atlas-guided multimodal subject-level staging title. | `manuscript_v6_rewrite_package.md` |
-| Abstract | Methods/results/conclusion are old attention-as-biomarker claims and old ADNI CV metrics. | Replace entire abstract. | V6 abstract in `manuscript_v6_rewrite_package.md` |
+| Abstract | Methods/results/conclusion are old attention-as-biomarker claims and old ADNI CV metrics. | Replace entire abstract. | V6 abstract in `manuscript_v6_full_draft.md` |
 | Keywords/abbreviations | Includes CAS, RDI, attention biomarker discovery as central terms. | Remove CAS/RDI unless only historical; add subject-level, external heldout, atlas structural neurodegeneration consistency. | `final_submission_closure_packet.md` |
-| Introduction | Research questions ask whether attention aligns with Braak. | Rewrite around three reviewer failures: external classification, invalid CAS, non-significant Braak. | V6 Introduction |
-| Contributions | C1/C2 are attention model and Attention-as-Biomarker framework. | Replace with leakage-free subject-level splits, locked AIBL endpoint, IXI specificity, comparators, bootstrap, error analysis, structural proxy. | V6 contributions |
+| Introduction | Research questions ask whether attention aligns with Braak. | Rewrite around three reviewer failures: external classification, invalid CAS, non-significant Braak. | V6 Introduction in `manuscript_v6_full_draft.md` |
+| Contributions | C1/C2 are attention model and Attention-as-Biomarker framework. | Replace with leakage-free subject-level splits, locked AIBL endpoint, IXI specificity, comparators, bootstrap, error analysis, structural proxy. | V6 contributions in `manuscript_v6_full_draft.md` |
 | Cohorts | Old Table 1 says three datasets and OASIS interpretability generalization. | Replace with ADNI/AIBL/OASIS/IXI subject-level split table. | `docs/DATA_CARD.md`, V6 Methods |
 | Model methods | Old sections detail CNN attention architecture and attention losses. | Shorten as legacy baseline or remove; primary method is final rescue probability ensemble. | `deployment/final_ensemble_config.json`, V6 Methods |
 | Attention-as-Biomarker section | Central invalid CAS/RDI/disease-gradient framework. | Remove as primary method. Replace with atlas structural neurodegeneration consistency analysis. | V6 Biological Consistency section |
@@ -51,7 +51,7 @@ These unit numbers should be treated as replacement anchors, not as sentences to
 
 ### Title
 
-Atlas-guided multimodal Alzheimer's disease staging with locked external subject-level validation and neurodegeneration-consistent regional biomarkers
+Atlas-guided multimodal Alzheimer's disease staging with locked external subject-level validation and structural neurodegeneration consistency
 
 ### Keywords
 

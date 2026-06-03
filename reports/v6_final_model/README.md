@@ -7,6 +7,7 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 - `final_rescue_model_lock_report.md`: locked final model, subject-level endpoint, bootstrap intervals, and claim boundary.
 - `core_reviewer_evidence_matrix.md`: generated matrix for the three core revision issues: external classification, CAS replacement, and Braak-alternative biological validation.
 - `final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
+- `manuscript_v6_full_draft.md`: full V6 manuscript draft for replacing the old Word manuscript body.
 - `final_submission_closure_packet.md`: final manuscript-integration packet for Figure 1, OASIS handling, citations, and terminology.
 - `word_manuscript_claim_audit.md`: generated claim-boundary audit for the uploaded Word manuscript.
 - `word_manuscript_rewrite_map.md`: section-by-section rewrite map for converting the old Word manuscript into the V6 submission.

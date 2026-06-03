@@ -43,7 +43,7 @@
       "ad_recall": [0.7096438172043011, 0.9655172413793104]
     }
   },
-  "intended_use": "Research prototype for retrospective validation and future clinical-decision-support studies.",
+  "intended_use": "Research prototype for retrospective validation and future prospective validation studies.",
   "not_intended_for": "Direct clinical diagnosis, treatment selection, emergency decision-making, or unsupervised patient care.",
   "clinical_use_notice": "Not a medical device. Not cleared or approved for clinical use."
 }

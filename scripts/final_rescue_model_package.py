@@ -691,7 +691,7 @@ def fmt_ci(ci: Optional[dict], digits: int = 3) -> str:
 
 def metrics_markdown_table(metrics_by_split: dict, bootstrap_by_split: dict) -> List[str]:
     lines = [
-        "| split | n | Acc | BAcc | macro AUC | AD-vs-CN AUC/CN retention | CN/MCI/AD recall | BAcc 95% CI | MCI recall 95% CI | AD recall 95% CI |",
+        "| split | endpoint n | Acc | BAcc | macro AUC | AD-vs-CN AUC/CN retention | CN/MCI/AD recall | BAcc 95% CI | MCI recall 95% CI | AD recall 95% CI |",
         "|---|---:|---:|---:|---:|---|---|---|---|---|",
     ]
     for split in ["val", "internal_test", "aibl_adapt_val", "aibl_heldout", "ixi_external", "oasis_external"]:
@@ -786,6 +786,8 @@ def make_lock_report(summary: dict) -> str:
         "Primary model: subject-level balanced rescue probability ensemble, tuned on ADNI validation, AIBL adaptation validation, and IXI only. OASIS was not used for tuning and is retained only as a stress-test limitation.",
         "",
         "Primary endpoint: locked AIBL heldout subject-level CN/MCI/AD staging, with IXI healthy CN retention as the specificity check.",
+        "",
+        "`endpoint n` denotes evaluable subject-level units after repeated-scan probability aggregation. In longitudinal cohorts, a participant can contribute distinct diagnostic-state endpoint units over time; this is separate from the unique-participant split inventory used to prevent leakage.",
         "",
         "## Main Subject-Level Result",
         "",

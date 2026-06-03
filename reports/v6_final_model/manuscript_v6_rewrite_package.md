@@ -4,7 +4,7 @@
 
 ## Recommended Title
 
-Atlas-guided multimodal Alzheimer's disease staging with locked external subject-level validation and neurodegeneration-consistent regional biomarkers
+Atlas-guided multimodal Alzheimer's disease staging with locked external subject-level validation and structural neurodegeneration consistency
 
 ## Abstract
 
@@ -12,7 +12,7 @@ Atlas-guided multimodal Alzheimer's disease staging with locked external subject
 
 **Methods:** We constructed leakage-free subject-level splits across ADNI, AIBL, OASIS, and IXI. ADNI was used for training, validation, and internal testing. AIBL was divided into adaptation training, adaptation validation, and a locked heldout external test. IXI served as a healthy negative-control cohort. OASIS was retained only as an external stress test. Atlas-derived MRI regional features were combined with core clinical variables and calibrated by a log-probability ensemble with class offsets and temperature scaling. Repeated scans were averaged at subject level before the primary evaluation. Comparator models included atlas-only, cascade, atlas+clinical HGB, clinical-only RF, and biomarker-enhanced variants. The original attention-only CAS and direct Braak claim were replaced by an atlas-region neurodegeneration consistency analysis.
 
-**Results:** The original v3 model failed external validation, with AIBL balanced accuracy of 0.399 and IXI CN retention of 0.439. The final locked subject-level rescue ensemble achieved AIBL heldout accuracy of 0.903, balanced accuracy of 0.833, macro AUC of 0.937, and AD-vs-CN AUC of 1.000. CN/MCI/AD recall was 0.961/0.686/0.852. Bootstrap 95% confidence intervals were 0.759-0.899 for balanced accuracy, 0.531-0.839 for MCI recall, and 0.710-0.966 for AD recall. The same model retained all IXI healthy controls as CN. AIBL heldout errors were concentrated near MCI/AD boundaries: no AD subject was misclassified as CN. OASIS transfer remained poor and is reported as a limitation. The AD-key volume consistency score in AIBL heldout was 0.510 versus a uniform regional null of 0.286, with bootstrap CI [0.479, 0.526] and permutation p=0.026.
+**Results:** The original v3 model failed external validation, with AIBL balanced accuracy of 0.399 and IXI CN retention of 0.439. The final locked subject-level rescue ensemble achieved AIBL heldout accuracy of 0.903, balanced accuracy of 0.833, macro AUC of 0.937, and AD-vs-CN AUC of 1.000. CN/MCI/AD recall was 0.961/0.686/0.852. Bootstrap 95% confidence intervals were 0.759-0.899 for balanced accuracy, 0.531-0.839 for MCI recall, and 0.710-0.966 for AD recall. The same model retained all IXI healthy controls as CN. AIBL heldout errors were concentrated near MCI/AD boundaries: no AD endpoint unit was misclassified as CN. OASIS transfer remained poor and is reported as a limitation. The AD-key volume consistency score in AIBL heldout was 0.510 versus a uniform regional null of 0.286, with bootstrap CI [0.479, 0.526] and permutation p=0.026.
 
 **Conclusion:** The revised work provides substantially stronger evidence for domain-adapted external subject-level AD staging, healthy negative-control specificity, and atlas-region neurodegeneration consistency. It does not claim pure zero-shot transfer, solved OASIS generalization, direct Braak staging, or deployment-ready clinical performance.
 
@@ -66,7 +66,7 @@ For the primary subject-level analysis, repeated scans for subject \(s\) were av
 \hat{y}_s = \arg\max_k \bar{p}_{s,k}.
 \]
 
-Ensemble weights, class offsets, and temperature were selected using ADNI validation, AIBL adaptation validation, and IXI healthy specificity. OASIS was not used for final tuning.
+Ensemble weights, class offsets, and temperature were selected using ADNI validation, AIBL adaptation validation, and IXI healthy specificity. OASIS was not used for final tuning. Final metric tables report evaluable subject-level endpoint units after repeated-scan probability aggregation; in longitudinal cohorts, these endpoint units are separate from the unique-participant split inventory used to prevent leakage.
 
 ### Evaluation
 
@@ -98,9 +98,9 @@ The v4 atlas+clinical HGB model improved over the original v3 baseline but had l
 
 ### MCI And AD Error Analysis
 
-On the locked AIBL heldout subject-level set, errors were concentrated at disease-stage boundaries. Among 154 CN subjects, 148 were classified as CN, five as MCI, and one as AD. Among 35 MCI subjects, 24 were classified as MCI, two as CN, and nine as AD. Among 27 AD subjects, 23 were classified as AD and four as MCI; no AD subject was misclassified as CN.
+On the locked AIBL heldout subject-level set, errors were concentrated at disease-stage boundaries. Among 154 CN endpoint units, 148 were classified as CN, five as MCI, and one as AD. Among 35 MCI endpoint units, 24 were classified as MCI, two as CN, and nine as AD. Among 27 AD endpoint units, 23 were classified as AD and four as MCI; no AD endpoint unit was misclassified as CN.
 
-The feature-profile analysis supported this boundary interpretation. AIBL AD subjects correctly classified as AD had lower MMSE, larger lateral ventricular volume, and higher AD-like atlas z-scores than AD subjects classified as CN/MCI. MCI subjects classified as AD had lower MMSE and more AD-like atlas profiles than MCI subjects classified correctly, consistent with a disease-severity boundary rather than arbitrary failure.
+The feature-profile analysis supported this boundary interpretation. AIBL AD endpoint units correctly classified as AD had lower MMSE, larger lateral ventricular volume, and higher AD-like atlas z-scores than AD endpoint units classified as CN/MCI. MCI endpoint units classified as AD had lower MMSE and more AD-like atlas profiles than MCI endpoint units classified correctly, consistent with a disease-severity boundary rather than arbitrary failure.
 
 ### Biological Consistency
 
@@ -114,7 +114,7 @@ OASIS remained weak without OASIS tuning. The final subject-level model achieved
 
 The revised study addresses the major weaknesses of the original manuscript by changing both the experimental evidence and the claim boundary. First, cross-dataset generalization is no longer inferred from attention similarity. It is evaluated using a locked AIBL heldout subject-level test and an IXI healthy negative-control cohort. Second, the invalid attention-only CAS is removed and replaced by an atlas-region structural neurodegeneration consistency analysis. Third, the non-significant Braak result is no longer used to claim direct neuropathological staging.
 
-The final model is strongest when interpreted as a domain-adapted external AD staging framework. AIBL adaptation data were used for model fitting and calibration, but AIBL heldout subjects remained locked and were not used for final evaluation. This distinction is important: the work does not solve pure ADNI-to-AIBL zero-shot staging, but it does demonstrate that anatomically grounded MRI features and core clinical variables can support robust heldout subject-level staging within an external cohort.
+The final model is strongest when interpreted as a domain-adapted external AD staging framework. AIBL adaptation data were used for model fitting and calibration, but AIBL heldout endpoint units remained locked and were not used for final evaluation. This distinction is important: the work does not solve pure ADNI-to-AIBL zero-shot staging, but it does demonstrate that anatomically grounded MRI features and core clinical variables can support robust heldout subject-level staging within an external cohort.
 
 The error analysis also clarifies the clinical meaning of the remaining failures. On AIBL heldout, AD subjects were not missed as CN; residual AD errors were classified as MCI. MCI errors were mostly split between correct MCI and AD, with only two MCI subjects classified as CN. This pattern is preferable to a model that preserves overall accuracy by collapsing minority disease classes into CN, but it also shows that precise MCI/AD boundary staging remains challenging.
 

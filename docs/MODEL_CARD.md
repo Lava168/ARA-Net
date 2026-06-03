@@ -2,11 +2,11 @@
 
 ## Model Summary
 
-ARA-Net V6 is an atlas-guided multimodal Alzheimer's disease staging research model. The public deployment wrapper combines probabilities from six base models using log-probability pooling, temperature scaling, and class-specific offsets. Repeated scans are averaged at subject level for the primary prediction.
+ARA-Net V6 is an atlas-guided multimodal Alzheimer's disease staging research model. The public deployment wrapper combines probabilities from six base models using log-probability pooling, temperature scaling, and class-specific offsets. Repeated scans are averaged at the subject-level endpoint unit for the primary prediction.
 
 ## Intended Use
 
-The model is intended for retrospective research evaluation and prospective clinical-decision-support studies. It is not intended for direct diagnosis, treatment selection, emergency triage, or unsupervised patient care.
+The model is intended for retrospective research evaluation and future prospective validation studies. It is not intended for direct diagnosis, treatment selection, emergency triage, or unsupervised patient care.
 
 ## Input
 
@@ -25,6 +25,8 @@ The model outputs:
 ## Primary Evaluation
 
 Locked AIBL heldout subject-level evaluation:
+
+The reported `n` is the number of evaluable subject-level endpoint units after probability aggregation, not necessarily the raw unique-participant count in the split inventory.
 
 | Metric | Value |
 |---|---:|
