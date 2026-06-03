@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARA-Net Research Console</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">ARA-Net V6</p>
+            <h1>Research Console</h1>
+          </div>
+          <div class="system-strip" aria-label="System state">
+            <span class="status-dot" id="apiDot"></span>
+            <span id="apiState">Checking API</span>
+            <span class="divider"></span>
+            <span id="modelVersion">v6.0-research</span>
+          </div>
+        </header>
+
+        <section class="control-band" aria-label="Prediction controls">
+          <div class="upload-panel">
+            <label class="dropzone" for="csvFile" id="dropzone">
+              <span class="drop-icon">CSV</span>
+              <span>
+                <strong id="fileName">Select probability CSV</strong>
+                <small id="fileMeta">No probability rows loaded</small>
+              </span>
+            </label>
+            <input id="csvFile" type="file" accept=".csv,text/csv">
+          </div>
+
+          <div class="compact-controls">
+            <div class="segmented" aria-label="Prediction unit">
+              <button class="active" type="button" data-unit="subject">Subject</button>
+              <button type="button" data-unit="scan">Scan</button>
+            </div>
+            <label class="endpoint-field">
+              <span>Endpoint</span>
+              <input id="endpoint" value="/predict" spellcheck="false">
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button class="ghost-button" type="button" id="sampleButton">Load Sample</button>
+            <button class="primary-button" type="button" id="runButton" disabled>Run Prediction</button>
+          </div>
+        </section>
+
+        <section class="notice-bar" role="note">
+          <strong>Research use only.</strong>
+          <span id="clinicalNotice">Not a medical device. Not cleared or approved for clinical use.</span>
+        </section>
+
+        <section class="result-grid" aria-label="Prediction review">
+          <article class="summary-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Run Summary</p>
+                <h2 id="resultTitle">Awaiting input</h2>
+              </div>
+              <span class="run-pill" id="runPill">Idle</span>
+            </div>
+            <div class="metric-grid">
+              <div class="metric">
+                <span>Rows</span>
+                <strong id="metricRows">0</strong>
+              </div>
+              <div class="metric">
+                <span>Mean Confidence</span>
+                <strong id="metricConfidence">-</strong>
+              </div>
+              <div class="metric">
+                <span>Low Margin</span>
+                <strong id="metricLowMargin">-</strong>
+              </div>
+              <div class="metric">
+                <span>Mode</span>
+                <strong id="metricMode">Subject</strong>
+              </div>
+            </div>
+            <div class="class-bars" id="classBars">
+              <div class="class-row">
+                <span>CN</span>
+                <div><i style="width: 0%"></i></div>
+                <strong>0</strong>
+              </div>
+              <div class="class-row">
+                <span>MCI</span>
+                <div><i style="width: 0%"></i></div>
+                <strong>0</strong>
+              </div>
+              <div class="class-row">
+                <span>AD</span>
+                <div><i style="width: 0%"></i></div>
+                <strong>0</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="focus-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Highest Confidence</p>
+                <h2 id="focusSubject">No prediction</h2>
+              </div>
+              <span class="label-chip" id="focusLabel">-</span>
+            </div>
+            <div class="probability-stack" id="probabilityStack">
+              <div class="prob-row">
+                <span>CN</span>
+                <div><i style="width: 0%"></i></div>
+                <strong>0.000</strong>
+              </div>
+              <div class="prob-row">
+                <span>MCI</span>
+                <div><i style="width: 0%"></i></div>
+                <strong>0.000</strong>
+              </div>
+              <div class="prob-row">
+                <span>AD</span>
+                <div><i style="width: 0%"></i></div>
+                <strong>0.000</strong>
+              </div>
+            </div>
+            <div class="focus-meta">
+              <span id="focusConfidence">Confidence -</span>
+              <span id="focusMargin">Margin -</span>
+              <span id="focusScans">Scans -</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="table-panel" aria-label="Predictions">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Prediction Table</p>
+              <h2 id="tableTitle">No rows loaded</h2>
+            </div>
+            <div class="table-tools">
+              <label>
+                <span>Filter</span>
+                <select id="labelFilter">
+                  <option value="all">All</option>
+                  <option value="CN">CN</option>
+                  <option value="MCI">MCI</option>
+                  <option value="AD">AD</option>
+                </select>
+              </label>
+              <button class="ghost-button small" type="button" id="downloadButton" disabled>Download CSV</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Scan</th>
+                  <th>Predicted</th>
+                  <th>Confidence</th>
+                  <th>Margin</th>
+                  <th>CN</th>
+                  <th>MCI</th>
+                  <th>AD</th>
+                </tr>
+              </thead>
+              <tbody id="predictionBody">
+                <tr>
+                  <td colspan="8" class="empty-cell">No prediction rows.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-rail">
+        <section class="model-panel">
+          <p class="eyebrow">Locked Model</p>
+          <h2 id="modelName">ARA-Net V6 subject-level rescue ensemble</h2>
+          <dl>
+            <div>
+              <dt>AIBL BAcc</dt>
+              <dd id="metricBacc">0.833</dd>
+            </div>
+            <div>
+              <dt>Macro AUC</dt>
+              <dd id="metricAuc">0.937</dd>
+            </div>
+            <div>
+              <dt>AD Recall</dt>
+              <dd id="metricAdRecall">0.852</dd>
+            </div>
+            <div>
+              <dt>MCI Recall</dt>
+              <dd id="metricMciRecall">0.686</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="model-panel">
+          <p class="eyebrow">Model Inputs</p>
+          <h2>Probability Ensemble</h2>
+          <ol class="model-list" id="modelList"></ol>
+        </section>
+
+        <section class="boundary-panel">
+          <p class="eyebrow">Boundary</p>
+          <h2>Prospective validation required</h2>
+          <p>For retrospective research review only. Clinical deployment requires local calibration, workflow validation, cybersecurity review, and regulatory assessment.</p>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

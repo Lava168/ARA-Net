@@ -33,8 +33,9 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `scripts/final_rescue_model_package.py`: final metrics, bootstrap, and error-analysis package generation.
 - `scripts/generate_v6_final_figures.py`: final v6 manuscript figures.
 - `deployment/research_inference.py`: CLI for research inference from base-model class probabilities.
-- `deployment/research_api.py`: minimal HTTP API for research deployment.
+- `deployment/research_api.py`: HTTP API and static web-console server for research deployment.
 - `deployment/final_ensemble_config.json`: locked final ensemble weights, offsets, and temperature.
+- `frontend/`: browser-based research console for CSV upload, prediction review, and CSV export.
 - `docs/MODEL_CARD.md`: model-card summary, intended use, metrics, and limitations.
 - `docs/DATA_CARD.md`: data provenance and public-release boundary.
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
@@ -69,6 +70,14 @@ API example:
 python deployment/research_api.py --port 8080
 curl http://localhost:8080/health
 ```
+
+Web console:
+
+```bash
+python deployment/research_api.py --host 127.0.0.1 --port 8080
+```
+
+Then open [http://localhost:8080](http://localhost:8080). The console accepts the same base-model probability CSV format as the CLI, calls `POST /predict`, summarizes class distribution and confidence, and exports prediction CSV files.
 
 Docker example:
 

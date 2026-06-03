@@ -4,7 +4,7 @@
 
 - Final ensemble configuration.
 - Research inference CLI.
-- Minimal research API.
+- Research API and browser-based research console.
 - Dockerfile.
 - Figure-generation scripts.
 - Aggregate reports and manuscript-supporting figures.
@@ -37,6 +37,20 @@ Health check:
 ```bash
 curl http://localhost:8080/health
 ```
+
+Metadata endpoint:
+
+```bash
+curl http://localhost:8080/metadata
+```
+
+## Web Console
+
+```bash
+python deployment/research_api.py --host 127.0.0.1 --port 8080
+```
+
+Open [http://localhost:8080](http://localhost:8080). The browser console supports CSV upload, subject-level or scan-level prediction, confidence review, label filtering, and prediction CSV export.
 
 ## Docker Deployment
 

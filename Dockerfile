@@ -7,6 +7,7 @@ RUN pip install --no-cache-dir -r requirements-deploy.txt
 
 COPY deployment /app/deployment
 COPY examples /app/examples
+COPY frontend /app/frontend
 
 ENV PYTHONPATH=/app/deployment
 
