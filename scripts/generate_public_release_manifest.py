@@ -55,6 +55,11 @@ REPRODUCTION_COMMANDS = [
         "scope": "Regenerates the external classification / CAS replacement / Braak-alternative evidence matrix.",
     },
     {
+        "name": "Claim boundary audit",
+        "command": "python scripts/audit_claim_boundaries.py",
+        "scope": "Scans public Git-tracked files for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.",
+    },
+    {
         "name": "Public release manifest",
         "command": "python scripts/generate_public_release_manifest.py",
         "scope": "Regenerates the public-file manifest and restricted-artifact check.",
@@ -108,8 +113,12 @@ def role(path: Path) -> str:
     text = str(path)
     if text == "reports/v6_final_model/core_reviewer_evidence_matrix.md":
         return "Three-core-issue reviewer evidence matrix."
+    if text == "reports/v6_final_model/claim_boundary_audit.md":
+        return "Public claim-boundary audit for reviewer-safe wording."
     if text == "reports/v6_final_model/final_rescue_model_summary_public.json":
         return "Public aggregate final-model metrics and bootstrap evidence."
+    if text == "scripts/audit_claim_boundaries.py":
+        return "Public overclaim audit script."
     if text == "deployment/final_ensemble_config.json":
         return "Locked deployable ensemble configuration."
     if text.startswith("frontend/"):

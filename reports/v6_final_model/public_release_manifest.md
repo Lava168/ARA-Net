@@ -1,6 +1,6 @@
 # Public Release Manifest
 
-- Public tracked file count: 102
+- Public tracked file count: 104
 - Restricted artifact check: **pass**
 - Public scope: code, deployment wrapper, aggregate reports, final figures, documentation, and toy probability examples.
 - Not redistributed: raw ADNI/AIBL/OASIS/IXI data, private clinical spreadsheets, row-level subject/scan predictions, MRI volumes, and model checkpoints.
@@ -10,8 +10,8 @@
 
 | category | files |
 |---|---:|
-| aggregate_reports | 39 |
-| analysis_code | 26 |
+| aggregate_reports | 40 |
+| analysis_code | 27 |
 | deployment | 4 |
 | documentation | 8 |
 | environment | 2 |
@@ -26,6 +26,7 @@
 |---|---|---|
 | Research CLI smoke test | `python deployment/research_inference.py --input-csv examples/probability_input_example.csv --output examples/predictions_subject.csv --unit subject` | Checks the public probability-ensemble wrapper. |
 | Core reviewer evidence matrix | `python scripts/generate_core_reviewer_evidence_matrix.py` | Regenerates the external classification / CAS replacement / Braak-alternative evidence matrix. |
+| Claim boundary audit | `python scripts/audit_claim_boundaries.py` | Scans public Git-tracked files for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims. |
 | Public release manifest | `python scripts/generate_public_release_manifest.py` | Regenerates the public-file manifest and restricted-artifact check. |
 | Final figures | `python scripts/generate_v6_final_figures.py --summary reports/v6_final_model/final_rescue_model_summary_public.json --table2 reports/v4/tables/table2_classification.csv --table-dir reports/v6_final_model/tables --out-dir reports/v6_final_model/figures` | Regenerates v6 aggregate manuscript figures after upstream result files exist. |
 
@@ -64,13 +65,14 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v5_rescue/rescue_probability_subject_quick_no_oasis_tune.md` | 4711 | `d36630555756` | Public repository file. |
 | `reports/v5_rescue/rescue_probability_targeted_no_oasis_tune.md` | 4734 | `ac50bb888bf6` | Public repository file. |
 | `reports/v5_rescue/rescue_status.md` | 3652 | `d777e7ff6fe1` | Public repository file. |
+| `reports/v6_final_model/claim_boundary_audit.md` | 34247 | `ceb88c3764e5` | Public claim-boundary audit for reviewer-safe wording. |
 | `reports/v6_final_model/clinical_translation_roadmap.md` | 3166 | `1cc4f087bda8` | Public repository file. |
-| `reports/v6_final_model/core_reviewer_evidence_matrix.md` | 4591 | `0eb053075dab` | Three-core-issue reviewer evidence matrix. |
+| `reports/v6_final_model/core_reviewer_evidence_matrix.md` | 4590 | `c0525dfb8080` | Three-core-issue reviewer evidence matrix. |
 | `reports/v6_final_model/deployment_code_clinical_response.md` | 4896 | `ae28cdc7bb21` | Public repository file. |
 | `reports/v6_final_model/final_model_error_analysis.md` | 3049 | `63403ec1536f` | Public repository file. |
 | `reports/v6_final_model/final_rescue_model_lock_report.md` | 3084 | `a9433ba9381c` | Public repository file. |
 | `reports/v6_final_model/final_rescue_model_summary_public.json` | 59167 | `1248b2f9da44` | Public aggregate final-model metrics and bootstrap evidence. |
-| `reports/v6_final_model/final_submission_checklist.md` | 4004 | `e3382b755271` | Public repository file. |
+| `reports/v6_final_model/final_submission_checklist.md` | 4195 | `266514e89a37` | Public repository file. |
 | `reports/v6_final_model/manuscript_v6_rewrite_package.md` | 15295 | `c666f5344e9a` | Public repository file. |
 | `reports/v6_final_model/reviewer_response_v6_matrix.md` | 4708 | `2a9966088ab8` | Public repository file. |
 | `reports/v6_final_model/tables/aibl_heldout_confusion_transitions.csv` | 294 | `21d4b97d0233` | Aggregate final v6 table. |
@@ -85,15 +87,16 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 |---|---:|---|---|
 | `scripts/analyze_atlas_feature_biomarkers.py` | 7071 | `24f8d4e2b024` | Reproducible analysis or report-generation script. |
 | `scripts/audit_ad_data.py` | 6283 | `9bd03c8ad6ad` | Reproducible analysis or report-generation script. |
+| `scripts/audit_claim_boundaries.py` | 9359 | `b707b92a3cbd` | Public overclaim audit script. |
 | `scripts/build_oasis_locked_manifest.py` | 4947 | `d16cc56825fd` | Reproducible analysis or report-generation script. |
 | `scripts/build_v4_manifest.py` | 8732 | `35605c2519df` | Reproducible analysis or report-generation script. |
 | `scripts/evaluate_external_ad_datasets.py` | 31196 | `01f333bac625` | Reproducible analysis or report-generation script. |
 | `scripts/export_manuscript_tables.py` | 7116 | `18b65986b620` | Reproducible analysis or report-generation script. |
 | `scripts/extract_v4_attention_biomarkers.py` | 9777 | `d88d66b9c65c` | Reproducible analysis or report-generation script. |
 | `scripts/final_rescue_model_package.py` | 36347 | `1537e957c53c` | Reproducible analysis or report-generation script. |
-| `scripts/generate_core_reviewer_evidence_matrix.py` | 11877 | `34c0cd7db27f` | Reproducible analysis or report-generation script. |
+| `scripts/generate_core_reviewer_evidence_matrix.py` | 11876 | `44960bcf9657` | Reproducible analysis or report-generation script. |
 | `scripts/generate_manuscript_figures.py` | 26774 | `b6a9eae6f5a8` | Reproducible analysis or report-generation script. |
-| `scripts/generate_public_release_manifest.py` | 9530 | `0b77f9a612b1` | Reproducible analysis or report-generation script. |
+| `scripts/generate_public_release_manifest.py` | 10008 | `a01c455766e5` | Reproducible analysis or report-generation script. |
 | `scripts/generate_v6_final_figures.py` | 13200 | `ba1ff4f804ec` | Reproducible analysis or report-generation script. |
 | `scripts/launch_external_validation_shards.sh` | 949 | `57072603751b` | Reproducible analysis or report-generation script. |
 | `scripts/merge_external_validation_shards.py` | 9540 | `6096bd336cdc` | Reproducible analysis or report-generation script. |
@@ -124,13 +127,13 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | path | bytes | sha256 | role |
 |---|---:|---|---|
 | `LICENSE` | 1064 | `5f7e61045d8d` | Public repository file. |
-| `README.md` | 6275 | `f2e291a5bc4f` | Public repository file. |
+| `README.md` | 6605 | `4d118078de48` | Public repository file. |
 | `docs/CLINICAL_VALIDATION_PROTOCOL.md` | 2492 | `41d335eb58ad` | Public documentation and claim-boundary document. |
 | `docs/DATA_CARD.md` | 1392 | `82937951944b` | Public documentation and claim-boundary document. |
 | `docs/MODEL_CARD.md` | 2259 | `1eb97767eb27` | Public documentation and claim-boundary document. |
 | `docs/OPEN_SOURCE_AND_DEPLOYMENT.md` | 1571 | `ffaa9327d643` | Public documentation and claim-boundary document. |
 | `docs/REGULATORY_NOTES.md` | 2174 | `ae8196036c9f` | Public documentation and claim-boundary document. |
-| `reports/v6_final_model/README.md` | 1849 | `ac2452a7f683` | Public repository file. |
+| `reports/v6_final_model/README.md` | 2065 | `36d6abfbef3f` | Public repository file. |
 
 ### environment
 

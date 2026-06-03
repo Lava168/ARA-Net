@@ -33,6 +33,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `scripts/final_rescue_model_package.py`: final metrics, bootstrap, and error-analysis package generation.
 - `scripts/generate_v6_final_figures.py`: final v6 manuscript figures.
 - `scripts/generate_core_reviewer_evidence_matrix.py`: reproducible evidence matrix for external validation, CAS replacement, and Braak-alternative biological validation.
+- `scripts/audit_claim_boundaries.py`: generated audit for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.
 - `deployment/research_inference.py`: CLI for research inference from base-model class probabilities.
 - `deployment/research_api.py`: HTTP API and static web-console server for research deployment.
 - `deployment/final_ensemble_config.json`: locked final ensemble weights, offsets, and temperature.
@@ -42,6 +43,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
 - `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
+- `reports/v6_final_model/claim_boundary_audit.md`: generated public-file audit for reviewer-safe claim boundaries.
 - `reports/v6_final_model/public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
 
 The public reports intentionally exclude row-level subject/scan prediction files and dataset-derived identifiers.
@@ -120,6 +122,12 @@ Generate the core reviewer-evidence matrix:
 
 ```bash
 python scripts/generate_core_reviewer_evidence_matrix.py
+```
+
+Run the claim-boundary audit:
+
+```bash
+python scripts/audit_claim_boundaries.py
 ```
 
 Generate the public release manifest:

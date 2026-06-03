@@ -152,7 +152,7 @@ def build_report(summary: dict, neuro_rows: list[dict], class_rows: list[dict], 
                 f"permutation p={fmt(neuro_aibl['permutation_p'], 4)}."
             ),
             "Replace CAS biomarker wording with atlas structural neurodegeneration consistency.",
-            "This validates a structural MRI proxy, not attention maps as biomarkers.",
+            "This supports a structural MRI proxy, not attention maps as biomarkers.",
         ],
         [
             "Braak or substitute biology",

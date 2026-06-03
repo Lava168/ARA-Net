@@ -1,8 +1,8 @@
 {
-  "file_count": 102,
+  "file_count": 104,
   "category_counts": {
-    "aggregate_reports": 39,
-    "analysis_code": 26,
+    "aggregate_reports": 40,
+    "analysis_code": 27,
     "deployment": 4,
     "documentation": 8,
     "environment": 2,
@@ -52,6 +52,11 @@
       "scope": "Regenerates the external classification / CAS replacement / Braak-alternative evidence matrix."
     },
     {
+      "name": "Claim boundary audit",
+      "command": "python scripts/audit_claim_boundaries.py",
+      "scope": "Scans public Git-tracked files for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims."
+    },
+    {
       "name": "Public release manifest",
       "command": "python scripts/generate_public_release_manifest.py",
       "scope": "Regenerates the public-file manifest and restricted-artifact check."
@@ -87,8 +92,8 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 6275,
-      "sha256": "f2e291a5bc4f599b33f7a297135dc2382d13a657cf0f06adc10ce060430feded",
+      "bytes": 6605,
+      "sha256": "4d118078de4812e41ef60d3b59ddd3fbe9f133c4435165d55703d80c1acd2c9e",
       "role": "Public repository file."
     },
     {
@@ -423,9 +428,16 @@
     {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 1849,
-      "sha256": "ac2452a7f683ce328c2ecca6a64722dbf8121f4f52df9b37981ff015d9261755",
+      "bytes": 2065,
+      "sha256": "36d6abfbef3f36288aab353a062a8692773d6e0af5a2a346459c2c8ec0a201ba",
       "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_final_model/claim_boundary_audit.md",
+      "category": "aggregate_reports",
+      "bytes": 34247,
+      "sha256": "ceb88c3764e5047955482aefc9efa34a99a58ec1065135a6450361ba52a68079",
+      "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
       "path": "reports/v6_final_model/clinical_translation_roadmap.md",
@@ -437,8 +449,8 @@
     {
       "path": "reports/v6_final_model/core_reviewer_evidence_matrix.md",
       "category": "aggregate_reports",
-      "bytes": 4591,
-      "sha256": "0eb053075dabe95c8f5074bd26a2a91c662eaa23abe0470ebef5fee768e0fe13",
+      "bytes": 4590,
+      "sha256": "c0525dfb80806f24d15f7904a35cd78d2610c3a9d1986a244c7e0a2c20f1ff80",
       "role": "Three-core-issue reviewer evidence matrix."
     },
     {
@@ -528,8 +540,8 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 4004,
-      "sha256": "e3382b755271ca2d34a1b4edb0e945bb356c2eb122bba9c7a924e6b23afdbb69",
+      "bytes": 4195,
+      "sha256": "266514e89a378c641d7d048532cbb2c87a41bfbe85cc53283c40b5789b90db5c",
       "role": "Public repository file."
     },
     {
@@ -610,6 +622,13 @@
       "role": "Reproducible analysis or report-generation script."
     },
     {
+      "path": "scripts/audit_claim_boundaries.py",
+      "category": "analysis_code",
+      "bytes": 9359,
+      "sha256": "b707b92a3cbd51f94de1aac0f35a87e6626fa5238da9829fe0939fa5418e2ce4",
+      "role": "Public overclaim audit script."
+    },
+    {
       "path": "scripts/build_oasis_locked_manifest.py",
       "category": "analysis_code",
       "bytes": 4947,
@@ -654,8 +673,8 @@
     {
       "path": "scripts/generate_core_reviewer_evidence_matrix.py",
       "category": "analysis_code",
-      "bytes": 11877,
-      "sha256": "34c0cd7db27ffe4171d01f9d574a3f9fdbb35166aabbffa9f337689002cc4926",
+      "bytes": 11876,
+      "sha256": "44960bcf9657ee5cdefb2aec44cedae7acd13927a29a401b19ff0d3a9c0d63c6",
       "role": "Reproducible analysis or report-generation script."
     },
     {
@@ -668,8 +687,8 @@
     {
       "path": "scripts/generate_public_release_manifest.py",
       "category": "analysis_code",
-      "bytes": 9530,
-      "sha256": "0b77f9a612b17d02ce7986277e5770d26b2ec581e47278afd5c75e6b775a1c32",
+      "bytes": 10008,
+      "sha256": "a01c455766e5e331e5bfe9a5f74c790d56de4983512ee8b2f23f73099b0a98bf",
       "role": "Reproducible analysis or report-generation script."
     },
     {

@@ -6,6 +6,7 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 
 - `final_rescue_model_lock_report.md`: locked final model, subject-level endpoint, bootstrap intervals, and claim boundary.
 - `core_reviewer_evidence_matrix.md`: generated matrix for the three core revision issues: external classification, CAS replacement, and Braak-alternative biological validation.
+- `claim_boundary_audit.md`: generated public-file audit for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.
 - `final_model_error_analysis.md`: aggregate error-analysis summaries for AIBL heldout and internal test.
 - `manuscript_v6_rewrite_package.md`: manuscript-ready Methods/Results/Discussion material.
 - `reviewer_response_v6_matrix.md`: response-oriented matrix for reviewer/editor concerns.
@@ -24,6 +25,12 @@ Regenerate the core reviewer matrix:
 
 ```bash
 python scripts/generate_core_reviewer_evidence_matrix.py
+```
+
+Run the claim-boundary audit:
+
+```bash
+python scripts/audit_claim_boundaries.py
 ```
 
 Regenerate the public release manifest:
