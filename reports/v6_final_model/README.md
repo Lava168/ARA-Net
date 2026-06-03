@@ -8,6 +8,8 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 - `core_reviewer_evidence_matrix.md`: generated matrix for the three core revision issues: external classification, CAS replacement, and Braak-alternative biological validation.
 - `final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
 - `final_submission_closure_packet.md`: final manuscript-integration packet for Figure 1, OASIS handling, citations, and terminology.
+- `word_manuscript_claim_audit.md`: generated claim-boundary audit for the uploaded Word manuscript.
+- `word_manuscript_rewrite_map.md`: section-by-section rewrite map for converting the old Word manuscript into the V6 submission.
 - `claim_boundary_audit.md`: generated public-file audit for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.
 - `final_model_error_analysis.md`: aggregate error-analysis summaries for AIBL heldout and internal test.
 - `manuscript_v6_rewrite_package.md`: manuscript-ready Methods/Results/Discussion material.

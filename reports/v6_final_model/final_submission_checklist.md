@@ -48,6 +48,8 @@
 - [x] CAS replacement described as atlas-region structural neurodegeneration consistency.
 - [ ] Apply final closure-packet replacement rules to the submitted Word manuscript: remove old CAS-as-attention-biomarker equations and claims.
 - [ ] Apply final closure-packet replacement rules to the submitted Word manuscript: remove direct Braak-stage validation wording.
+- [x] Word manuscript claim audit generated for old CAS/Braak/OASIS/clinical-deployment language.
+- [x] Word manuscript section-level rewrite map generated.
 
 ## Code / Data Availability
 
@@ -73,6 +75,7 @@
 
 ## Remaining Scientific Risk
 
+- Current uploaded Word manuscript is still old attention-as-biomarker text and fails the Word claim audit; it needs section-level rewriting before resubmission.
 - OASIS remains weak and must not be sold as solved.
 - Internal subject-level BAcc remains modest; write it as calibration limitation, not primary failure.
 - Clinical-only comparator is strong; use it as a transparent upper bound.

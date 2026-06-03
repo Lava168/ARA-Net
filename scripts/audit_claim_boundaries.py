@@ -19,6 +19,7 @@ SCAN_ROOTS = [Path("README.md"), Path("docs"), Path("reports"), Path("scripts"),
 TEXT_SUFFIXES = {".md", ".txt", ".py", ".json", ".html", ".js", ".css"}
 SKIP_PATHS = {
     "scripts/audit_claim_boundaries.py",
+    "scripts/audit_word_manuscript_claims.py",
     "reports/v6_final_model/claim_boundary_audit.md",
     "reports/v6_final_model/public_release_manifest.json",
     "reports/v6_final_model/public_release_manifest.md",

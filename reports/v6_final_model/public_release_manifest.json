@@ -1,8 +1,8 @@
 {
-  "file_count": 104,
+  "file_count": 109,
   "category_counts": {
-    "aggregate_reports": 40,
-    "analysis_code": 27,
+    "aggregate_reports": 44,
+    "analysis_code": 28,
     "deployment": 4,
     "documentation": 8,
     "environment": 2,
@@ -92,8 +92,8 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 6887,
-      "sha256": "ddeeac2ab0d9b4d7c2c11a07328762194bf22e2ae3e69516c1d4796e359e4b84",
+      "bytes": 7040,
+      "sha256": "4ac54dfd54383bdd5030057ef983e16b3006ac5095b6c3853ea19145da90b11f",
       "role": "Public repository file."
     },
     {
@@ -428,15 +428,15 @@
     {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 2301,
-      "sha256": "76acaff3c5ca3304dd454945893a0f90ba1bf5be69c85a4d70484cc6f42ce4d1",
+      "bytes": 2532,
+      "sha256": "dba95f11a87b84fedc79fb76c44806d963617808000771e90a2f06b9e469e74a",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
-      "bytes": 31291,
-      "sha256": "a21cd025db8609dad514183dd56a2635d1201903c67466980ed85ffc952b04d7",
+      "bytes": 31174,
+      "sha256": "6e55a6af2355bc1308a1d1a1633ac611158bde4e461ecd20bbe90284735bb816",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -517,6 +517,13 @@
       "role": "Final v6 manuscript figure."
     },
     {
+      "path": "reports/v6_final_model/final_figure_blueprint.md",
+      "category": "aggregate_reports",
+      "bytes": 9566,
+      "sha256": "779342f52391d64673a9772d85784c33e3c02c7bc01c2276f9b0763e095c327d",
+      "role": "Panel-by-panel final figure blueprint."
+    },
+    {
       "path": "reports/v6_final_model/final_model_error_analysis.md",
       "category": "aggregate_reports",
       "bytes": 3049,
@@ -540,9 +547,16 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 4449,
-      "sha256": "10baf1c0c523aab15a6601d0d58e1f085a1cb6f0048a5798addf33bf02eb9931",
+      "bytes": 4768,
+      "sha256": "05ad8a6ea151a9a52fc8a93ccf16f35c170047c18665d5b1cd71e8c574f1deb6",
       "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_final_model/final_submission_closure_packet.md",
+      "category": "aggregate_reports",
+      "bytes": 6559,
+      "sha256": "e45dea92d2ab2120c86a1f0f1833875a7f6cb91eec7f1dff8e02c15c989ca528",
+      "role": "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
     },
     {
       "path": "reports/v6_final_model/manuscript_v6_rewrite_package.md",
@@ -594,6 +608,20 @@
       "role": "Aggregate final v6 table."
     },
     {
+      "path": "reports/v6_final_model/word_manuscript_claim_audit.md",
+      "category": "aggregate_reports",
+      "bytes": 34247,
+      "sha256": "5775322eb05fca85b1c58682364dd3c2096ffc38c93c82348f5f574c420030e2",
+      "role": "Generated claim-boundary audit for the uploaded Word manuscript."
+    },
+    {
+      "path": "reports/v6_final_model/word_manuscript_rewrite_map.md",
+      "category": "aggregate_reports",
+      "bytes": 8998,
+      "sha256": "424fc685a90326b708b8e3b8dcbd05a4fbbae058617561274e3ac0bcce039d17",
+      "role": "Section-level map for rewriting the old Word manuscript into the V6 submission."
+    },
+    {
       "path": "requirements-deploy.txt",
       "category": "environment",
       "bytes": 12,
@@ -624,9 +652,16 @@
     {
       "path": "scripts/audit_claim_boundaries.py",
       "category": "analysis_code",
-      "bytes": 9427,
-      "sha256": "58e2a6fb4e464ce89b314edd10dad24fb757950803734635ab8f5f23b0eec9ae",
+      "bytes": 9474,
+      "sha256": "a327a8060be7591fe8beea8299db4a40aa4620169aa0294d042c50de760561d9",
       "role": "Public overclaim audit script."
+    },
+    {
+      "path": "scripts/audit_word_manuscript_claims.py",
+      "category": "analysis_code",
+      "bytes": 8513,
+      "sha256": "0c10373e0a1ddb66fed9cb0f8051617433f632624ebcdb21910c3099acd8d994",
+      "role": "Word manuscript claim-boundary audit script."
     },
     {
       "path": "scripts/build_oasis_locked_manifest.py",
@@ -687,8 +722,8 @@
     {
       "path": "scripts/generate_public_release_manifest.py",
       "category": "analysis_code",
-      "bytes": 10317,
-      "sha256": "a4556448014d6f3de4bf6ed1e0d5bce60cd6db37109c0de91f9c3948eb8c328d",
+      "bytes": 10760,
+      "sha256": "6bed873bba3ff19810326206c2a50595d1e90db240f066d0a2ef5053170b7098",
       "role": "Reproducible analysis or report-generation script."
     },
     {

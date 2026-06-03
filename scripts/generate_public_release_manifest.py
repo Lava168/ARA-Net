@@ -117,6 +117,12 @@ def role(path: Path) -> str:
         return "Panel-by-panel final figure blueprint."
     if text == "reports/v6_final_model/final_submission_closure_packet.md":
         return "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
+    if text == "reports/v6_final_model/word_manuscript_claim_audit.md":
+        return "Generated claim-boundary audit for the uploaded Word manuscript."
+    if text == "reports/v6_final_model/word_manuscript_rewrite_map.md":
+        return "Section-level map for rewriting the old Word manuscript into the V6 submission."
+    if text == "scripts/audit_word_manuscript_claims.py":
+        return "Word manuscript claim-boundary audit script."
     if text == "reports/v6_final_model/claim_boundary_audit.md":
         return "Public claim-boundary audit for reviewer-safe wording."
     if text == "reports/v6_final_model/final_rescue_model_summary_public.json":
