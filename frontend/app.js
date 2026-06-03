@@ -4,7 +4,8 @@ const LOW_MARGIN_THRESHOLD = 0.12;
 const sampleCsv = `subject_id,scan_id,aibl_adapted_atlas_biomarker_enhanced__hgb__prob_CN,aibl_adapted_atlas_biomarker_enhanced__hgb__prob_MCI,aibl_adapted_atlas_biomarker_enhanced__hgb__prob_AD,aibl_adapted_atlas_core_clinical__hgb__prob_CN,aibl_adapted_atlas_core_clinical__hgb__prob_MCI,aibl_adapted_atlas_core_clinical__hgb__prob_AD,aibl_adapted_clinical_biomarker_only__rf_balanced__prob_CN,aibl_adapted_clinical_biomarker_only__rf_balanced__prob_MCI,aibl_adapted_clinical_biomarker_only__rf_balanced__prob_AD,aibl_adapted_clinical_core_only__hgb__prob_CN,aibl_adapted_clinical_core_only__hgb__prob_MCI,aibl_adapted_clinical_core_only__hgb__prob_AD,aibl_adapted_clinical_core_only__rf_balanced__prob_CN,aibl_adapted_clinical_core_only__rf_balanced__prob_MCI,aibl_adapted_clinical_core_only__rf_balanced__prob_AD,rf__logreg__prob_CN,rf__logreg__prob_MCI,rf__logreg__prob_AD
 example_subject_001,example_scan_001,0.82,0.14,0.04,0.78,0.17,0.05,0.88,0.10,0.02,0.76,0.19,0.05,0.83,0.13,0.04,0.80,0.16,0.04
 example_subject_002,example_scan_001,0.10,0.28,0.62,0.08,0.25,0.67,0.12,0.30,0.58,0.09,0.33,0.58,0.11,0.24,0.65,0.10,0.30,0.60
-example_subject_002,example_scan_002,0.13,0.32,0.55,0.09,0.29,0.62,0.14,0.34,0.52,0.12,0.35,0.53,0.13,0.29,0.58,0.11,0.34,0.55`;
+example_subject_002,example_scan_002,0.13,0.32,0.55,0.09,0.29,0.62,0.14,0.34,0.52,0.12,0.35,0.53,0.13,0.29,0.58,0.11,0.34,0.55
+example_subject_003,example_scan_001,0.08,0.84,0.08,0.07,0.86,0.07,0.09,0.82,0.09,0.08,0.85,0.07,0.07,0.87,0.06,0.08,0.84,0.08`;
 
 const state = {
   unit: "subject",
@@ -307,6 +308,70 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function drawBrainCanvas(canvas) {
+  const label = canvas.dataset.case || "CN";
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const severity = { CN: 0.18, MCI: 0.46, AD: 0.74 }[label] ?? 0.3;
+
+  ctx.clearRect(0, 0, width, height);
+  const background = ctx.createLinearGradient(0, 0, width, height);
+  background.addColorStop(0, "#0f172a");
+  background.addColorStop(1, "#1f2937");
+  ctx.fillStyle = background;
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.save();
+  ctx.translate(width / 2, height / 2 + 2);
+  ctx.scale(1.02, 1);
+
+  const brainGradient = ctx.createRadialGradient(0, -8, 12, 0, 0, 70);
+  brainGradient.addColorStop(0, "#e5e7eb");
+  brainGradient.addColorStop(0.65, "#94a3b8");
+  brainGradient.addColorStop(1, "#475569");
+  ctx.fillStyle = brainGradient;
+  ctx.beginPath();
+  ctx.ellipse(-32, 0, 46, 58, -0.12, 0, Math.PI * 2);
+  ctx.ellipse(32, 0, 46, 58, 0.12, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.beginPath();
+  ctx.ellipse(0, 2, 8 + severity * 9, 54, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.ellipse(-23, 22, 7 + severity * 12, 9 + severity * 10, -0.15, 0, Math.PI * 2);
+  ctx.ellipse(23, 22, 7 + severity * 12, 9 + severity * 10, 0.15, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalCompositeOperation = "source-over";
+
+  ctx.strokeStyle = "rgba(255,255,255,0.28)";
+  ctx.lineWidth = 2;
+  for (let offset = -48; offset <= 48; offset += 16) {
+    ctx.beginPath();
+    ctx.moveTo(offset, -42);
+    ctx.bezierCurveTo(offset * 0.68, -18, offset * 0.68, 18, offset, 42);
+    ctx.stroke();
+  }
+
+  const focus = { CN: "#22c55e", MCI: "#f59e0b", AD: "#ef4444" }[label] || "#38bdf8";
+  ctx.strokeStyle = focus;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.ellipse(0, 12, 34 + severity * 14, 28 + severity * 8, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.fillStyle = "rgba(255,255,255,0.88)";
+  ctx.font = "700 13px ui-sans-serif, system-ui";
+  ctx.fillText(label, 14, 24);
+}
+
+function drawCaseCanvases() {
+  document.querySelectorAll(".brain-canvas").forEach(drawBrainCanvas);
+}
+
 async function runPrediction() {
   if (!state.sourceRows.length) return;
   setRunState("running", "Running");
@@ -411,4 +476,5 @@ el.downloadButton.addEventListener("click", downloadPredictions);
 
 renderSummary();
 renderFocus(null);
+drawCaseCanvases();
 loadMetadata();

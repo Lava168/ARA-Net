@@ -55,6 +55,7 @@ button {
 .topbar,
 .control-band,
 .notice-bar,
+.case-panel,
 .summary-panel,
 .focus-panel,
 .table-panel,
@@ -82,6 +83,7 @@ button {
 .topbar,
 .control-band,
 .notice-bar,
+.case-panel,
 .summary-panel,
 .focus-panel,
 .table-panel,
@@ -207,6 +209,7 @@ h2 {
 .dropzone strong {
   margin-bottom: 4px;
   font-size: 16px;
+  word-break: break-word;
 }
 
 .dropzone small {
@@ -352,6 +355,45 @@ h2 {
   box-shadow: none;
 }
 
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-tile {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 126px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.brain-canvas {
+  display: block;
+  width: 128px;
+  height: 94px;
+  border-radius: 8px;
+  background: #111827;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.case-tile div {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.case-tile strong {
+  color: #263542;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
 .result-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -360,6 +402,7 @@ h2 {
 
 .summary-panel,
 .focus-panel,
+.case-panel,
 .table-panel,
 .model-panel,
 .boundary-panel {
@@ -368,6 +411,7 @@ h2 {
 
 .summary-panel,
 .focus-panel,
+.case-panel,
 .table-panel {
   padding: 18px;
 }
@@ -717,6 +761,7 @@ tbody tr:last-child td {
 @media (max-width: 920px) {
   .control-band,
   .result-grid,
+  .case-grid,
   .side-rail {
     grid-template-columns: 1fr;
   }
@@ -739,6 +784,7 @@ tbody tr:last-child td {
   }
 
   .topbar,
+  .case-panel,
   .summary-panel,
   .focus-panel,
   .table-panel,
@@ -763,6 +809,15 @@ tbody tr:last-child td {
   .metric-grid,
   .model-panel dl {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .case-tile {
+    grid-template-columns: 118px minmax(0, 1fr);
+  }
+
+  .brain-canvas {
+    width: 118px;
+    height: 86px;
   }
 
   .panel-heading,
