@@ -82,6 +82,12 @@ PROTOCOLS = {
         "tune_splits": ["val", "aibl_adapt_val", "oasis_external", "ixi_external"],
         "description": "Sensitivity protocol that adapts to OASIS; OASIS is not a locked test.",
     },
+    "oasis_locked_adapted": {
+        "train_splits": ["train", "aibl_adapt_train", "oasis_adapt_train"],
+        "calibration_splits": ["val", "aibl_adapt_val", "oasis_adapt_val"],
+        "tune_splits": ["val", "aibl_adapt_val", "oasis_adapt_val", "ixi_external"],
+        "description": "ADNI/AIBL plus OASIS adaptation with a locked OASIS heldout split.",
+    },
 }
 
 
@@ -258,7 +264,7 @@ def profile_score(profile: str, metrics: Dict[str, dict]) -> float:
     val = metrics.get("val", {})
     internal = metrics.get("internal_test", {})
     aibl_val = metrics.get("aibl_adapt_val", {})
-    oasis = metrics.get("oasis_external", {})
+    oasis = metrics.get("oasis_external") or metrics.get("oasis_adapt_val") or metrics.get("oasis_heldout") or {}
     ixi = metrics.get("ixi_external", {})
     ixi_retention = metric_value(ixi, "cn_retention_rate") or metric_value(ixi, "acc")
 
@@ -418,7 +424,7 @@ def main() -> None:
     parser.add_argument("--label-profiles", default="flat,mci,ad,mci_ad,aggressive_mci_ad")
     parser.add_argument("--domain-profiles", default="balanced,aibl_focus,adni_focus")
     parser.add_argument("--profiles", default="balanced,internal_ad_recall,aibl_mci_recall,minority_rescue")
-    parser.add_argument("--eval-splits", default="val,internal_test,aibl_adapt_val,aibl_heldout,oasis_external,ixi_external")
+    parser.add_argument("--eval-splits", default="val,internal_test,aibl_adapt_val,aibl_heldout,oasis_external,oasis_heldout,ixi_external")
     parser.add_argument("--offset-trials", type=int, default=1200)
     parser.add_argument("--seed", type=int, default=20260603)
     args = parser.parse_args()
