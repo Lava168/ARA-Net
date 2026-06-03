@@ -58,39 +58,28 @@ Zero-shot/no-OASIS-tune OASIS remains weak:
 
 - Best no-OASIS-tune profiles stay around BAcc 0.333 to 0.358, mostly all-CN or poor minority recall.
 
-OASIS adaptation sensitivity is promising but not locked evidence:
+Decision: do not keep spending major compute on OASIS for the main paper.
 
-- Full OASIS adaptation search quickly reached high oasis_transfer scores.
-- This cannot be used as external validation because OASIS was included in training/tuning.
+Rationale:
 
-OASIS locked adaptation was created:
-
-- OASIS adapt train: 50 scans, CN/MCI/AD 30/14/6.
-- OASIS adapt val: 20 scans, CN/MCI/AD 12/6/2.
-- OASIS heldout: 29 scans, CN/MCI/AD 17/9/3.
-
-Current interim OASIS locked result:
-
-- OASIS heldout: Acc 0.655, BAcc 0.499, AUC 0.645.
-- OASIS heldout recall CN/MCI/AD: 0.941 / 0.222 / 0.333.
-- AIBL heldout in the same profile: BAcc 0.814, recall CN/MCI/AD 0.947 / 0.642 / 0.854.
-- IXI retention: 0.995.
-
-Interpretation: OASIS is no longer completely failed after small-domain adaptation, but it is still not strong. Because OASIS heldout has only 29 scans and 3 AD scans, treat this as sensitivity evidence, not a definitive external validation.
+- OASIS has only 99 scans and only 11 AD cases.
+- Any internal OASIS adapt/heldout split is statistically fragile.
+- Improving OASIS by adapting on OASIS would weaken the "external validation" claim unless repeated on a larger external cohort.
+- Keep OASIS as a stress-test limitation and move the main effort to AIBL heldout, IXI specificity, internal AD recall, and subject-level robustness.
 
 ## Current best scientific story
 
 The strongest honest model is now a rescued ensemble/calibrated hybrid:
 
-- Main external result: AIBL heldout BAcc 0.820, AUC 0.939, AD-vs-CN AUC 0.998.
-- MCI and AD recall are both materially better than v4 main model.
-- IXI healthy specificity remains excellent.
-- OASIS can improve under a small locked-adaptation protocol, but still needs larger or cleaner OASIS/NACC validation.
+- Main subject-level external result: AIBL heldout Acc 0.903, BAcc 0.833, AUC 0.937, AD-vs-CN AUC 1.000.
+- AIBL heldout subject-level recall CN/MCI/AD: 0.961 / 0.686 / 0.852.
+- Bootstrap uncertainty is now available: AIBL heldout BAcc 95% CI 0.759-0.899, MCI recall 95% CI 0.531-0.839, AD recall 95% CI 0.710-0.966.
+- IXI healthy specificity remains excellent: subject-level CN retention 1.000.
+- OASIS remains weak without OASIS tuning and should be written only as an external stress-test limitation.
 
 ## Next experiments
 
 1. Let `rescue_hybrid_search_core` finish and compare with the probability ensemble.
-2. Let `rescue_hybrid_search_oasis_locked` finish and select the best locked OASIS profile.
-3. Run multi-seed confirmation for the selected probability ensemble and OASIS locked split seeds.
-4. Pull chapter4 generalization predictions into the probability optimizer as additional ensemble candidates.
-5. Build a NACC or chapter4 external heldout if available, because OASIS has too few AD cases.
+2. Keep the subject-level rescue ensemble as the locked main model unless the core search beats it without losing IXI specificity.
+3. Pull chapter4 or NACC-style external AD predictions into the probability optimizer only if a clean heldout cohort is available.
+4. Do not continue OASIS tuning for the main paper; keep OASIS as a limitation.

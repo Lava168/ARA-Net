@@ -1,0 +1,39 @@
+# Python / local runtime
+__pycache__/
+*.py[cod]
+.pycache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Local environments and caches
+.venv/
+venv/
+env/
+outputs/
+sample_data/
+data/
+cache/
+cache_real/
+*.npz
+*.nii
+*.nii.gz
+*.mgz
+*.pt
+*.pth
+*.ckpt
+
+# Restricted dataset-derived row-level outputs
+reports/**/final_subject_predictions_enriched.csv
+reports/**/*top_confident_errors.csv
+reports/**/oasis_locked*_predictions.csv
+reports/**/manifest_v4_oasis_locked_summary.json
+
+# Full private summaries may include subject/scan identifiers.
+reports/v6_final_model/final_rescue_model_summary.json
+
+# Temporary archives
+*.tgz
+*.tar.gz
+*.zip
