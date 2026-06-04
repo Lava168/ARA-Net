@@ -18,6 +18,7 @@
 - [x] Internal subject-level confusion matrix generated.
 - [x] AIBL MCI/AD error-profile table generated.
 - [x] Core reviewer-evidence matrix generated for external classification, CAS replacement, and Braak-alternative validation.
+- [x] Requirement-level goal completion audit generated for the full V6 rebuild objective.
 - [x] Claim-boundary audit generated for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.
 
 ## Manuscript Rewrite
@@ -64,6 +65,7 @@
   - `scripts/generate_v6_final_figures.py`
 - [x] Final reports present in `reports/v6_final_model/`.
 - [x] Core reviewer matrix script present: `scripts/generate_core_reviewer_evidence_matrix.py`.
+- [x] Goal completion audit script present: `scripts/generate_goal_completion_audit.py`.
 - [x] Claim-boundary audit script present: `scripts/audit_claim_boundaries.py`.
 - [x] Public release manifest script present: `scripts/generate_public_release_manifest.py`.
 - [x] GitHub release evidence folder prepared with README, public manifest, aggregate reports, and figures.

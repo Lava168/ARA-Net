@@ -33,6 +33,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `scripts/final_rescue_model_package.py`: final metrics, bootstrap, and error-analysis package generation.
 - `scripts/generate_v6_final_figures.py`: final v6 manuscript figures.
 - `scripts/generate_core_reviewer_evidence_matrix.py`: reproducible evidence matrix for external validation, CAS replacement, and Braak-alternative biological validation.
+- `scripts/generate_goal_completion_audit.py`: requirement-level audit tying the V6 rebuild goal to current evidence and explicit limitations.
 - `scripts/audit_claim_boundaries.py`: generated audit for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.
 - `deployment/research_inference.py`: CLI for research inference from base-model class probabilities.
 - `deployment/research_api.py`: HTTP API and static web-console server for research deployment.
@@ -43,6 +44,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
 - `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
+- `reports/v6_final_model/goal_completion_audit.md`: conservative requirement-level audit showing which parts of the rebuild are supported and which remain bounded limitations.
 - `reports/v6_final_model/final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
 - `reports/v6_final_model/manuscript_v6_full_draft.md`: full V6 manuscript draft for replacing the old Word manuscript body.
 - `reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx`: generated V6 Word manuscript replacement draft.
@@ -127,6 +129,12 @@ Generate the core reviewer-evidence matrix:
 
 ```bash
 python scripts/generate_core_reviewer_evidence_matrix.py
+```
+
+Generate the requirement-level goal audit:
+
+```bash
+python scripts/generate_goal_completion_audit.py
 ```
 
 Run the claim-boundary audit:

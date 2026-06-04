@@ -1,8 +1,8 @@
 {
-  "file_count": 115,
+  "file_count": 118,
   "category_counts": {
-    "aggregate_reports": 48,
-    "analysis_code": 30,
+    "aggregate_reports": 50,
+    "analysis_code": 31,
     "deployment": 4,
     "documentation": 8,
     "environment": 2,
@@ -52,6 +52,11 @@
       "scope": "Regenerates the external classification / CAS replacement / Braak-alternative evidence matrix."
     },
     {
+      "name": "Goal completion audit",
+      "command": "python scripts/generate_goal_completion_audit.py",
+      "scope": "Regenerates the requirement-level audit for the full V6 rebuild objective and bounded limitations."
+    },
+    {
       "name": "Claim boundary audit",
       "command": "python scripts/audit_claim_boundaries.py",
       "scope": "Scans public Git-tracked files for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims."
@@ -92,8 +97,8 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 7279,
-      "sha256": "b48ebf1d4acabb5dc9b96ddf0c64ecd1bf17def7acc8f70dbd323c0888da323c",
+      "bytes": 7705,
+      "sha256": "7d60baa46ca5ccbbfe4ab96cb433f61c11e47df49b3f4374e27014c5acd68d21",
       "role": "Public repository file."
     },
     {
@@ -442,15 +447,15 @@
     {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 3374,
-      "sha256": "54c45f60919d62963a7ac9fb7238d07ed90e5bb98609bb95d2f2f46c8ed8f820",
+      "bytes": 3602,
+      "sha256": "9484a04840d8026441b04c3f3f6be70e4480441dd51add6364bede80130fc806",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
       "bytes": 31166,
-      "sha256": "fb53e82d4f0b4d5e8a452649365f7f02da31a55e91324252ab54110def0a5d64",
+      "sha256": "a7dba4b0a8004c6dd5ecd044d71c4c08c7254e916316292fb976516685cc7e61",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -561,8 +566,8 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 5306,
-      "sha256": "4d75a42b485e2e6b08c28d6b83ffbe8849367eff515196543d7976f6efb5b5a7",
+      "bytes": 5486,
+      "sha256": "9128821808d4e7b710e63094a1d484abbbf89e11d5bf2f86b50391b2be5797ca",
       "role": "Public repository file."
     },
     {
@@ -571,6 +576,20 @@
       "bytes": 6559,
       "sha256": "e45dea92d2ab2120c86a1f0f1833875a7f6cb91eec7f1dff8e02c15c989ca528",
       "role": "Final manuscript-integration packet for figures, OASIS handling, citations, and terminology."
+    },
+    {
+      "path": "reports/v6_final_model/goal_completion_audit.json",
+      "category": "aggregate_reports",
+      "bytes": 6275,
+      "sha256": "971e174af5b29e67ed3d80b5ddda380a69dfcfa2de5cb3398aab0d3edcec8bb4",
+      "role": "Machine-readable requirement-level audit for the full V6 rebuild objective."
+    },
+    {
+      "path": "reports/v6_final_model/goal_completion_audit.md",
+      "category": "aggregate_reports",
+      "bytes": 5401,
+      "sha256": "692b51867c20ab32ab00d9787d7cf7c457c04c845f7c557af1d9cc331ff5dc69",
+      "role": "Requirement-level audit for the full V6 rebuild objective."
     },
     {
       "path": "reports/v6_final_model/manuscript_v6_full_draft.md",
@@ -748,6 +767,13 @@
       "role": "Reproducible analysis or report-generation script."
     },
     {
+      "path": "scripts/generate_goal_completion_audit.py",
+      "category": "analysis_code",
+      "bytes": 15639,
+      "sha256": "94269ba3b6a2fd1d8478ea9a10901f9cc7adc3dd2f582172bfe8b56ea62755d6",
+      "role": "Reproducible analysis or report-generation script."
+    },
+    {
       "path": "scripts/generate_manuscript_figures.py",
       "category": "analysis_code",
       "bytes": 26774,
@@ -757,8 +783,8 @@
     {
       "path": "scripts/generate_public_release_manifest.py",
       "category": "analysis_code",
-      "bytes": 11691,
-      "sha256": "e8cf50842e97b648c8053cd21101c7c5f68a2b3b227207ebbb59416c08afe096",
+      "bytes": 12238,
+      "sha256": "d48fe54e9557e5681a88f99d783432dbe83206096ab0d1d970fbd05088173119",
       "role": "Reproducible analysis or report-generation script."
     },
     {

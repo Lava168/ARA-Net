@@ -55,6 +55,11 @@ REPRODUCTION_COMMANDS = [
         "scope": "Regenerates the external classification / CAS replacement / Braak-alternative evidence matrix.",
     },
     {
+        "name": "Goal completion audit",
+        "command": "python scripts/generate_goal_completion_audit.py",
+        "scope": "Regenerates the requirement-level audit for the full V6 rebuild objective and bounded limitations.",
+    },
+    {
         "name": "Claim boundary audit",
         "command": "python scripts/audit_claim_boundaries.py",
         "scope": "Scans public Git-tracked files for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.",
@@ -113,6 +118,10 @@ def role(path: Path) -> str:
     text = str(path)
     if text == "reports/v6_final_model/core_reviewer_evidence_matrix.md":
         return "Three-core-issue reviewer evidence matrix."
+    if text == "reports/v6_final_model/goal_completion_audit.md":
+        return "Requirement-level audit for the full V6 rebuild objective."
+    if text == "reports/v6_final_model/goal_completion_audit.json":
+        return "Machine-readable requirement-level audit for the full V6 rebuild objective."
     if text == "reports/v6_final_model/final_figure_blueprint.md":
         return "Panel-by-panel final figure blueprint."
     if text == "reports/v6_final_model/manuscript_v6_full_draft.md":

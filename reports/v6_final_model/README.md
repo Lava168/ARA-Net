@@ -6,6 +6,7 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 
 - `final_rescue_model_lock_report.md`: locked final model, subject-level endpoint, bootstrap intervals, and claim boundary.
 - `core_reviewer_evidence_matrix.md`: generated matrix for the three core revision issues: external classification, CAS replacement, and Braak-alternative biological validation.
+- `goal_completion_audit.md`: requirement-level audit for the full V6 rebuild objective, including bounded limitations.
 - `final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
 - `manuscript_v6_full_draft.md`: full V6 manuscript draft for replacing the old Word manuscript body.
 - `ARA-Net_V6_full_manuscript_draft.docx`: generated V6 Word manuscript replacement draft.
@@ -33,6 +34,12 @@ Regenerate the core reviewer matrix:
 
 ```bash
 python scripts/generate_core_reviewer_evidence_matrix.py
+```
+
+Regenerate the requirement-level goal audit:
+
+```bash
+python scripts/generate_goal_completion_audit.py
 ```
 
 Run the claim-boundary audit:
