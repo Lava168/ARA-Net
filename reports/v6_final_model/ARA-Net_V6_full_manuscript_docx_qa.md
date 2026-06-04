@@ -32,7 +32,10 @@ No placeholder or broken-reference text was detected.
 
 ## Visual Render QA
 
-LibreOffice render QA could not be completed in the current macOS runtime because the bundled headless LibreOffice expects `/opt/homebrew/opt/little-cms2/lib/liblcms2.2.dylib`, and the environment does not permit creating that Homebrew path. Word-claim and structural QA passed; visual PNG inspection should be rerun on a machine with a working LibreOffice/Word renderer before journal submission.
+Visual render QA was completed with page-level PNG inspection after rendering the DOCX to `/private/tmp/aranet_v6_docx_render_v5`.
+- Rendered PNG pages: 9
+- Rendered PDFs: 1
+- Inspection note: Rendered to 9 page PNGs plus PDF; formula page, wide Table 2 page, confusion-matrix page, reference page, and final reference heading were visually inspected with no clipping, overlap, or table overflow detected.
 
 ## Failures
 

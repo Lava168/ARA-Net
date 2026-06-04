@@ -65,9 +65,9 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v5_rescue/rescue_probability_subject_quick_no_oasis_tune.md` | 4711 | `d36630555756` | Public repository file. |
 | `reports/v5_rescue/rescue_probability_targeted_no_oasis_tune.md` | 4734 | `ac50bb888bf6` | Public repository file. |
 | `reports/v5_rescue/rescue_status.md` | 3672 | `6194263d1267` | Public repository file. |
-| `reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md` | 1172 | `2e56c5a068ba` | Structural QA report for the generated V6 DOCX. |
-| `reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx` | 49090 | `84945dbf695e` | Generated V6 Word manuscript replacement draft. |
-| `reports/v6_final_model/claim_boundary_audit.md` | 31166 | `7268976ec7e5` | Public claim-boundary audit for reviewer-safe wording. |
+| `reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md` | 1180 | `e074a63ca1cb` | Structural QA report for the generated V6 DOCX. |
+| `reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx` | 49168 | `eb35b61aa803` | Generated V6 Word manuscript replacement draft. |
+| `reports/v6_final_model/claim_boundary_audit.md` | 31166 | `fb53e82d4f0b` | Public claim-boundary audit for reviewer-safe wording. |
 | `reports/v6_final_model/clinical_translation_roadmap.md` | 3166 | `1cc4f087bda8` | Public repository file. |
 | `reports/v6_final_model/core_reviewer_evidence_matrix.md` | 4913 | `2197d755812e` | Three-core-issue reviewer evidence matrix. |
 | `reports/v6_final_model/deployment_code_clinical_response.md` | 4896 | `ae28cdc7bb21` | Public repository file. |
@@ -75,9 +75,9 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/final_model_error_analysis.md` | 3049 | `63403ec1536f` | Public repository file. |
 | `reports/v6_final_model/final_rescue_model_lock_report.md` | 3391 | `e15c745c0f69` | Public repository file. |
 | `reports/v6_final_model/final_rescue_model_summary_public.json` | 59167 | `1248b2f9da44` | Public aggregate final-model metrics and bootstrap evidence. |
-| `reports/v6_final_model/final_submission_checklist.md` | 5454 | `c79d9961ba38` | Public repository file. |
+| `reports/v6_final_model/final_submission_checklist.md` | 5306 | `4d75a42b485e` | Public repository file. |
 | `reports/v6_final_model/final_submission_closure_packet.md` | 6559 | `e45dea92d2ab` | Final manuscript-integration packet for figures, OASIS handling, citations, and terminology. |
-| `reports/v6_final_model/manuscript_v6_full_draft.md` | 24983 | `a326ba374161` | Full V6 manuscript draft for replacing the old Word manuscript body. |
+| `reports/v6_final_model/manuscript_v6_full_draft.md` | 24976 | `7b4f425c7423` | Full V6 manuscript draft for replacing the old Word manuscript body. |
 | `reports/v6_final_model/manuscript_v6_rewrite_package.md` | 15586 | `5af34abdf0dd` | Public repository file. |
 | `reports/v6_final_model/reviewer_response_v6_matrix.md` | 4745 | `579a274ef68b` | Public repository file. |
 | `reports/v6_final_model/tables/aibl_heldout_confusion_transitions.csv` | 294 | `21d4b97d0233` | Aggregate final v6 table. |
@@ -99,7 +99,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `scripts/audit_word_manuscript_claims.py` | 8520 | `df03e159af5e` | Word manuscript claim-boundary audit script. |
 | `scripts/build_oasis_locked_manifest.py` | 4947 | `d16cc56825fd` | Reproducible analysis or report-generation script. |
 | `scripts/build_v4_manifest.py` | 8732 | `35605c2519df` | Reproducible analysis or report-generation script. |
-| `scripts/build_v6_manuscript_docx.py` | 12380 | `292a2bcb436c` | DOCX builder for the V6 manuscript replacement draft. |
+| `scripts/build_v6_manuscript_docx.py` | 15634 | `d3e6c5624a28` | DOCX builder for the V6 manuscript replacement draft. |
 | `scripts/evaluate_external_ad_datasets.py` | 31196 | `01f333bac625` | Reproducible analysis or report-generation script. |
 | `scripts/export_manuscript_tables.py` | 7116 | `18b65986b620` | Reproducible analysis or report-generation script. |
 | `scripts/extract_v4_attention_biomarkers.py` | 9777 | `d88d66b9c65c` | Reproducible analysis or report-generation script. |
@@ -110,7 +110,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `scripts/generate_v6_final_figures.py` | 13200 | `ba1ff4f804ec` | Reproducible analysis or report-generation script. |
 | `scripts/launch_external_validation_shards.sh` | 949 | `57072603751b` | Reproducible analysis or report-generation script. |
 | `scripts/merge_external_validation_shards.py` | 9540 | `6096bd336cdc` | Reproducible analysis or report-generation script. |
-| `scripts/qa_v6_manuscript_docx.py` | 6243 | `1990e2c7e19f` | Structural DOCX QA script for the V6 manuscript replacement draft. |
+| `scripts/qa_v6_manuscript_docx.py` | 7821 | `f86bca9ad763` | Structural DOCX QA script for the V6 manuscript replacement draft. |
 | `scripts/rank_hybrid_candidates.py` | 3320 | `c0007484594a` | Reproducible analysis or report-generation script. |
 | `scripts/rescue_probability_optimizer.py` | 23596 | `a8d5ce00b5a3` | Reproducible analysis or report-generation script. |
 | `scripts/summarize_hybrid_replicates.py` | 5774 | `78e281e7bc9c` | Reproducible analysis or report-generation script. |

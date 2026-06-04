@@ -216,7 +216,7 @@ The public repository contains analysis scripts, deployment wrappers, aggregate 
 
 The software is a research prototype. It is not a medical device and is not cleared or approved for clinical use.
 
-## References to add
+## References
 
 Pfeifer, B., Gevaert, A., Loecher, M., & Holzinger, A. (2025). Tree smoothing: Post-hoc regularization of tree ensembles for interpretable machine learning. *Information Sciences, 690*, 121564. https://doi.org/10.1016/j.ins.2024.121564
 

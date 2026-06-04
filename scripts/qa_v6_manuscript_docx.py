@@ -41,7 +41,13 @@ def table_widths(table) -> list[int]:
     return widths
 
 
-def build_report(docx_path: Path) -> str:
+def build_report(
+    docx_path: Path,
+    *,
+    render_dir: Path | None = None,
+    visual_render_status: str = "skipped",
+    visual_render_note: str = "",
+) -> str:
     doc = Document(str(docx_path))
     paragraphs = [p for p in doc.paragraphs if p.text.strip()]
     tables = doc.tables
@@ -104,6 +110,17 @@ def build_report(docx_path: Path) -> str:
     if count_numbering_defs(docx_path) == 0:
         failures.append("No numbering definitions found for lists.")
 
+    png_count = 0
+    pdf_count = 0
+    if render_dir is not None and render_dir.exists():
+        png_count = len(sorted(render_dir.glob("page-*.png")))
+        pdf_count = len(sorted(render_dir.glob("*.pdf")))
+
+    if visual_render_status == "pass" and png_count == 0:
+        failures.append("Visual render QA was marked pass, but no rendered page PNGs were found.")
+    elif visual_render_status == "fail":
+        failures.append("Visual render QA failed or found manuscript layout defects.")
+
     status = "pass" if not failures else "fail"
     lines = [
         "# ARA-Net V6 Manuscript DOCX QA",
@@ -160,9 +177,31 @@ def build_report(docx_path: Path) -> str:
         "",
         "## Visual Render QA",
         "",
-        "LibreOffice render QA could not be completed in the current macOS runtime because the bundled headless LibreOffice expects `/opt/homebrew/opt/little-cms2/lib/liblcms2.2.dylib`, and the environment does not permit creating that Homebrew path. Word-claim and structural QA passed; visual PNG inspection should be rerun on a machine with a working LibreOffice/Word renderer before journal submission.",
-        "",
     ]
+    if visual_render_status == "pass" and png_count > 0:
+        lines.append(
+            "Visual render QA was completed with page-level PNG inspection after rendering the DOCX "
+            f"to `{render_dir}`."
+        )
+        lines.append(f"- Rendered PNG pages: {png_count}")
+        lines.append(f"- Rendered PDFs: {pdf_count}")
+        if visual_render_note:
+            lines.append(f"- Inspection note: {visual_render_note}")
+        lines.append("")
+    elif visual_render_status == "fail":
+        lines.extend(
+            [
+                "Visual render QA failed or found manuscript layout defects.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                "Visual render QA was not run in this structural QA pass. Render the DOCX to page images and rerun this script with `--visual-render-status pass --render-dir <dir>` after manual page inspection.",
+                "",
+            ]
+        )
 
     if failures:
         lines += ["## Failures", ""]
@@ -177,8 +216,20 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--docx", type=Path, default=DEFAULT_DOCX)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--render-dir", type=Path)
+    parser.add_argument(
+        "--visual-render-status",
+        choices=["pass", "fail", "skipped"],
+        default="skipped",
+    )
+    parser.add_argument("--visual-render-note", default="")
     args = parser.parse_args()
-    report = build_report(args.docx)
+    report = build_report(
+        args.docx,
+        render_dir=args.render_dir,
+        visual_render_status=args.visual_render_status,
+        visual_render_note=args.visual_render_note,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(report, encoding="utf-8")
     print(f"[saved] {args.output}")

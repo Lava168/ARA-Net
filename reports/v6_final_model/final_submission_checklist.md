@@ -30,7 +30,7 @@
 - [x] Full V6 manuscript draft generated for replacing the old Word manuscript body.
 - [x] Generated V6 DOCX manuscript replacement draft.
 - [x] Generated V6 DOCX passed Word claim-boundary audit with 0 blockers and 0 warnings.
-- [x] Generated V6 DOCX passed structural QA; visual render QA remains environment-blocked by missing LibreOffice dynamic library.
+- [x] Generated V6 DOCX passed structural QA and visual render QA with rendered page PNG/PDF inspection.
 - [x] Cover letter core paragraph drafted.
 
 ## Figures
@@ -81,7 +81,7 @@
 ## Remaining Scientific Risk
 
 - The old uploaded Word manuscript remains a failed historical draft; use the generated V6 DOCX replacement draft for resubmission work.
-- Visual DOCX render QA could not be completed in this local environment because the bundled LibreOffice is missing `/opt/homebrew/opt/little-cms2/lib/liblcms2.2.dylib`; rerun visual QA on a machine with a working LibreOffice/Word renderer before journal submission.
+- Visual DOCX render QA was completed using rendered page PNG/PDF inspection; rerun only if the Word manuscript text or layout is changed again.
 - OASIS remains weak and must not be sold as solved.
 - Internal subject-level BAcc remains modest; write it as calibration limitation, not primary failure.
 - Clinical-only comparator is strong; use it as a transparent upper bound.

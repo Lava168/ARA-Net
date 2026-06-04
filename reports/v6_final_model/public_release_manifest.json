@@ -428,15 +428,15 @@
     {
       "path": "reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md",
       "category": "aggregate_reports",
-      "bytes": 1172,
-      "sha256": "2e56c5a068ba44f13a21e5fe6da41978e9c6284d9e2ae5c22471da93f11217ce",
+      "bytes": 1180,
+      "sha256": "e074a63ca1cba1dee36d295b4d97c210bbc457ba80bcf1506ae45b87ee65382c",
       "role": "Structural QA report for the generated V6 DOCX."
     },
     {
       "path": "reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx",
       "category": "aggregate_reports",
-      "bytes": 49090,
-      "sha256": "84945dbf695efaa042c6c8aec5a03edbf930c4382b9a012dfa398c70b71728fc",
+      "bytes": 49168,
+      "sha256": "eb35b61aa803b3b22bd77f307c6e6806accb2bd1c45bbc670ef7633b0469f732",
       "role": "Generated V6 Word manuscript replacement draft."
     },
     {
@@ -450,7 +450,7 @@
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
       "bytes": 31166,
-      "sha256": "7268976ec7e513e4805e9de6515af581e27ab8892153173f69fb4d6744cbd550",
+      "sha256": "fb53e82d4f0b4d5e8a452649365f7f02da31a55e91324252ab54110def0a5d64",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -561,8 +561,8 @@
     {
       "path": "reports/v6_final_model/final_submission_checklist.md",
       "category": "aggregate_reports",
-      "bytes": 5454,
-      "sha256": "c79d9961ba3884e42ebb127b9a9a56edfd4d272bd95ea7ed833e3294397cf3f5",
+      "bytes": 5306,
+      "sha256": "4d75a42b485e2e6b08c28d6b83ffbe8849367eff515196543d7976f6efb5b5a7",
       "role": "Public repository file."
     },
     {
@@ -575,8 +575,8 @@
     {
       "path": "reports/v6_final_model/manuscript_v6_full_draft.md",
       "category": "aggregate_reports",
-      "bytes": 24983,
-      "sha256": "a326ba374161ab3e007f530ec19ebc16783e2cb76d143dd588f34aaa5c57ee00",
+      "bytes": 24976,
+      "sha256": "7b4f425c7423a07a7373e963b63fc2df971fbc9c61f449e2f715488ce25cee5a",
       "role": "Full V6 manuscript draft for replacing the old Word manuscript body."
     },
     {
@@ -708,8 +708,8 @@
     {
       "path": "scripts/build_v6_manuscript_docx.py",
       "category": "analysis_code",
-      "bytes": 12380,
-      "sha256": "292a2bcb436c5e47da5a10bb9097ca0d06232842d56d57a891888146bd57af83",
+      "bytes": 15634,
+      "sha256": "d3e6c5624a2823acfe5344c8c0da7ea0402d592e06f5a1ab887b25a06b5b0d00",
       "role": "DOCX builder for the V6 manuscript replacement draft."
     },
     {
@@ -785,8 +785,8 @@
     {
       "path": "scripts/qa_v6_manuscript_docx.py",
       "category": "analysis_code",
-      "bytes": 6243,
-      "sha256": "1990e2c7e19f9e0d1a20de84676133859318c2540cc0eeee637b35dc9bc69dd1",
+      "bytes": 7821,
+      "sha256": "f86bca9ad7632ff9f8595daad4af79160e7bf57967c058d2e9910ebbc2ab77e0",
       "role": "Structural DOCX QA script for the V6 manuscript replacement draft."
     },
     {

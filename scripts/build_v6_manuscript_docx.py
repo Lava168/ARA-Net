@@ -117,6 +117,23 @@ def set_table_width(table, width_dxa: int, col_widths_dxa: list[int]) -> None:
             tc_w.set(qn("w:w"), str(width))
 
 
+def set_row_cant_split(row) -> None:
+    tr_pr = row._tr.get_or_add_trPr()
+    cant_split = tr_pr.find(qn("w:cantSplit"))
+    if cant_split is None:
+        cant_split = OxmlElement("w:cantSplit")
+        tr_pr.append(cant_split)
+
+
+def set_repeat_table_header(row) -> None:
+    tr_pr = row._tr.get_or_add_trPr()
+    tbl_header = tr_pr.find(qn("w:tblHeader"))
+    if tbl_header is None:
+        tbl_header = OxmlElement("w:tblHeader")
+        tr_pr.append(tbl_header)
+    tbl_header.set(qn("w:val"), "true")
+
+
 def set_table_cell_margins(table, top: int = 80, bottom: int = 80,
                            start: int = 120, end: int = 120) -> None:
     tbl_pr = table._tbl.tblPr
@@ -139,7 +156,66 @@ def strip_inline_md(text: str) -> str:
     text = re.sub(r"`([^`]*)`", r"\1", text)
     text = text.replace("\\(", "").replace("\\)", "")
     text = text.replace("\\[", "").replace("\\]", "")
+    for old, new in [
+        ("\\mathrm{CN}", "CN"),
+        ("\\mathrm{MCI}", "MCI"),
+        ("\\mathrm{AD}", "AD"),
+        ("\\epsilon", "epsilon"),
+        ("\\ge", ">="),
+        ("\\le", "<="),
+        ("\\sum_m", "sum_m"),
+        ("\\in", "in"),
+        ("\\{", "{"),
+        ("\\}", "}"),
+    ]:
+        text = text.replace(old, new)
+    text = re.sub(r"\\([A-Za-z]+)", r"\1", text)
     return text
+
+
+def readable_formula(expr: str) -> str:
+    compact = " ".join(expr.strip().split())
+    if compact.startswith("z_{i,k}"):
+        return (
+            "z_{i,k} = (1/T) sum_{m=1..M} w_m log(max(p_{m,k}(x_i), epsilon)) "
+            "+ b_k, for k in {CN, MCI, AD}"
+        )
+    if "\\bar{p}" in compact and "\\hat{y}" in compact:
+        return "p_bar_{s,k} = (1/n_s) sum_{i in s} p_tilde_{i,k}; y_hat_s = argmax_k p_bar_{s,k}"
+    if "\\tilde{p}" in compact:
+        return "p_tilde_{i,k} = exp(z_{i,k}) / sum_c exp(z_{i,c})"
+
+    text = compact
+    for old, new in [
+        ("\\tilde{p}", "p_tilde"),
+        ("\\bar{p}", "p_bar"),
+        ("\\hat{y}", "y_hat"),
+        ("\\mathrm{CN}", "CN"),
+        ("\\mathrm{MCI}", "MCI"),
+        ("\\mathrm{AD}", "AD"),
+        ("\\epsilon", "epsilon"),
+        ("\\qquad", "    "),
+        ("\\left", ""),
+        ("\\right", ""),
+        ("\\exp", "exp"),
+        ("\\log", "log"),
+        ("\\max", "max"),
+        ("\\sum_c", "sum_c"),
+        ("\\arg\\max_k", "argmax_k"),
+        ("\\in", "in"),
+    ]:
+        text = text.replace(old, new)
+
+    frac_re = re.compile(r"\\frac\{([^{}]+)\}\{([^{}]+)\}")
+    while True:
+        updated = frac_re.sub(r"(\1)/(\2)", text)
+        if updated == text:
+            break
+        text = updated
+    text = text.replace("\\sum_{m=1}^{M}", "sum_{m=1..M}")
+    text = re.sub(r"\\([A-Za-z]+)", r"\1", text)
+    text = text.replace("{", "").replace("}", "")
+    return " ".join(text.split())
 
 
 def add_inline_runs(paragraph, text: str, *, base_size: float = 11.0) -> None:
@@ -187,6 +263,15 @@ def parse_table(lines: list[str], start: int) -> tuple[list[list[str]], int]:
 
 def compute_widths(rows: list[list[str]], total: int = 9360) -> list[int]:
     cols = max(len(row) for row in rows)
+    header = [cell.lower().replace("\n", " ").strip() for cell in rows[0]]
+    header_text = " ".join(header)
+    if cols == 10 and "model/protocol" in header_text and "endpoint" in header_text:
+        return [1180, 700, 850, 820, 620, 620, 760, 1180, 1040, 1590]
+    if cols == 4 and header[:2] == ["split", "subjects/scans"]:
+        return [2600, 1500, 1900, 3360]
+    if cols == 5 and header and header[0].startswith("true"):
+        return [1800, 1900, 1900, 1900, 1860]
+
     weights = [1] * cols
     for row in rows:
         for idx, cell in enumerate(row):
@@ -202,13 +287,18 @@ def add_table(doc: Document, rows: list[list[str]]) -> None:
     if not rows:
         return
     cols = max(len(row) for row in rows)
+    if cols >= 8:
+        doc.add_page_break()
     table = doc.add_table(rows=len(rows), cols=cols)
     table.alignment = WD_TABLE_ALIGNMENT.LEFT
     widths = compute_widths(rows)
     set_table_width(table, 9360, widths)
-    set_table_cell_margins(table)
+    set_table_cell_margins(table, start=90 if cols >= 8 else 120, end=90 if cols >= 8 else 120)
 
     for r_idx, row in enumerate(rows):
+        set_row_cant_split(table.rows[r_idx])
+        if r_idx == 0:
+            set_repeat_table_header(table.rows[r_idx])
         for c_idx in range(cols):
             cell = table.cell(r_idx, c_idx)
             cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
@@ -216,7 +306,7 @@ def add_table(doc: Document, rows: list[list[str]]) -> None:
             paragraph = cell.paragraphs[0]
             paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER if c_idx > 0 and len(text) < 18 else WD_ALIGN_PARAGRAPH.LEFT
             set_paragraph_spacing(paragraph, before=0, after=0, line=1.05)
-            add_inline_runs(paragraph, text, base_size=9.0)
+            add_inline_runs(paragraph, text, base_size=8.4 if cols >= 8 else 9.0)
             set_cell_borders(cell)
             if r_idx == 0:
                 set_cell_shading(cell, LIGHT_FILL)
@@ -290,7 +380,13 @@ def build_docx(source: Path, output: Path) -> None:
             continue
         if in_math:
             if text == "\\]":
-                paragraph = add_paragraph(doc, " ".join(math_buffer), before=3, after=8, base_size=10.5)
+                paragraph = add_paragraph(
+                    doc,
+                    readable_formula(" ".join(math_buffer)),
+                    before=3,
+                    after=8,
+                    base_size=10.5,
+                )
                 paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 in_math = False
             else:
