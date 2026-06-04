@@ -80,7 +80,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/final_submission_closure_packet.md` | 6559 | `e45dea92d2ab` | Final manuscript-integration packet for figures, OASIS handling, citations, and terminology. |
 | `reports/v6_final_model/goal_completion_audit.json` | 6275 | `8dd114566fc9` | Machine-readable requirement-level audit for the full V6 rebuild objective. |
 | `reports/v6_final_model/goal_completion_audit.md` | 5401 | `702a3e7381d6` | Requirement-level audit for the full V6 rebuild objective. |
-| `reports/v6_final_model/latex/main_v6_replacement.tex` | 64028 | `01ff4dc1d56f` | Public repository file. |
+| `reports/v6_final_model/latex/main_v6_replacement.tex` | 64050 | `15b1de3477b1` | Public repository file. |
 | `reports/v6_final_model/latex/v6_body_expanded.tex` | 45988 | `9a03ea90a8ae` | Public repository file. |
 | `reports/v6_final_model/latex/v6_latex_7_figure_plan.md` | 3903 | `477f9e58e3dd` | Public repository file. |
 | `reports/v6_final_model/manuscript_v6_full_draft.md` | 24976 | `7b4f425c7423` | Full V6 manuscript draft for replacing the old Word manuscript body. |
@@ -105,7 +105,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `scripts/audit_word_manuscript_claims.py` | 8520 | `df03e159af5e` | Word manuscript claim-boundary audit script. |
 | `scripts/build_oasis_locked_manifest.py` | 4947 | `d16cc56825fd` | Reproducible analysis or report-generation script. |
 | `scripts/build_v4_manifest.py` | 8732 | `35605c2519df` | Reproducible analysis or report-generation script. |
-| `scripts/build_v6_latex_replacement.py` | 37514 | `826e4bc46a8f` | Reproducible analysis or report-generation script. |
+| `scripts/build_v6_latex_replacement.py` | 37855 | `3701f0eebe55` | Reproducible analysis or report-generation script. |
 | `scripts/build_v6_manuscript_docx.py` | 15634 | `d3e6c5624a28` | DOCX builder for the V6 manuscript replacement draft. |
 | `scripts/evaluate_external_ad_datasets.py` | 31196 | `01f333bac625` | Reproducible analysis or report-generation script. |
 | `scripts/export_manuscript_tables.py` | 7116 | `18b65986b620` | Reproducible analysis or report-generation script. |
@@ -189,7 +189,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/figures/figure4_final_bootstrap_stability.png` | 115883 | `70b71f3e8f3b` | Final v6 manuscript figure. |
 | `reports/v6_final_model/figures/figure5_final_error_profiles.pdf` | 29280 | `74c7a72a1979` | Final v6 manuscript figure. |
 | `reports/v6_final_model/figures/figure5_final_error_profiles.png` | 210377 | `75e7982f84cc` | Final v6 manuscript figure. |
-| `reports/v6_final_model/latex/main_v6_replacement.pdf` | 270957 | `9c2f14b7e407` | Public repository file. |
+| `reports/v6_final_model/latex/main_v6_replacement.pdf` | 185180 | `3e4a1e629421` | Public repository file. |
 
 ### frontend
 

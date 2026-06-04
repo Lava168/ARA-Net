@@ -594,15 +594,15 @@
     {
       "path": "reports/v6_final_model/latex/main_v6_replacement.pdf",
       "category": "figures",
-      "bytes": 270957,
-      "sha256": "9c2f14b7e407c03e6bb9442aed827cdfa6316821f3ab36e91380fd15e137924c",
+      "bytes": 185180,
+      "sha256": "3e4a1e629421438792fdccbf8507c787cec8be886be473eb0140657a4a659467",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/latex/main_v6_replacement.tex",
       "category": "aggregate_reports",
-      "bytes": 64028,
-      "sha256": "01ff4dc1d56fd76ebebbaa7b532bdda4fe7bc2acd6a6b59d598d46c138ebb394",
+      "bytes": 64050,
+      "sha256": "15b1de3477b1e75ed432fced12f9a4d623b618bde6f87d42083f13ea694266d3",
       "role": "Public repository file."
     },
     {
@@ -755,8 +755,8 @@
     {
       "path": "scripts/build_v6_latex_replacement.py",
       "category": "analysis_code",
-      "bytes": 37514,
-      "sha256": "826e4bc46a8f0334962cfc16a80ce4ea939776c39fe8bd8b2e0ce0e946ebed74",
+      "bytes": 37855,
+      "sha256": "3701f0eebe55ebfd022dce880cd927742ee0bf8565e4d23dc6555ad4dbec125c",
       "role": "Reproducible analysis or report-generation script."
     },
     {

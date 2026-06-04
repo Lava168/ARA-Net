@@ -24,6 +24,16 @@ TITLE = (
     r"Staging with Locked External Subject-Level Validation and Structural "
     r"Neurodegeneration Consistency}}"
 )
+TIMES_FONT_PACKAGE = r"\usepackage{mathptmx}"
+
+
+def apply_times_font(header: str) -> str:
+    if TIMES_FONT_PACKAGE in header:
+        return header
+    anchor = r"\usepackage{amsmath,amssymb,amsfonts}"
+    if anchor in header:
+        return header.replace(anchor, anchor + "\n" + TIMES_FONT_PACKAGE, 1)
+    return header
 
 
 def replace_title(header: str) -> str:
@@ -33,7 +43,7 @@ def replace_title(header: str) -> str:
             lines.append(TITLE)
         else:
             lines.append(line)
-    return "\n".join(lines).rstrip() + "\n"
+    return apply_times_font("\n".join(lines).rstrip()) + "\n"
 
 
 def extract_shell(original: str) -> tuple[str, str]:
