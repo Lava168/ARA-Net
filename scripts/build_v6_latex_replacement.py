@@ -15,6 +15,7 @@ from pathlib import Path
 
 DEFAULT_SOURCE = Path("/private/tmp/aranet_original_main.tex")
 DEFAULT_OUTPUT = Path("reports/v6_final_model/latex/main_v6_replacement.tex")
+DEFAULT_BODY = Path("reports/v6_final_model/latex/v6_body_expanded.tex")
 DEFAULT_FIGURE_PLAN = Path("reports/v6_final_model/latex/v6_latex_7_figure_plan.md")
 
 
@@ -45,7 +46,9 @@ def extract_shell(original: str) -> tuple[str, str]:
     return replace_title(header), endmatter
 
 
-def body_tex() -> str:
+def body_tex(body_path: Path | None = None) -> str:
+    if body_path is not None and body_path.exists():
+        return body_path.read_text(encoding="utf-8").rstrip() + "\n"
     return r"""
 %% ====================================================================
 %% Abstract
@@ -479,10 +482,10 @@ Panels:
 """
 
 
-def build(source: Path, output: Path, figure_plan: Path) -> None:
+def build(source: Path, output: Path, figure_plan: Path, body_path: Path | None = None) -> None:
     original = source.read_text(encoding="utf-8")
     header, endmatter = extract_shell(original)
-    content = header + body_tex() + endmatter
+    content = header + body_tex(body_path) + endmatter
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(content, encoding="utf-8")
     figure_plan.write_text(figure_plan_md(), encoding="utf-8")
@@ -492,9 +495,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--body", type=Path, default=DEFAULT_BODY)
     parser.add_argument("--figure-plan", type=Path, default=DEFAULT_FIGURE_PLAN)
     args = parser.parse_args()
-    build(args.source, args.output, args.figure_plan)
+    build(args.source, args.output, args.figure_plan, args.body)
     print(f"[saved] {args.output}")
     print(f"[saved] {args.figure_plan}")
 

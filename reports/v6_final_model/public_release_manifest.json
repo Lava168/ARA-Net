@@ -1,13 +1,13 @@
 {
-  "file_count": 118,
+  "file_count": 123,
   "category_counts": {
-    "aggregate_reports": 50,
-    "analysis_code": 31,
+    "aggregate_reports": 53,
+    "analysis_code": 32,
     "deployment": 4,
     "documentation": 8,
     "environment": 2,
     "examples": 1,
-    "figures": 18,
+    "figures": 19,
     "frontend": 3,
     "other": 1
   },
@@ -455,7 +455,7 @@
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
       "bytes": 31166,
-      "sha256": "a7dba4b0a8004c6dd5ecd044d71c4c08c7254e916316292fb976516685cc7e61",
+      "sha256": "8bc7c4e7203051dd075edd42ced734e3ea123a0a4160ce988d2c3ab51ff7f6db",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -581,15 +581,43 @@
       "path": "reports/v6_final_model/goal_completion_audit.json",
       "category": "aggregate_reports",
       "bytes": 6275,
-      "sha256": "971e174af5b29e67ed3d80b5ddda380a69dfcfa2de5cb3398aab0d3edcec8bb4",
+      "sha256": "8dd114566fc99caebc1ac9ca92409823c6398da4b9a4d1338ae8ac1919c40aee",
       "role": "Machine-readable requirement-level audit for the full V6 rebuild objective."
     },
     {
       "path": "reports/v6_final_model/goal_completion_audit.md",
       "category": "aggregate_reports",
       "bytes": 5401,
-      "sha256": "692b51867c20ab32ab00d9787d7cf7c457c04c845f7c557af1d9cc331ff5dc69",
+      "sha256": "702a3e7381d6ae0a9ba57c5400bc9ea5390494d6fe70e0e7da4da313ff583d28",
       "role": "Requirement-level audit for the full V6 rebuild objective."
+    },
+    {
+      "path": "reports/v6_final_model/latex/main_v6_replacement.pdf",
+      "category": "figures",
+      "bytes": 270957,
+      "sha256": "9c2f14b7e407c03e6bb9442aed827cdfa6316821f3ab36e91380fd15e137924c",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_final_model/latex/main_v6_replacement.tex",
+      "category": "aggregate_reports",
+      "bytes": 64028,
+      "sha256": "01ff4dc1d56fd76ebebbaa7b532bdda4fe7bc2acd6a6b59d598d46c138ebb394",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_final_model/latex/v6_body_expanded.tex",
+      "category": "aggregate_reports",
+      "bytes": 45988,
+      "sha256": "9a03ea90a8ae091edd0b2125b5919e10be8871b5a1d944983b29f0fd824ae56a",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_final_model/latex/v6_latex_7_figure_plan.md",
+      "category": "aggregate_reports",
+      "bytes": 3903,
+      "sha256": "477f9e58e3dd58067d299bbb5ecb46b95efd6d14ea77ac1b43f198bf68a34a57",
+      "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/manuscript_v6_full_draft.md",
@@ -722,6 +750,13 @@
       "category": "analysis_code",
       "bytes": 8732,
       "sha256": "35605c2519df8b5fe8f3a27f4de5ee3282cc7ae54c382b0582387670d3386990",
+      "role": "Reproducible analysis or report-generation script."
+    },
+    {
+      "path": "scripts/build_v6_latex_replacement.py",
+      "category": "analysis_code",
+      "bytes": 37514,
+      "sha256": "826e4bc46a8f0334962cfc16a80ce4ea939776c39fe8bd8b2e0ce0e946ebed74",
       "role": "Reproducible analysis or report-generation script."
     },
     {

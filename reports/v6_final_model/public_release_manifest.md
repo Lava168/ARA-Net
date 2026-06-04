@@ -1,6 +1,6 @@
 # Public Release Manifest
 
-- Public tracked file count: 118
+- Public tracked file count: 123
 - Restricted artifact check: **pass**
 - Public scope: code, deployment wrapper, aggregate reports, final figures, documentation, and toy probability examples.
 - Not redistributed: raw ADNI/AIBL/OASIS/IXI data, private clinical spreadsheets, row-level subject/scan predictions, MRI volumes, and model checkpoints.
@@ -10,13 +10,13 @@
 
 | category | files |
 |---|---:|
-| aggregate_reports | 50 |
-| analysis_code | 31 |
+| aggregate_reports | 53 |
+| analysis_code | 32 |
 | deployment | 4 |
 | documentation | 8 |
 | environment | 2 |
 | examples | 1 |
-| figures | 18 |
+| figures | 19 |
 | frontend | 3 |
 | other | 1 |
 
@@ -68,7 +68,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v5_rescue/rescue_status.md` | 3672 | `6194263d1267` | Public repository file. |
 | `reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md` | 1180 | `e074a63ca1cb` | Structural QA report for the generated V6 DOCX. |
 | `reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx` | 49168 | `eb35b61aa803` | Generated V6 Word manuscript replacement draft. |
-| `reports/v6_final_model/claim_boundary_audit.md` | 31166 | `a7dba4b0a800` | Public claim-boundary audit for reviewer-safe wording. |
+| `reports/v6_final_model/claim_boundary_audit.md` | 31166 | `8bc7c4e72030` | Public claim-boundary audit for reviewer-safe wording. |
 | `reports/v6_final_model/clinical_translation_roadmap.md` | 3166 | `1cc4f087bda8` | Public repository file. |
 | `reports/v6_final_model/core_reviewer_evidence_matrix.md` | 4913 | `2197d755812e` | Three-core-issue reviewer evidence matrix. |
 | `reports/v6_final_model/deployment_code_clinical_response.md` | 4896 | `ae28cdc7bb21` | Public repository file. |
@@ -78,8 +78,11 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/final_rescue_model_summary_public.json` | 59167 | `1248b2f9da44` | Public aggregate final-model metrics and bootstrap evidence. |
 | `reports/v6_final_model/final_submission_checklist.md` | 5486 | `9128821808d4` | Public repository file. |
 | `reports/v6_final_model/final_submission_closure_packet.md` | 6559 | `e45dea92d2ab` | Final manuscript-integration packet for figures, OASIS handling, citations, and terminology. |
-| `reports/v6_final_model/goal_completion_audit.json` | 6275 | `971e174af5b2` | Machine-readable requirement-level audit for the full V6 rebuild objective. |
-| `reports/v6_final_model/goal_completion_audit.md` | 5401 | `692b51867c20` | Requirement-level audit for the full V6 rebuild objective. |
+| `reports/v6_final_model/goal_completion_audit.json` | 6275 | `8dd114566fc9` | Machine-readable requirement-level audit for the full V6 rebuild objective. |
+| `reports/v6_final_model/goal_completion_audit.md` | 5401 | `702a3e7381d6` | Requirement-level audit for the full V6 rebuild objective. |
+| `reports/v6_final_model/latex/main_v6_replacement.tex` | 64028 | `01ff4dc1d56f` | Public repository file. |
+| `reports/v6_final_model/latex/v6_body_expanded.tex` | 45988 | `9a03ea90a8ae` | Public repository file. |
+| `reports/v6_final_model/latex/v6_latex_7_figure_plan.md` | 3903 | `477f9e58e3dd` | Public repository file. |
 | `reports/v6_final_model/manuscript_v6_full_draft.md` | 24976 | `7b4f425c7423` | Full V6 manuscript draft for replacing the old Word manuscript body. |
 | `reports/v6_final_model/manuscript_v6_rewrite_package.md` | 15586 | `5af34abdf0dd` | Public repository file. |
 | `reports/v6_final_model/reviewer_response_v6_matrix.md` | 4745 | `579a274ef68b` | Public repository file. |
@@ -102,6 +105,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `scripts/audit_word_manuscript_claims.py` | 8520 | `df03e159af5e` | Word manuscript claim-boundary audit script. |
 | `scripts/build_oasis_locked_manifest.py` | 4947 | `d16cc56825fd` | Reproducible analysis or report-generation script. |
 | `scripts/build_v4_manifest.py` | 8732 | `35605c2519df` | Reproducible analysis or report-generation script. |
+| `scripts/build_v6_latex_replacement.py` | 37514 | `826e4bc46a8f` | Reproducible analysis or report-generation script. |
 | `scripts/build_v6_manuscript_docx.py` | 15634 | `d3e6c5624a28` | DOCX builder for the V6 manuscript replacement draft. |
 | `scripts/evaluate_external_ad_datasets.py` | 31196 | `01f333bac625` | Reproducible analysis or report-generation script. |
 | `scripts/export_manuscript_tables.py` | 7116 | `18b65986b620` | Reproducible analysis or report-generation script. |
@@ -185,6 +189,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/figures/figure4_final_bootstrap_stability.png` | 115883 | `70b71f3e8f3b` | Final v6 manuscript figure. |
 | `reports/v6_final_model/figures/figure5_final_error_profiles.pdf` | 29280 | `74c7a72a1979` | Final v6 manuscript figure. |
 | `reports/v6_final_model/figures/figure5_final_error_profiles.png` | 210377 | `75e7982f84cc` | Final v6 manuscript figure. |
+| `reports/v6_final_model/latex/main_v6_replacement.pdf` | 270957 | `9c2f14b7e407` | Public repository file. |
 
 ### frontend
 

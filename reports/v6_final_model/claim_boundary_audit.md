@@ -1,10 +1,10 @@
 # Claim Boundary Audit
 
 - Status: **pass**
-- Files scanned: 81
+- Files scanned: 83
 - Blocker findings: 0
 - Warning findings: 0
-- Allowed safe-context mentions: 223
+- Allowed safe-context mentions: 262
 
 ## Interpretation
 
@@ -102,4 +102,4 @@ No warning-level positive clinical-use claims were detected.
 | `reports/v6_final_model/final_figure_blueprint.md` | 105 | clinical_deployment_ready_claim | - Do not make clinical deployment readiness a visual claim. |
 | `reports/v6_final_model/final_rescue_model_lock_report.md` | 42 | oasis_success_claim | Use the model as evidence for domain-adapted external heldout AD staging and healthy negative-control specificity. Do not claim pure zero-shot transfer, solved OASIS generalization, direct Braak staging, or clinical deployment readiness. |
 | `reports/v6_final_model/final_rescue_model_lock_report.md` | 42 | clinical_deployment_ready_claim | Use the model as evidence for domain-adapted external heldout AD staging and healthy negative-control specificity. Do not claim pure zero-shot transfer, solved OASIS generalization, direct Braak staging, or clinical deployment readiness. |
-| ... | ... | ... | 143 additional safe-context mentions omitted. |
+| ... | ... | ... | 182 additional safe-context mentions omitted. |
