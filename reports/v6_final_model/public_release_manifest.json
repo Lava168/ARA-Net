@@ -560,7 +560,7 @@
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
       "bytes": 31201,
-      "sha256": "ee7867db91b0245d889d7319dc604122f78ef8d7d5169997e32c34342d1e008a",
+      "sha256": "05151f74d28d68feae9292300bb71226e18f0619a5cb99480b77efeca96f2c98",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -699,22 +699,22 @@
     {
       "path": "reports/v6_final_model/latex/main_v6_replacement.pdf",
       "category": "figures",
-      "bytes": 191419,
-      "sha256": "a1764baa0957aee44207619103a8ddf1d34efc31dc22543e42977ebea1bf9c1d",
+      "bytes": 195664,
+      "sha256": "1ab70da2244e90e65c65226df4743d59434d9238244562ce2366a7aa78e9d3bc",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/latex/main_v6_replacement.tex",
       "category": "aggregate_reports",
-      "bytes": 69948,
-      "sha256": "7c5c581e325aa8fb3db73f3cfbeed523ed9a68ba0312d97e500144161cace213",
+      "bytes": 75678,
+      "sha256": "a794885da5446b964469c5ede046b74ed10c3bf6f1b2f07d6f8491b02980c3aa",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/latex/v6_body_expanded.tex",
       "category": "aggregate_reports",
-      "bytes": 51959,
-      "sha256": "d8c1ca75f67c49ec6a593abab26b44e4172ece9ead032fb66fe1ebe9abc8cffa",
+      "bytes": 57689,
+      "sha256": "9b1d740734bf5232223ed6eb6e947969a9799d4277f6fb4796f592c361aaeddc",
       "role": "Public repository file."
     },
     {

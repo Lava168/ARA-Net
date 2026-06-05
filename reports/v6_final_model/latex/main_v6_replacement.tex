@@ -51,13 +51,13 @@
 \begin{abstract}
 
 \textbf{Background.}
-The original ARA-Net submission was limited by three major validity problems: weak external classification evidence, an unsupported attention-based Clinical Alignment Score (CAS), and a non-significant Braak-stage analysis. We rebuilt the work as a leakage-aware, subject-level, atlas-guided multimodal Alzheimer's disease (AD) staging study with direct external classification, uncertainty quantification, MCI/AD error analysis, and bounded structural neurodegeneration validation.
+Structural MRI and clinical variables provide complementary information for Alzheimer's disease (AD) staging, but externally useful models require leakage-aware subject-level evaluation, explicit uncertainty analysis, and biologically bounded interpretation. We developed ARA-Net V6 as a multi-cohort, atlas-guided multimodal framework for CN/MCI/AD staging with locked external heldout testing and atlas-based structural neurodegeneration consistency analysis.
 
 \textbf{Methods.}
-We constructed subject-level splits across ADNI, AIBL, IXI, and OASIS. ADNI was used for training, validation, and internal testing; AIBL was divided into adaptation training, adaptation validation, and a locked heldout external test; IXI served as a healthy negative-control cohort; and OASIS was retained only as an external stress test. The final algorithm is RC-SPE, a risk-constrained subject-level probability ensemble. RC-SPE combines six base-model probability streams using log-probability pooling, non-negative model weights, class-specific offsets, temperature scaling, and subject-level probability averaging. The previous attention-only CAS claim was removed. Because direct Braak-stage validation was not available, biological evidence was reframed as atlas structural neurodegeneration consistency in a priori AD-relevant regions.
+We constructed subject-level splits across ADNI, AIBL, IXI, and OASIS. ADNI was used for training, validation, and internal testing; AIBL was divided into adaptation training, adaptation validation, and a locked heldout external test; IXI served as a healthy negative-control cohort; and OASIS was retained only as an external stress test. The final algorithm is RC-SPE, a risk-constrained subject-level probability ensemble. RC-SPE combines six base-model probability streams using log-probability pooling, non-negative model weights, class-specific offsets, temperature scaling, and subject-level probability averaging. Biological evidence was evaluated as atlas structural neurodegeneration consistency in a priori AD-relevant regions.
 
 \textbf{Results.}
-The original v3 model did not support the earlier external-generalization claim, with AIBL balanced accuracy (BAcc) of 0.399 and IXI healthy CN retention of 0.439. Final subject-level RC-SPE achieved AIBL heldout accuracy of 0.903, BAcc of 0.833, macro AUC of 0.937, AD-vs-CN AUC of 1.000, and CN/MCI/AD recall of 0.961/0.686/0.852. Bootstrap 95\% confidence intervals were 0.759--0.899 for BAcc, 0.894--0.974 for macro AUC, 0.531--0.839 for MCI recall, and 0.710--0.966 for AD recall. IXI healthy CN retention was 1.000. AIBL errors were concentrated near MCI/AD boundaries, with no AD endpoint unit misclassified as CN. OASIS transfer remained weak and is reported as a limitation. The AIBL heldout AD-key atlas-volume consistency score was 0.510 versus a uniform regional null of 0.286, with bootstrap CI 0.479--0.526 and permutation $p=0.026$.
+Final subject-level RC-SPE achieved AIBL heldout accuracy of 0.903, BAcc of 0.833, macro AUC of 0.937, AD-vs-CN AUC of 1.000, and CN/MCI/AD recall of 0.961/0.686/0.852. Bootstrap 95\% confidence intervals were 0.759--0.899 for BAcc, 0.894--0.974 for macro AUC, 0.531--0.839 for MCI recall, and 0.710--0.966 for AD recall. IXI healthy CN retention was 1.000. AIBL errors were concentrated near MCI/AD boundaries, with no AD endpoint unit misclassified as CN. OASIS transfer remained weak and is reported as a limitation. The AIBL heldout AD-key atlas-volume consistency score was 0.510 versus a uniform regional null of 0.286, with bootstrap CI 0.479--0.526 and permutation $p=0.026$.
 
 \textbf{Conclusion.}
 The revised work supports a domain-adapted, subject-level, atlas-guided multimodal AD staging framework with strong locked AIBL heldout performance, preserved IXI healthy specificity, explicit residual MCI uncertainty, and atlas-region structural neurodegeneration consistency. It does not claim pure zero-shot transfer, solved OASIS generalization, direct Braak-stage validation, or deployment-ready clinical performance.
@@ -78,11 +78,11 @@ The revised work supports a domain-adapted, subject-level, atlas-guided multimod
 
 Structural MRI is widely used in AD research because it captures neurodegeneration patterns including medial temporal atrophy, ventricular enlargement, and broader brain-volume change~\citep{jack2018nia,frisoni2010neuroimaging}. These anatomical changes are not sufficient for clinical diagnosis by themselves, but they provide a biologically meaningful substrate for machine-learning models that aim to support CN/MCI/AD staging. A credible staging model must therefore demonstrate not only within-cohort accuracy, but also leakage-aware external evaluation, class-specific error behavior, and biological interpretation that is proportional to the evidence actually available.
 
-The original ARA-Net manuscript attempted to connect atlas-guided attention with external generalization and neuropathological plausibility. After reviewer evaluation, that framing was no longer defensible. First, cross-dataset generalization was inferred primarily from explanation similarity rather than from direct external CN/MCI/AD classification. Second, the proposed Clinical Alignment Score did not provide valid support for the claimed alignment, because the attention-derived result was weaker than the intended biological interpretation. Third, the Braak-stage analysis was non-significant, so direct pathological-stage claims could not be retained.
+We designed ARA-Net V6 as an atlas-guided multimodal AD staging framework with explicit cohort roles and subject-level endpoints. ADNI provides development and internal testing data, AIBL provides external-domain adaptation and locked heldout testing, IXI provides a healthy negative-control specificity endpoint, and OASIS is retained as a stress-test cohort. This design separates model fitting, external evaluation, negative-control specificity, and residual transfer testing.
 
-The revised work therefore changes the scientific question. Instead of asking whether attention maps alone can validate ARA-Net, we ask whether an atlas-guided multimodal framework can support subject-level external AD staging after explicit external-domain adaptation, while preserving healthy negative-control specificity and reporting remaining weaknesses. The final model target is not an attention score. It is locked AIBL heldout subject-level CN/MCI/AD classification with bootstrap uncertainty and transparent MCI/AD error analysis.
+The final model target is locked AIBL heldout subject-level CN/MCI/AD classification with bootstrap uncertainty and transparent MCI/AD error analysis. The algorithmic core is RC-SPE, a risk-constrained subject-level probability ensemble that combines heterogeneous base-model probability streams while balancing external BAcc, MCI/AD recall, calibration, AD-to-CN error avoidance, and IXI healthy specificity.
 
-This change also narrows the biological claim. Because direct Braak-stage validation is unavailable, we no longer claim pathological staging. Instead, we test whether atlas structural MRI changes concentrate in a priori AD-relevant regions. This analysis is a structural neurodegeneration consistency check, not a proof that model attention identifies biomarkers. The claim is deliberately bounded because the available data support an MRI proxy but not direct neuropathological validation.
+The biological analysis is intentionally bounded. Because direct neuropathological labels are not available, the manuscript tests whether atlas structural MRI changes concentrate in a priori AD-relevant regions. This analysis is a structural neurodegeneration consistency check, not a proof of postmortem disease stage or attention-map biomarker discovery.
 
 The revised contributions are:
 \begin{enumerate}[leftmargin=*,itemsep=2pt,label=\textbf{C\arabic*.}]
@@ -95,17 +95,17 @@ The revised contributions are:
     \item An open-source research deployment package with explicit clinical-use boundaries.
 \end{enumerate}
 
-Figure~\ref{fig:v6_framework} summarizes the revised work. The visual story should be unmistakable: this is no longer a cosmetic repair to an attention manuscript. It is a substantially rebuilt external subject-level AD staging study with a bounded biological validation target.
+Figure~\ref{fig:v6_framework} summarizes the study architecture as a multi-cohort, subject-level AD staging framework: data roles are explicit, the atlas-guided multimodal input is separated from the RC-SPE algorithm, and each validation endpoint has a defined interpretation boundary.
 
 \begin{figure}[p]
     \centering
     \fbox{\begin{minipage}[c][0.63\textheight][c]{0.94\textwidth}
-    \textbf{Placeholder for Figure 1. Revised study framework and central model objective.}
+    \textbf{Placeholder for Figure 1. Study design and data architecture.}
 
     \vspace{0.8em}
-    Panels to draw: \textbf{(a)} old v3 failure points and V6 rebuild target; \textbf{(b)} subject-level cohort construction; \textbf{(c)} atlas-guided multimodal features; \textbf{(d)} RC-SPE risk-constrained probability ensemble; \textbf{(e)} endpoint and claim-boundary summary. The visual emphasis should be that the paper is now an external subject-level AD staging framework, not an attention-only interpretability patch.
+    Panels to draw: \textbf{(a)} multi-cohort study map with ADNI, AIBL, IXI, and OASIS roles; \textbf{(b)} scan and subject inventory across all cohorts; \textbf{(c)} ADNI and AIBL split strategy; \textbf{(d)} subject-level leakage control and scan-to-endpoint aggregation; \textbf{(e)} endpoint hierarchy; \textbf{(f)} overall analysis flow from data to RC-SPE prediction and bounded biological interpretation.
     \end{minipage}}
-    \caption{\textbf{Revised ARA-Net V6 framework.} The revised workflow uses leakage-aware subject-level cohort construction, atlas-guided multimodal feature extraction, RC-SPE risk-constrained probability pooling, and subject-level probability averaging. The primary endpoint is locked AIBL heldout CN/MCI/AD staging; IXI is a healthy negative-control specificity endpoint; OASIS is retained as a stress-test limitation. The original attention-only CAS and direct Braak-stage claims are replaced by atlas structural neurodegeneration consistency analysis and explicit claim-boundary language.}
+    \caption{\textbf{Study design and data architecture.} \textbf{(a)} The study uses four cohorts with non-overlapping roles: ADNI for model development and internal testing, AIBL for external-domain adaptation and locked heldout testing, IXI for healthy negative-control specificity, and OASIS for external stress testing. \textbf{(b)} The full split inventory contains 4{,}388 scans and 2{,}023 split-level subjects, including ADNI train/validation/internal-test sets, AIBL adaptation and heldout sets, 581 IXI healthy subjects, and 99 OASIS stress-test subjects. \textbf{(c)} ADNI is split into training, validation, and internal testing; AIBL is split into adaptation training, adaptation validation, and locked heldout testing. \textbf{(d)} Subject-level leakage control keeps subject identifiers disjoint across development and evaluation partitions, and repeated scans are aggregated into subject-level diagnostic-state endpoints. \textbf{(e)} The primary endpoint is AIBL locked heldout subject-level CN/MCI/AD staging; IXI evaluates healthy-control CN retention; OASIS is interpreted only as a stress-test endpoint. \textbf{(f)} The analysis flow links cohort construction, atlas-guided multimodal features, RC-SPE probability integration, subject-level prediction, error analysis, and atlas-based structural neurodegeneration consistency.}
     \label{fig:v6_framework}
 \end{figure}
 
@@ -194,18 +194,6 @@ For a subject-level diagnostic-state unit $u$, scan indices were grouped as
 \end{equation}
 where $q(u)$ is the split assignment. This grouping prevents scan-level repetitions from being interpreted as independent final endpoint units. Scan-level results are retained only as reference analyses.
 
-\begin{figure}[p]
-    \centering
-    \fbox{\begin{minipage}[c][0.60\textheight][c]{0.94\textwidth}
-    \textbf{Placeholder for Figure 2. Data line and endpoint design.}
-
-    \vspace{0.8em}
-    Panels to draw: \textbf{(a)} ADNI/AIBL/OASIS/IXI cohort blocks with scan and subject counts; \textbf{(b)} ADNI train--validation--internal-test split; \textbf{(c)} AIBL adaptation train/validation and locked heldout split; \textbf{(d)} endpoint aggregation from scans to subject-level diagnostic-state units; \textbf{(e)} OASIS explicitly shown as stress test, not tuning or success validation.
-    \end{minipage}}
-    \caption{\textbf{Leakage-aware multi-cohort data line.} The revised study separates model development, external-domain adaptation, locked external testing, healthy-control specificity testing, and stress testing. This figure should make clear that AIBL heldout is the primary external endpoint, IXI evaluates false impairment in healthy controls, and OASIS is preserved only as a limitation stress test.}
-    \label{fig:v6_data_line}
-\end{figure}
-
 \subsection{Atlas-guided multimodal feature representation}
 \label{sec:features}
 
@@ -234,7 +222,19 @@ Feature standardization used development-set statistics only:
 \end{equation}
 where $\eta$ is a small numerical constant. The development statistics were not recomputed on locked heldout endpoint labels.
 
-The revised model should therefore be described as atlas-guided and multimodal. The atlas component anchors the model to interpretable neuroanatomical regions, while the clinical component reflects the known diagnostic signal contained in age, global cognition, and functional staging. The central evidence is classification performance and structural consistency, not attention-map biomarker discovery.
+The model is therefore atlas-guided and multimodal. The atlas component anchors the model to interpretable neuroanatomical regions, while the clinical component reflects the known diagnostic signal contained in age, global cognition, and functional staging. Figure~\ref{fig:v6_features} shows the feature system. The central evidence is classification performance and structural consistency, not attention-map biomarker discovery.
+
+\begin{figure}[p]
+    \centering
+    \fbox{\begin{minipage}[c][0.60\textheight][c]{0.94\textwidth}
+    \textbf{Placeholder for Figure 2. Atlas-guided multimodal feature system.}
+
+    \vspace{0.8em}
+    Panels to draw: \textbf{(a)} T1 MRI preprocessing to atlas-derived regional features; \textbf{(b)} 21-region atlas schematic with hippocampus, amygdala, and lateral ventricles highlighted; \textbf{(c)} core clinical feature block; \textbf{(d)} feature standardization and missingness indicators; \textbf{(e)} multimodal feature matrix; \textbf{(f)} anatomical link between AD-relevant regions and structural neurodegeneration.
+    \end{minipage}}
+    \caption{\textbf{Atlas-guided multimodal feature system.} \textbf{(a)} Structural T1 MRI is converted into atlas-level regional measurements, including volumetric and intensity summaries from the 21-region representation used by the model. \textbf{(b)} The atlas representation includes the full region set and highlights the a priori AD-relevant regions used for structural consistency analysis: bilateral hippocampus, bilateral amygdala, and bilateral lateral ventricles. \textbf{(c)} The core clinical block contains age, sex, education, APOE4, MMSE, and CDR-SB when available, reflecting demographic, genetic-risk, cognitive, and functional information. \textbf{(d)} Continuous features are standardized using development-set statistics, and missing variables are handled with imputation plus missingness indicators rather than by deleting external subjects. \textbf{(e)} The final input matrix concatenates standardized atlas features, standardized clinical features, and missingness indicators for each scan-level record before probability modeling. \textbf{(f)} The feature design links the classifier to established AD structural patterns, especially medial temporal atrophy and lateral ventricular enlargement, while keeping the biological claim at the level of atlas structural neurodegeneration consistency.}
+    \label{fig:v6_features}
+\end{figure}
 
 \subsection{Candidate models and comparator roles}
 \label{sec:candidates}
@@ -255,7 +255,7 @@ When a model family produced calibrated probabilities directly, $f_{m,k}$ denote
 \subsection{RC-SPE: risk-constrained subject-level probability ensemble}
 \label{sec:model}
 
-The final locked algorithm was RC-SPE, a risk-constrained subject-level probability ensemble. RC-SPE was designed to avoid a common failure mode in external AD staging: improving aggregate accuracy while sacrificing minority disease recall or overcalling impairment in healthy external controls. It combined six base-model probability streams:
+The final locked algorithm was RC-SPE, a risk-constrained subject-level probability ensemble. RC-SPE was designed to avoid a common failure mode in external AD staging: improving aggregate accuracy while sacrificing minority disease recall or overcalling impairment in healthy external controls. Figure~\ref{fig:v6_model} provides the visual architecture of the algorithm. RC-SPE combined six base-model probability streams:
 \begin{itemize}[leftmargin=*,itemsep=2pt]
     \item AIBL-adapted atlas-biomarker-enhanced HGB.
     \item AIBL-adapted atlas-core-clinical HGB.
@@ -336,9 +336,9 @@ and treated candidate profiles with improved AIBL MCI recall but increased IXI f
     \textbf{Placeholder for Figure 3. RC-SPE locked subject-level probability ensemble.}
 
     \vspace{0.8em}
-    Panels to draw: \textbf{(a)} six base probability streams; \textbf{(b)} RC-SPE objective with AIBL minority recall and IXI healthy specificity; \textbf{(c)} log-probability pooling with weights, class offsets, and temperature; \textbf{(d)} scan-level to subject-level probability averaging; \textbf{(e)} final CN/MCI/AD output with confidence and margin. The main visual message is that the method is a risk-constrained calibrated subject-level AD staging algorithm, not a generic average ensemble.
+    Panels to draw: \textbf{(a)} six base probability streams; \textbf{(b)} CN/MCI/AD probability simplex or probability vectors from each stream; \textbf{(c)} log-probability pooling with non-negative weights; \textbf{(d)} class offsets and temperature scaling; \textbf{(e)} risk-constrained objective; \textbf{(f)} subject-level probability averaging; \textbf{(g)} final CN/MCI/AD output with confidence and margin.
     \end{minipage}}
-    \caption{\textbf{RC-SPE locked subject-level probability ensemble.} The final algorithm combines six base-model probability streams through log-probability pooling, class-specific offsets, temperature scaling, and subject-level probability averaging. Its selection objective balances external AIBL staging performance, minority-class rescue, and IXI healthy-control specificity while excluding OASIS from tuning.}
+    \caption{\textbf{RC-SPE locked subject-level probability ensemble.} \textbf{(a)} RC-SPE receives six CN/MCI/AD probability streams: AIBL-adapted atlas-biomarker HGB, atlas-core-clinical HGB, clinical-biomarker RF, clinical-core HGB, clinical-core RF, and an RF--logistic regression cascade component. \textbf{(b)} Each stream contributes a three-class probability vector rather than a binary decision, allowing uncertainty between CN, MCI, and AD to be preserved before pooling. \textbf{(c)} The ensemble performs weighted log-probability pooling with non-negative weights constrained to sum to one, which discourages a single model from dominating the locked decision. \textbf{(d)} Class-specific offsets and temperature scaling calibrate the pooled logits and adjust CN/MCI/AD decision balance. \textbf{(e)} Model selection balances AIBL adaptation-validation BAcc, minority disease recall, AD-to-CN error avoidance, calibration, and IXI healthy-control CN retention, with OASIS excluded from tuning. \textbf{(f)} Repeated scans are averaged into subject-level diagnostic-state probabilities before the primary endpoint is reported. \textbf{(g)} The final output is a three-class prediction with calibrated probabilities, maximum-probability confidence, and decision margin for downstream error analysis.}
     \label{fig:v6_model}
 \end{figure}
 
@@ -458,7 +458,7 @@ Group profiles were summarized for age, MMSE, CDR-SB, APOE4, atlas hippocampal v
 \subsection{Structural neurodegeneration consistency}
 \label{sec:bio}
 
-The old attention-centered CAS was removed because it did not provide valid biological evidence. The revised biological analysis tests whether disease-associated atlas volume differences concentrate in a priori AD-relevant regions: bilateral hippocampus, bilateral amygdala, and bilateral lateral ventricles. Let $\mathcal{R}$ be the atlas-region set and $\mathcal{K}\subset\mathcal{R}$ be the six AD-key regions. For each region $r$, the absolute disease-associated volume contrast was
+The biological analysis tests whether disease-associated atlas volume differences concentrate in a priori AD-relevant regions: bilateral hippocampus, bilateral amygdala, and bilateral lateral ventricles. Let $\mathcal{R}$ be the atlas-region set and $\mathcal{K}\subset\mathcal{R}$ be the six AD-key regions. For each region $r$, the absolute disease-associated volume contrast was
 \begin{equation}
 \Delta_r =
 \left|
@@ -513,38 +513,39 @@ The software is released as an open-source research prototype for retrospective 
 \label{sec:results}
 %% ====================================================================
 
-\subsection{External classification failure in the original v3 model}
-\label{sec:old_failure}
+\subsection{Comparator baselines and external endpoint overview}
+\label{sec:external_overview}
 
-The original v3 model did not support the earlier cross-dataset generalization claim. On AIBL, it achieved accuracy 0.606, BAcc 0.399, and macro AUC 0.597. On IXI, only 0.439 of healthy controls were retained as CN, indicating a high false impairment rate. These results motivate the central revision: external validation must be based on direct classification outcomes and healthy-control specificity, not on explanation similarity alone.
-
-This failure also explains why the final manuscript cannot be framed as a small textual correction. The model, endpoint, claim boundary, and biological analysis were all changed. The revised evidence focuses on locked AIBL subject-level performance, IXI specificity, bootstrap stability, and bounded structural consistency.
+The Results are organized around three questions: whether RC-SPE improves locked AIBL subject-level CN/MCI/AD staging relative to comparator baselines, whether healthy external controls are preserved as CN in IXI, and whether OASIS exposes residual transfer limitations. The comparator set includes atlas-only, cascade, ADNI-only hybrid, atlas+clinical, biomarker-enhanced, clinical-only, and RC-SPE variants so that the final model can be interpreted relative to both anatomically constrained and clinically strong baselines.
 
 \subsection{Locked AIBL heldout subject-level performance}
 \label{sec:external_results}
 
-Final locked RC-SPE achieved strong AIBL heldout subject-level performance. It achieved accuracy 0.903, BAcc 0.833, macro AUC 0.937, AD-vs-CN AUC 1.000, and CN/MCI/AD recall 0.961/0.686/0.852. The scan-level reference result was similar: accuracy 0.909, BAcc 0.820, macro AUC 0.939, AD-vs-CN AUC 0.998, and CN/MCI/AD recall 0.964/0.642/0.854.
+Final locked RC-SPE achieved strong AIBL heldout subject-level performance, summarized visually in Figure~\ref{fig:v6_external_performance}. It achieved accuracy 0.903, BAcc 0.833, macro AUC 0.937, AD-vs-CN AUC 1.000, and CN/MCI/AD recall 0.961/0.686/0.852. The scan-level reference result was similar: accuracy 0.909, BAcc 0.820, macro AUC 0.939, AD-vs-CN AUC 0.998, and CN/MCI/AD recall 0.964/0.642/0.854.
 
 IXI healthy negative-control specificity was preserved. The final model retained all IXI healthy subjects as CN at both scan and subject levels, corresponding to CN retention 1.000 and false impairment rate 0.000. This result does not provide AD/MCI staging evidence because IXI contains healthy controls only, but it directly addresses whether the final model overcalls impairment in a healthy external cohort.
 
 \begin{table}[t]
 \centering
-\caption{Main external classification results. The locked primary endpoint is final RC-SPE at subject level on AIBL heldout.}
+\caption{AIBL external model comparison and final RC-SPE positioning. The locked primary endpoint is final RC-SPE at subject level on AIBL heldout.}
 \label{tab:v6_classification}
 \scriptsize
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lllrrrrlll@{}}
+\begin{tabular}{@{}lllrrrrll@{}}
 \toprule
-Model/protocol & Unit & Test cohort & Endpoint $n$ & Acc & BAcc & Macro AUC & AD-vs-CN AUC/CN retention & CN/MCI/AD recall & Role \\
+Model/protocol & Unit & Test cohort & Endpoint $n$ & Acc & BAcc & Macro AUC & AD-vs-CN AUC/CN retention & CN/MCI/AD recall \\
 \midrule
-Old v3 ensemble & scan & AIBL external & 1{,}307 & 0.606 & 0.399 & 0.597 & NA & NA & Failed external baseline \\
-Old v3 ensemble & scan & IXI healthy & 581 & 0.439 & 0.439 & NA & CN retention 0.439 & 0.439/0.000/0.000 & Failed specificity baseline \\
-v4 atlas+clinical HGB & scan & AIBL heldout & 397 & 0.882 & 0.741 & 0.942 & AD-vs-CN AUC 0.990 & 0.964/0.528/0.732 & Earlier rebuild \\
-Final RC-SPE & scan & AIBL heldout & 397 & 0.909 & 0.820 & 0.939 & AD-vs-CN AUC 0.998 & 0.964/0.642/0.854 & Scan-level reference \\
-Final RC-SPE & subject & AIBL heldout & 216 & 0.903 & 0.833 & 0.937 & AD-vs-CN AUC 1.000 & 0.961/0.686/0.852 & Locked primary result \\
-Final RC-SPE & subject & IXI healthy & 581 & 1.000 & 1.000 & NA & CN retention 1.000 & 1.000/0.000/0.000 & Specificity check \\
-Final RC-SPE & subject & OASIS stress & 99 & 0.586 & 0.334 & 0.554 & AD-vs-CN AUC 0.371 & 0.966/0.034/0.000 & Limitation \\
-Clinical-only RF comparator & scan & AIBL heldout & 397 & 0.922 & 0.835 & 0.957 & AD-vs-CN AUC 0.997 & 0.970/0.755/0.780 & Upper-bound comparator \\
+Old v3 ensemble & scan & AIBL external & 1{,}307 & 0.606 & 0.399 & 0.597 & NA & NA \\
+Atlas-only HGB & scan & AIBL heldout & 397 & 0.776 & 0.479 & 0.732 & AD-vs-CN AUC 0.884 & 0.944/0.151/0.341 \\
+Cascade RF-logreg & scan & AIBL heldout & 397 & 0.751 & 0.391 & 0.756 & AD-vs-CN AUC 0.886 & 0.954/0.000/0.220 \\
+ADNI-only hybrid RF & scan & AIBL heldout & 397 & 0.549 & 0.406 & 0.753 & AD-vs-CN AUC 0.870 & 0.614/0.604/0.000 \\
+v4 atlas+clinical HGB & scan & AIBL heldout & 397 & 0.882 & 0.741 & 0.942 & AD-vs-CN AUC 0.990 & 0.964/0.528/0.732 \\
+Biomarker-enhanced HGB & scan & AIBL heldout & 397 & 0.861 & 0.703 & 0.942 & AD-vs-CN AUC 0.990 & 0.957/0.396/0.756 \\
+Clinical-only RF comparator & scan & AIBL heldout & 397 & 0.922 & 0.835 & 0.957 & AD-vs-CN AUC 0.997 & 0.970/0.755/0.780 \\
+Final RC-SPE & scan & AIBL heldout & 397 & 0.909 & 0.820 & 0.939 & AD-vs-CN AUC 0.998 & 0.964/0.642/0.854 \\
+Final RC-SPE & subject & AIBL heldout & 216 & 0.903 & 0.833 & 0.937 & AD-vs-CN AUC 1.000 & 0.961/0.686/0.852 \\
+Final RC-SPE & subject & IXI healthy & 581 & 1.000 & 1.000 & NA & CN retention 1.000 & 1.000/0.000/0.000 \\
+Final RC-SPE & subject & OASIS stress & 99 & 0.586 & 0.334 & 0.554 & AD-vs-CN AUC 0.371 & 0.966/0.034/0.000 \\
 \bottomrule
 \end{tabular}%
 }
@@ -556,23 +557,23 @@ Clinical-only RF comparator & scan & AIBL heldout & 397 & 0.922 & 0.835 & 0.957 
     \textbf{Placeholder for Figure 4. External classification performance.}
 
     \vspace{0.8em}
-    Panels to draw: \textbf{(a)} AIBL BAcc comparison: old v3, v4 atlas+clinical, final scan, final subject, clinical-only comparator; \textbf{(b)} AIBL macro AUC comparison; \textbf{(c)} final subject-level CN/MCI/AD recall; \textbf{(d)} IXI CN retention and false impairment rate; \textbf{(e)} OASIS as a small stress-test limitation panel. The central story is old external failure to new locked AIBL subject-level success with IXI specificity.
+    Panels to draw: \textbf{(a)} AIBL BAcc model comparison; \textbf{(b)} AIBL macro AUC model comparison; \textbf{(c)} Final RC-SPE CN/MCI/AD recall; \textbf{(d)} AD-vs-CN discrimination; \textbf{(e)} IXI healthy specificity; \textbf{(f)} OASIS stress-test performance; \textbf{(g)} scan-level versus subject-level RC-SPE comparison.
     \end{minipage}}
-    \caption{\textbf{External classification performance.} The original v3 model failed external classification and healthy specificity. Final subject-level RC-SPE substantially improves locked AIBL heldout CN/MCI/AD staging and preserves IXI healthy specificity. OASIS is shown as a stress-test limitation, not as a successful validation cohort.}
+    \caption{\textbf{External subject-level classification performance.} \textbf{(a)} AIBL heldout BAcc compares atlas-only HGB (0.479), cascade RF-logreg (0.391), ADNI-only hybrid RF (0.406), v4 atlas+clinical HGB (0.741), biomarker-enhanced HGB (0.703), clinical-only RF comparator (0.835), final RC-SPE scan-level (0.820), and final RC-SPE subject-level (0.833). \textbf{(b)} AIBL macro AUC uses the same model order, showing final RC-SPE subject-level macro AUC 0.937 and clinical-only comparator macro AUC 0.957. \textbf{(c)} Per-class recall for final subject-level RC-SPE is CN 0.961, MCI 0.686, and AD 0.852, making MCI the main residual disease-boundary weakness rather than a collapsed class. \textbf{(d)} AD-vs-CN discrimination reaches AUC 1.000 at the AIBL subject-level endpoint. \textbf{(e)} IXI healthy negative-control analysis shows CN retention 1.000 and false impairment rate 0.000 across 581 healthy subjects. \textbf{(f)} OASIS is presented as a compact stress-test panel with BAcc 0.334, macro AUC 0.554, and CN/MCI/AD recall 0.966/0.034/0.000, explicitly separated from the primary external claim. \textbf{(g)} Scan-level and subject-level RC-SPE results are shown side by side to emphasize that subject-level averaging is the locked primary endpoint.}
     \label{fig:v6_external_performance}
 \end{figure}
 
 \subsection{Comparator interpretation}
 \label{sec:comparators}
 
-The clinical-only RF comparator achieved AIBL heldout BAcc 0.835 and CN/MCI/AD recall 0.970/0.755/0.780 at scan level. This model is reported as a comparator and upper bound rather than the central ARA-Net model, because it does not retain the atlas-guided MRI component central to the revised scientific objective. This comparison is important: it shows that clinical variables carry substantial diagnostic signal and prevents overstating MRI-only interpretability.
+Table~\ref{tab:v6_classification} shows that the final subject-level RC-SPE is substantially stronger than the atlas-only MRI baseline, cascade baseline, ADNI-only hybrid model, biomarker-enhanced sensitivity model, and earlier atlas+clinical model on the locked AIBL endpoint. The clinical-only RF comparator achieved AIBL heldout BAcc 0.835 and CN/MCI/AD recall 0.970/0.755/0.780 at scan level. This model is reported as a comparator and upper bound rather than the central ARA-Net model, because it does not retain the atlas-guided MRI component central to the revised scientific objective. This comparison is important: it shows that clinical variables carry substantial diagnostic signal and prevents overstating MRI-only interpretability.
 
 RC-SPE is therefore not presented as the single numerically best classifier under every possible feature setting. It is presented as the final model that balances the paper's core requirements: atlas-guided multimodal staging, high locked AIBL subject-level performance, MCI/AD rescue, and IXI healthy specificity. This distinction should remain explicit in the manuscript and figures.
 
 \subsection{Algorithmic ablation and calibration of RC-SPE}
 \label{sec:algorithm_results}
 
-We evaluated RC-SPE against single-model, simple averaging, equal log-pooling, partial-parameter, and aggregation ablations using the same private prediction streams. Only aggregate metrics are reported. The ablation demonstrates that the final locked method is not equivalent to a generic average ensemble. The best single base model achieved AIBL BAcc 0.756, MCI recall 0.571, AD recall 0.741, two AD-to-CN errors, and IXI CN retention 0.997. Equal log-pooling without learned weights, offsets, or temperature achieved AIBL BAcc 0.648 and MCI recall 0.171. By contrast, full RC-SPE at subject level achieved AIBL BAcc 0.833, MCI recall 0.686, AD recall 0.852, zero AD-to-CN errors, and IXI CN retention 1.000.
+We evaluated RC-SPE against single-model, simple averaging, equal log-pooling, partial-parameter, and aggregation ablations using the same private prediction streams. Only aggregate metrics are reported. Figure~\ref{fig:v6_stability} is designed to visualize these algorithmic comparisons. The ablation demonstrates that the final locked method is not equivalent to a generic average ensemble. The best single base model achieved AIBL BAcc 0.756, MCI recall 0.571, AD recall 0.741, two AD-to-CN errors, and IXI CN retention 0.997. Equal log-pooling without learned weights, offsets, or temperature achieved AIBL BAcc 0.648 and MCI recall 0.171. By contrast, full RC-SPE at subject level achieved AIBL BAcc 0.833, MCI recall 0.686, AD recall 0.852, zero AD-to-CN errors, and IXI CN retention 1.000.
 
 \begin{table}[t]
 \centering
@@ -606,7 +607,7 @@ We also evaluated risk-profile alternatives. A high-MCI-recall profile increased
 \subsection{Subject-level MCI and AD error analysis}
 \label{sec:error_results}
 
-On the locked AIBL heldout subject-level set, errors were concentrated at disease-stage boundaries. Among 154 CN endpoint units, 148 were classified as CN, five as MCI, and one as AD. Among 35 MCI endpoint units, 24 were classified as MCI, two as CN, and nine as AD. Among 27 AD endpoint units, 23 were classified as AD and four as MCI; no AD endpoint unit was misclassified as CN.
+On the locked AIBL heldout subject-level set, errors were concentrated at disease-stage boundaries, as planned for Figure~\ref{fig:v6_error}. Among 154 CN endpoint units, 148 were classified as CN, five as MCI, and one as AD. Among 35 MCI endpoint units, 24 were classified as MCI, two as CN, and nine as AD. Among 27 AD endpoint units, 23 were classified as AD and four as MCI; no AD endpoint unit was misclassified as CN.
 
 \begin{table}[t]
 \centering
@@ -635,18 +636,18 @@ Internal subject-level performance remained weaker. Internal subject-level BAcc 
     \textbf{Placeholder for Figure 5. Subject-level confusion and error profile.}
 
     \vspace{0.8em}
-    Panels to draw: \textbf{(a)} AIBL heldout subject-level confusion heatmap; \textbf{(b)} internal subject-level confusion heatmap; \textbf{(c)} AIBL transition/alluvial flow; \textbf{(d)} MCI-to-CN, MCI-to-AD, AD-to-MCI, AD-to-CN error subtype bars; \textbf{(e)} error-feature profile summary using MMSE, ventricle volume, hippocampus volume, AD-like z-score, confidence, and margin. The key visual claim is zero AD-to-CN errors on AIBL and boundary-like residual mistakes.
+    Panels to draw: \textbf{(a)} AIBL heldout subject-level confusion matrix; \textbf{(b)} true-to-predicted alluvial flow; \textbf{(c)} error subtype bars; \textbf{(d)} decision confidence by outcome; \textbf{(e)} decision margin by outcome; \textbf{(f)} clinical severity profiles; \textbf{(g)} atlas structural profiles for correct and boundary-error groups.
     \end{minipage}}
-    \caption{\textbf{Subject-level MCI/AD error behavior.} AIBL heldout errors concentrate near adjacent disease-stage boundaries rather than collapsing disease cases into CN. Internal calibration remains weaker and should be interpreted as a limitation.}
+    \caption{\textbf{Subject-level error structure and disease-boundary behavior.} \textbf{(a)} The AIBL heldout subject-level confusion matrix contains 216 endpoint units: CN 148/154 correctly classified, MCI 24/35 correctly classified, and AD 23/27 correctly classified. \textbf{(b)} The true-to-predicted flow shows that most CN endpoints remain CN, MCI errors split mainly toward AD rather than CN, and AD errors move to MCI rather than CN. \textbf{(c)} Error subtype bars quantify MCI$\rightarrow$CN errors (2/35, 0.057), MCI$\rightarrow$AD errors (9/35, 0.257), AD$\rightarrow$MCI errors (4/27, 0.148), and AD$\rightarrow$CN errors (0/27, 0.000). \textbf{(d)} Confidence distributions compare correctly classified endpoints against boundary-error endpoints using the maximum subject-level predicted probability. \textbf{(e)} Decision-margin distributions evaluate whether errors occur near small probability margins between adjacent disease classes. \textbf{(f)} Clinical severity profiles compare MMSE, CDR-SB, age, and APOE4 across correct MCI, MCI$\rightarrow$AD, correct AD, and AD$\rightarrow$MCI groups, testing whether boundary errors follow disease-severity gradients. \textbf{(g)} Atlas structural profiles compare hippocampal volume, lateral ventricular volume, and AD-like atlas z-score across the same groups. Residual mistakes concentrate near CN/MCI/AD disease boundaries rather than representing a collapse of AD cases into CN.}
     \label{fig:v6_error}
 \end{figure}
 
 \subsection{Algorithmic stability, risk tradeoff, and bootstrap uncertainty}
 \label{sec:stability}
 
-Bootstrap analysis with 2{,}000 resamples quantified uncertainty for the locked AIBL heldout subject-level endpoint. The 95\% CI for BAcc was 0.759--0.899, and the 95\% CI for macro AUC was 0.894--0.974. The 95\% CI for MCI recall was 0.531--0.839, and the 95\% CI for AD recall was 0.710--0.966. These intervals support the final model as the locked primary result while preserving MCI staging uncertainty as a visible limitation.
+Bootstrap analysis with 2{,}000 resamples quantified uncertainty for the locked AIBL heldout subject-level endpoint and is included in Figure~\ref{fig:v6_stability}. The 95\% CI for BAcc was 0.759--0.899, and the 95\% CI for macro AUC was 0.894--0.974. The 95\% CI for MCI recall was 0.531--0.839, and the 95\% CI for AD recall was 0.710--0.966. These intervals support the final model as the locked primary result while preserving MCI staging uncertainty as a visible limitation.
 
-The bootstrap result also clarifies which claim is strongest. CN recall and AD-vs-CN separation are robust on AIBL heldout, while MCI recall remains the widest uncertainty interval. The paper should therefore state that MCI staging is improved and externally meaningful, but not solved.
+The bootstrap result also clarifies which claim is strongest. CN recall and AD-vs-CN separation are robust on AIBL heldout, while MCI recall remains the widest uncertainty interval. MCI staging is improved and externally meaningful, but it remains the main residual uncertainty.
 
 \begin{figure}[p]
     \centering
@@ -654,16 +655,16 @@ The bootstrap result also clarifies which claim is strongest. CN recall and AD-v
     \textbf{Placeholder for Figure 6. Algorithmic ablation, calibration, risk tradeoff, and stability.}
 
     \vspace{0.8em}
-    Panels to draw: \textbf{(a)} algorithmic ablation bars comparing best single model, arithmetic mean, equal log-pooling, partial RC-SPE, scan-level RC-SPE, and subject-level RC-SPE; \textbf{(b)} reliability curve for best single, equal log-pooling, and final RC-SPE; \textbf{(c)} risk-constraint scatterplot showing AIBL BAcc or MCI recall versus IXI false impairment rate; \textbf{(d)} leave-one-model-out BAcc stability; \textbf{(e)} bootstrap BAcc/MCI/AD recall forest plot. The visual message is that RC-SPE is an algorithmic contribution with measurable ablation, calibration, and risk-tradeoff behavior.
+    Panels to draw: \textbf{(a)} ablation BAcc bars; \textbf{(b)} ablation MCI and AD recall; \textbf{(c)} AD-to-CN error comparison; \textbf{(d)} calibration ECE/NLL or reliability curve; \textbf{(e)} risk tradeoff curve; \textbf{(f)} leave-one-model-out stability; \textbf{(g)} bootstrap uncertainty forest plot.
     \end{minipage}}
-    \caption{\textbf{Algorithmic evidence and stability of RC-SPE.} Ablation, calibration, risk-tradeoff, leave-one-model-out, and bootstrap analyses show that the final locked method is not a generic average ensemble. RC-SPE improves AIBL heldout subject-level performance while preserving IXI healthy specificity and exposing MCI recall as the main residual uncertainty.}
+    \caption{\textbf{Algorithmic ablation, calibration, risk tradeoff, and stability of RC-SPE.} \textbf{(a)} AIBL BAcc is shown for best single base model (0.756), arithmetic mean ensemble (0.711), equal log-pooling (0.648), final weights only (0.815), weights+offsets (0.823), weights+temperature (0.815), full RC-SPE scan-level (0.810), and full RC-SPE subject-level (0.833). \textbf{(b)} MCI and AD recall are shown for the same variants, emphasizing that full subject-level RC-SPE balances MCI recall 0.686 and AD recall 0.852 better than simple averaging or equal log-pooling. \textbf{(c)} AD-to-CN error counts show risk reduction from 2 errors for the best single base model, 3 for arithmetic mean, and 5 for equal log-pooling to 0 for full RC-SPE. \textbf{(d)} Calibration compares expected calibration error and negative log-likelihood, including best single ECE 0.122/NLL 0.416 and full RC-SPE ECE 0.078/NLL 0.320; a reliability curve can be included when space allows. \textbf{(e)} The risk tradeoff panel compares the locked RC-SPE profile against MCI-rescue and AD-rescue alternatives, showing that the MCI-rescue profile reaches MCI recall 0.886 but reduces AD recall to 0.593 and IXI CN retention to 0.959. \textbf{(f)} Leave-one-model-out analysis shows that dropping any one of the six base streams preserves AIBL BAcc between 0.823 and 0.835 and keeps AD-to-CN errors at 0. \textbf{(g)} Bootstrap uncertainty reports AIBL subject-level BAcc 0.833 with 95\% CI 0.759--0.899, MCI recall 0.686 with CI 0.531--0.839, and AD recall 0.852 with CI 0.710--0.966. Together, these panels establish RC-SPE as a risk-constrained algorithmic contribution rather than a generic model average.}
     \label{fig:v6_stability}
 \end{figure}
 
 \subsection{Structural neurodegeneration consistency and OASIS stress test}
 \label{sec:bio_results}
 
-The AIBL heldout atlas-volume consistency score exceeded the uniform regional null in the a priori AD-key regions. The score was 0.510 versus a uniform null of 0.286, with score difference 0.225, bootstrap CI 0.479--0.526, and permutation $p=0.026$.
+The AIBL heldout atlas-volume consistency score exceeded the uniform regional null in the a priori AD-key regions, as summarized in Figure~\ref{fig:v6_biology}. The score was 0.510 versus a uniform null of 0.286, with score difference 0.225, bootstrap CI 0.479--0.526, and permutation $p=0.026$.
 
 Across all labeled AD-relevant data, the AD-key consistency score was 0.426 versus a uniform null of 0.286, with permutation $p=0.0207$. The ADNI-only internal check remained non-significant, with score 0.342 and $p=0.1843$. These results support a bounded structural MRI neurodegeneration proxy while making clear that postmortem-stage validation is not available.
 
@@ -672,12 +673,12 @@ OASIS remained weak without OASIS tuning. The final subject-level model achieved
 \begin{figure}[p]
     \centering
     \fbox{\begin{minipage}[c][0.64\textheight][c]{0.94\textwidth}
-    \textbf{Placeholder for Figure 7. CAS/Braak replacement and biological consistency.}
+    \textbf{Placeholder for Figure 7. Atlas-based structural neurodegeneration consistency.}
 
     \vspace{0.8em}
-    Panels to draw: \textbf{(a)} old attention-only CAS failure callout; \textbf{(b)} definition of AD-key atlas regions: bilateral hippocampus, amygdala, and lateral ventricles; \textbf{(c)} AIBL heldout structural consistency score 0.510 vs null 0.286 with CI and $p=0.026$; \textbf{(d)} pooled all-labeled-AD score 0.426 vs null 0.286, plus ADNI-only non-significant internal check; \textbf{(e)} claim-boundary badges: MRI proxy only, not attention biomarker, not direct Braak proof, not clinical device.
+    Panels to draw: \textbf{(a)} AD-key region definition; \textbf{(b)} region-level structural-effect ranking; \textbf{(c)} AIBL heldout consistency test; \textbf{(d)} all-labeled consistency test; \textbf{(e)} cohort comparison across AIBL heldout, all-labeled, and ADNI-only; \textbf{(f)} structural pattern map; \textbf{(g)} interpretation boundary for atlas structural neurodegeneration consistency.
     \end{minipage}}
-    \caption{\textbf{Biological consistency and replacement of unsupported CAS/Braak claims.} The invalid attention-only CAS claim is removed. The revised biological analysis tests whether atlas structural MRI changes concentrate in a priori AD-relevant regions. The supported claim is a bounded MRI neurodegeneration proxy, not attention-map biomarker discovery or direct Braak-stage validation.}
+    \caption{\textbf{Atlas-based structural neurodegeneration consistency.} \textbf{(a)} The a priori AD-key atlas set identifies bilateral hippocampus, bilateral amygdala, and bilateral lateral ventricles as the structural regions used for the consistency test. \textbf{(b)} Region-level structural-effect ranking displays all atlas regions by AD-related volume or structural difference, allowing the AD-key set to be compared with the full regional background. \textbf{(c)} In the locked AIBL heldout endpoint, the AD-key atlas-volume consistency score is 0.510 compared with a uniform regional null of 0.286, with bootstrap CI 0.479--0.526 and permutation $p=0.026$. \textbf{(d)} Across all labeled AD-relevant data, the AD-key consistency score is 0.426 versus the same null of 0.286, with permutation $p=0.0207$. \textbf{(e)} A cohort-comparison panel shows AIBL heldout, all-labeled, and ADNI-only checks side by side; the ADNI-only internal check remains non-significant with score 0.342 and $p=0.1843$. \textbf{(f)} The structural pattern map emphasizes hippocampal/amygdala atrophy and lateral ventricular enlargement as the intended MRI neurodegeneration pattern. \textbf{(g)} The interpretation boundary states that this is atlas structural neurodegeneration consistency, not direct Braak-stage validation, not an attention-map biomarker claim, and not clinical-device evidence.}
     \label{fig:v6_biology}
 \end{figure}
 
@@ -687,12 +688,12 @@ OASIS remained weak without OASIS tuning. The final subject-level model achieved
 \label{sec:discussion}
 %% ====================================================================
 
-\subsection{A substantive rebuild rather than a narrow revision}
+\subsection{Subject-level external AD staging as the central claim}
 \label{sec:discussion_rebuild}
 
-The revised study addresses the major weaknesses of the original manuscript by changing the model endpoint, evidence base, and claim boundary. Cross-dataset generalization is no longer inferred from explanation similarity. It is evaluated using a locked AIBL heldout subject-level test and an IXI healthy negative-control cohort. The unsupported attention-centered CAS claim is removed and replaced by an atlas-region structural neurodegeneration consistency analysis. The non-significant disease-stage result is no longer used to claim direct pathological staging.
+This study is best interpreted as a domain-adapted, subject-level external AD staging framework. The central evidence is not a single scan-level accuracy number, but the combination of locked AIBL heldout CN/MCI/AD classification, IXI healthy-control specificity, bootstrap uncertainty, error analysis, algorithmic ablation, and atlas-based structural neurodegeneration consistency.
 
-This is why the revised manuscript should be read as a new evidence package rather than as a small correction. The final work asks a more defensible question: whether an atlas-guided multimodal classifier, adapted to an external cohort but evaluated on a locked heldout split, can provide strong subject-level CN/MCI/AD staging while preserving healthy specificity and exposing remaining transfer failures.
+The design makes the endpoint hierarchy explicit. AIBL heldout is the primary external staging endpoint, IXI tests whether healthy subjects are overcalled as impaired, and OASIS is retained as an external stress test. This structure gives each dataset a defined inferential role and reduces ambiguity when external datasets behave differently.
 
 \subsection{Interpretation of the final model}
 \label{sec:discussion_model}
@@ -706,21 +707,21 @@ RC-SPE is therefore a pragmatic solution to a clinically important modeling prob
 \subsection{MCI/AD boundary behavior}
 \label{sec:discussion_errors}
 
-The error analysis clarifies the clinical meaning of the remaining failures. On AIBL heldout, AD endpoint units were not missed as CN; residual AD errors were classified as MCI. MCI errors were split between correct MCI and AD, with only two MCI endpoint units classified as CN. This pattern is preferable to a model that preserves overall accuracy by collapsing minority disease classes into CN, but it also shows that precise MCI/AD boundary staging remains challenging.
+The error analysis clarifies the clinical meaning of the remaining mistakes. On AIBL heldout, AD endpoint units were not missed as CN; residual AD errors were classified as MCI. MCI errors were split between correct MCI and AD, with only two MCI endpoint units classified as CN. This pattern is preferable to a model that preserves overall accuracy by collapsing minority disease classes into CN, but it also shows that precise MCI/AD boundary staging remains challenging.
 
-MCI is biologically and clinically heterogeneous. Some MCI participants may show AD-like neurodegeneration, while others may remain stable or have non-AD etiologies. A subject-level classifier operating on retrospective structural MRI and clinical variables should therefore be expected to show uncertainty near the MCI/AD boundary. The revised manuscript makes this limitation explicit rather than hiding it behind aggregate accuracy.
+MCI is biologically and clinically heterogeneous. Some MCI participants may show AD-like neurodegeneration, while others may remain stable or have non-AD etiologies. A subject-level classifier operating on retrospective structural MRI and clinical variables is therefore expected to show uncertainty near the MCI/AD boundary. The manuscript makes this limitation explicit rather than hiding it behind aggregate accuracy.
 
 \subsection{Biological consistency without overclaiming}
 \label{sec:discussion_bio}
 
 The biological analysis is intentionally bounded. The AIBL heldout atlas-volume consistency result supports disease-consistent structural MRI change in AD-relevant regions. It does not demonstrate explanation-map biomarkers, and it does not provide postmortem-stage validation. This narrower claim is more defensible and better aligned with the available data.
 
-This change directly addresses the earlier CAS and Braak problems. The unsupported attention-only CAS is not rescued by new wording; it is removed as a central claim. The Braak claim is also not reasserted without pathology labels. Instead, the revised work provides an atlas-region MRI proxy that is statistically tested against a transparent regional null.
+The atlas-based biological analysis is a structural MRI consistency test. It evaluates whether AD-related atlas volume changes concentrate in a priori AD-relevant regions compared with a transparent regional null. Without neuropathology labels, the result is not interpreted as direct pathological-stage validation.
 
 \subsection{OASIS and internal calibration limitations}
 \label{sec:discussion_limitations}
 
-Several limitations remain. OASIS transfer is not solved and should be treated as a stress-test failure requiring larger and cleaner external cohorts. The internal subject-level calibration pattern remains modest, especially for CN specificity within the internal split. Clinical variables contain substantial diagnostic signal, as shown by the clinical-only comparator. The 21-region atlas is anatomically interpretable but coarse, and finer parcellations may better capture cortical AD patterns.
+Several limitations remain. OASIS transfer is not solved and is treated as a stress-test limitation requiring larger and cleaner external cohorts. The internal subject-level calibration pattern remains modest, especially for CN specificity within the internal split. Clinical variables contain substantial diagnostic signal, as shown by the clinical-only comparator. The 21-region atlas is anatomically interpretable but coarse, and finer parcellations may better capture cortical AD patterns.
 
 These limitations do not invalidate the locked AIBL heldout result, but they define its correct scope. The model supports domain-adapted external heldout staging under the revised protocol. It does not support universal generalization across all public AD datasets, and it should not be described as deployment-ready clinical software.
 
@@ -729,7 +730,7 @@ These limitations do not invalidate the locked AIBL heldout result, but they def
 
 The revised repository is designed for reproducible research use. It includes code for cohort construction, feature handling, model evaluation, probability ensembling, bootstrap analysis, figure generation, documentation, and a lightweight research API/frontend. This improves transparency and helps readers audit the claims. However, raw neuroimaging and clinical data remain subject to original data-use agreements and cannot be redistributed directly.
 
-Clinically, the model should be viewed as a decision-support research prototype. Prospective multi-center validation, scanner/protocol robustness testing, local calibration, integration with clinical workflows, uncertainty reporting, and regulatory review would be required before any clinical use. The revised manuscript therefore separates deployability as software from clinical deployability as a medical product.
+Clinically, the model is best viewed as a decision-support research prototype. Prospective multi-center validation, scanner/protocol robustness testing, local calibration, integration with clinical workflows, uncertainty reporting, and regulatory review would be required before any clinical use. The manuscript therefore separates deployability as software from clinical deployability as a medical product.
 
 
 %% ====================================================================
@@ -737,7 +738,7 @@ Clinically, the model should be viewed as a decision-support research prototype.
 \label{sec:conclusion}
 %% ====================================================================
 
-This revised work is a substantive rebuild of the original ARA-Net study. It replaces unsupported attention-centered claims with locked external subject-level classification, healthy negative-control specificity, bootstrap uncertainty, MCI/AD error analysis, and a bounded atlas structural neurodegeneration consistency analysis. The strongest supported claim is domain-adapted external AD staging with an MRI neurodegeneration proxy, not pure zero-shot generalization, postmortem-stage validation, OASIS success, or clinical deployment readiness.
+This work presents an atlas-guided multimodal AD staging framework centered on RC-SPE, locked AIBL heldout subject-level validation, IXI healthy-control specificity, algorithmic ablation, bootstrap uncertainty, MCI/AD error analysis, and atlas-based structural neurodegeneration consistency. The strongest supported claim is domain-adapted external AD staging with an MRI neurodegeneration proxy, not pure zero-shot generalization, postmortem-stage validation, OASIS success, or clinical deployment readiness.
 
 
 %% ====================================================================

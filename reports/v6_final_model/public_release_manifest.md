@@ -75,7 +75,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_algorithm_innovation/risk_constraint_candidates.csv` | 517435 | `6c4c1c9d1d0a` | Public repository file. |
 | `reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md` | 1180 | `e074a63ca1cb` | Structural QA report for the generated V6 DOCX. |
 | `reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx` | 49168 | `eb35b61aa803` | Generated V6 Word manuscript replacement draft. |
-| `reports/v6_final_model/claim_boundary_audit.md` | 31201 | `ee7867db91b0` | Public claim-boundary audit for reviewer-safe wording. |
+| `reports/v6_final_model/claim_boundary_audit.md` | 31201 | `05151f74d28d` | Public claim-boundary audit for reviewer-safe wording. |
 | `reports/v6_final_model/clinical_translation_roadmap.md` | 3166 | `1cc4f087bda8` | Public repository file. |
 | `reports/v6_final_model/core_reviewer_evidence_matrix.md` | 4913 | `2197d755812e` | Three-core-issue reviewer evidence matrix. |
 | `reports/v6_final_model/deployment_code_clinical_response.md` | 4896 | `ae28cdc7bb21` | Public repository file. |
@@ -87,8 +87,8 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/final_submission_closure_packet.md` | 6559 | `e45dea92d2ab` | Final manuscript-integration packet for figures, OASIS handling, citations, and terminology. |
 | `reports/v6_final_model/goal_completion_audit.json` | 6275 | `8dd114566fc9` | Machine-readable requirement-level audit for the full V6 rebuild objective. |
 | `reports/v6_final_model/goal_completion_audit.md` | 5401 | `702a3e7381d6` | Requirement-level audit for the full V6 rebuild objective. |
-| `reports/v6_final_model/latex/main_v6_replacement.tex` | 69948 | `7c5c581e325a` | Public repository file. |
-| `reports/v6_final_model/latex/v6_body_expanded.tex` | 51959 | `d8c1ca75f67c` | Public repository file. |
+| `reports/v6_final_model/latex/main_v6_replacement.tex` | 75678 | `a794885da544` | Public repository file. |
+| `reports/v6_final_model/latex/v6_body_expanded.tex` | 57689 | `9b1d740734bf` | Public repository file. |
 | `reports/v6_final_model/latex/v6_latex_7_figure_plan.md` | 4474 | `77ca029fcb3a` | Public repository file. |
 | `reports/v6_final_model/manuscript_v6_full_draft.md` | 24976 | `7b4f425c7423` | Full V6 manuscript draft for replacing the old Word manuscript body. |
 | `reports/v6_final_model/manuscript_v6_rewrite_package.md` | 15586 | `5af34abdf0dd` | Public repository file. |
@@ -205,7 +205,7 @@ No tracked files matched the restricted row-level/data/model-artifact patterns.
 | `reports/v6_final_model/figures/figure4_final_bootstrap_stability.png` | 115883 | `70b71f3e8f3b` | Final v6 manuscript figure. |
 | `reports/v6_final_model/figures/figure5_final_error_profiles.pdf` | 29280 | `74c7a72a1979` | Final v6 manuscript figure. |
 | `reports/v6_final_model/figures/figure5_final_error_profiles.png` | 210377 | `75e7982f84cc` | Final v6 manuscript figure. |
-| `reports/v6_final_model/latex/main_v6_replacement.pdf` | 191419 | `a1764baa0957` | Public repository file. |
+| `reports/v6_final_model/latex/main_v6_replacement.pdf` | 195664 | `1ab70da2244e` | Public repository file. |
 
 ### frontend
 
