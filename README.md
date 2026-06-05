@@ -6,7 +6,7 @@ This repository contains the reproducible analysis scripts, research deployment 
 
 ## Current V6 Result
 
-The locked main model is a subject-level balanced rescue probability ensemble. It was tuned using ADNI validation, AIBL adaptation validation, and IXI healthy specificity. OASIS was not used for final tuning and is reported only as an external stress-test limitation.
+The locked main algorithm is **RC-SPE**: a risk-constrained subject-level probability ensemble. It combines six base-model probability streams with log-probability pooling, non-negative model weights, class-specific offsets, temperature scaling, and subject-level probability averaging. It was tuned using ADNI validation, AIBL adaptation validation, and IXI healthy specificity. OASIS was not used for final tuning and is reported only as an external stress-test limitation.
 
 Main locked AIBL heldout subject-level result:
 
@@ -27,10 +27,21 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 | MCI recall | 0.531-0.839 |
 | AD recall | 0.710-0.966 |
 
+Algorithmic evidence for RC-SPE:
+
+| Comparison | AIBL BAcc | MCI recall | AD recall | IXI CN retention |
+|---|---:|---:|---:|---:|
+| Best single base model | 0.756 | 0.571 | 0.741 | 0.997 |
+| Equal log-pooling | 0.648 | 0.171 | 0.778 | 1.000 |
+| Full RC-SPE, subject-level | 0.833 | 0.686 | 0.852 | 1.000 |
+
+Leave-one-model-out sensitivity preserved AIBL BAcc 0.823-0.835 and zero AD-to-CN errors after dropping any one base stream, supporting that the locked result is not dependent on a single fragile model.
+
 ## Repository Contents
 
 - `scripts/rescue_probability_optimizer.py`: probability ensemble, calibration, and subject-level averaging.
 - `scripts/final_rescue_model_package.py`: final metrics, bootstrap, and error-analysis package generation.
+- `scripts/generate_algorithm_innovation_evidence.py`: RC-SPE ablation, calibration, risk-profile, and leave-one-model-out evidence generation.
 - `scripts/generate_v6_final_figures.py`: final v6 manuscript figures.
 - `scripts/generate_core_reviewer_evidence_matrix.py`: reproducible evidence matrix for external validation, CAS replacement, and Braak-alternative biological validation.
 - `scripts/generate_goal_completion_audit.py`: requirement-level audit tying the V6 rebuild goal to current evidence and explicit limitations.
@@ -43,6 +54,7 @@ Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level res
 - `docs/DATA_CARD.md`: data provenance and public-release boundary.
 - `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
 - `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
+- `reports/v6_algorithm_innovation/`: public aggregate RC-SPE algorithmic evidence, tables, and figures.
 - `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
 - `reports/v6_final_model/goal_completion_audit.md`: conservative requirement-level audit showing which parts of the rebuild are supported and which remain bounded limitations.
 - `reports/v6_final_model/final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.

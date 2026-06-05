@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This blueprint specifies what each manuscript figure should show before any new artwork is generated. The figure set is designed to make the revised work look like a substantive new study: locked external classification, subject-level evaluation, error analysis, and a replacement of the invalid attention-only CAS/Braak claim with a structural MRI neurodegeneration proxy.
+This blueprint specifies what each manuscript figure should show before any new artwork is generated. The figure set is designed to make the revised work look like a substantive new study: RC-SPE algorithmic evidence, locked external classification, subject-level evaluation, error analysis, and replacement of the invalid attention-only CAS/Braak claim with a structural MRI neurodegeneration proxy.
 
 ## Main Figure Set
 
@@ -14,14 +14,41 @@ This blueprint specifies what each manuscript figure should show before any new 
 |---|---|---|---|
 | A | Cohort and split design: ADNI train/validation/internal test; AIBL adaptation train/validation/locked heldout; IXI healthy negative-control; OASIS stress test. | Flow diagram with cohort blocks and subject counts. | The protocol is subject-level and leakage-aware. |
 | B | Atlas-guided multimodal features: 21-region MRI atlas summaries plus core clinical variables. | Feature pipeline schematic. | The revised model is atlas-guided multimodal staging, not an attention-only model. |
-| C | Final rescue ensemble: base-model probabilities, log-probability pooling, class offsets, temperature calibration, and subject-level probability averaging. | Model block diagram. | The locked primary model is the subject-level rescue ensemble. |
+| C | RC-SPE final algorithm: base-model probabilities, log-probability pooling, class offsets, temperature calibration, risk-constrained selection, and subject-level probability averaging. | Model block diagram. | The locked primary model is RC-SPE, a risk-constrained subject-level probability ensemble. |
 | D | Evaluation endpoints: AIBL heldout primary endpoint, IXI specificity endpoint, OASIS stress-test limitation. | Endpoint branch diagram. | The external claim is AIBL/IXI, while OASIS is explicitly bounded. |
 | E | Biological interpretation boundary: old CAS removed; atlas structural neurodegeneration consistency; no direct Braak-stage validation. | Before/after claim-boundary schematic. | The biological claim is a structural MRI proxy, not attention as biomarker or direct Braak proof. |
 
 **Suggested caption:**
-**Figure 1. Revised ARA-Net V6 study framework.** The revised workflow uses subject-level cohort construction, atlas-guided multimodal feature extraction, a locked rescue probability ensemble, and subject-level probability averaging. The primary endpoint is locked AIBL heldout CN/MCI/AD staging, with IXI healthy-control CN retention as a specificity endpoint. OASIS is retained as an external stress test rather than a successful validation cohort. The original attention-only CAS and direct Braak-stage claims are replaced by atlas structural neurodegeneration consistency analysis and explicit claim-boundary language.
+**Figure 1. Revised ARA-Net V6 study framework.** The revised workflow uses subject-level cohort construction, atlas-guided multimodal feature extraction, RC-SPE risk-constrained probability pooling, and subject-level probability averaging. The primary endpoint is locked AIBL heldout CN/MCI/AD staging, with IXI healthy-control CN retention as a specificity endpoint. OASIS is retained as an external stress test rather than a successful validation cohort. The original attention-only CAS and direct Braak-stage claims are replaced by atlas structural neurodegeneration consistency analysis and explicit claim-boundary language.
 
-### Figure 2. External Classification Performance
+### Figure 2. Data Line And Endpoint Design
+
+**Purpose:** Show that the data protocol is a real rebuild and that the final endpoint is leakage-aware.
+
+| panel | content | visual form | data source | key message |
+|---|---|---|---|---|
+| A | ADNI train/validation/internal test inventory. | Cohort block diagram. | `reports/v6_final_model/tables/final_model_classification_table.md` and Methods text. | ADNI is used for development and internal testing. |
+| B | AIBL adaptation train/validation and locked heldout inventory. | Split timeline or cohort blocks. | Methods text. | AIBL heldout is the primary external endpoint after adaptation data are separated. |
+| C | IXI healthy negative-control cohort. | Single-cohort specificity block. | `reports/v6_final_model/tables/final_model_classification_table.md` | IXI tests false impairment in healthy controls. |
+| D | OASIS stress-test cohort. | Small bounded limitation block. | same as A | OASIS is not used for final model selection and is not framed as solved. |
+| E | Scan-to-subject endpoint aggregation and leakage control. | Scan-to-subject schematic. | Methods text. | Repeated scans are aggregated at the subject-level endpoint. |
+
+### Figure 3. RC-SPE Algorithm And Risk Constraint
+
+**Purpose:** Make the algorithmic contribution visible and separate RC-SPE from a generic average ensemble.
+
+| panel | content | visual form | data source | key message |
+|---|---|---|---|---|
+| A | Six base-model probability streams: atlas+bio HGB, atlas+clinical HGB, clinical+bio RF, clinical HGB, clinical RF, cascade RF-logreg. | Model stream diagram. | `reports/v6_algorithm_innovation/algorithm_innovation_evidence.md` | RC-SPE begins from heterogeneous probability evidence streams. |
+| B | RC-SPE objective: external BAcc, MCI/AD recall, AD-to-CN error avoidance, IXI healthy specificity, and calibration. | Equation/objective schematic. | Methods text and `scripts/generate_algorithm_innovation_evidence.py` | The selection is risk-constrained, not only accuracy-maximizing. |
+| C | Log-probability pooling with non-negative weights, class offsets, and temperature scaling. | Equation-to-block schematic. | Methods text. | RC-SPE is calibrated probability pooling, not a binary classifier. |
+| D | Scan-level to subject-level probability averaging. | Aggregation schematic. | Methods text. | The primary decision is made at the subject-level endpoint. |
+| E | CN/MCI/AD output with confidence and margin. | Three-class probability output. | `deployment/research_inference.py` and frontend. | The deployed research wrapper remains three-class. |
+
+**Suggested caption:**
+**Figure 3. RC-SPE risk-constrained subject-level probability ensemble.** RC-SPE combines heterogeneous base-model probability streams through log-probability pooling, class offsets, temperature scaling, and subject-level probability averaging. Its selection objective balances AIBL external staging, MCI/AD rescue, AD-to-CN error avoidance, calibration, and IXI healthy specificity.
+
+### Figure 4. External Classification Performance
 
 **Purpose:** Address the reviewer/editor concern that the original manuscript did not provide real external classification evidence.
 
@@ -34,7 +61,7 @@ This blueprint specifies what each manuscript figure should show before any new 
 
 **Design note:** Clinical-only RF should appear as a comparator or upper bound, not as the central model.
 
-### Figure 3. Confusion Matrix And Error Pattern
+### Figure 5. Confusion Matrix And Error Pattern
 
 **Purpose:** Show what the model gets wrong and why the errors are scientifically defensible.
 
@@ -45,18 +72,19 @@ This blueprint specifies what each manuscript figure should show before any new 
 | C | AIBL heldout true-to-predicted transition flow. | Sankey/alluvial or compact flow diagram. | `aibl_heldout_confusion_transitions.csv` | Errors concentrate around MCI/AD boundaries. |
 | D | MCI/AD error subtype summary: MCI->CN, MCI->AD, AD->MCI, AD->CN. | Small multiples or stacked bars. | same as A | AD-to-CN is absent; residual AD errors are AD-to-MCI. |
 
-### Figure 4. Stability And Uncertainty
+### Figure 6. Algorithmic Evidence, Stability, And Uncertainty
 
-**Purpose:** Show that the final result is not a single unstable number.
+**Purpose:** Show that RC-SPE is not a simple average ensemble, that risk choices were explicit, and that the final result is not dependent on one fragile base stream.
 
 | panel | content | visual form | data source | key message |
 |---|---|---|---|---|
-| A | Bootstrap balanced accuracy distribution for AIBL heldout subject-level endpoint. | Histogram or violin with 95% CI. | `reports/v6_final_model/final_rescue_model_summary_public.json` | BAcc CI is 0.759-0.899. |
-| B | Bootstrap MCI recall distribution. | Histogram or violin with 95% CI. | same as A | MCI remains the main uncertainty. |
-| C | Bootstrap AD recall distribution. | Histogram or violin with 95% CI. | same as A | AD recall is strong with CI 0.710-0.966. |
-| D | Primary metric forest plot: BAcc, macro AUC, MCI recall, AD recall. | Forest plot with means and CIs. | same as A | The model is stable enough to report as the locked main endpoint. |
+| A | Algorithmic ablation: best single, arithmetic mean, equal log-pooling, partial RC-SPE, full scan-level RC-SPE, full subject-level RC-SPE. | Grouped bars. | `reports/v6_algorithm_innovation/algorithm_ablation_table.csv` | Full subject-level RC-SPE improves BAcc and removes AD-to-CN errors. |
+| B | Calibration comparison for best single, equal log-pooling, and final RC-SPE. | Reliability curve or ECE/NLL panel. | `reports/v6_algorithm_innovation/calibration_table.csv` | Temperature scaling improves calibration while preserving staging performance. |
+| C | Risk-profile tradeoff: MCI rescue vs IXI false impairment. | Scatterplot with locked RC-SPE highlighted. | `reports/v6_algorithm_innovation/risk_constraint_candidates.csv` | The highest MCI recall profile is rejected because it increases healthy-control false impairment. |
+| D | Leave-one-model-out sensitivity. | Point/range plot. | `reports/v6_algorithm_innovation/leave_one_model_out_table.csv` | Dropping any one stream keeps BAcc 0.823-0.835 and zero AD-to-CN errors. |
+| E | Bootstrap BAcc, MCI recall, and AD recall with 95% CIs. | Forest plot or compact violins. | `reports/v6_final_model/final_rescue_model_summary_public.json` | The locked result is stable enough to report, with MCI as the main residual uncertainty. |
 
-### Figure 5. Biological Consistency And CAS/Braak Replacement
+### Figure 7. Biological Consistency And CAS/Braak Replacement
 
 **Purpose:** Address CAS validity and Braak/biological validation without overclaiming.
 
@@ -85,9 +113,10 @@ Use this only in supplement unless the journal demands all external cohorts in m
 
 | panel | content | visual form | key message |
 |---|---|---|---|
-| A | Atlas-only, cascade, atlas+clinical, clinical-only, biomarker-enhanced, final ensemble. | Ranking plot. | The final model should be compared transparently. |
-| B | Scan-level vs subject-level final model. | Paired bars. | Subject-level averaging is the primary endpoint. |
+| A | Atlas-only, cascade, atlas+clinical, clinical-only, biomarker-enhanced, final RC-SPE. | Ranking plot. | The final model should be compared transparently. |
+| B | Scan-level vs subject-level final RC-SPE. | Paired bars. | Subject-level averaging is the primary endpoint. |
 | C | AIBL adaptation validation vs locked heldout. | Metric comparison. | Heldout performance is not from evaluating on the adaptation-validation set. |
+| D | Alternative high-MCI and high-AD rescue profiles. | Tradeoff plot. | The locked RC-SPE profile is selected by risk balance rather than single-class maximization. |
 
 ### Supplementary Figure S3. Open-Source Research Deployment
 
@@ -107,8 +136,8 @@ Use this only in supplement unless the journal demands all external cohorts in m
 
 ## Priority Order
 
-1. Figure 2 and Figure 3 are the highest-impact reviewer-facing figures.
-2. Figure 5 is essential for the CAS/Braak criticism.
+1. Figure 3 and Figure 4 are the highest-impact reviewer-facing figures.
+2. Figure 7 is essential for the CAS/Braak criticism.
 3. Figure 1 makes the work look new and coherent.
-4. Figure 4 strengthens confidence but can be shortened if journal space is tight.
+4. Figure 6 strengthens confidence but can be shortened if journal space is tight.
 5. OASIS should stay in supplement or in a concise limitation table.

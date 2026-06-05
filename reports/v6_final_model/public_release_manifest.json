@@ -1,13 +1,13 @@
 {
-  "file_count": 123,
+  "file_count": 139,
   "category_counts": {
-    "aggregate_reports": 53,
-    "analysis_code": 32,
+    "aggregate_reports": 60,
+    "analysis_code": 33,
     "deployment": 4,
     "documentation": 8,
     "environment": 2,
     "examples": 1,
-    "figures": 19,
+    "figures": 27,
     "frontend": 3,
     "other": 1
   },
@@ -97,8 +97,8 @@
     {
       "path": "README.md",
       "category": "documentation",
-      "bytes": 7705,
-      "sha256": "7d60baa46ca5ccbbfe4ab96cb433f61c11e47df49b3f4374e27014c5acd68d21",
+      "bytes": 8674,
+      "sha256": "9c07ec179e4965570e3922932166aa309ee04b9313aadae637c7a44281a35838",
       "role": "Public repository file."
     },
     {
@@ -139,8 +139,8 @@
     {
       "path": "docs/MODEL_CARD.md",
       "category": "documentation",
-      "bytes": 2447,
-      "sha256": "0505dd364222919c768259117aca91b07d809f4e643d3dbe17390b9d65cbdfd3",
+      "bytes": 3564,
+      "sha256": "e7c6a84a689ff2119e54c6458718d8bdc7fc846eb864622967355f9f97d1a719",
       "role": "Public documentation and claim-boundary document."
     },
     {
@@ -431,6 +431,111 @@
       "role": "Public repository file."
     },
     {
+      "path": "reports/v6_algorithm_innovation/algorithm_ablation_table.csv",
+      "category": "aggregate_reports",
+      "bytes": 3654,
+      "sha256": "93dcbc4de498912690dd8a12b007213565a2020b6e6c6ad5a220a8e8544d560a",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/algorithm_innovation_evidence.md",
+      "category": "aggregate_reports",
+      "bytes": 3608,
+      "sha256": "cb8e90d9d2b9bd88d59be6122d9129fc1cb861ce131060df8917d485da6539b8",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/algorithm_innovation_summary.json",
+      "category": "aggregate_reports",
+      "bytes": 16058,
+      "sha256": "6822ce8857edd788b320af168fd4b01d8ee6818e594dad745ac460e53e66d503",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/base_model_summary_table.csv",
+      "category": "aggregate_reports",
+      "bytes": 2487,
+      "sha256": "2f637b1a0a298ccd8e7f247ecddfa45f0436956c533f67b8bef3c2e5cbcd2c08",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/calibration_table.csv",
+      "category": "aggregate_reports",
+      "bytes": 892,
+      "sha256": "d23b00ea5e4f323eacd50f10505bc4a117541749a23d2e66c2aaa582acd8953d",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_algorithm_ablation.pdf",
+      "category": "figures",
+      "bytes": 19566,
+      "sha256": "12529c8eaa3fad4969da481a515743bddd168c7c34351b91ec99a5bf7749621b",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_algorithm_ablation.png",
+      "category": "figures",
+      "bytes": 160663,
+      "sha256": "f2dc846c0beccc32599964486b8d17e776f79d7ce2025b1e9733ba3078600102",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_calibration_reliability.pdf",
+      "category": "figures",
+      "bytes": 17453,
+      "sha256": "8b7003e983a36e752bb6d8006e4260fa5fb8a784d2d83f2bcf81ef9dc4d796cf",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_calibration_reliability.png",
+      "category": "figures",
+      "bytes": 127838,
+      "sha256": "db1782f5d4df27278636ee114406b3581adfcad6ccb08ce659171ff1c60585d1",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_leave_one_model_out.pdf",
+      "category": "figures",
+      "bytes": 15509,
+      "sha256": "2a1a29309284e216b54e16e25d1c758e87c5bc0538704377535aa4db7fe5fbc2",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_leave_one_model_out.png",
+      "category": "figures",
+      "bytes": 105765,
+      "sha256": "9f925dd8cde4349125b6e301d7783cc03258a43b7f802c50d34b5fd2ec4b8c88",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_risk_constraint_curve.pdf",
+      "category": "figures",
+      "bytes": 38209,
+      "sha256": "06bd6b6399b4860b8ad4b21674854b1ed6e18737b730f845d13660f7c6962461",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/figures/figure_risk_constraint_curve.png",
+      "category": "figures",
+      "bytes": 174026,
+      "sha256": "f39242ddc46e3559730afbe67f2333b10eda632cfe16f2ecc49f301db70c4839",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/leave_one_model_out_table.csv",
+      "category": "aggregate_reports",
+      "bytes": 2621,
+      "sha256": "9e4da7c5649f0f028af96516ba512c6b3efcf1e0a6484ac958380f98094792ef",
+      "role": "Public repository file."
+    },
+    {
+      "path": "reports/v6_algorithm_innovation/risk_constraint_candidates.csv",
+      "category": "aggregate_reports",
+      "bytes": 517435,
+      "sha256": "6c4c1c9d1d0a515008cec56eb0e948b080ab7bdf85f4a3f202a449b688d2a5a2",
+      "role": "Public repository file."
+    },
+    {
       "path": "reports/v6_final_model/ARA-Net_V6_full_manuscript_docx_qa.md",
       "category": "aggregate_reports",
       "bytes": 1180,
@@ -447,15 +552,15 @@
     {
       "path": "reports/v6_final_model/README.md",
       "category": "documentation",
-      "bytes": 3602,
-      "sha256": "9484a04840d8026441b04c3f3f6be70e4480441dd51add6364bede80130fc806",
+      "bytes": 4002,
+      "sha256": "842f88ae59a86dca4658b6a4430f6aa9e68646ec767a265e0d38e60286cb025f",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/claim_boundary_audit.md",
       "category": "aggregate_reports",
-      "bytes": 31166,
-      "sha256": "8bc7c4e7203051dd075edd42ced734e3ea123a0a4160ce988d2c3ab51ff7f6db",
+      "bytes": 31201,
+      "sha256": "ee7867db91b0245d889d7319dc604122f78ef8d7d5169997e32c34342d1e008a",
       "role": "Public claim-boundary audit for reviewer-safe wording."
     },
     {
@@ -538,8 +643,8 @@
     {
       "path": "reports/v6_final_model/final_figure_blueprint.md",
       "category": "aggregate_reports",
-      "bytes": 9566,
-      "sha256": "779342f52391d64673a9772d85784c33e3c02c7bc01c2276f9b0763e095c327d",
+      "bytes": 13584,
+      "sha256": "cab1d9f7e7ee5e8553ec1b5c98bb70c99b913914bb0657be5616eaae2b501fa2",
       "role": "Panel-by-panel final figure blueprint."
     },
     {
@@ -594,29 +699,29 @@
     {
       "path": "reports/v6_final_model/latex/main_v6_replacement.pdf",
       "category": "figures",
-      "bytes": 185180,
-      "sha256": "3e4a1e629421438792fdccbf8507c787cec8be886be473eb0140657a4a659467",
+      "bytes": 191419,
+      "sha256": "a1764baa0957aee44207619103a8ddf1d34efc31dc22543e42977ebea1bf9c1d",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/latex/main_v6_replacement.tex",
       "category": "aggregate_reports",
-      "bytes": 64050,
-      "sha256": "15b1de3477b1e75ed432fced12f9a4d623b618bde6f87d42083f13ea694266d3",
+      "bytes": 69948,
+      "sha256": "7c5c581e325aa8fb3db73f3cfbeed523ed9a68ba0312d97e500144161cace213",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/latex/v6_body_expanded.tex",
       "category": "aggregate_reports",
-      "bytes": 45988,
-      "sha256": "9a03ea90a8ae091edd0b2125b5919e10be8871b5a1d944983b29f0fd824ae56a",
+      "bytes": 51959,
+      "sha256": "d8c1ca75f67c49ec6a593abab26b44e4172ece9ead032fb66fe1ebe9abc8cffa",
       "role": "Public repository file."
     },
     {
       "path": "reports/v6_final_model/latex/v6_latex_7_figure_plan.md",
       "category": "aggregate_reports",
-      "bytes": 3903,
-      "sha256": "477f9e58e3dd58067d299bbb5ecb46b95efd6d14ea77ac1b43f198bf68a34a57",
+      "bytes": 4474,
+      "sha256": "77ca029fcb3a20a97fc3c74f6a4c4f74bb2ca54c282e3b41da275887b43a098f",
       "role": "Public repository file."
     },
     {
@@ -755,8 +860,8 @@
     {
       "path": "scripts/build_v6_latex_replacement.py",
       "category": "analysis_code",
-      "bytes": 37855,
-      "sha256": "3701f0eebe55ebfd022dce880cd927742ee0bf8565e4d23dc6555ad4dbec125c",
+      "bytes": 38563,
+      "sha256": "b76d52b4a2aa8a7633b8466dc1d0c1fa5141278474ab6c90d5cf29fa72824d7e",
       "role": "Reproducible analysis or report-generation script."
     },
     {
@@ -792,6 +897,13 @@
       "category": "analysis_code",
       "bytes": 36667,
       "sha256": "1d89b8f65004e9eb3006350197dfc8907f226e8219db33ff9ea5254979e41e59",
+      "role": "Reproducible analysis or report-generation script."
+    },
+    {
+      "path": "scripts/generate_algorithm_innovation_evidence.py",
+      "category": "analysis_code",
+      "bytes": 33753,
+      "sha256": "486a33c6bc5212967be36d597ab71977d3885e641d3bb1478e2c7745771ef897",
       "role": "Reproducible analysis or report-generation script."
     },
     {

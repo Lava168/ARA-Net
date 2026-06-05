@@ -5,6 +5,7 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 ## Main Evidence Files
 
 - `final_rescue_model_lock_report.md`: locked final model, subject-level endpoint, bootstrap intervals, and claim boundary.
+- `../v6_algorithm_innovation/algorithm_innovation_evidence.md`: RC-SPE ablation, calibration, risk-profile, and leave-one-model-out evidence.
 - `core_reviewer_evidence_matrix.md`: generated matrix for the three core revision issues: external classification, CAS replacement, and Braak-alternative biological validation.
 - `goal_completion_audit.md`: requirement-level audit for the full V6 rebuild objective, including bounded limitations.
 - `final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
@@ -40,6 +41,14 @@ Regenerate the requirement-level goal audit:
 
 ```bash
 python scripts/generate_goal_completion_audit.py
+```
+
+Regenerate the RC-SPE algorithmic evidence package on a machine with access to the private prediction CSV files:
+
+```bash
+python scripts/generate_algorithm_innovation_evidence.py \
+  --pred-root outputs/v4 \
+  --out-dir reports/v6_algorithm_innovation
 ```
 
 Run the claim-boundary audit:
