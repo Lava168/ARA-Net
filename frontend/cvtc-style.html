@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ARA-Net 3D Evidence Workbench</title>
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="cvtc-style.css?v=20260721a">
+    <link rel="stylesheet" href="cvtc-style.css?v=20260724a">
   </head>
   <body>
     <main class="cvtc-app">
@@ -38,7 +38,7 @@
           <button class="file-button" type="button">
             <span>MRI</span>
             <strong>T1 MRI / NIfTI render</strong>
-            <small>Real IXI002 T1-derived PyVista, VTK and Nilearn renders</small>
+            <small>Real AIBL_10 FastSurfer-derived PyVista, VTK and Nilearn renders</small>
           </button>
           <button class="primary-action" type="button" id="processButton">
             Run ARA-Net review
@@ -50,17 +50,17 @@
             <p>Worklist</p>
             <h2>Review queue</h2>
           </div>
-          <button class="case-item active" type="button" data-case="ixi">
+          <button class="case-item" type="button" data-case="ixi">
             <span>
               <strong>IXI002-Guys-0828-T1</strong>
               <small>External healthy-control replay</small>
             </span>
             <b>CN</b>
           </button>
-          <button class="case-item" type="button" data-case="aibl-ad">
+          <button class="case-item active" type="button" data-case="aibl-ad">
             <span>
-              <strong>DEMO-AIBL-AD</strong>
-              <small>High-confidence AD exemplar</small>
+              <strong>AIBL_10_I164086</strong>
+              <small>High-resolution AD evidence case</small>
             </span>
             <b>AD</b>
           </button>
@@ -92,7 +92,7 @@
         <header class="studio-header">
           <div>
             <p>ARA-Net 3D evidence review</p>
-            <h2 id="caseTitle">IXI002-Guys-0828-T1</h2>
+            <h2 id="caseTitle">AIBL_10_I164086</h2>
           </div>
           <nav class="mode-tabs" aria-label="3D render mode">
             <button class="active" type="button" data-view="fused">3D fused</button>
@@ -105,52 +105,37 @@
         <section class="annotation-board" aria-label="ARA-Net 3D evidence board">
           <div class="tool-strip" aria-label="Annotation controls">
             <label>
-              <span>ATE diffusion radius</span>
+              <span>Mesh edge emphasis</span>
               <input id="radiusControl" type="range" min="8" max="34" value="18">
             </label>
             <label>
-              <span>Overlay opacity</span>
+              <span>Render contrast</span>
               <input id="opacityControl" type="range" min="20" max="80" value="58">
             </label>
-            <button class="toggle-button active" type="button" id="maskToggle">Brain-shell constrained</button>
+            <button class="toggle-button active" type="button" id="maskToggle">Segmentation mesh</button>
             <button class="ghost-action" type="button" id="saveButton">Export review plate</button>
           </div>
 
           <div class="primary-review-layout">
             <figure class="scan-stage neuro-stage" id="scanStage" data-view="fused">
-              <img id="scanImage" src="assets/vtk_niivue/ixi002_pyvista_fused_review.png" alt="PyVista and VTK high-resolution 3D brain shell with diffuse ATE overlay and atlas labels">
+              <img id="scanImage" src="assets/vtk_niivue/aibl10_pyvista_fused_review.png" alt="PyVista and VTK segmentation-derived 3D brain tissue mesh with diffuse ATE overlay and atlas labels">
               <div class="scan-grid" aria-hidden="true"></div>
-              <div class="heatmap-layer mask-on" id="heatmapLayer" aria-hidden="true"></div>
-              <svg class="label-layer" viewBox="0 0 1000 656" role="img" aria-label="3D atlas region labels">
-                <path class="brain-outline" d="M178 365 C146 240, 276 122, 455 118 C640 114, 816 203, 846 333 C875 460, 724 551, 532 544 C330 537, 203 477, 178 365Z"></path>
-                <g class="label-callout">
-                  <path d="M415 430 L240 526"></path>
-                  <circle cx="415" cy="430" r="8"></circle>
-                </g>
-                <g class="label-callout amber">
-                  <path d="M610 414 L782 520"></path>
-                  <circle cx="610" cy="414" r="8"></circle>
-                </g>
-                <g class="label-callout blue">
-                  <path d="M508 298 L506 122"></path>
-                  <circle cx="508" cy="298" r="8"></circle>
-                </g>
-              </svg>
+              <div class="heatmap-layer" id="heatmapLayer" aria-hidden="true"></div>
               <div class="anatomy-label hippocampus-label">
                 <span>Hippocampus</span>
-                <strong>medial temporal ROI</strong>
+                <strong>labels 17 / 53</strong>
               </div>
               <div class="anatomy-label amygdala-label">
                 <span>Amygdala</span>
-                <strong>AD-key atlas ROI</strong>
+                <strong>labels 18 / 54</strong>
               </div>
               <div class="anatomy-label ventricle-label">
                 <span>Lateral ventricles</span>
-                <strong>structural contour</strong>
+                <strong>labels 4 / 43</strong>
               </div>
               <div class="stage-readout top-left">
                 <span id="planeLabel">PYVISTA / VTK</span>
-                <strong>3D brain shell + diffuse ATE overlay</strong>
+                <strong>segmentation-derived brain tissue mesh</strong>
               </div>
               <div class="stage-readout bottom-left">
                 <span>Hippocampus / Amygdala</span>
@@ -175,8 +160,8 @@
               <thead>
                 <tr>
                   <th>Region</th>
-                  <th>x</th>
-                  <th>y</th>
+                  <th>Label IDs</th>
+                  <th>Voxels</th>
                   <th>Evidence</th>
                 </tr>
               </thead>
@@ -192,14 +177,22 @@
             <div class="pipeline">
               <span>NIfTI volume</span>
               <i></i>
-              <span>marching_cubes mesh</span>
+              <span>FastSurfer labels</span>
               <i></i>
-              <span>PyVista / VTK render</span>
+              <span>marching_cubes mesh</span>
               <i></i>
               <span>RC-SPE output</span>
             </div>
-            <p>The central plate uses the real IXI002-derived PyVista/VTK render as the primary reviewer image. The 2D MRI slices stay beside it as anatomical checks, while the final class output still comes from six probability streams and the lightweight RC-SPE head.</p>
+            <p>The central plate uses segmentation-derived PyVista/VTK meshes as the primary reviewer image. Hippocampus, amygdala, and lateral ventricles are extracted from real label masks instead of synthetic ellipsoids. The final class output still comes from six probability streams and the lightweight RC-SPE head.</p>
           </article>
+        </section>
+
+        <section class="region-change-panel" aria-label="AIBL heldout brain-region changes">
+          <div class="panel-title">
+            <p>Brain-region change</p>
+            <h2>AIBL heldout CN-MCI-AD structural gradients</h2>
+          </div>
+          <div class="region-change-grid" id="regionChangeGrid"></div>
         </section>
       </section>
 
@@ -210,17 +203,17 @@
             <h2>MRI slice checks</h2>
           </div>
           <button class="slice-card active" type="button" data-slice="axial">
-            <img src="assets/ixi002_axial_refined.png" alt="Axial T1 MRI support slice">
+            <img src="assets/aibl10_axial_refined.png" alt="Axial T1 MRI support slice">
             <span>Axial T1</span>
             <strong>hippocampus / ventricle check</strong>
           </button>
           <button class="slice-card" type="button" data-slice="coronal">
-            <img src="assets/ixi002_coronal_refined.png" alt="Coronal T1 MRI support slice">
+            <img src="assets/aibl10_coronal_refined.png" alt="Coronal T1 MRI support slice">
             <span>Coronal T1</span>
             <strong>bilateral medial temporal check</strong>
           </button>
           <button class="slice-card" type="button" data-slice="sagittal">
-            <img src="assets/ixi002_sagittal_refined.png" alt="Sagittal T1 MRI support slice">
+            <img src="assets/aibl10_sagittal_refined.png" alt="Sagittal T1 MRI support slice">
             <span>Sagittal T1</span>
             <strong>side-projection anatomy check</strong>
           </button>
@@ -233,9 +226,9 @@
             <h2>CN / MCI / AD probabilities</h2>
           </div>
           <div class="diagnosis-card">
-            <span id="labelBadge">Predicted CN</span>
-            <strong id="confidenceText">0.628 confidence</strong>
-            <small id="marginText">Margin 0.337 over MCI</small>
+            <span id="labelBadge">Predicted AD</span>
+            <strong id="confidenceText">0.963 confidence</strong>
+            <small id="marginText">Margin 0.938 over MCI</small>
           </div>
           <div class="prob-bars" id="probBars"></div>
         </section>
@@ -288,12 +281,12 @@
             <p>Report</p>
             <h2>Clinician-readable summary</h2>
           </div>
-          <p id="reportText">ARA-Net classifies IXI002-Guys-0828-T1 as CN with moderate confidence. The central plate shows a PyVista/VTK 3D brain shell with diffuse ATE overlay and atlas labels; it is a research visualization, not a lesion mask or clinical diagnosis.</p>
+          <p id="reportText">ARA-Net classifies AIBL_10_I164086 as AD with high confidence. The central plate uses a high-resolution FastSurfer-derived PyVista/VTK mesh with diffuse ATE-style evidence and explicit hippocampus, amygdala, and lateral-ventricle labels; it is a research visualization, not a lesion mask or clinical diagnosis.</p>
           <button class="ghost-action full" type="button" id="copyReportButton">Copy report</button>
         </section>
       </aside>
     </main>
 
-    <script src="cvtc-style.js?v=20260721a"></script>
+    <script src="cvtc-style.js?v=20260724a"></script>
   </body>
 </html>

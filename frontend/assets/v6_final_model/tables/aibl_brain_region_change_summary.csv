@@ -1,0 +1,6 @@
+region,feature,prior,expected_direction,observed_direction,cn_mean,mci_mean,ad_mean,ad_minus_cn,ad_minus_cn_percent,cohens_d,matches_ad_prior
+Hippocampus,atlas_hippocampus_volume,AD-prior medial temporal atrophy,decrease,decrease,0.008280,0.007776,0.007322,-0.000958,-11.57,-1.233,yes
+Amygdala,atlas_amygdala_volume,AD-prior medial temporal atrophy,decrease,decrease,0.003306,0.003039,0.002851,-0.000456,-13.78,-1.150,yes
+Lateral ventricles,atlas_lateral_ventricle_volume,AD-prior ventricular enlargement,increase,increase,0.032151,0.043443,0.057479,0.025328,78.78,1.640,yes
+Cortex,atlas_cortex_volume,Broad cortical reserve,decrease,decrease,0.448491,0.435161,0.440197,-0.008294,-1.85,-0.453,yes
+Atlas AD-like score,atlas_ad_like_z,Summary structural neurodegeneration score,increase,increase,-0.058102,0.605236,1.250468,1.308570,NA,1.800,yes
