@@ -1,85 +1,48 @@
-# ==========================================
-# Patient / sensitive data (MUST exclude)
-# ==========================================
-sample_data/
-experiment_results_v3/
-experiment_results_ssl/
-archive/
-pretrained_v2/
-
-# NIfTI brain scans
-*.nii
-*.nii.gz
-
-# Model checkpoints
-*.pth
-*.pt
-*.h5
-*.ckpt
-*.pkl
-
-# Large compressed archives
-*.tar
-*.tar.gz
-*.zip
-*.rar
-
-# ==========================================
-# Python
-# ==========================================
+# Python / local runtime
 __pycache__/
 *.py[cod]
-*$py.class
-*.egg-info/
-dist/
-build/
-.eggs/
-*.egg
+.pycache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.matplotlib_cache/
+.DS_Store
+.vizenv/
+tmp_pdf_reference/
+frontend/qa_*.png
 
-# Virtual environments
+# Local environments and caches
+.venv/
 venv/
 env/
-.env
-
-# ==========================================
-# LaTeX auxiliary files
-# ==========================================
-*.aux
-*.log
-*.out
-*.toc
-*.lof
-*.lot
-*.bbl
-*.blg
-*.synctex.gz
-*.fdb_latexmk
-*.fls
-*.xdv
-
-# ==========================================
-# IDE / OS
-# ==========================================
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
-
-# ==========================================
-# Misc
-# ==========================================
-*.NVIDIA*
-logs/
 outputs/
+sample_data/
+data/
+cache/
+cache_real/
+*.npz
+*.nii
+*.nii.gz
+*.mgz
+*.pt
+*.pth
+*.ckpt
 
-# ==========================================
-# Manuscript / private writing (do NOT publish)
-# ==========================================
-Manuscript file.docx
-*.docx
-*.doc
-*.pptx
-*.ppt
+# Restricted dataset-derived row-level outputs
+reports/**/final_subject_predictions_enriched.csv
+reports/**/*top_confident_errors.csv
+frontend/assets/**/final_subject_predictions_enriched.csv
+frontend/assets/**/*top_confident_errors.csv
+reports/**/oasis_locked*_predictions.csv
+reports/**/manifest_v4_oasis_locked_summary.json
+
+# Transient DOCX extraction / visual QA media
+reports/**/extracted_*_media/
+
+# Full private summaries may include subject/scan identifiers.
+reports/v6_final_model/final_rescue_model_summary.json
+
+# Temporary archives
+*.tgz
+*.tar.gz
+*.zip

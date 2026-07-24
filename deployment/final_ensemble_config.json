@@ -1,0 +1,49 @@
+{
+  "name": "ARA-Net V6 subject-level rescue ensemble",
+  "version": "v6.0-research",
+  "classes": ["CN", "MCI", "AD"],
+  "base_models": [
+    "aibl_adapted_atlas_biomarker_enhanced__hgb",
+    "aibl_adapted_atlas_core_clinical__hgb",
+    "aibl_adapted_clinical_biomarker_only__rf_balanced",
+    "aibl_adapted_clinical_core_only__hgb",
+    "aibl_adapted_clinical_core_only__rf_balanced",
+    "rf__logreg"
+  ],
+  "weights": [
+    0.3562689320130782,
+    0.04421238144536563,
+    0.32332384229746974,
+    0.18313017850953642,
+    0.08786508061781907,
+    0.005199585116730915
+  ],
+  "offsets": {
+    "CN": -0.7959975410763656,
+    "MCI": -0.19022372945067426,
+    "AD": 0.9862212705270398
+  },
+  "temperature": 0.6723763750332673,
+  "epsilon": 1e-8,
+  "primary_evaluation": {
+    "cohort": "AIBL locked heldout",
+    "unit": "subject",
+    "accuracy": 0.9027777777777778,
+    "balanced_accuracy": 0.8328683662016996,
+    "macro_auc_ovr": 0.9370749291955652,
+    "ad_vs_cn_auc": 0.9995189995189995,
+    "recall": {
+      "CN": 0.961038961038961,
+      "MCI": 0.6857142857142857,
+      "AD": 0.8518518518518519
+    },
+    "bootstrap_95_ci": {
+      "balanced_accuracy": [0.7586935672049979, 0.899309689153439],
+      "mci_recall": [0.53125, 0.8387419354838708],
+      "ad_recall": [0.7096438172043011, 0.9655172413793104]
+    }
+  },
+  "intended_use": "Research prototype for retrospective validation and future prospective validation studies.",
+  "not_intended_for": "Direct clinical diagnosis, treatment selection, emergency decision-making, or unsupervised patient care.",
+  "clinical_use_notice": "Not a medical device. Not cleared or approved for clinical use."
+}

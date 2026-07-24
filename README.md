@@ -1,534 +1,245 @@
-<div align="center">
-
 # ARA-Net
 
-### Atlas-Guided Region Attention for Interpretable Alzheimer's Disease Diagnosis from Structural MRI
+**Atlas-Guided Multimodal Alzheimer's Disease Staging with Locked External Subject-Level Validation and Structural Neurodegeneration Consistency**
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.1+-EE4C2C.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Status](https://img.shields.io/badge/MedIA-under%20review-orange.svg)]()
+ARA-Net is a research-grade Alzheimer's disease staging package for CN/MCI/AD classification. The current release centers on **RC-SPE**, a lightweight risk-constrained subject-level probability ensemble, and provides the English manuscript-facing GitHub package: aggregate results, main figures, browser UI prototypes, and claim-boundary documentation.
 
-</div>
+This repository is an **open-source deployable research prototype**, not a clinical diagnostic device.
 
----
+## Quick Links
 
-## Abstract
+| Entry | Link |
+|---|---|
+| English manuscript overview | [docs/MANUSCRIPT_OVERVIEW.md](docs/MANUSCRIPT_OVERVIEW.md) |
+| V6 analysis workbench | [frontend/v6-final-analysis.html](frontend/v6-final-analysis.html) |
+| 3D evidence workbench | [frontend/cvtc-style.html](frontend/cvtc-style.html) |
+| Manuscript figure set | [reports/v6_final_model/manual_paper_figures](reports/v6_final_model/manual_paper_figures/README.md) |
+| Lightweight runtime metrics | [reports/v6_final_model/tables/lightweight_runtime_metrics.md](reports/v6_final_model/tables/lightweight_runtime_metrics.md) |
+| Clinical presentation evidence | [reports/v6_final_model/tables/clinical_presentation_evidence.md](reports/v6_final_model/tables/clinical_presentation_evidence.md) |
 
-Deep learning has achieved strong performance for Alzheimer's disease (AD) classification
-from structural MRI (sMRI), yet the absence of anatomically grounded interpretability remains
-a barrier to clinical adoption. We propose **ARA-Net** (Atlas-guided Region Attention Network),
-which integrates **FastSurfer / FreeSurfer parcellation of 21 anatomical regions** with
-**multi-head self-attention** and **anatomical regularization** to produce *inherently
-interpretable* per-region attention vectors. Trained on **2,401 ADNI** scans
-(CN / MCI / AD) and externally evaluated on **IXI** (n = 581) and **OASIS** (n = 99),
-ARA-Net reaches **balanced accuracy 67.1 % (95 % CI 66.2–67.9 %)** and **macro-AUC 0.830 ± 0.016**
-under a strict 6-seed × 5-fold protocol, and we introduce an **Attention-as-Biomarker**
-analysis (RDI, disease-progression gradient, Clinical Alignment Score) showing that the
-learned attention recovers established AD neuropathology and remains stable across cohorts
-(cosine ≥ 0.986) and under misclassification.
+## Result Snapshot
 
-> *This repository accompanies our manuscript currently under review at* **Medical Image Analysis**.
+| Locked external setting | Unit | Accuracy | Balanced accuracy | Macro AUC | AD-vs-CN AUC / CN retention | CN / MCI / AD recall |
+|---|---:|---:|---:|---:|---:|---:|
+| AIBL heldout | Subject | 90.3% | 83.3% | 93.7% | AD-vs-CN AUC 100.0% | 96.1% / 68.6% / 85.2% |
+| AIBL heldout | Scan | 90.9% | 82.0% | 93.9% | AD-vs-CN AUC 99.8% | 96.4% / 64.2% / 85.4% |
+| IXI healthy controls | Subject | 100.0% | 100.0% | NA | CN retention 100.0% | 100.0% / 0.0% / 0.0% |
 
----
+The main residual errors are concentrated at the MCI/AD boundary. In the locked AIBL subject-level endpoint, AD-to-CN error is 0.000, supporting a boundary-error interpretation rather than disease-to-normal collapse.
 
-## Highlights
+## Current V6 Result
 
-- **Inherently interpretable attention.** Atlas-guided region pooling projects voxel-level
-  features into 21 anatomically named tokens (bilateral hippocampus, amygdala, ventricles,
-  thalamus, caudate, putamen, pallidum, cortex, white matter, …); attention weights are
-  therefore directly readable as per-region contributions.
-- **Self-supervised + anatomically regularized training.** A 3D-CNN encoder is first
-  pre-trained with self-supervision on **887 unlabeled volumes** (306 ADNI training-fold
-  subjects + 581 IXI); fine-tuning is regularized with an entropy + L1 loss whose weight
-  is annealed to balance anatomical guidance and accuracy.
-- **Strict evaluation protocol.** 6 random seeds × 5 stratified folds = **30 independent
-  runs** per configuration; metrics reported as mean ± s.d. with bootstrap 95 % CI and
-  pairwise Wilcoxon signed-rank tests.
-- **Quantitative attention validation.** We introduce three complementary metrics —
-  **Region Discriminability Index (RDI)**, **disease-progression gradient**, and
-  **Clinical Alignment Score (CAS)** — to test whether attention reflects AD neuropathology.
-- **Cross-dataset interpretability.** Same-class attention profiles between ADNI and
-  IXI / OASIS reach **cosine similarity > 0.98** without any retraining or domain adaptation.
-- **Error-conditioned trust.** Attention remains anatomically coherent even on
-  misclassified samples (no "attention collapse"); MCI→CN false negatives keep CAS
-  0.266 (vs. 0.267 for correct MCI), and MCI→AD errors shift smoothly along the disease
-  continuum.
+The locked main algorithm is **RC-SPE**: a risk-constrained subject-level probability ensemble. It combines six base-model probability streams with log-probability pooling, non-negative model weights, class-specific offsets, temperature scaling, and subject-level probability averaging. It was tuned using ADNI validation, AIBL adaptation validation, and IXI healthy specificity. OASIS was not used for final tuning and is reported only as an external stress-test limitation.
 
----
+Main locked AIBL heldout subject-level result:
 
-## Method
+| Metric | Value |
+|---|---:|
+| Accuracy | 0.903 |
+| Balanced accuracy | 0.833 |
+| Macro AUC | 0.937 |
+| AD-vs-CN AUC | 1.000 |
+| Recall CN/MCI/AD | 0.961 / 0.686 / 0.852 |
+| IXI healthy CN retention | 1.000 |
 
-<p align="center">
-  <img src="assets/method_framework.png" width="96%" alt="ARA-Net method framework: segmentation, CNN encoder, atlas-guided region pooling, attention, classification logits and anatomical regularization."/>
-</p>
+Bootstrap 95% confidence intervals for the locked AIBL heldout subject-level result:
 
+| Metric | 95% CI |
+|---|---:|
+| Balanced accuracy | 0.759-0.899 |
+| MCI recall | 0.531-0.839 |
+| AD recall | 0.710-0.966 |
 
-> **Reading the diagram.** The four colored modules correspond exactly to those in
-> Manuscript §2.3 / Fig. 1. Solid arrows trace the forward path; the **bold double
-> arrow** marks the bottleneck where 252 voxel-grid features are compressed into a
-> 21-token anatomical sequence. Dashed branches highlight the two outputs that make
-> ARA-Net interpretable by construction: a 21-d **per-region attention biomarker** and
-> the **anatomical regularizer** that keeps attention concentrated on a small,
-> clinically meaningful set of regions.
+Algorithmic evidence for RC-SPE:
 
-ARA-Net comprises four modules (Manuscript §2.3 and Fig. 1):
+| Comparison | AIBL BAcc | MCI recall | AD recall | IXI CN retention |
+|---|---:|---:|---:|---:|
+| Best single base model | 0.756 | 0.571 | 0.741 | 0.997 |
+| Equal log-pooling | 0.648 | 0.171 | 0.778 | 1.000 |
+| Full RC-SPE, subject-level | 0.833 | 0.686 | 0.852 | 1.000 |
 
-1. **FastSurfer / FreeSurfer segmentation** of the input T1w volume into 21 anatomical
-   regions (Manuscript Table 2).
-2. **3D CNN encoder** — a 4-stage residual stack on a `96 × 112 × 96` input volume,
-   producing a feature volume of shape `(C, 6, 7, 6) = (128, 6, 7, 6)` after four
-   stride-2 down-samplings.
-3. **Atlas-guided region pooling.** The segmentation is downsampled to the encoder
-   feature grid; for each region *k*, features are averaged with a voxel-count weighting
-   (denominator = max(|R_k|, 1)) to yield **21 region tokens** with a validity mask that
-   prevents attention to anatomically absent regions.
-4. **Multi-head self-attention with anatomical regularization.** *L = 2* transformer
-   layers with *H = 4* heads (head dim *d_h = 32*) operate on the 21 tokens; mean-pooled
-   tokens are passed through an MLP `Linear(128, 128) → GELU → Dropout(0.3) → Linear(128, 3)`.
-   The training loss is
+Leave-one-model-out sensitivity preserved AIBL BAcc 0.823-0.835 and zero AD-to-CN errors after dropping any one base stream, supporting that the locked result is not dependent on a single fragile model.
 
-   `ℒ_total = ℒ_CE + λ(t) · ℒ_anat`,  with  `ℒ_anat = α · H(A) − β · ‖Ā‖₁`,
-   `α = 0.05`, `β = 0.005`, and `λ(t)` annealed across epochs (Manuscript Eqs. 5–7).
+## Manuscript-Aligned English Package
 
-The full architecture is implemented in
-[`chapter1_foundation/models/atlas_guided_model.py`](chapter1_foundation/models/atlas_guided_model.py);
-the regularization terms are in
-[`chapter1_foundation/losses/geodesic_loss.py`](chapter1_foundation/losses/geodesic_loss.py).
+The current GitHub package is aligned to the manually edited manuscript under the title:
 
----
+**ARA-Net: Atlas-Guided Multimodal Alzheimer's Disease Staging with Locked External Subject-Level Validation and Structural Neurodegeneration Consistency**
 
-## Datasets
+The English public summary is available in [docs/MANUSCRIPT_OVERVIEW.md](docs/MANUSCRIPT_OVERVIEW.md). The release emphasizes four claim-safe contributions:
 
-| Dataset | n | Use | Labels | Source |
-|---|:-:|---|---|---|
-| **ADNI** (1.5 T / 3 T, 60+ sites) | **2,401** | Train + internal CV (5-fold) | CN 750 · MCI 1,156 · AD 495 | https://adni.loni.usc.edu |
-| **IXI** (3 UK hospitals)          | **581**   | External validation (CN-only) | CN 581                       | https://brain-development.org/ixi-dataset/ |
-| **OASIS**                         | **99**    | External CN/MCI/AD validation | CN 59 · MCI 29 · AD 11       | https://www.oasis-brains.org |
+- Locked AIBL external validation at the subject endpoint.
+- RC-SPE lightweight probability-level inference after base-model probabilities are produced.
+- Atlas-level structural neurodegeneration consistency focused on AD-relevant regions.
+- A GitHub-presentable research UI for probability review and evidence visualization.
 
-Class imbalance in ADNI (CN : MCI : AD ≈ 3 : 5 : 2) is handled via
-**inverse-frequency class weighting** during training. SSL pre-training uses 887 unlabeled
-volumes (306 ADNI training-fold subjects + 581 IXI scans); diagnostic labels are not
-exposed during pre-training.
+## Main Result Figures
 
----
+The manuscript-aligned figure set is stored in [reports/v6_final_model/manual_paper_figures](reports/v6_final_model/manual_paper_figures/README.md).
 
-## Headline results (ADNI three-class CN / MCI / AD, n = 2,401)
+![Atlas-guided staging overview](reports/v6_final_model/manual_paper_figures/figure1_atlas_guided_staging_overview.png)
 
-All numbers below are mean ± s.d. across **30 independent runs** (6 seeds × 5 folds).
-Best per column in **bold**; see Manuscript Table 3.
+![Locked external performance](reports/v6_final_model/manual_paper_figures/figure2_locked_external_performance.png)
 
-| Model | BAcc (%) | macro-AUC | wF1 | Rec.CN (%) | Rec.AD (%) | Interp. |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| Plain CNN              | 35.0 ± 2.6 | —          | 0.213 ± 0.068 | —    | —    | ✗ |
-| ViT 3D                 | 32.9 ± 1.7 | —          | 0.198 ± 0.081 | —    | —    | ✗ |
-| ResNet-18 3D           | 62.0 ± 8.4 | —          | 0.576 ± 0.104 | —    | —    | ✗ |
-| ARA-Net (−Atlas)       | **70.7 ± 1.7** | **0.861 ± 0.013** | **0.675 ± 0.020** | 78.9 | 75.9 | ✗ |
-| ARA-Net (−AD reg.)     | 66.6 ± 1.9 | 0.822 ± 0.018 | 0.660 ± 0.024 | —    | —    | ✓ |
-| **ARA-Net (Full)**     | 67.1 ± 2.4 | 0.830 ± 0.016 | 0.666 ± 0.025 | 70.2 | 66.8 | **✓** |
+![Subject-level error structure](reports/v6_final_model/manual_paper_figures/figure3_subject_level_error_structure.png)
 
-**Per-class one-vs-rest AUC (ARA-Net Full):** CN 0.849 · MCI 0.767 · AD 0.870.
+![Research workbench UI](reports/v6_final_model/manual_paper_figures/figure4_research_workbench_ui.png)
 
-**Statistical significance.** Wilcoxon signed-rank on fold-level BAcc:
-ARA-Net (Full) vs. ResNet-18 3D Δ = **+5.1 pp**, *p* = 0.001, *r* = 0.60;
-vs. ViT 3D Δ = **+34.2 pp**, *p* < 10⁻⁹;
-vs. Plain CNN Δ = **+32.1 pp**, *p* < 10⁻⁹.
+Additional manuscript figures:
 
-**Interpretability–accuracy trade-off.** Removing the atlas module entirely gives the
-highest accuracy (ARA-Net −Atlas: 70.7 %), confirming that the **3.6 pp BAcc reduction**
-is the price ARA-Net pays for inherently anatomical, region-level explanations
-(Manuscript §3.3, §4.3).
+- [Figure 5. Atlas feature evidence panel](reports/v6_final_model/manual_paper_figures/figure5_atlas_feature_evidence_panel.png)
+- [Figure 6. End-to-end workflow](reports/v6_final_model/manual_paper_figures/figure6_end_to_end_workflow.png)
+- [Figure 7. RC-SPE probability ensemble UI](reports/v6_final_model/manual_paper_figures/figure7_rcspe_probability_ensemble_ui.png)
+- [Supplement. Subgroup and robustness summary](reports/v6_final_model/manual_paper_figures/supplement_subgroup_robustness_summary.png)
 
----
+## Research UI
 
-## Attention-as-Biomarker findings
+The browser research UI is in `frontend/v6-final-analysis.html`. It presents an upload-style analysis workflow, CN/MCI/AD probabilities, subject-level evidence cards, aggregate AIBL/IXI result summaries, and high-resolution PyVista/VTK and Nilearn visual assets.
 
-| Quantity | Value | Interpretation |
-|---|:-:|---|
-| Regions with significant CN/MCI/AD attention difference | **19 / 21** at *p* < 0.05; **16 / 21** at *p* < 0.01 | Group-level sensitivity |
-| Top-5 Region Discriminability Index (RDI = \|Cohen's d\|) | R-WM 0.88, L-WM 0.82, L-Ctx 0.75, R-Ctx 0.74, **R-Amyg 0.67** | **Right amygdala emerges in top-5 without any region-level supervision** |
-| Monotonic CN→MCI→AD gradients | **15 increasing**, **4 decreasing**; **8** Bonferroni-significant in *both* CN→MCI and MCI→AD | Mirrors centripetal-to-centrifugal AD spread |
-| Clinical Alignment Score (CAS) | **0.204** | 6 *a-priori* AD-key regions (bilateral hippocampus / amygdala / ventricles) account for 20.4 % of total attention difference between AD and CN |
-| Cross-dataset cosine similarity | IXI CN 0.986 · OASIS CN 0.986 · OASIS MCI 0.990 · OASIS AD **0.997**; full 7 × 7 matrix ≥ 0.986 | Attention template is dataset-, scanner-, and demographics-invariant |
-| Error-conditioned CAS | MCI→MCI 0.267 ≈ MCI→CN **0.266**; MCI→AD **0.292** | No "attention collapse"; failure modes shift smoothly along the disease continuum |
-
----
-
-## Figures (in the order they appear in the manuscript)
-
-> Each figure below is the exact panel published in the manuscript; captions are
-> abridged from `Manuscript file.docx`.
-
-### Fig. 1 — Overall framework of ARA-Net
-
-<p align="center">
-  <img src="assets/fig1_framework.png" width="92%" alt="ARA-Net overall framework with 4 modules."/>
-</p>
-
-> **Module I.** FreeSurfer/FastSurfer segmentation of T1w MRI yielding 21-region label maps.
-> **Module II.** A 3D-CNN encoder (4-stage residual, stride-2 ×4) maps `(1, 96, 112, 96)` → `(128, 6, 7, 6)`.
-> **Module III.** Atlas-guided region pooling produces 21 anatomically grounded region tokens.
-> **Module IV.** Multi-head anatomy-guided attention (*L* = 2, *H* = 4) plus an MLP head outputs CN / MCI / AD logits, while attention weights serve as interpretable per-region biomarkers.
-
-### Fig. 2 — Classification performance, attention discriminability, bootstrap 95 % CIs
-
-<p align="center">
-  <img src="assets/fig2_classification_performance.png" width="92%" alt="Confusion matrix, ROC, ablation, RDI, AD-key region comparison."/>
-</p>
-
-> Performance and region-level attention discriminability (n = 2,401; CN/MCI/AD; 30 CV runs).
-> **(a)** Confusion matrix (raw counts and row-normalized %).
-> **(b)** One-vs-rest ROC curves with per-class AUC.
-> **(c)** Ablation and baseline grouped bars (BAcc, macro F1, macro AUC) for Plain CNN, ViT 3D, ResNet-18 3D, and three ARA-Net variants; error bars ±1 s.d.
-> **(d)** Accuracy–interpretability trade-off across ARA-Net variants.
-> **(e, f)** Bootstrap 95 % CI forest plots for BAcc and macro AUC.
-> **(g)** 21-region attention profile by diagnosis; vertical shading marks AD-key regions.
-> **(h)** Region Discriminability Index lollipop sorted by |Cohen's *d*|; diamonds = AD-key regions; dashed lines = medium (*d* = 0.5) and large (*d* = 0.8) thresholds.
-> **(i)** AD-key region grouped bars (bilateral hippocampus / amygdala / lateral ventricles) for CN, MCI, AD.
-
-### Fig. 3 — Panoramic spatial attention with quantitative regional statistics
-
-<p align="center">
-  <img src="assets/fig3_spatial_attention.png" width="92%" alt="Panoramic spatial attention: axial / coronal / sagittal heatmaps for CN, MCI, AD plus AD−CN difference."/>
-</p>
-
-> **(a)** Group-mean attention projected to voxel space and overlaid on a common T1 anatomy across axial / coronal / sagittal planes for CN (row 1), MCI (row 2), and AD (row 3); row 4 = an individual MCI–AD comparison; rightmost column = AD − CN difference (coolwarm); red contours mark AD-key regions; Inferno colormap, γ = 0.55.
-> **(b)** Quantitative analysis: grouped bar chart of mean attention per region with Kruskal–Wallis significance, alongside a sorted AD − CN attention shift per region. Scale bar = 20 mm.
-
-### Fig. 4 — Structure-specific attention, disease-progression gradient, AD-key distributions
-
-<p align="center">
-  <img src="assets/fig4_disease_gradient.png" width="92%" alt="Structure-specific axial attention plus monotonic disease gradient and AD-key violins."/>
-</p>
-
-> **(a)** Structure-specific axial attention at the ventricular (top), hippocampal (middle) and amygdaloid (bottom) levels; columns = CN, MCI, AD, AD − CN.
-> **(b)** AD-key structure grouped bars (Mann–Whitney U) for bilateral ventricles, hippocampi, amygdalae; *** *p* < 0.001.
-> **(c)** Disease-progression gradient: 15 monotonically *increasing* (left) and 4 *decreasing* (right) regions from CN to AD; red lines = AD-key regions.
-> **(d)** AD-key region violin plots (bilateral hippocampus, amygdala, lateral ventricles) with median/IQR boxes and Kruskal–Wallis significance.
-
-### Fig. 5 — Cross-dataset interpretability generalization
-
-<p align="center">
-  <img src="assets/fig5_cross_dataset.png" width="92%" alt="Cross-dataset cosine similarity, MWU heatmap, L2 shift, ensemble vs individual, ADNI vs OASIS profiles."/>
-</p>
-
-> ADNI (n = 2,401) vs. IXI (n = 581, CN only) vs. OASIS (n = 99; CN/MCI/AD).
-> **(a)** Same-class cosine similarity bars (> 0.98 in all four available comparisons) and the full 7 × 7 cross-group cosine matrix.
-> **(b)** Region-level Mann–Whitney U: −log₁₀(*p*) heatmap with significance stars; purple labels = AD-key regions.
-> **(c)** Cross-dataset L₂ shift: lollipop with permutation-test significance and Benjamini–Hochberg-corrected region counts.
-> **(d)** Ensemble vs. individual variants: violin + box plots of BAcc and AUC.
-> **(e)** ADNI vs. OASIS attention profiles per group with cosine similarities annotated.
-
-### Fig. 6 — Individual-level interpretability and error-mode attention
-
-<p align="center">
-  <img src="assets/fig6_individual_cases.png" width="92%" alt="Group-mean spatial attention paired with single-subject predictions and top-5 region rankings, plus MCI error modes."/>
-</p>
-
-> **(a)** Group-mean spatial attention (axial, coronal, AD − CN difference) for CN, MCI, AD on a common reference anatomy.
-> **(b)** Highest-confidence correctly classified exemplars per group: three-class probabilities and top-5 attended regions ranked by attention weight (with violin summaries of the class-pooled distribution).
-> **(c)** Error-mode visualization: MCI→CN (top) and MCI→AD (bottom) misclassification exemplars side by side with class prototypes; cosine similarity annotated.
-
-### Fig. 7 — Error-conditioned interpretability metrics
-
-<p align="center">
-  <img src="assets/fig7_error_conditioned.png" width="92%" alt="3x3 CAS and Hit@5 heatmaps and MCI error-mode bar charts."/>
-</p>
-
-> **(a)** 3 × 3 heatmaps of mean **CAS** (left) and **Hit@5** (right) across all true × predicted combinations (CN/MCI/AD); diagonal entries = correct, off-diagonal = misclassification modes.
-> **(b)** MCI error-mode metrics: grouped bars of CAS and Hit@5 (left) and cosine similarity to CN / MCI / AD class prototypes (right) for MCI→MCI, MCI→CN, and MCI→AD; error bars ±1 SEM.
-
----
-
-## Installation
-
-### Option A — pip (recommended for research use)
+Run it as a static site from the repository root:
 
 ```bash
-git clone https://github.com/Lava168/ARA-Net.git
-cd ARA-Net
-
-python -m venv .venv && source .venv/bin/activate
-# Install PyTorch matching your CUDA version first:
-pip install torch==2.1.0 torchvision==0.16.0 --index-url https://download.pytorch.org/whl/cu118
-pip install -r requirements.txt
+python3 -m http.server 8000 -d frontend
 ```
 
-### Option B — Docker (one-click reproducible environment)
+Then open [http://127.0.0.1:8000/v6-final-analysis.html](http://127.0.0.1:8000/v6-final-analysis.html).
+
+The 3D evidence workbench is available at [http://127.0.0.1:8000/cvtc-style.html](http://127.0.0.1:8000/cvtc-style.html) after starting the same static server.
+
+## Repository Contents
+
+- `scripts/rescue_probability_optimizer.py`: probability ensemble, calibration, and subject-level averaging.
+- `scripts/final_rescue_model_package.py`: final metrics, bootstrap, and error-analysis package generation.
+- `scripts/generate_algorithm_innovation_evidence.py`: RC-SPE ablation, calibration, risk-profile, and leave-one-model-out evidence generation.
+- `scripts/generate_v6_final_figures.py`: final v6 manuscript figures.
+- `scripts/generate_core_reviewer_evidence_matrix.py`: reproducible evidence matrix for external validation, CAS replacement, and Braak-alternative biological validation.
+- `scripts/generate_goal_completion_audit.py`: requirement-level audit tying the V6 rebuild goal to current evidence and explicit limitations.
+- `scripts/audit_claim_boundaries.py`: generated audit for unsupported Braak/CAS/OASIS/zero-shot/clinical-deployment overclaims.
+- `deployment/research_inference.py`: CLI for research inference from base-model class probabilities.
+- `deployment/research_api.py`: HTTP API and static web-console server for research deployment.
+- `deployment/final_ensemble_config.json`: locked final ensemble weights, offsets, and temperature.
+- `frontend/`: browser-based research console for CSV upload, prediction review, and CSV export.
+- `docs/MODEL_CARD.md`: model-card summary, intended use, metrics, and limitations.
+- `docs/DATA_CARD.md`: data provenance and public-release boundary.
+- `docs/CLINICAL_VALIDATION_PROTOCOL.md`: prospective validation protocol draft.
+- `reports/v6_final_model/`: public manuscript-supporting reports, aggregate tables, and figures.
+- `reports/v6_algorithm_innovation/`: public aggregate RC-SPE algorithmic evidence, tables, and figures.
+- `reports/v6_final_model/core_reviewer_evidence_matrix.md`: generated reviewer-evidence matrix for the three core revision issues.
+- `reports/v6_final_model/goal_completion_audit.md`: conservative requirement-level audit showing which parts of the rebuild are supported and which remain bounded limitations.
+- `reports/v6_final_model/final_figure_blueprint.md`: planned main and supplementary figure set with panel-by-panel content.
+- `reports/v6_final_model/manuscript_v6_full_draft.md`: full V6 manuscript draft for replacing the old Word manuscript body.
+- `reports/v6_final_model/ARA-Net_V6_full_manuscript_draft.docx`: generated V6 Word manuscript replacement draft.
+- `reports/v6_final_model/final_submission_closure_packet.md`: final manuscript-integration packet for Figure 1, OASIS handling, citations, and terminology.
+- `reports/v6_final_model/word_manuscript_rewrite_map.md`: section-by-section rewrite map for converting the old Word manuscript into the V6 submission.
+- `reports/v6_final_model/claim_boundary_audit.md`: generated public-file audit for reviewer-safe claim boundaries.
+- `reports/v6_final_model/public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
+- `reports/v6_final_model/manual_paper_figures/`: manuscript-aligned main result figures extracted and renamed for the English GitHub release.
+- `frontend/v6-final-analysis.html`: research workbench UI for upload-style presentation and evidence visualization.
+
+The public reports intentionally exclude row-level subject/scan prediction files and dataset-derived identifiers.
+
+## Data Availability
+
+Raw ADNI, AIBL, OASIS, and IXI data are governed by their original data-use agreements and are not redistributed in this repository. Users must obtain access from the respective data providers. Public files in this repository are limited to code, aggregate reports, figures, and de-identified/manuscript-level summaries.
+
+## Clinical-Use Boundary
+
+This software is not intended for direct clinical deployment or standalone diagnosis. It is a research-grade, retrospective validation pipeline intended to support further prospective evaluation. Clinical use would require prospective multi-center validation, scanner/protocol robustness testing, local calibration, workflow integration, uncertainty reporting, cybersecurity review, and regulatory assessment.
+
+## Research Deployment
+
+The public deployment wrapper combines already-produced base-model CN/MCI/AD probabilities using the locked final ensemble configuration. It does not process raw MRI files and does not redistribute restricted model artifacts or datasets.
+
+CLI example:
 
 ```bash
-docker build -f chapter1_foundation/Dockerfile -t aranet:latest .
-docker run --gpus all -v $(pwd):/workspace -it aranet:latest bash
+python deployment/research_inference.py \
+  --input-csv examples/probability_input_example.csv \
+  --output examples/predictions_subject.csv \
+  --unit subject
 ```
 
----
-
-## Data preparation
-
-ARA-Net consumes T1w volumes that have been **brain-extracted and parcellated by
-[FastSurfer](https://github.com/Deep-MI/FastSurfer)** (a deep-learning replacement for
-FreeSurfer) and remapped to **21 contiguous region IDs** following the FreeSurfer
-subcortical atlas (bilateral white matter, cortex, lateral ventricles, thalamus, caudate,
-putamen, pallidum, hippocampus, amygdala, accumbens, plus brainstem).
+API example:
 
 ```bash
-# 1. Run FastSurfer segmentation on every subject (≈ 40 s/volume on A100)
-python -m chapter1_foundation.batch_fastsurfer_seg \
-       --input_dir  /path/to/ADNI_raw \
-       --output_dir /path/to/fastsurfer_outputs
-
-# 2. Build the .npz cache used during training (resamples to 96 × 112 × 96)
-python -m chapter1_foundation.preprocess_adni15t \
-       --fastsurfer_dir /path/to/fastsurfer_outputs \
-       --clinical_csv  /path/to/ADNIMERGE.csv \
-       --output_dir    sample_data/cache_real
-
-python -m chapter1_foundation.preprocess_oasis \
-       --fastsurfer_dir /path/to/oasis_fastsurfer \
-       --output_dir     sample_data/cache_oasis
+python deployment/research_api.py --port 8080
+curl http://localhost:8080/health
 ```
 
-A small (~5-subject) anonymized demo cache is provided under `sample_data/` so smoke
-tests run without downloading any restricted data.
-
----
-
-## Quick start
-
-### Self-supervised pre-training (Models-Genesis style)
+Web console:
 
 ```bash
-# 887 unlabeled volumes (ADNI training-fold + IXI), 100 epochs
-python -m chapter1_foundation.pretrain_ssl \
-       --cache_dir   sample_data/cache_real \
-       --output_dir  checkpoints/ssl_pretrain \
-       --epochs 100 --batch_size 4 --accum_steps 8 --gpu 0
+python deployment/research_api.py --host 127.0.0.1 --port 8080
 ```
 
-### Fine-tune ARA-Net (single seed, single fold)
+Then open [http://localhost:8080](http://localhost:8080). The console accepts the same base-model probability CSV format as the CLI, calls `POST /predict`, summarizes class distribution and confidence, and exports prediction CSV files.
+
+Docker example:
 
 ```bash
-python -m chapter1_foundation.run_experiment_v3 \
-    --config              configs/default.yaml \
-    --data_root           sample_data/cache_real \
-    --pretrained_encoder  checkpoints/ssl_pretrain/pretrained_encoder.pth \
-    --output_dir          runs/aranet_demo \
-    --gpu 0 --seeds 42 --n_folds 5
+docker build -t aranet-research .
+docker run --rm -p 8080:8080 aranet-research
 ```
 
-### Inference on a single volume
+## Reproducing The V6 Reports
 
-```python
-import torch, numpy as np
-from chapter1_foundation.models import AtlasGuidedAttentionModel
-
-model = AtlasGuidedAttentionModel(num_classes=3).cuda().eval()
-ckpt  = torch.load("checkpoints/aranet_seed42_fold0.pth", map_location="cuda")
-model.load_state_dict(ckpt["model"])
-
-mri  = torch.from_numpy(np.load("subject001_mri.npy")).float().cuda()[None, None]
-seg  = torch.from_numpy(np.load("subject001_seg.npy")).long().cuda()[None]
-
-with torch.no_grad():
-    out  = model(mri, seg)              # logits + attention weights
-    pred = out["logits"].softmax(-1).argmax(-1)
-    attn = out["attention"]             # (1, 21) per-region weights
-print(["CN", "MCI", "AD"][pred.item()], attn.cpu().numpy())
-```
-
----
-
-## Clinical integration
-
-ARA-Net can be integrated into real-world hospital workflows through several
-deployment patterns, including FHIR-native EMR write-back, HL7 v2 ORU reporting,
-PACS / DICOMweb-centered inference, PACS viewer sidebars, research registry
-pipelines, and private AI gateway microservices.
-
-See [`docs/clinical_integration.md`](docs/clinical_integration.md) for practical
-interface designs, example payloads, recommended FHIR resources
-(`DiagnosticReport`, `Observation`, `ImagingStudy`, `Provenance`), HL7 v2 result
-fields, PACS / DICOMweb workflows, and safety / governance notes for a first
-hospital pilot.
-
----
-
-## Reproducing the manuscript
-
-The full benchmark is **6 seeds × 5 folds = 30 independent runs** per configuration.
-On a single A100, one run (SSL pre-training + three-stage fine-tuning) takes ≈ 24 GPU-h;
-the entire CV protocol on 4 × A100 (40 GB) ran ≈ 30 days.
+After generating prediction CSV files with the training/evaluation scripts, run:
 
 ```bash
-# 6-seed × 5-fold benchmark (ARA-Net + 3 baselines)
-for seed in 42 153 264 375 486 597; do
-  python -m chapter1_foundation.run_experiment_v3 \
-        --config              configs/default.yaml \
-        --data_root           sample_data/cache_real \
-        --pretrained_encoder  checkpoints/ssl_pretrain/pretrained_encoder.pth \
-        --output_dir          runs/seed_${seed} \
-        --seeds ${seed}
-done
+python scripts/final_rescue_model_package.py \
+  --subject-pred-dir outputs/v4/rescue_probability_subject_quick_no_oasis_tune \
+  --scan-pred-dir outputs/v4/rescue_probability_no_oasis_tune \
+  --subject-summary outputs/v4/rescue_probability_subject_quick_no_oasis_tune/summary.json \
+  --scan-summary outputs/v4/rescue_probability_no_oasis_tune/summary.json \
+  --feature-csv outputs/v4/atlas_feature_cache_v4.csv \
+  --adni-clinical /path/to/adni/master_subjects_v2.csv \
+  --aibl-clinical /path/to/aibl/aibl_adnimergelike.csv \
+  --out-dir reports/v6_final_model \
+  --n-bootstrap 2000
 ```
 
-**Optimizer.** AdamW (lr 5 × 10⁻⁴, weight decay 10⁻³, gradient clip ‖g‖₂ ≤ 1.0); 5-epoch
-linear warm-up then cosine annealing to 10⁻⁶. **Augmentation.** Random L–R flip with
-hemisphere-label swap, random affine (rot ±10°, scale 0.9–1.1), elastic deformation
-(α = 8, σ = 4), bias-field, additive Gaussian noise. **Loss schedule.** Anatomical
-regularizer weight λ(t) is annealed across epochs (Manuscript Eq. 7) so that early
-fine-tuning gets strong region structure and late epochs maximize discrimination.
-
-**Pre-trained checkpoints** corresponding to the manuscript's reported numbers will be
-released on Zenodo upon paper acceptance and the DOI added here.
-
-### One-line reproduction
-
-A wrapper script is provided that calls the runner with the paper protocol:
+Then regenerate figures:
 
 ```bash
-bash scripts/reproduce_paper.sh /path/to/cache_real
+python scripts/generate_v6_final_figures.py \
+  --summary reports/v6_final_model/final_rescue_model_summary_public.json \
+  --table2 reports/v4/tables/table2_classification.csv \
+  --table-dir reports/v6_final_model/tables \
+  --out-dir reports/v6_final_model/figures
 ```
 
-### Verifying the implementation against the manuscript
-
-Smoke tests that pin every shape / hyper-parameter to Manuscript §2.3 / §2.5 ship
-with the repository:
+Generate the core reviewer-evidence matrix:
 
 ```bash
-python -m pytest tests/test_shapes.py -q
+python scripts/generate_core_reviewer_evidence_matrix.py
 ```
 
-The suite checks the input → feature → token → logits shape contract
-`(B, 1, 96, 112, 96) → (B, 128, 6, 7, 6) → (B, 21, 128) → (B, 3)`,
-the attention configuration `L = 2 / H = 4 / d_h = 32`, the MLP head
-`Linear(128, 128) → GELU → Dropout(0.3) → Linear(128, 3)`, and that the
-anatomical regularizer reproduces Eq. (6) verbatim with α = 0.05, β = 0.005.
+Generate the requirement-level goal audit:
 
----
-
-## Comparison with state-of-the-art (ADNI three-class)
-
-Methods grouped by evaluation protocol; cross-validation / subject-level splitting in
-the upper section (rigorous), single random train-test splits in the lower section
-(†; likely inflated due to data-leakage risk). Manuscript Table 6.
-
-| Method | Acc | BAcc | AUC | Interp. | Protocol |
-|---|:-:|:-:|:-:|:-:|---|
-| Attention-3DCNN  | 65.2 | —    | 0.810 | ✗ | 10-fold CV |
-| Hi-Net           | —    | —    | ≈ 0.80 | ✗ | CV |
-| 3D DenseNet      | —    | —    | ≈ 0.79 | ✗ | CV |
-| Patch-CNN        | —    | —    | ≈ 0.81 | ✗ | CV |
-| BrainGNN         | —    | 58.6 | —     | partial (graph) | CV |
-| STNet            | 71.8 | —    | —     | ✗ | CV |
-| LSTM-Robust      | 76.0 | —    | —     | ✗ | CV |
-| ECAResNet        | —    | 74.0 | —     | ✗ | subject-level split |
-| **ARA-Net (Full)** | — | **67.1** | **0.830** | **region-level (atlas)** | **6 seeds × 5-fold CV** |
-| DEMNET †         | 95.2 | —    | —     | ✗ | single split |
-| 3D HCCT †        | 96.1 | —    | —     | ✗ | single split |
-
-ARA-Net achieves the **highest reported macro-AUC** among methods using cross-validation,
-and is the **only** method providing by-design region-level interpretability validated
-through multiple quantitative metrics (RDI, disease gradient, CAS, cross-dataset
-consistency, error-conditioned analysis).
-
----
-
-## Repository structure
-
-```
-ARA-Net/
-├── README.md                 # this file
-├── LICENSE                   # Apache-2.0
-├── CITATION.cff              # one-click cite metadata
-├── requirements.txt          # Python dependencies
-├── configs/
-│   └── default.yaml          # paper hyper-parameters (Eq. 6 / §2.5 protocol)
-├── docs/
-│   └── clinical_integration.md  # HIS / EMR / PACS integration options
-├── scripts/
-│   └── reproduce_paper.sh    # 6-seed × 5-fold benchmark wrapper
-├── tests/
-│   └── test_shapes.py        # forward-shape + Eq. 6 contract tests
-├── assets/                   # 7 manuscript figures (Fig. 1 – Fig. 7)
-└── chapter1_foundation/
-    ├── __init__.py
-    ├── Dockerfile            # reproducible CUDA environment
-    ├── models/
-    │   ├── atlas_guided_model.py    # ARA-Net (manuscript §2.3 / Fig. 1)
-    │   └── baselines.py             # ResNet-18 3D, ViT 3D, Plain CNN
-    ├── losses/
-    │   └── geodesic_loss.py         # AnatomicalRegularizationLoss (Eq. 6)
-    ├── data/
-    │   └── foundation_loader.py     # RealCachedDataset, kfold_split
-    ├── utils/
-    ├── augmentation.py              # 3D MRI augmentation (LR-flip + swap, …)
-    ├── metrics.py                   # AUC, F1, BAcc, ROC, bootstrap CI
-    ├── preprocess_adni15t.py        # ADNI → cache builder
-    ├── preprocess_oasis.py          # OASIS → cache builder
-    ├── pretrain_ssl.py              # Models-Genesis SSL pre-training
-    ├── run_experiment.py            # legacy single-seed runner
-    └── run_experiment_v3.py         # full 6-seed × 5-fold runner
+```bash
+python scripts/generate_goal_completion_audit.py
 ```
 
----
+Run the claim-boundary audit:
 
-## Limitations (Manuscript §4.7)
-
-- **Coarse parcellation.** The 21-region FreeSurfer scheme prioritizes clinical
-  identifiability; finer atlases (e.g. Desikan-Killiany 68, Schaefer 100–400) would
-  improve Braak-stage alignment but reduce per-region voxel counts.
-- **No external classification benchmark.** Cross-dataset *interpretability* generalizes
-  well, but classification on IXI / OASIS was not formally evaluated and preliminary
-  IXI specificity is moderate (43.6 %).
-- **Cross-sectional design.** Single-timepoint classification only; longitudinal
-  attention trajectories for MCI-to-AD conversion are future work.
-- **Single modality.** Structural MRI only — amyloid / tau PET, CSF biomarkers, and
-  APOE genotype are not yet fused.
-- **No prospective validation.** All results are retrospective on public research cohorts.
-
----
-
-## Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@article{zhao2026aranet,
-  title   = {ARA-Net: Atlas-Guided Region Attention for Interpretable
-             Alzheimer's Disease Diagnosis from Structural MRI},
-  author  = {Zhao, Yuanqin},
-  journal = {Medical Image Analysis (under review)},
-  year    = {2026}
-}
+```bash
+python scripts/audit_claim_boundaries.py
 ```
 
-A `CITATION.cff` file is also provided so GitHub renders a *"Cite this repository"*
-button automatically.
+Generate the public release manifest:
 
----
+```bash
+python scripts/generate_public_release_manifest.py
+```
 
-## Data & ethics statement
+## Python Dependencies
 
-This repository contains **no patient data**. The ADNI / IXI / OASIS cohorts must be
-obtained directly from their providers under their respective data-use agreements; all
-three were collected under IRB-approved protocols with written informed consent. The
-demo cache under `sample_data/` consists of de-identified, downsampled volumes used
-only for pipeline smoke-testing.
+Core analysis dependencies are listed in `requirements.txt`. The lightweight deployment wrapper uses `requirements-deploy.txt`. Some legacy training scripts additionally require PyTorch and scikit-learn. Figure generation requires Matplotlib.
 
----
+## Documentation
 
-## Acknowledgements
-
-We thank the [ADNI](https://adni.loni.usc.edu/),
-[IXI](https://brain-development.org/ixi-dataset/), and
-[OASIS](https://www.oasis-brains.org/) consortia for making their data publicly
-available, and the [FastSurfer](https://github.com/Deep-MI/FastSurfer) team for their
-open-source pipeline.
-
----
-
-## License
-
-Released under the [Apache 2.0 License](LICENSE). Commercial use is permitted with
-attribution.
+- [Open-source and deployment plan](docs/OPEN_SOURCE_AND_DEPLOYMENT.md)
+- [Model card](docs/MODEL_CARD.md)
+- [Data card](docs/DATA_CARD.md)
+- [Clinical validation protocol draft](docs/CLINICAL_VALIDATION_PROTOCOL.md)
+- [Regulatory notes](docs/REGULATORY_NOTES.md)

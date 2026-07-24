@@ -1,0 +1,2030 @@
+{
+  "profile": "balanced",
+  "final_model": {
+    "name": "subject_level_balanced_rescue_probability_ensemble",
+    "subject_level_metrics": {
+      "val": {
+        "n": 97,
+        "acc": 0.5257731958762887,
+        "balanced_acc": 0.535933806146572,
+        "macro_auc_ovr": 0.7420798650204811,
+        "ad_vs_cn_auc": 0.8966666666666666,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.3333333333333333,
+        "recall_MCI": 0.574468085106383,
+        "recall_AD": 0.7,
+        "precision_CN": 0.625,
+        "precision_MCI": 0.5625,
+        "precision_AD": 0.42424242424242425,
+        "prediction_distribution": {
+          "CN": 16,
+          "MCI": 48,
+          "AD": 33
+        },
+        "confusion_matrix": [
+          [
+            10,
+            15,
+            5
+          ],
+          [
+            6,
+            27,
+            14
+          ],
+          [
+            0,
+            6,
+            14
+          ]
+        ]
+      },
+      "internal_test": {
+        "n": 96,
+        "acc": 0.4583333333333333,
+        "balanced_acc": 0.4481902665688433,
+        "macro_auc_ovr": 0.7186283795063343,
+        "ad_vs_cn_auc": 0.9206896551724137,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.2413793103448276,
+        "recall_MCI": 0.5531914893617021,
+        "recall_AD": 0.55,
+        "precision_CN": 0.7,
+        "precision_MCI": 0.4727272727272727,
+        "precision_AD": 0.3548387096774194,
+        "prediction_distribution": {
+          "CN": 10,
+          "MCI": 55,
+          "AD": 31
+        },
+        "confusion_matrix": [
+          [
+            7,
+            20,
+            2
+          ],
+          [
+            3,
+            26,
+            18
+          ],
+          [
+            0,
+            9,
+            11
+          ]
+        ]
+      },
+      "aibl_adapt_val": {
+        "n": 106,
+        "acc": 0.9056603773584906,
+        "balanced_acc": 0.8949019607843137,
+        "macro_auc_ovr": 0.951514591580259,
+        "ad_vs_cn_auc": 1.0,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.92,
+        "recall_MCI": 0.7647058823529411,
+        "recall_AD": 1.0,
+        "precision_CN": 0.971830985915493,
+        "precision_MCI": 0.6842105263157895,
+        "precision_AD": 0.875,
+        "prediction_distribution": {
+          "CN": 71,
+          "MCI": 19,
+          "AD": 16
+        },
+        "confusion_matrix": [
+          [
+            69,
+            6,
+            0
+          ],
+          [
+            2,
+            13,
+            2
+          ],
+          [
+            0,
+            0,
+            14
+          ]
+        ]
+      },
+      "aibl_heldout": {
+        "n": 216,
+        "acc": 0.9027777777777778,
+        "balanced_acc": 0.8328683662016996,
+        "macro_auc_ovr": 0.9370749291955652,
+        "ad_vs_cn_auc": 0.9995189995189995,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.961038961038961,
+        "recall_MCI": 0.6857142857142857,
+        "recall_AD": 0.8518518518518519,
+        "precision_CN": 0.9866666666666667,
+        "precision_MCI": 0.7272727272727273,
+        "precision_AD": 0.696969696969697,
+        "prediction_distribution": {
+          "CN": 150,
+          "MCI": 33,
+          "AD": 33
+        },
+        "confusion_matrix": [
+          [
+            148,
+            5,
+            1
+          ],
+          [
+            2,
+            24,
+            9
+          ],
+          [
+            0,
+            4,
+            23
+          ]
+        ]
+      },
+      "ixi_external": {
+        "n": 581,
+        "acc": 1.0,
+        "balanced_acc": 1.0,
+        "macro_auc_ovr": null,
+        "ad_vs_cn_auc": null,
+        "cn_retention_rate": 1.0,
+        "false_impairment_rate": 0.0,
+        "recall_CN": 1.0,
+        "recall_MCI": 0.0,
+        "recall_AD": 0.0,
+        "precision_CN": 1.0,
+        "precision_MCI": 0.0,
+        "precision_AD": 0.0,
+        "prediction_distribution": {
+          "CN": 581,
+          "MCI": 0,
+          "AD": 0
+        },
+        "confusion_matrix": [
+          [
+            581,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "oasis_external": {
+        "n": 99,
+        "acc": 0.5858585858585859,
+        "balanced_acc": 0.3335281511786479,
+        "macro_auc_ovr": 0.5539333883975508,
+        "ad_vs_cn_auc": 0.3713405238828968,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.9661016949152542,
+        "recall_MCI": 0.034482758620689655,
+        "recall_AD": 0.0,
+        "precision_CN": 0.6063829787234043,
+        "precision_MCI": 0.25,
+        "precision_AD": 0.0,
+        "prediction_distribution": {
+          "CN": 94,
+          "MCI": 4,
+          "AD": 1
+        },
+        "confusion_matrix": [
+          [
+            57,
+            2,
+            0
+          ],
+          [
+            27,
+            1,
+            1
+          ],
+          [
+            10,
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    "subject_level_bootstrap": {
+      "val": {
+        "acc": {
+          "mean": 0.5272989690721649,
+          "ci_low": 0.422680412371134,
+          "ci_high": 0.6288659793814433,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.5377440028372966,
+          "ci_low": 0.43443659420289854,
+          "ci_high": 0.6398361269647268,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.7428583623169377,
+          "ci_low": 0.6692631280034557,
+          "ci_high": 0.8083641517086855,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.8967366059488364,
+          "ci_low": 0.7930972906403941,
+          "ci_high": 0.9693570788530466,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.3337495601524828,
+          "ci_low": 0.16666666666666666,
+          "ci_high": 0.5151759530791787,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.5748631509112802,
+          "ci_low": 0.4358695652173913,
+          "ci_high": 0.7209302325581395,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.7046192974481269,
+          "ci_low": 0.5,
+          "ci_high": 0.8947368421052632,
+          "n_boot": 2000
+        }
+      },
+      "internal_test": {
+        "acc": {
+          "mean": 0.4593020833333334,
+          "ci_low": 0.3541666666666667,
+          "ci_high": 0.5520833333333334,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.44933531687683603,
+          "ci_low": 0.34376849859184866,
+          "ci_high": 0.5524527922122668,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.7193361415531317,
+          "ci_low": 0.649890124160304,
+          "ci_high": 0.7887962117805899,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.9212873497095322,
+          "ci_low": 0.8231065759637188,
+          "ci_high": 0.9961063722363945,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.2422392567538308,
+          "ci_low": 0.09375,
+          "ci_high": 0.40625,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.5526830200218,
+          "ci_low": 0.41301150895140665,
+          "ci_high": 0.6938775510204082,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.5530836738548772,
+          "ci_low": 0.3333333333333333,
+          "ci_high": 0.7727272727272727,
+          "n_boot": 2000
+        }
+      },
+      "aibl_adapt_val": {
+        "acc": {
+          "mean": 0.9053584905660378,
+          "ci_low": 0.8490566037735849,
+          "ci_high": 0.9530660377358477,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.8944482806266264,
+          "ci_low": 0.8138412513412513,
+          "ci_high": 0.9645556379210937,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.9510028850570615,
+          "ci_low": 0.9027187705329844,
+          "ci_high": 0.9868390061676683,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.9200797785967152,
+          "ci_low": 0.855072463768116,
+          "ci_high": 0.974025974025974,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.7632650632831645,
+          "ci_low": 0.5294117647058824,
+          "ci_high": 0.9474342105263154,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        }
+      },
+      "aibl_heldout": {
+        "acc": {
+          "mean": 0.9027708333333334,
+          "ci_low": 0.8611111111111112,
+          "ci_high": 0.9398148148148148,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.8324969034837959,
+          "ci_low": 0.7586935672049979,
+          "ci_high": 0.899309689153439,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.9372067887106944,
+          "ci_low": 0.8938606779577994,
+          "ci_high": 0.9741431244487493,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.9994931172103049,
+          "ci_low": 0.9976150721506759,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.9611355902995694,
+          "ci_low": 0.9290090659919882,
+          "ci_high": 0.9872611464968153,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.6860984578979473,
+          "ci_low": 0.53125,
+          "ci_high": 0.8387419354838708,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.8502566622538712,
+          "ci_low": 0.7096438172043011,
+          "ci_high": 0.9655172413793104,
+          "n_boot": 2000
+        }
+      },
+      "ixi_external": {
+        "acc": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "cn_retention_rate": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        }
+      },
+      "oasis_external": {
+        "acc": {
+          "mean": 0.5839444444444445,
+          "ci_low": 0.48484848484848486,
+          "ci_high": 0.6767676767676768,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.33326469699696964,
+          "ci_low": 0.308544776119403,
+          "ci_high": 0.36368126904384174,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.5548938992467176,
+          "ci_low": 0.4595470056445344,
+          "ci_high": 0.6464086791354736,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.3733357802952086,
+          "ci_low": 0.24313025210084033,
+          "ci_high": 0.5103841991341991,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.9657640924352843,
+          "ci_low": 0.9137552934059286,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.034029998555624545,
+          "ci_low": 0.0,
+          "ci_high": 0.11770588235294085,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        }
+      }
+    },
+    "scan_level_reference": {
+      "val": {
+        "n": 355,
+        "acc": 0.5492957746478874,
+        "balanced_acc": 0.5787710843373494,
+        "macro_auc_ovr": 0.7585963713564734,
+        "ad_vs_cn_auc": 0.921625,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.408,
+        "recall_MCI": 0.5783132530120482,
+        "recall_AD": 0.75,
+        "precision_CN": 0.7285714285714285,
+        "precision_MCI": 0.5853658536585366,
+        "precision_AD": 0.39669421487603307,
+        "prediction_distribution": {
+          "CN": 70,
+          "MCI": 164,
+          "AD": 121
+        },
+        "confusion_matrix": [
+          [
+            51,
+            52,
+            22
+          ],
+          [
+            19,
+            96,
+            51
+          ],
+          [
+            0,
+            16,
+            48
+          ]
+        ]
+      },
+      "internal_test": {
+        "n": 360,
+        "acc": 0.4861111111111111,
+        "balanced_acc": 0.47076023391812866,
+        "macro_auc_ovr": 0.7421149478219365,
+        "ad_vs_cn_auc": 0.9161469161469161,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.3333333333333333,
+        "recall_MCI": 0.5789473684210527,
+        "recall_AD": 0.5,
+        "precision_CN": 0.8604651162790697,
+        "precision_MCI": 0.4925373134328358,
+        "precision_AD": 0.33620689655172414,
+        "prediction_distribution": {
+          "CN": 43,
+          "MCI": 201,
+          "AD": 116
+        },
+        "confusion_matrix": [
+          [
+            37,
+            66,
+            8
+          ],
+          [
+            3,
+            99,
+            69
+          ],
+          [
+            3,
+            36,
+            39
+          ]
+        ]
+      },
+      "aibl_adapt_val": {
+        "n": 191,
+        "acc": 0.9267015706806283,
+        "balanced_acc": 0.9129251700680272,
+        "macro_auc_ovr": 0.9446241994263701,
+        "ad_vs_cn_auc": 1.0,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.9387755102040817,
+        "recall_MCI": 0.8,
+        "recall_AD": 1.0,
+        "precision_CN": 0.9787234042553191,
+        "precision_MCI": 0.6896551724137931,
+        "precision_AD": 0.9047619047619048,
+        "prediction_distribution": {
+          "CN": 141,
+          "MCI": 29,
+          "AD": 21
+        },
+        "confusion_matrix": [
+          [
+            138,
+            9,
+            0
+          ],
+          [
+            3,
+            20,
+            2
+          ],
+          [
+            0,
+            0,
+            19
+          ]
+        ]
+      },
+      "aibl_heldout": {
+        "n": 397,
+        "acc": 0.9093198992443325,
+        "balanced_acc": 0.8196214467281978,
+        "macro_auc_ovr": 0.9393623918082677,
+        "ad_vs_cn_auc": 0.9976656202205586,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 0.9636963696369637,
+        "recall_MCI": 0.6415094339622641,
+        "recall_AD": 0.8536585365853658,
+        "precision_CN": 0.9931972789115646,
+        "precision_MCI": 0.68,
+        "precision_AD": 0.660377358490566,
+        "prediction_distribution": {
+          "CN": 294,
+          "MCI": 50,
+          "AD": 53
+        },
+        "confusion_matrix": [
+          [
+            292,
+            10,
+            1
+          ],
+          [
+            2,
+            34,
+            17
+          ],
+          [
+            0,
+            6,
+            35
+          ]
+        ]
+      },
+      "ixi_external": {
+        "n": 581,
+        "acc": 1.0,
+        "balanced_acc": 1.0,
+        "macro_auc_ovr": null,
+        "ad_vs_cn_auc": null,
+        "cn_retention_rate": 1.0,
+        "false_impairment_rate": 0.0,
+        "recall_CN": 1.0,
+        "recall_MCI": 0.0,
+        "recall_AD": 0.0,
+        "precision_CN": 1.0,
+        "precision_MCI": 0.0,
+        "precision_AD": 0.0,
+        "prediction_distribution": {
+          "CN": 581,
+          "MCI": 0,
+          "AD": 0
+        },
+        "confusion_matrix": [
+          [
+            581,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "oasis_external": {
+        "n": 99,
+        "acc": 0.5959595959595959,
+        "balanced_acc": 0.3333333333333333,
+        "macro_auc_ovr": 0.565661733197996,
+        "ad_vs_cn_auc": 0.4714946070878274,
+        "cn_retention_rate": null,
+        "false_impairment_rate": null,
+        "recall_CN": 1.0,
+        "recall_MCI": 0.0,
+        "recall_AD": 0.0,
+        "precision_CN": 0.5959595959595959,
+        "precision_MCI": 0.0,
+        "precision_AD": 0.0,
+        "prediction_distribution": {
+          "CN": 99,
+          "MCI": 0,
+          "AD": 0
+        },
+        "confusion_matrix": [
+          [
+            59,
+            0,
+            0
+          ],
+          [
+            29,
+            0,
+            0
+          ],
+          [
+            11,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "scan_level_bootstrap": {
+      "val": {
+        "acc": {
+          "mean": 0.5502408450704225,
+          "ci_low": 0.49859154929577465,
+          "ci_high": 0.6,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.5792238434082302,
+          "ci_low": 0.5239524656621628,
+          "ci_high": 0.6277817428280247,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.7590446087417884,
+          "ci_low": 0.7227575214958767,
+          "ci_high": 0.7910307055691634,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.9219277145719683,
+          "ci_low": 0.8816636135794031,
+          "ci_high": 0.9547709462648469,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.4085671179570564,
+          "ci_low": 0.3230708661417323,
+          "ci_high": 0.49541690346675327,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.5799127501111436,
+          "ci_low": 0.5029585798816568,
+          "ci_high": 0.6543265993265993,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.7491916621564906,
+          "ci_low": 0.6415094339622641,
+          "ci_high": 0.8548445535296868,
+          "n_boot": 2000
+        }
+      },
+      "internal_test": {
+        "acc": {
+          "mean": 0.4862916666666666,
+          "ci_low": 0.4361111111111111,
+          "ci_high": 0.5388888888888889,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.4707862332696394,
+          "ci_low": 0.41837858578146303,
+          "ci_high": 0.5240291207734139,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.7423978179326096,
+          "ci_low": 0.7049501357483645,
+          "ci_high": 0.7786351421974862,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.916382772012345,
+          "ci_low": 0.869245275770449,
+          "ci_high": 0.9568715892310332,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.33212384849788384,
+          "ci_low": 0.24727657324167107,
+          "ci_high": 0.41966580440587437,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.579773403317929,
+          "ci_low": 0.5057408109132248,
+          "ci_high": 0.6531849382553861,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.5004614479931052,
+          "ci_low": 0.38461538461538464,
+          "ci_high": 0.6142857142857143,
+          "n_boot": 2000
+        }
+      },
+      "aibl_adapt_val": {
+        "acc": {
+          "mean": 0.9270628272251309,
+          "ci_low": 0.8900523560209425,
+          "ci_high": 0.9633507853403142,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.9136283148767651,
+          "ci_low": 0.8576390807773787,
+          "ci_high": 0.9660196608946607,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.944908453740539,
+          "ci_low": 0.9053385031127201,
+          "ci_high": 0.9784852446183747,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.9389347672295856,
+          "ci_low": 0.8986314120242692,
+          "ci_high": 0.9735142906936214,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.8019501774007098,
+          "ci_low": 0.631578947368421,
+          "ci_high": 0.9565217391304348,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        }
+      },
+      "aibl_heldout": {
+        "acc": {
+          "mean": 0.9092027707808564,
+          "ci_low": 0.8790931989924433,
+          "ci_high": 0.9370277078085643,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.8193132085242765,
+          "ci_low": 0.7612727642032695,
+          "ci_high": 0.8735474796735825,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.9393480811106781,
+          "ci_low": 0.9094356431153334,
+          "ci_high": 0.9643324092576243,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.9976795328973935,
+          "ci_low": 0.9942441363961236,
+          "ci_high": 0.9997086131982392,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 0.9636358023008861,
+          "ci_low": 0.9413632879862043,
+          "ci_high": 0.9836065573770492,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.6392156644073376,
+          "ci_low": 0.5094339622641509,
+          "ci_high": 0.763663101604278,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.8550881588646053,
+          "ci_low": 0.7419215795328142,
+          "ci_high": 0.9523809523809523,
+          "n_boot": 2000
+        }
+      },
+      "ixi_external": {
+        "acc": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "cn_retention_rate": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        }
+      },
+      "oasis_external": {
+        "acc": {
+          "mean": 0.5953181818181817,
+          "ci_low": 0.494949494949495,
+          "ci_high": 0.6868686868686869,
+          "n_boot": 2000
+        },
+        "balanced_acc": {
+          "mean": 0.33333333333333326,
+          "ci_low": 0.3333333333333333,
+          "ci_high": 0.3333333333333333,
+          "n_boot": 2000
+        },
+        "macro_auc_ovr": {
+          "mean": 0.5655910885394532,
+          "ci_low": 0.4710378850293473,
+          "ci_high": 0.6591113957848795,
+          "n_boot": 2000
+        },
+        "ad_vs_cn_auc": {
+          "mean": 0.46914688193398146,
+          "ci_low": 0.2859780844155844,
+          "ci_high": 0.6551892073443797,
+          "n_boot": 2000
+        },
+        "recall_CN": {
+          "mean": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n_boot": 2000
+        },
+        "recall_MCI": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        },
+        "recall_AD": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n_boot": 2000
+        }
+      }
+    },
+    "summary_reference": {
+      "subject_summary": {
+        "val": {
+          "n": 97,
+          "acc": 0.5257731958762887,
+          "balanced_acc": 0.535933806146572,
+          "macro_auc_ovr": 0.7420798650204811,
+          "ad_vs_cn_auc": 0.8966666666666666,
+          "cn_retention_rate": null,
+          "recall_CN": 0.3333333333333333,
+          "recall_MCI": 0.574468085106383,
+          "recall_AD": 0.7,
+          "prediction_distribution": {
+            "CN": 16,
+            "MCI": 48,
+            "AD": 33
+          },
+          "confusion_matrix": [
+            [
+              10,
+              15,
+              5
+            ],
+            [
+              6,
+              27,
+              14
+            ],
+            [
+              0,
+              6,
+              14
+            ]
+          ]
+        },
+        "internal_test": {
+          "n": 96,
+          "acc": 0.4583333333333333,
+          "balanced_acc": 0.4481902665688433,
+          "macro_auc_ovr": 0.7186283795063343,
+          "ad_vs_cn_auc": 0.9206896551724137,
+          "cn_retention_rate": null,
+          "recall_CN": 0.2413793103448276,
+          "recall_MCI": 0.5531914893617021,
+          "recall_AD": 0.55,
+          "prediction_distribution": {
+            "CN": 10,
+            "MCI": 55,
+            "AD": 31
+          },
+          "confusion_matrix": [
+            [
+              7,
+              20,
+              2
+            ],
+            [
+              3,
+              26,
+              18
+            ],
+            [
+              0,
+              9,
+              11
+            ]
+          ]
+        },
+        "aibl_adapt_val": {
+          "n": 106,
+          "acc": 0.9056603773584906,
+          "balanced_acc": 0.8949019607843137,
+          "macro_auc_ovr": 0.951514591580259,
+          "ad_vs_cn_auc": 1.0,
+          "cn_retention_rate": null,
+          "recall_CN": 0.92,
+          "recall_MCI": 0.7647058823529411,
+          "recall_AD": 1.0,
+          "prediction_distribution": {
+            "CN": 71,
+            "MCI": 19,
+            "AD": 16
+          },
+          "confusion_matrix": [
+            [
+              69,
+              6,
+              0
+            ],
+            [
+              2,
+              13,
+              2
+            ],
+            [
+              0,
+              0,
+              14
+            ]
+          ]
+        },
+        "aibl_heldout": {
+          "n": 216,
+          "acc": 0.9027777777777778,
+          "balanced_acc": 0.8328683662016996,
+          "macro_auc_ovr": 0.9370749291955652,
+          "ad_vs_cn_auc": 0.9995189995189995,
+          "cn_retention_rate": null,
+          "recall_CN": 0.961038961038961,
+          "recall_MCI": 0.6857142857142857,
+          "recall_AD": 0.8518518518518519,
+          "prediction_distribution": {
+            "CN": 150,
+            "MCI": 33,
+            "AD": 33
+          },
+          "confusion_matrix": [
+            [
+              148,
+              5,
+              1
+            ],
+            [
+              2,
+              24,
+              9
+            ],
+            [
+              0,
+              4,
+              23
+            ]
+          ]
+        },
+        "ixi_external": {
+          "n": 581,
+          "acc": 1.0,
+          "balanced_acc": 1.0,
+          "macro_auc_ovr": null,
+          "ad_vs_cn_auc": null,
+          "cn_retention_rate": 1.0,
+          "recall_CN": 1.0,
+          "recall_MCI": 0.0,
+          "recall_AD": 0.0,
+          "prediction_distribution": {
+            "CN": 581,
+            "MCI": 0,
+            "AD": 0
+          },
+          "confusion_matrix": [
+            [
+              581,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "oasis_external": {
+          "n": 99,
+          "acc": 0.5858585858585859,
+          "balanced_acc": 0.3335281511786479,
+          "macro_auc_ovr": 0.5539333883975508,
+          "ad_vs_cn_auc": 0.3713405238828968,
+          "cn_retention_rate": null,
+          "recall_CN": 0.9661016949152542,
+          "recall_MCI": 0.034482758620689655,
+          "recall_AD": 0.0,
+          "prediction_distribution": {
+            "CN": 94,
+            "MCI": 4,
+            "AD": 1
+          },
+          "confusion_matrix": [
+            [
+              57,
+              2,
+              0
+            ],
+            [
+              27,
+              1,
+              1
+            ],
+            [
+              10,
+              1,
+              0
+            ]
+          ]
+        }
+      },
+      "scan_summary": {
+        "val": {
+          "n": 355,
+          "acc": 0.5492957746478874,
+          "balanced_acc": 0.5787710843373494,
+          "macro_auc_ovr": 0.7585963713564734,
+          "ad_vs_cn_auc": 0.921625,
+          "cn_retention_rate": null,
+          "recall_CN": 0.408,
+          "recall_MCI": 0.5783132530120482,
+          "recall_AD": 0.75,
+          "prediction_distribution": {
+            "CN": 70,
+            "MCI": 164,
+            "AD": 121
+          },
+          "confusion_matrix": [
+            [
+              51,
+              52,
+              22
+            ],
+            [
+              19,
+              96,
+              51
+            ],
+            [
+              0,
+              16,
+              48
+            ]
+          ]
+        },
+        "internal_test": {
+          "n": 360,
+          "acc": 0.4861111111111111,
+          "balanced_acc": 0.47076023391812866,
+          "macro_auc_ovr": 0.7421149478219365,
+          "ad_vs_cn_auc": 0.9161469161469161,
+          "cn_retention_rate": null,
+          "recall_CN": 0.3333333333333333,
+          "recall_MCI": 0.5789473684210527,
+          "recall_AD": 0.5,
+          "prediction_distribution": {
+            "CN": 43,
+            "MCI": 201,
+            "AD": 116
+          },
+          "confusion_matrix": [
+            [
+              37,
+              66,
+              8
+            ],
+            [
+              3,
+              99,
+              69
+            ],
+            [
+              3,
+              36,
+              39
+            ]
+          ]
+        },
+        "aibl_adapt_val": {
+          "n": 191,
+          "acc": 0.9267015706806283,
+          "balanced_acc": 0.9129251700680272,
+          "macro_auc_ovr": 0.9446241994263701,
+          "ad_vs_cn_auc": 1.0,
+          "cn_retention_rate": null,
+          "recall_CN": 0.9387755102040817,
+          "recall_MCI": 0.8,
+          "recall_AD": 1.0,
+          "prediction_distribution": {
+            "CN": 141,
+            "MCI": 29,
+            "AD": 21
+          },
+          "confusion_matrix": [
+            [
+              138,
+              9,
+              0
+            ],
+            [
+              3,
+              20,
+              2
+            ],
+            [
+              0,
+              0,
+              19
+            ]
+          ]
+        },
+        "aibl_heldout": {
+          "n": 397,
+          "acc": 0.9093198992443325,
+          "balanced_acc": 0.8196214467281978,
+          "macro_auc_ovr": 0.9393623918082677,
+          "ad_vs_cn_auc": 0.9976656202205586,
+          "cn_retention_rate": null,
+          "recall_CN": 0.9636963696369637,
+          "recall_MCI": 0.6415094339622641,
+          "recall_AD": 0.8536585365853658,
+          "prediction_distribution": {
+            "CN": 294,
+            "MCI": 50,
+            "AD": 53
+          },
+          "confusion_matrix": [
+            [
+              292,
+              10,
+              1
+            ],
+            [
+              2,
+              34,
+              17
+            ],
+            [
+              0,
+              6,
+              35
+            ]
+          ]
+        },
+        "ixi_external": {
+          "n": 581,
+          "acc": 1.0,
+          "balanced_acc": 1.0,
+          "macro_auc_ovr": null,
+          "ad_vs_cn_auc": null,
+          "cn_retention_rate": 1.0,
+          "recall_CN": 1.0,
+          "recall_MCI": 0.0,
+          "recall_AD": 0.0,
+          "prediction_distribution": {
+            "CN": 581,
+            "MCI": 0,
+            "AD": 0
+          },
+          "confusion_matrix": [
+            [
+              581,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "oasis_external": {
+          "n": 99,
+          "acc": 0.5959595959595959,
+          "balanced_acc": 0.3333333333333333,
+          "macro_auc_ovr": 0.565661733197996,
+          "ad_vs_cn_auc": 0.4714946070878274,
+          "cn_retention_rate": null,
+          "recall_CN": 1.0,
+          "recall_MCI": 0.0,
+          "recall_AD": 0.0,
+          "prediction_distribution": {
+            "CN": 99,
+            "MCI": 0,
+            "AD": 0
+          },
+          "confusion_matrix": [
+            [
+              59,
+              0,
+              0
+            ],
+            [
+              29,
+              0,
+              0
+            ],
+            [
+              11,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "error_analysis": {
+    "transitions": {
+      "aibl_heldout": [
+        {
+          "true_label": "CN",
+          "pred_label": "CN",
+          "n": 148,
+          "rate_within_true": 0.961038961038961
+        },
+        {
+          "true_label": "CN",
+          "pred_label": "MCI",
+          "n": 5,
+          "rate_within_true": 0.032467532467532464
+        },
+        {
+          "true_label": "CN",
+          "pred_label": "AD",
+          "n": 1,
+          "rate_within_true": 0.006493506493506494
+        },
+        {
+          "true_label": "MCI",
+          "pred_label": "CN",
+          "n": 2,
+          "rate_within_true": 0.05714285714285714
+        },
+        {
+          "true_label": "MCI",
+          "pred_label": "MCI",
+          "n": 24,
+          "rate_within_true": 0.6857142857142857
+        },
+        {
+          "true_label": "MCI",
+          "pred_label": "AD",
+          "n": 9,
+          "rate_within_true": 0.2571428571428571
+        },
+        {
+          "true_label": "AD",
+          "pred_label": "CN",
+          "n": 0,
+          "rate_within_true": 0.0
+        },
+        {
+          "true_label": "AD",
+          "pred_label": "MCI",
+          "n": 4,
+          "rate_within_true": 0.14814814814814814
+        },
+        {
+          "true_label": "AD",
+          "pred_label": "AD",
+          "n": 23,
+          "rate_within_true": 0.8518518518518519
+        }
+      ],
+      "internal_test": [
+        {
+          "true_label": "CN",
+          "pred_label": "CN",
+          "n": 7,
+          "rate_within_true": 0.2413793103448276
+        },
+        {
+          "true_label": "CN",
+          "pred_label": "MCI",
+          "n": 20,
+          "rate_within_true": 0.6896551724137931
+        },
+        {
+          "true_label": "CN",
+          "pred_label": "AD",
+          "n": 2,
+          "rate_within_true": 0.06896551724137931
+        },
+        {
+          "true_label": "MCI",
+          "pred_label": "CN",
+          "n": 3,
+          "rate_within_true": 0.06382978723404255
+        },
+        {
+          "true_label": "MCI",
+          "pred_label": "MCI",
+          "n": 26,
+          "rate_within_true": 0.5531914893617021
+        },
+        {
+          "true_label": "MCI",
+          "pred_label": "AD",
+          "n": 18,
+          "rate_within_true": 0.3829787234042553
+        },
+        {
+          "true_label": "AD",
+          "pred_label": "CN",
+          "n": 0,
+          "rate_within_true": 0.0
+        },
+        {
+          "true_label": "AD",
+          "pred_label": "MCI",
+          "n": 9,
+          "rate_within_true": 0.45
+        },
+        {
+          "true_label": "AD",
+          "pred_label": "AD",
+          "n": 11,
+          "rate_within_true": 0.55
+        }
+      ]
+    },
+    "feature_groups": {
+      "aibl_heldout": [
+        {
+          "split": "aibl_heldout",
+          "group": "CN_correct",
+          "n": 148,
+          "clin_age_n": 148,
+          "clin_age_mean": 72.70867117117118,
+          "clin_age_median": 73.0,
+          "clin_mmse_n": 148,
+          "clin_mmse_mean": 28.700563063063065,
+          "clin_mmse_median": 29.0,
+          "clin_cdrsb_n": 148,
+          "clin_cdrsb_mean": 0.0016891891891891893,
+          "clin_cdrsb_median": 0.0,
+          "clin_apoe4_n": 148,
+          "clin_apoe4_mean": 0.2905405405405405,
+          "clin_apoe4_median": 0.0,
+          "atlas_hippocampus_volume_n": 148,
+          "atlas_hippocampus_volume_mean": 0.0083088132848036,
+          "atlas_hippocampus_volume_median": 0.008293632417917252,
+          "atlas_amygdala_volume_n": 148,
+          "atlas_amygdala_volume_mean": 0.00332846300633727,
+          "atlas_amygdala_volume_median": 0.003356694069225341,
+          "atlas_lateral_ventricle_volume_n": 148,
+          "atlas_lateral_ventricle_volume_mean": 0.03192074058062464,
+          "atlas_lateral_ventricle_volume_median": 0.03072371380403638,
+          "atlas_cortex_volume_n": 148,
+          "atlas_cortex_volume_mean": 0.4486178224251882,
+          "atlas_cortex_volume_median": 0.44821474701166153,
+          "atlas_ad_like_z_n": 148,
+          "atlas_ad_like_z_mean": -0.09209700349741971,
+          "atlas_ad_like_z_median": -0.1541209517319052,
+          "max_prob_n": 148,
+          "max_prob_mean": 0.8825913539722445,
+          "max_prob_median": 0.8889344019498686,
+          "margin_n": 148,
+          "margin_mean": 0.7914060451084733,
+          "margin_median": 0.8050787403922469
+        },
+        {
+          "split": "aibl_heldout",
+          "group": "CN_to_MCI_AD",
+          "n": 6,
+          "clin_age_n": 6,
+          "clin_age_mean": 74.8,
+          "clin_age_median": 72.5,
+          "clin_mmse_n": 6,
+          "clin_mmse_mean": 28.416666666666668,
+          "clin_mmse_median": 28.5,
+          "clin_cdrsb_n": 6,
+          "clin_cdrsb_mean": 0.4166666666666667,
+          "clin_cdrsb_median": 0.5,
+          "clin_apoe4_n": 6,
+          "clin_apoe4_mean": 0.8333333333333334,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 6,
+          "atlas_hippocampus_volume_mean": 0.007559662545099854,
+          "atlas_hippocampus_volume_median": 0.007512988522648811,
+          "atlas_amygdala_volume_n": 6,
+          "atlas_amygdala_volume_mean": 0.0027617224996599058,
+          "atlas_amygdala_volume_median": 0.0025651210453361273,
+          "atlas_lateral_ventricle_volume_n": 6,
+          "atlas_lateral_ventricle_volume_mean": 0.037840242870151995,
+          "atlas_lateral_ventricle_volume_median": 0.031533566955477,
+          "atlas_cortex_volume_n": 6,
+          "atlas_cortex_volume_mean": 0.44535905197262765,
+          "atlas_cortex_volume_median": 0.44996378421783445,
+          "atlas_ad_like_z_n": 6,
+          "atlas_ad_like_z_mean": 0.7804361544722317,
+          "atlas_ad_like_z_median": 0.7665874629497933,
+          "max_prob_n": 6,
+          "max_prob_mean": 0.6554314215833484,
+          "max_prob_median": 0.673336400007809,
+          "margin_n": 6,
+          "margin_mean": 0.39364365017642355,
+          "margin_median": 0.4155134968412134
+        },
+        {
+          "split": "aibl_heldout",
+          "group": "MCI_correct",
+          "n": 24,
+          "clin_age_n": 24,
+          "clin_age_mean": 75.34027777777777,
+          "clin_age_median": 76.0,
+          "clin_mmse_n": 24,
+          "clin_mmse_mean": 27.75347222222222,
+          "clin_mmse_median": 28.0,
+          "clin_cdrsb_n": 24,
+          "clin_cdrsb_mean": 0.5,
+          "clin_cdrsb_median": 0.5,
+          "clin_apoe4_n": 24,
+          "clin_apoe4_mean": 0.4583333333333333,
+          "clin_apoe4_median": 0.0,
+          "atlas_hippocampus_volume_n": 24,
+          "atlas_hippocampus_volume_mean": 0.007898901818811687,
+          "atlas_hippocampus_volume_median": 0.007662381045520306,
+          "atlas_amygdala_volume_n": 24,
+          "atlas_amygdala_volume_mean": 0.003103803255928344,
+          "atlas_amygdala_volume_median": 0.0032339186291210353,
+          "atlas_lateral_ventricle_volume_n": 24,
+          "atlas_lateral_ventricle_volume_mean": 0.04681753248668327,
+          "atlas_lateral_ventricle_volume_median": 0.045749956741929054,
+          "atlas_cortex_volume_n": 24,
+          "atlas_cortex_volume_mean": 0.4361625136290159,
+          "atlas_cortex_volume_median": 0.43364567309617996,
+          "atlas_ad_like_z_n": 24,
+          "atlas_ad_like_z_mean": 0.5841088811844671,
+          "atlas_ad_like_z_median": 0.5750412016086797,
+          "max_prob_n": 24,
+          "max_prob_mean": 0.6675993676017019,
+          "max_prob_median": 0.6534491443044081,
+          "margin_n": 24,
+          "margin_mean": 0.4027657927506361,
+          "margin_median": 0.36647079144111305
+        },
+        {
+          "split": "aibl_heldout",
+          "group": "MCI_to_CN",
+          "n": 2,
+          "clin_age_n": 2,
+          "clin_age_mean": 68.0,
+          "clin_age_median": 68.0,
+          "clin_mmse_n": 2,
+          "clin_mmse_mean": 30.0,
+          "clin_mmse_median": 30.0,
+          "clin_cdrsb_n": 2,
+          "clin_cdrsb_mean": 0.0,
+          "clin_cdrsb_median": 0.0,
+          "clin_apoe4_n": 2,
+          "clin_apoe4_mean": 0.5,
+          "clin_apoe4_median": 0.5,
+          "atlas_hippocampus_volume_n": 2,
+          "atlas_hippocampus_volume_mean": 0.007965236902236938,
+          "atlas_hippocampus_volume_median": 0.007965236902236938,
+          "atlas_amygdala_volume_n": 2,
+          "atlas_amygdala_volume_mean": 0.002974973525851965,
+          "atlas_amygdala_volume_median": 0.002974973525851965,
+          "atlas_lateral_ventricle_volume_n": 2,
+          "atlas_lateral_ventricle_volume_mean": 0.023982576094567776,
+          "atlas_lateral_ventricle_volume_median": 0.023982576094567776,
+          "atlas_cortex_volume_n": 2,
+          "atlas_cortex_volume_mean": 0.4561067521572113,
+          "atlas_cortex_volume_median": 0.4561067521572113,
+          "atlas_ad_like_z_n": 2,
+          "atlas_ad_like_z_mean": 0.13866382001379982,
+          "atlas_ad_like_z_median": 0.13866382001379982,
+          "max_prob_n": 2,
+          "max_prob_mean": 0.9116658212895886,
+          "max_prob_median": 0.9116658212895886,
+          "margin_n": 2,
+          "margin_mean": 0.8450675998695338,
+          "margin_median": 0.8450675998695338
+        },
+        {
+          "split": "aibl_heldout",
+          "group": "MCI_to_AD",
+          "n": 9,
+          "clin_age_n": 9,
+          "clin_age_mean": 70.94444444444444,
+          "clin_age_median": 69.0,
+          "clin_mmse_n": 9,
+          "clin_mmse_mean": 23.63888888888889,
+          "clin_mmse_median": 24.0,
+          "clin_cdrsb_n": 9,
+          "clin_cdrsb_mean": 0.5555555555555556,
+          "clin_cdrsb_median": 0.5,
+          "clin_apoe4_n": 9,
+          "clin_apoe4_mean": 1.1111111111111112,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 9,
+          "atlas_hippocampus_volume_mean": 0.007407680074080687,
+          "atlas_hippocampus_volume_median": 0.0075324769131839275,
+          "atlas_amygdala_volume_n": 9,
+          "atlas_amygdala_volume_mean": 0.002881992288166657,
+          "atlas_amygdala_volume_median": 0.0027291582664474845,
+          "atlas_lateral_ventricle_volume_n": 9,
+          "atlas_lateral_ventricle_volume_mean": 0.03876909172093427,
+          "atlas_lateral_ventricle_volume_median": 0.044025156646966934,
+          "atlas_cortex_volume_n": 9,
+          "atlas_cortex_volume_mean": 0.4278344823806374,
+          "atlas_cortex_volume_median": 0.4278271496295929,
+          "atlas_ad_like_z_n": 9,
+          "atlas_ad_like_z_mean": 0.7652558643620365,
+          "atlas_ad_like_z_median": 0.8169470803622972,
+          "max_prob_n": 9,
+          "max_prob_mean": 0.730001766918309,
+          "max_prob_median": 0.7313008954446839,
+          "margin_n": 9,
+          "margin_mean": 0.5104638028949355,
+          "margin_median": 0.5168507844376259
+        },
+        {
+          "split": "aibl_heldout",
+          "group": "AD_correct",
+          "n": 23,
+          "clin_age_n": 23,
+          "clin_age_mean": 74.19275362318841,
+          "clin_age_median": 75.0,
+          "clin_mmse_n": 23,
+          "clin_mmse_mean": 21.202898550724637,
+          "clin_mmse_median": 22.333333333333332,
+          "clin_cdrsb_n": 23,
+          "clin_cdrsb_mean": 0.8297101449275363,
+          "clin_cdrsb_median": 1.0,
+          "clin_apoe4_n": 23,
+          "clin_apoe4_mean": 0.8260869565217391,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 23,
+          "atlas_hippocampus_volume_mean": 0.00728027548816433,
+          "atlas_hippocampus_volume_median": 0.00724624702706933,
+          "atlas_amygdala_volume_n": 23,
+          "atlas_amygdala_volume_mean": 0.0028313112978324076,
+          "atlas_amygdala_volume_median": 0.0027283577946946025,
+          "atlas_lateral_ventricle_volume_n": 23,
+          "atlas_lateral_ventricle_volume_mean": 0.06045098327154266,
+          "atlas_lateral_ventricle_volume_median": 0.055569592863321304,
+          "atlas_cortex_volume_n": 23,
+          "atlas_cortex_volume_mean": 0.44002937862406605,
+          "atlas_cortex_volume_median": 0.438460573554039,
+          "atlas_ad_like_z_n": 23,
+          "atlas_ad_like_z_mean": 1.349853120173483,
+          "atlas_ad_like_z_median": 1.401138456955095,
+          "max_prob_n": 23,
+          "max_prob_mean": 0.8618093310937992,
+          "max_prob_median": 0.9074553940919696,
+          "margin_n": 23,
+          "margin_mean": 0.760684736508837,
+          "margin_median": 0.8462616061365661
+        },
+        {
+          "split": "aibl_heldout",
+          "group": "AD_to_CN_MCI",
+          "n": 4,
+          "clin_age_n": 4,
+          "clin_age_mean": 74.25,
+          "clin_age_median": 75.0,
+          "clin_mmse_n": 4,
+          "clin_mmse_mean": 25.75,
+          "clin_mmse_median": 26.0,
+          "clin_cdrsb_n": 4,
+          "clin_cdrsb_mean": 0.5,
+          "clin_cdrsb_median": 0.5,
+          "clin_apoe4_n": 4,
+          "clin_apoe4_mean": 1.0,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 4,
+          "atlas_hippocampus_volume_mean": 0.0075623809825629,
+          "atlas_hippocampus_volume_median": 0.007474276935681701,
+          "atlas_amygdala_volume_n": 4,
+          "atlas_amygdala_volume_mean": 0.002962417609523982,
+          "atlas_amygdala_volume_median": 0.002807652286719531,
+          "atlas_lateral_ventricle_volume_n": 4,
+          "atlas_lateral_ventricle_volume_mean": 0.040391150396317244,
+          "atlas_lateral_ventricle_volume_median": 0.041607603430747986,
+          "atlas_cortex_volume_n": 4,
+          "atlas_cortex_volume_mean": 0.44116125628352165,
+          "atlas_cortex_volume_median": 0.4418608769774437,
+          "atlas_ad_like_z_n": 4,
+          "atlas_ad_like_z_mean": 0.6790005779849683,
+          "atlas_ad_like_z_median": 0.8631613768760285,
+          "max_prob_n": 4,
+          "max_prob_mean": 0.6338494310085891,
+          "max_prob_median": 0.6380335132098143,
+          "margin_n": 4,
+          "margin_mean": 0.42228124395866806,
+          "margin_median": 0.41891490701367384
+        }
+      ],
+      "internal_test": [
+        {
+          "split": "internal_test",
+          "group": "CN_correct",
+          "n": 7,
+          "clin_age_n": 7,
+          "clin_age_mean": 74.71428571428571,
+          "clin_age_median": 76.0,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 7,
+          "clin_apoe4_mean": 0.14285714285714285,
+          "clin_apoe4_median": 0.0,
+          "atlas_hippocampus_volume_n": 7,
+          "atlas_hippocampus_volume_mean": 0.008112372586592323,
+          "atlas_hippocampus_volume_median": 0.008163091804211339,
+          "atlas_amygdala_volume_n": 7,
+          "atlas_amygdala_volume_mean": 0.0032549632042424663,
+          "atlas_amygdala_volume_median": 0.0032236295907447734,
+          "atlas_lateral_ventricle_volume_n": 7,
+          "atlas_lateral_ventricle_volume_mean": 0.03771480825907063,
+          "atlas_lateral_ventricle_volume_median": 0.04104927430550257,
+          "atlas_cortex_volume_n": 7,
+          "atlas_cortex_volume_mean": 0.4411503633572942,
+          "atlas_cortex_volume_median": 0.42663513123989105,
+          "atlas_ad_like_z_n": 7,
+          "atlas_ad_like_z_mean": 0.020862908231276057,
+          "atlas_ad_like_z_median": 0.15065040915170394,
+          "max_prob_n": 7,
+          "max_prob_mean": 0.659213670927252,
+          "max_prob_median": 0.700697469169811,
+          "margin_n": 7,
+          "margin_mean": 0.393516173561555,
+          "margin_median": 0.411679180605997
+        },
+        {
+          "split": "internal_test",
+          "group": "CN_to_MCI_AD",
+          "n": 22,
+          "clin_age_n": 22,
+          "clin_age_mean": 77.9090909090909,
+          "clin_age_median": 78.0,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 22,
+          "clin_apoe4_mean": 0.3181818181818182,
+          "clin_apoe4_median": 0.0,
+          "atlas_hippocampus_volume_n": 22,
+          "atlas_hippocampus_volume_mean": 0.00806324370023976,
+          "atlas_hippocampus_volume_median": 0.008059350323552886,
+          "atlas_amygdala_volume_n": 22,
+          "atlas_amygdala_volume_mean": 0.003162066653655764,
+          "atlas_amygdala_volume_median": 0.0031796832724163933,
+          "atlas_lateral_ventricle_volume_n": 22,
+          "atlas_lateral_ventricle_volume_mean": 0.03666502053024245,
+          "atlas_lateral_ventricle_volume_median": 0.038078761845827105,
+          "atlas_cortex_volume_n": 22,
+          "atlas_cortex_volume_mean": 0.42187247520680893,
+          "atlas_cortex_volume_median": 0.4104694932699203,
+          "atlas_ad_like_z_n": 22,
+          "atlas_ad_like_z_mean": 0.10938526080531483,
+          "atlas_ad_like_z_median": 0.06814681246247334,
+          "max_prob_n": 22,
+          "max_prob_mean": 0.590577443572471,
+          "max_prob_median": 0.5949912142856535,
+          "margin_n": 22,
+          "margin_mean": 0.2844782835736159,
+          "margin_median": 0.27783199329272873
+        },
+        {
+          "split": "internal_test",
+          "group": "MCI_correct",
+          "n": 26,
+          "clin_age_n": 26,
+          "clin_age_mean": 73.23076923076923,
+          "clin_age_median": 72.5,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 26,
+          "clin_apoe4_mean": 0.6153846153846154,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 26,
+          "atlas_hippocampus_volume_mean": 0.007157361367994565,
+          "atlas_hippocampus_volume_median": 0.007264141181838654,
+          "atlas_amygdala_volume_n": 26,
+          "atlas_amygdala_volume_mean": 0.002785489195989762,
+          "atlas_amygdala_volume_median": 0.002819356751084949,
+          "atlas_lateral_ventricle_volume_n": 26,
+          "atlas_lateral_ventricle_volume_mean": 0.04705778960524052,
+          "atlas_lateral_ventricle_volume_median": 0.04848615887264411,
+          "atlas_cortex_volume_n": 26,
+          "atlas_cortex_volume_mean": 0.4189423785841727,
+          "atlas_cortex_volume_median": 0.40113268295923865,
+          "atlas_ad_like_z_n": 26,
+          "atlas_ad_like_z_mean": 1.12657542689456,
+          "atlas_ad_like_z_median": 1.115308760333918,
+          "max_prob_n": 26,
+          "max_prob_mean": 0.6362620942545706,
+          "max_prob_median": 0.6109848150713364,
+          "margin_n": 26,
+          "margin_mean": 0.337588826755413,
+          "margin_median": 0.28533490051125954
+        },
+        {
+          "split": "internal_test",
+          "group": "MCI_to_CN",
+          "n": 3,
+          "clin_age_n": 3,
+          "clin_age_mean": 78.0,
+          "clin_age_median": 77.0,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 3,
+          "clin_apoe4_mean": 0.0,
+          "clin_apoe4_median": 0.0,
+          "atlas_hippocampus_volume_n": 3,
+          "atlas_hippocampus_volume_mean": 0.0069801125468479264,
+          "atlas_hippocampus_volume_median": 0.006473000471790631,
+          "atlas_amygdala_volume_n": 3,
+          "atlas_amygdala_volume_mean": 0.0026185199579534433,
+          "atlas_amygdala_volume_median": 0.0026428624599551163,
+          "atlas_lateral_ventricle_volume_n": 3,
+          "atlas_lateral_ventricle_volume_mean": 0.03269737198327979,
+          "atlas_lateral_ventricle_volume_median": 0.03673628779749075,
+          "atlas_cortex_volume_n": 3,
+          "atlas_cortex_volume_mean": 0.4158465142051379,
+          "atlas_cortex_volume_median": 0.41421544055143994,
+          "atlas_ad_like_z_n": 3,
+          "atlas_ad_like_z_mean": 1.076527099020058,
+          "atlas_ad_like_z_median": 1.394662703030572,
+          "max_prob_n": 3,
+          "max_prob_mean": 0.5442002858235426,
+          "max_prob_median": 0.5433024741136834,
+          "margin_n": 3,
+          "margin_mean": 0.12108591872690999,
+          "margin_median": 0.11028566437640747
+        },
+        {
+          "split": "internal_test",
+          "group": "MCI_to_AD",
+          "n": 18,
+          "clin_age_n": 18,
+          "clin_age_mean": 74.27777777777777,
+          "clin_age_median": 71.5,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 18,
+          "clin_apoe4_mean": 0.7777777777777778,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 18,
+          "atlas_hippocampus_volume_mean": 0.006922326243450389,
+          "atlas_hippocampus_volume_median": 0.006932119683672985,
+          "atlas_amygdala_volume_n": 18,
+          "atlas_amygdala_volume_mean": 0.002697793240635421,
+          "atlas_amygdala_volume_median": 0.0027239684908029935,
+          "atlas_lateral_ventricle_volume_n": 18,
+          "atlas_lateral_ventricle_volume_mean": 0.046397883029143494,
+          "atlas_lateral_ventricle_volume_median": 0.03794257901608944,
+          "atlas_cortex_volume_n": 18,
+          "atlas_cortex_volume_mean": 0.40634616629317755,
+          "atlas_cortex_volume_median": 0.403330164651076,
+          "atlas_ad_like_z_n": 18,
+          "atlas_ad_like_z_mean": 1.3128824686569027,
+          "atlas_ad_like_z_median": 1.30342735229353,
+          "max_prob_n": 18,
+          "max_prob_mean": 0.6841154565759108,
+          "max_prob_median": 0.672061907443255,
+          "margin_n": 18,
+          "margin_mean": 0.41755346524052206,
+          "margin_median": 0.38593960609778644
+        },
+        {
+          "split": "internal_test",
+          "group": "AD_correct",
+          "n": 11,
+          "clin_age_n": 11,
+          "clin_age_mean": 72.72727272727273,
+          "clin_age_median": 75.0,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 11,
+          "clin_apoe4_mean": 0.8181818181818182,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 11,
+          "atlas_hippocampus_volume_mean": 0.006633739181173344,
+          "atlas_hippocampus_volume_median": 0.00650444549197952,
+          "atlas_amygdala_volume_n": 11,
+          "atlas_amygdala_volume_mean": 0.0024783954220104283,
+          "atlas_amygdala_volume_median": 0.0023471692693419755,
+          "atlas_lateral_ventricle_volume_n": 11,
+          "atlas_lateral_ventricle_volume_mean": 0.06345168736085974,
+          "atlas_lateral_ventricle_volume_median": 0.05658299910525481,
+          "atlas_cortex_volume_n": 11,
+          "atlas_cortex_volume_mean": 0.40738058903000574,
+          "atlas_cortex_volume_median": 0.39570533484220505,
+          "atlas_ad_like_z_n": 11,
+          "atlas_ad_like_z_mean": 2.0081429633427685,
+          "atlas_ad_like_z_median": 2.326194034194886,
+          "max_prob_n": 11,
+          "max_prob_mean": 0.6558971721914008,
+          "max_prob_median": 0.584631998877256,
+          "margin_n": 11,
+          "margin_mean": 0.34438760935692647,
+          "margin_median": 0.1989594605202828
+        },
+        {
+          "split": "internal_test",
+          "group": "AD_to_CN_MCI",
+          "n": 9,
+          "clin_age_n": 9,
+          "clin_age_mean": 75.88888888888889,
+          "clin_age_median": 80.0,
+          "clin_mmse_n": 0,
+          "clin_mmse_mean": NaN,
+          "clin_mmse_median": NaN,
+          "clin_cdrsb_n": 0,
+          "clin_cdrsb_mean": NaN,
+          "clin_cdrsb_median": NaN,
+          "clin_apoe4_n": 9,
+          "clin_apoe4_mean": 0.5555555555555556,
+          "clin_apoe4_median": 1.0,
+          "atlas_hippocampus_volume_n": 9,
+          "atlas_hippocampus_volume_mean": 0.007301671824278802,
+          "atlas_hippocampus_volume_median": 0.00706144825865825,
+          "atlas_amygdala_volume_n": 9,
+          "atlas_amygdala_volume_mean": 0.0029053273962634475,
+          "atlas_amygdala_volume_median": 0.002581683026316265,
+          "atlas_lateral_ventricle_volume_n": 9,
+          "atlas_lateral_ventricle_volume_mean": 0.04788237200574407,
+          "atlas_lateral_ventricle_volume_median": 0.043201150954701006,
+          "atlas_cortex_volume_n": 9,
+          "atlas_cortex_volume_mean": 0.4165406951631503,
+          "atlas_cortex_volume_median": 0.41154081374406815,
+          "atlas_ad_like_z_n": 9,
+          "atlas_ad_like_z_mean": 0.9603987650150709,
+          "atlas_ad_like_z_median": 1.4825820122209599,
+          "max_prob_n": 9,
+          "max_prob_mean": 0.5487207316195387,
+          "max_prob_median": 0.526448078894555,
+          "margin_n": 9,
+          "margin_mean": 0.1789618470361763,
+          "margin_median": 0.1193765939575206
+        }
+      ]
+    }
+  }
+}
