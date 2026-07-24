@@ -74,6 +74,7 @@ button {
 .annotation-board,
 .coordinate-panel,
 .pipeline-panel,
+.region-change-panel,
 .diagnosis-panel,
 .validation-panel,
 .metric-panel,
@@ -92,6 +93,7 @@ button {
 .annotation-board,
 .coordinate-panel,
 .pipeline-panel,
+.region-change-panel,
 .diagnosis-panel,
 .validation-panel,
 .metric-panel,
@@ -461,18 +463,7 @@ h2 {
 }
 
 .heatmap-layer {
-  opacity: 0.58;
-  filter: blur(0.8px) saturate(1.22);
-  background:
-    radial-gradient(ellipse at 41% 62%, rgba(255, 54, 54, 0.70) 0 4%, rgba(255, 141, 36, 0.48) 10%, rgba(255, 211, 88, 0.22) 19%, rgba(255, 255, 255, 0) 33%),
-    radial-gradient(ellipse at 62% 60%, rgba(255, 93, 48, 0.66) 0 4%, rgba(255, 183, 55, 0.40) 11%, rgba(255, 237, 153, 0.18) 21%, rgba(255, 255, 255, 0) 34%),
-    radial-gradient(ellipse at 51% 41%, rgba(42, 115, 255, 0.46) 0 5%, rgba(70, 205, 255, 0.24) 14%, rgba(147, 197, 253, 0.10) 25%, rgba(255, 255, 255, 0) 39%),
-    radial-gradient(ellipse at 48% 68%, rgba(41, 210, 128, 0.38) 0 4%, rgba(74, 222, 128, 0.20) 13%, rgba(255, 255, 255, 0) 31%);
-  mix-blend-mode: screen;
-}
-
-.heatmap-layer.mask-on {
-  clip-path: ellipse(44% 39% at 50% 52%);
+  display: none;
 }
 
 .label-layer {
@@ -481,9 +472,7 @@ h2 {
 }
 
 .brain-outline {
-  fill: rgba(255, 255, 255, 0.01);
-  stroke: rgba(255, 255, 255, 0.54);
-  stroke-width: 2.4;
+  display: none;
 }
 
 .label-callout path {
@@ -699,6 +688,155 @@ h2 {
   gap: 12px;
 }
 
+.region-change-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.region-change-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.region-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  min-height: 174px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.region-card-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.region-delta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.region-card-head span {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.region-card-head strong {
+  flex: 0 0 auto;
+  color: var(--teal-dark);
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.region-card.decrease .region-card-head strong {
+  color: var(--red);
+}
+
+.region-spark {
+  position: relative;
+  height: 48px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.region-spark::before {
+  content: "";
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 50%;
+  height: 2px;
+  background: #dbe5ec;
+  transform: translateY(-50%);
+}
+
+.region-spark b {
+  position: absolute;
+  top: calc(50% - 2px);
+  height: 4px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+
+.region-card.decrease .region-spark b {
+  background: var(--red);
+}
+
+.region-spark i {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--surface-soft);
+  border-radius: 50%;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+
+.region-spark i:nth-of-type(1) {
+  background: var(--teal);
+}
+
+.region-spark i:nth-of-type(2) {
+  background: var(--amber);
+}
+
+.region-spark i:nth-of-type(3) {
+  background: var(--red);
+}
+
+.region-values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.region-values span {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.region-delta {
+  align-self: end;
+  padding-top: 2px;
+}
+
+.region-delta span {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.region-delta strong {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
 .coordinate-panel {
   overflow: hidden;
 }
@@ -907,6 +1045,7 @@ td {
   .tool-strip,
   .primary-review-layout,
   .lower-grid,
+  .region-change-grid,
   .evidence-rail {
     grid-template-columns: 1fr;
   }
@@ -950,6 +1089,7 @@ td {
   .brand-block,
   .tool-strip,
   .slice-assist-panel,
+  .region-values,
   .metric-panel {
     grid-template-columns: 1fr;
   }
