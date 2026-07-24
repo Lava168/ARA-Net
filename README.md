@@ -37,6 +37,43 @@ Algorithmic evidence for RC-SPE:
 
 Leave-one-model-out sensitivity preserved AIBL BAcc 0.823-0.835 and zero AD-to-CN errors after dropping any one base stream, supporting that the locked result is not dependent on a single fragile model.
 
+## Manuscript-Aligned English Package
+
+The current GitHub package is aligned to the manually edited manuscript under the title:
+
+**ARA-Net: Atlas-Guided Multimodal Alzheimer's Disease Staging with Locked External Subject-Level Validation and Structural Neurodegeneration Consistency**
+
+The English public summary is available in [docs/MANUSCRIPT_OVERVIEW.md](docs/MANUSCRIPT_OVERVIEW.md). The release emphasizes four claim-safe contributions:
+
+- Locked AIBL external validation at the subject endpoint.
+- RC-SPE lightweight probability-level inference after base-model probabilities are produced.
+- Atlas-level structural neurodegeneration consistency focused on AD-relevant regions.
+- A GitHub-presentable research UI for probability review and evidence visualization.
+
+## Main Result Figures
+
+The manuscript-aligned figure set is stored in [reports/v6_final_model/manual_paper_figures](reports/v6_final_model/manual_paper_figures/README.md).
+
+![Atlas-guided staging overview](reports/v6_final_model/manual_paper_figures/figure1_atlas_guided_staging_overview.png)
+
+![Locked external performance](reports/v6_final_model/manual_paper_figures/figure2_locked_external_performance.png)
+
+![Subject-level error structure](reports/v6_final_model/manual_paper_figures/figure3_subject_level_error_structure.png)
+
+![Research workbench UI](reports/v6_final_model/manual_paper_figures/figure4_research_workbench_ui.png)
+
+## Research UI
+
+The browser research UI is in `frontend/v6-final-analysis.html`. It presents an upload-style analysis workflow, CN/MCI/AD probabilities, subject-level evidence cards, aggregate AIBL/IXI result summaries, and high-resolution PyVista/VTK and Nilearn visual assets.
+
+Run it as a static site from the repository root:
+
+```bash
+python -m http.server 8000 -d frontend
+```
+
+Then open [http://127.0.0.1:8000/v6-final-analysis.html](http://127.0.0.1:8000/v6-final-analysis.html).
+
 ## Repository Contents
 
 - `scripts/rescue_probability_optimizer.py`: probability ensemble, calibration, and subject-level averaging.
@@ -64,6 +101,8 @@ Leave-one-model-out sensitivity preserved AIBL BAcc 0.823-0.835 and zero AD-to-C
 - `reports/v6_final_model/word_manuscript_rewrite_map.md`: section-by-section rewrite map for converting the old Word manuscript into the V6 submission.
 - `reports/v6_final_model/claim_boundary_audit.md`: generated public-file audit for reviewer-safe claim boundaries.
 - `reports/v6_final_model/public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
+- `reports/v6_final_model/manual_paper_figures/`: manuscript-aligned main result figures extracted and renamed for the English GitHub release.
+- `frontend/v6-final-analysis.html`: research workbench UI for upload-style presentation and evidence visualization.
 
 The public reports intentionally exclude row-level subject/scan prediction files and dataset-derived identifiers.
 

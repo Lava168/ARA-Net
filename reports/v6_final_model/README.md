@@ -21,13 +21,38 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 - `manuscript_v6_rewrite_package.md`: manuscript-ready Methods/Results/Discussion material.
 - `reviewer_response_v6_matrix.md`: response-oriented matrix for reviewer/editor concerns.
 - `public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
+- `tables/lightweight_runtime_metrics.md`: reproducible RC-SPE parameter-size and CPU inference benchmark.
+- `tables/clinical_presentation_evidence.md`: CVTC-style presentation evidence pack covering atlas-region validation, OASIS domain-shift interpretation, and annotation claim boundaries.
+- `rcspe_lightweight_inference_insert.md`: manuscript-ready lightweight inference paragraph and short version.
+- `ui_research_workbench_insert.md`: manuscript-ready research-workbench figure caption and methods/discussion language.
+- `manual_paper_figures/`: manually edited manuscript figures extracted, renamed, and documented for the English GitHub release.
 
 ## Figures
 
-- `figures/figure2_final_external_rescue.png/pdf`
-- `figures/figure3_final_subject_confusion.png/pdf`
-- `figures/figure4_final_bootstrap_stability.png/pdf`
-- `figures/figure5_final_error_profiles.png/pdf`
+The authoritative final main-figure sequence is specified in `final_figure_blueprint.md`:
+
+1. ARA-Net study framework and evidence chain.
+2. Atlas-guided multimodal feature system.
+3. RC-SPE risk-constrained probability ensemble.
+4. Locked external classification performance and model comparison.
+5. Subject-level error structure and disease-boundary behavior.
+6. Algorithmic ablation, calibration, risk tradeoff, and stability.
+7. Atlas structural neurodegeneration consistency and claim boundary.
+
+Existing generated result panels that can be reused under the new numbering:
+
+- `manual_paper_figures/figure1_atlas_guided_staging_overview.png` -> manuscript-aligned Figure 1 overview.
+- `manual_paper_figures/figure2_locked_external_performance.png` -> manuscript-aligned locked external performance figure.
+- `manual_paper_figures/figure3_subject_level_error_structure.png` -> manuscript-aligned subject-level error and atlas evidence figure.
+- `manual_paper_figures/figure4_research_workbench_ui.png` -> manuscript-aligned research UI figure.
+- `manual_paper_figures/figure5_atlas_feature_evidence_panel.png` -> manuscript-aligned atlas evidence panel.
+- `manual_paper_figures/figure6_end_to_end_workflow.png` -> manuscript-aligned workflow figure.
+- `manual_paper_figures/figure7_rcspe_probability_ensemble_ui.png` -> manuscript-aligned RC-SPE probability ensemble figure.
+- `figures/figure2_final_external_rescue.png/pdf` -> evidence for new Figure 4.
+- `figures/figure3_final_subject_confusion.png/pdf` -> evidence for new Figure 5.
+- `figures/figure4_final_bootstrap_stability.png/pdf` -> evidence for new Figure 6.
+- `figures/figure5_final_error_profiles.png/pdf` -> evidence for new Figure 5.
+- `figures/figure3_rcspe_architecture_nbe_style.png/pdf` -> evidence for new Figure 3.
 
 ## Reproducibility
 
@@ -82,6 +107,18 @@ python deployment/research_inference.py \
   --input-csv examples/probability_input_example.csv \
   --output examples/predictions_subject.csv \
   --unit subject
+```
+
+Regenerate the public lightweight benchmark:
+
+```bash
+python scripts/measure_lightweight_runtime.py
+```
+
+Regenerate the CVTC-style presentation evidence additions on a machine with the private enriched prediction table and source aggregate reports:
+
+```bash
+python scripts/build_clinical_presentation_evidence.py
 ```
 
 ## Data Boundary

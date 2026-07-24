@@ -1,0 +1,57 @@
+{
+  "model": "ARA-Net",
+  "component": "RC-SPE probability ensemble head",
+  "model_size": {
+    "base_probability_streams": 6,
+    "scalar_parameters": 10,
+    "parameter_composition": {
+      "base_stream_weights": 6,
+      "class_offsets": 3,
+      "temperature": 1
+    },
+    "raw_float64_parameter_bytes": 80,
+    "json_config_bytes": 1663,
+    "gpu_inference": "not_applicable_numpy_probability_head",
+    "upstream_pipeline_note": "Metrics cover the public RC-SPE probability head only; raw MRI preprocessing, atlas extraction, and base-model artifact size are excluded."
+  },
+  "timing": {
+    "iterations": 5000,
+    "warmup_iterations": 200,
+    "scan_rows_per_batch": 4,
+    "subject_units_per_batch": 3,
+    "mean_ms_per_batch": 0.1393462374,
+    "median_ms_per_batch": 0.13368750000000001,
+    "p95_ms_per_batch": 0.16159550000000003,
+    "mean_ms_per_scan_row": 0.03483655935,
+    "mean_ms_per_subject_unit": 0.046448745799999996,
+    "throughput_scan_rows_per_second": 28705.475473426744,
+    "throughput_subject_units_per_second": 21529.106605070057
+  },
+  "primary_evaluation": {
+    "cohort": "AIBL locked heldout",
+    "unit": "subject",
+    "accuracy": 0.9027777777777778,
+    "balanced_accuracy": 0.8328683662016996,
+    "macro_auc_ovr": 0.9370749291955652,
+    "ad_vs_cn_auc": 0.9995189995189995,
+    "recall": {
+      "CN": 0.961038961038961,
+      "MCI": 0.6857142857142857,
+      "AD": 0.8518518518518519
+    },
+    "bootstrap_95_ci": {
+      "balanced_accuracy": [
+        0.7586935672049979,
+        0.899309689153439
+      ],
+      "mci_recall": [
+        0.53125,
+        0.8387419354838708
+      ],
+      "ad_recall": [
+        0.7096438172043011,
+        0.9655172413793104
+      ]
+    }
+  }
+}
