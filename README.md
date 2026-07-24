@@ -1,8 +1,31 @@
 # ARA-Net
 
-Atlas-guided multimodal Alzheimer's disease staging research code.
+**Atlas-Guided Multimodal Alzheimer's Disease Staging with Locked External Subject-Level Validation and Structural Neurodegeneration Consistency**
 
-This repository contains the reproducible analysis scripts, research deployment wrapper, and manuscript-supporting reports for the revised ARA-Net project. The current public package is framed as an **open-source deployable research prototype**, not as a clinical diagnostic device.
+ARA-Net is a research-grade Alzheimer's disease staging package for CN/MCI/AD classification. The current release centers on **RC-SPE**, a lightweight risk-constrained subject-level probability ensemble, and provides the English manuscript-facing GitHub package: aggregate results, main figures, browser UI prototypes, and claim-boundary documentation.
+
+This repository is an **open-source deployable research prototype**, not a clinical diagnostic device.
+
+## Quick Links
+
+| Entry | Link |
+|---|---|
+| English manuscript overview | [docs/MANUSCRIPT_OVERVIEW.md](docs/MANUSCRIPT_OVERVIEW.md) |
+| V6 analysis workbench | [frontend/v6-final-analysis.html](frontend/v6-final-analysis.html) |
+| 3D evidence workbench | [frontend/cvtc-style.html](frontend/cvtc-style.html) |
+| Manuscript figure set | [reports/v6_final_model/manual_paper_figures](reports/v6_final_model/manual_paper_figures/README.md) |
+| Lightweight runtime metrics | [reports/v6_final_model/tables/lightweight_runtime_metrics.md](reports/v6_final_model/tables/lightweight_runtime_metrics.md) |
+| Clinical presentation evidence | [reports/v6_final_model/tables/clinical_presentation_evidence.md](reports/v6_final_model/tables/clinical_presentation_evidence.md) |
+
+## Result Snapshot
+
+| Locked external setting | Unit | Accuracy | Balanced accuracy | Macro AUC | AD-vs-CN AUC / CN retention | CN / MCI / AD recall |
+|---|---:|---:|---:|---:|---:|---:|
+| AIBL heldout | Subject | 90.3% | 83.3% | 93.7% | AD-vs-CN AUC 100.0% | 96.1% / 68.6% / 85.2% |
+| AIBL heldout | Scan | 90.9% | 82.0% | 93.9% | AD-vs-CN AUC 99.8% | 96.4% / 64.2% / 85.4% |
+| IXI healthy controls | Subject | 100.0% | 100.0% | NA | CN retention 100.0% | 100.0% / 0.0% / 0.0% |
+
+The main residual errors are concentrated at the MCI/AD boundary. In the locked AIBL subject-level endpoint, AD-to-CN error is 0.000, supporting a boundary-error interpretation rather than disease-to-normal collapse.
 
 ## Current V6 Result
 
@@ -62,6 +85,13 @@ The manuscript-aligned figure set is stored in [reports/v6_final_model/manual_pa
 
 ![Research workbench UI](reports/v6_final_model/manual_paper_figures/figure4_research_workbench_ui.png)
 
+Additional manuscript figures:
+
+- [Figure 5. Atlas feature evidence panel](reports/v6_final_model/manual_paper_figures/figure5_atlas_feature_evidence_panel.png)
+- [Figure 6. End-to-end workflow](reports/v6_final_model/manual_paper_figures/figure6_end_to_end_workflow.png)
+- [Figure 7. RC-SPE probability ensemble UI](reports/v6_final_model/manual_paper_figures/figure7_rcspe_probability_ensemble_ui.png)
+- [Supplement. Subgroup and robustness summary](reports/v6_final_model/manual_paper_figures/supplement_subgroup_robustness_summary.png)
+
 ## Research UI
 
 The browser research UI is in `frontend/v6-final-analysis.html`. It presents an upload-style analysis workflow, CN/MCI/AD probabilities, subject-level evidence cards, aggregate AIBL/IXI result summaries, and high-resolution PyVista/VTK and Nilearn visual assets.
@@ -69,10 +99,12 @@ The browser research UI is in `frontend/v6-final-analysis.html`. It presents an 
 Run it as a static site from the repository root:
 
 ```bash
-python -m http.server 8000 -d frontend
+python3 -m http.server 8000 -d frontend
 ```
 
 Then open [http://127.0.0.1:8000/v6-final-analysis.html](http://127.0.0.1:8000/v6-final-analysis.html).
+
+The 3D evidence workbench is available at [http://127.0.0.1:8000/cvtc-style.html](http://127.0.0.1:8000/cvtc-style.html) after starting the same static server.
 
 ## Repository Contents
 
