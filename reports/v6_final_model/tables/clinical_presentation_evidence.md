@@ -5,7 +5,7 @@
 - Lightweight deployment numbers for the RC-SPE probability head.
 - Atlas-level AD-prior evidence validation for hippocampus, amygdala, and lateral ventricles.
 - Explicit OASIS domain-shift explanation instead of hiding the weak external result.
-- A UI-ready checklist for CVTC-style clinical presentation without overclaiming clinical deployment.
+- A UI-ready checklist for reviewer-facing clinical presentation without overclaiming clinical deployment.
 
 ## Atlas Evidence Validation
 

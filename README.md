@@ -12,7 +12,7 @@ This repository is an **open-source deployable research prototype**, not a clini
 |---|---|
 | English manuscript overview | [docs/MANUSCRIPT_OVERVIEW.md](docs/MANUSCRIPT_OVERVIEW.md) |
 | V6 analysis workbench | [frontend/v6-final-analysis.html](frontend/v6-final-analysis.html) |
-| 3D evidence workbench | [frontend/cvtc-style.html](frontend/cvtc-style.html) |
+| 3D evidence workbench | [frontend/ara-3d-evidence.html](frontend/ara-3d-evidence.html) |
 | Manuscript figure set | [reports/v6_final_model/manual_paper_figures](reports/v6_final_model/manual_paper_figures/README.md) |
 | Lightweight runtime metrics | [reports/v6_final_model/tables/lightweight_runtime_metrics.md](reports/v6_final_model/tables/lightweight_runtime_metrics.md) |
 | Clinical presentation evidence | [reports/v6_final_model/tables/clinical_presentation_evidence.md](reports/v6_final_model/tables/clinical_presentation_evidence.md) |
@@ -134,7 +134,7 @@ python3 -m http.server 8000 -d frontend
 
 Then open [http://127.0.0.1:8000/v6-final-analysis.html](http://127.0.0.1:8000/v6-final-analysis.html).
 
-The 3D evidence workbench is available at [http://127.0.0.1:8000/cvtc-style.html](http://127.0.0.1:8000/cvtc-style.html) after starting the same static server.
+The 3D evidence workbench is available at [http://127.0.0.1:8000/ara-3d-evidence.html](http://127.0.0.1:8000/ara-3d-evidence.html) after starting the same static server.
 
 ## Repository Contents
 
