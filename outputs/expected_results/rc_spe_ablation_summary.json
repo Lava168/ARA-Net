@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "comparison": "Best single base model",
+      "aibl_balanced_accuracy": 0.756,
+      "mci_recall": 0.571,
+      "ad_recall": 0.741,
+      "ixi_cn_retention": 0.997
+    },
+    {
+      "comparison": "Equal log-pooling",
+      "aibl_balanced_accuracy": 0.648,
+      "mci_recall": 0.171,
+      "ad_recall": 0.778,
+      "ixi_cn_retention": 1.0
+    },
+    {
+      "comparison": "Full RC-SPE subject-level",
+      "aibl_balanced_accuracy": 0.833,
+      "mci_recall": 0.686,
+      "ad_recall": 0.852,
+      "ixi_cn_retention": 1.0
+    }
+  ]
+}

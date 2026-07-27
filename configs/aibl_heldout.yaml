@@ -1,0 +1,23 @@
+name: aibl_heldout
+dataset: AIBL
+role: locked_external_test
+description: Locked AIBL external endpoint for subject-level reporting.
+labels: [CN, MCI, AD]
+unit: subject
+subject_id_column: subject_id
+scan_id_column: scan_id
+label_column: y_true
+allowed_for_tuning: false
+allowed_for_locked_reporting: true
+paths:
+  metadata_csv: data/example_metadata.csv
+  probability_stream_csv: examples/demo_probability_input.csv
+expected_primary_metrics:
+  accuracy: 0.903
+  balanced_accuracy: 0.833
+  macro_auc_ovr: 0.937
+  ad_vs_cn_auc: 1.000
+  recall:
+    CN: 0.961
+    MCI: 0.686
+    AD: 0.852

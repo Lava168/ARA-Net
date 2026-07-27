@@ -1,0 +1,6 @@
+{
+  "unit": "subject",
+  "n_predictions": 3,
+  "expected_classes": ["CN", "MCI", "AD"],
+  "clinical_use_notice": "Not a medical device. Not cleared or approved for clinical use."
+}

@@ -17,6 +17,36 @@ This repository is an **open-source deployable research prototype**, not a clini
 | Lightweight runtime metrics | [reports/v6_final_model/tables/lightweight_runtime_metrics.md](reports/v6_final_model/tables/lightweight_runtime_metrics.md) |
 | Clinical presentation evidence | [reports/v6_final_model/tables/clinical_presentation_evidence.md](reports/v6_final_model/tables/clinical_presentation_evidence.md) |
 
+## Standard Reproducibility Layout
+
+The repository now exposes a review-friendly `atlas-guided-ad-staging` layout while preserving the manuscript figures, UI prototypes, and public reports:
+
+```text
+configs/                  Dataset-specific protocol YAML files
+src/data/                 Probability-stream CSV validation helpers
+src/atlas/                FreeSurfer/FastSurfer AD-key label definitions
+src/models/               Locked public base-model stream metadata
+src/fusion/               RC-SPE log-probability fusion
+src/calibration/          Temperature and class-offset calibration helpers
+src/constraints/          Specificity and severe-error guardrails
+src/aggregation/          Subject-level probability averaging
+src/evaluation/           Metrics and public evaluation workflow
+src/interpretation/       Aggregate atlas-evidence summaries
+scripts/prepare_features.py
+scripts/train_base_models.py
+scripts/fit_rc_spe.py
+scripts/evaluate_aibl.py
+scripts/evaluate_ixi.py
+scripts/evaluate_oasis.py
+scripts/reproduce_ablation.py
+scripts/reproduce_figures.py
+data/                     Public synthetic/demo metadata only
+outputs/expected_results/ Public smoke-test expected outputs
+tests/                    Unit tests for fusion, aggregation, and metrics
+```
+
+The public `src/` package intentionally operates on base-model probability streams and aggregate atlas features. It does not redistribute restricted MRI volumes, dataset-derived subject tables, or private model checkpoints.
+
 ## Result Snapshot
 
 | Locked external setting | Unit | Accuracy | Balanced accuracy | Macro AUC | AD-vs-CN AUC / CN retention | CN / MCI / AD recall |

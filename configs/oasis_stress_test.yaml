@@ -1,0 +1,15 @@
+name: oasis_stress_test
+dataset: OASIS
+role: external_stress_test
+description: Domain-shift stress test reported as a limitation, not a final tuning target.
+labels: [CN, MCI, AD]
+unit: subject
+subject_id_column: subject_id
+scan_id_column: scan_id
+label_column: y_true
+allowed_for_tuning: false
+allowed_for_locked_reporting: true
+paths:
+  metadata_csv: data/example_metadata.csv
+  probability_stream_csv: examples/demo_probability_input.csv
+reporting_note: OASIS performance should be interpreted as a domain-shift analysis rather than a primary endpoint.
