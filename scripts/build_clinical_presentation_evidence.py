@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build CVTC-style clinical-presentation evidence tables for ARA-Net."""
+"""Build reviewer-facing clinical-presentation evidence tables for ARA-Net."""
 from __future__ import annotations
 
 import argparse
@@ -215,7 +215,7 @@ def write_markdown(path: Path, payload: dict) -> None:
         "- Lightweight deployment numbers for the RC-SPE probability head.",
         "- Atlas-level AD-prior evidence validation for hippocampus, amygdala, and lateral ventricles.",
         "- Explicit OASIS domain-shift explanation instead of hiding the weak external result.",
-        "- A UI-ready checklist for CVTC-style clinical presentation without overclaiming clinical deployment.",
+        "- A UI-ready checklist for reviewer-facing clinical presentation without overclaiming clinical deployment.",
         "",
         "## Atlas Evidence Validation",
         "",

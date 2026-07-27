@@ -22,7 +22,7 @@ This folder contains the public, aggregate evidence package for the revised ARA-
 - `reviewer_response_v6_matrix.md`: response-oriented matrix for reviewer/editor concerns.
 - `public_release_manifest.md`: generated manifest of public tracked files and restricted-artifact checks.
 - `tables/lightweight_runtime_metrics.md`: reproducible RC-SPE parameter-size and CPU inference benchmark.
-- `tables/clinical_presentation_evidence.md`: CVTC-style presentation evidence pack covering atlas-region validation, OASIS domain-shift interpretation, and annotation claim boundaries.
+- `tables/clinical_presentation_evidence.md`: reviewer-facing presentation evidence pack covering atlas-region validation, OASIS domain-shift interpretation, and annotation claim boundaries.
 - `rcspe_lightweight_inference_insert.md`: manuscript-ready lightweight inference paragraph and short version.
 - `ui_research_workbench_insert.md`: manuscript-ready research-workbench figure caption and methods/discussion language.
 - `manual_paper_figures/`: manually edited manuscript figures extracted, renamed, and documented for the English GitHub release.
@@ -115,7 +115,7 @@ Regenerate the public lightweight benchmark:
 python scripts/measure_lightweight_runtime.py
 ```
 
-Regenerate the CVTC-style presentation evidence additions on a machine with the private enriched prediction table and source aggregate reports:
+Regenerate the reviewer-facing presentation evidence additions on a machine with the private enriched prediction table and source aggregate reports:
 
 ```bash
 python scripts/build_clinical_presentation_evidence.py
