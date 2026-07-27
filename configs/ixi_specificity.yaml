@@ -1,0 +1,17 @@
+name: ixi_specificity
+dataset: IXI
+role: healthy_control_specificity
+description: External healthy-control specificity check used as a CN retention guardrail.
+labels: [CN]
+unit: subject
+subject_id_column: subject_id
+scan_id_column: scan_id
+label_column: y_true
+allowed_for_tuning: true
+allowed_for_locked_reporting: true
+paths:
+  metadata_csv: data/example_metadata.csv
+  probability_stream_csv: examples/demo_probability_input.csv
+expected_primary_metrics:
+  cn_retention_rate: 1.000
+  false_impairment_rate: 0.000

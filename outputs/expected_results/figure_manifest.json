@@ -1,0 +1,14 @@
+{
+  "figure_dir": "reports/v6_final_model/manual_paper_figures",
+  "n_figures": 8,
+  "figures": [
+    "reports/v6_final_model/manual_paper_figures/figure1_atlas_guided_staging_overview.png",
+    "reports/v6_final_model/manual_paper_figures/figure2_locked_external_performance.png",
+    "reports/v6_final_model/manual_paper_figures/figure3_subject_level_error_structure.png",
+    "reports/v6_final_model/manual_paper_figures/figure4_research_workbench_ui.png",
+    "reports/v6_final_model/manual_paper_figures/figure5_atlas_feature_evidence_panel.png",
+    "reports/v6_final_model/manual_paper_figures/figure6_end_to_end_workflow.png",
+    "reports/v6_final_model/manual_paper_figures/figure7_rcspe_probability_ensemble_ui.png",
+    "reports/v6_final_model/manual_paper_figures/supplement_subgroup_robustness_summary.png"
+  ]
+}

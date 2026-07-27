@@ -1,0 +1,65 @@
+{
+  "input_csv": "outputs/expected_results/demo_probability_streams.csv",
+  "config_json": "deployment/final_ensemble_config.json",
+  "output_csv": "outputs/expected_results/ixi_demo_predictions.csv",
+  "unit": "subject",
+  "n_predictions": 3,
+  "metrics": {
+    "n": 3,
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "macro_auc_ovr": 1.0,
+    "per_class_auc_ovr": {
+      "CN": 1.0,
+      "MCI": 1.0,
+      "AD": 1.0
+    },
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "prediction_distribution": {
+      "CN": 1,
+      "MCI": 1,
+      "AD": 1
+    },
+    "per_class": {
+      "CN": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "MCI": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "AD": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "support": 1
+      }
+    },
+    "ad_vs_cn_auc": 1.0
+  }
+}

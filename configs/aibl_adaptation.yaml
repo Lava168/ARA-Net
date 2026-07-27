@@ -1,0 +1,18 @@
+name: aibl_adaptation
+dataset: AIBL
+role: adaptation_validation
+description: External adaptation validation split used only for locked probability-level tuning.
+labels: [CN, MCI, AD]
+unit: scan
+subject_id_column: subject_id
+scan_id_column: scan_id
+label_column: y_true
+allowed_for_tuning: true
+allowed_for_locked_reporting: false
+paths:
+  metadata_csv: data/example_metadata.csv
+  probability_stream_csv: examples/demo_probability_input.csv
+protocol:
+  leakage_control: subject_level_split
+  tuning_target: balanced_accuracy_with_mci_ad_boundary_recovery
+  specificity_guard: IXI healthy-control CN retention

@@ -1,0 +1,5 @@
+subject_id,scan_id,dataset,split,y_true,age,sex,site
+DEMO_CN,DEMO_CN_scan01,synthetic,development,CN,68,F,site_a
+DEMO_MCI,DEMO_MCI_scan01,synthetic,development,MCI,73,M,site_a
+DEMO_AD,DEMO_AD_scan01,synthetic,development,AD,77,F,site_b
+DEMO_AD,DEMO_AD_scan02,synthetic,development,AD,78,F,site_b

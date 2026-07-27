@@ -1,0 +1,20 @@
+name: adni_development
+dataset: ADNI
+role: development
+description: Internal development split for model fitting, calibration, and cross-validation.
+labels: [CN, MCI, AD]
+unit: scan
+subject_id_column: subject_id
+scan_id_column: scan_id
+label_column: y_true
+allowed_for_tuning: true
+allowed_for_locked_reporting: false
+paths:
+  metadata_csv: data/example_metadata.csv
+  probability_stream_csv: examples/demo_probability_input.csv
+  feature_csv: outputs/expected_results/demo_atlas_features.csv
+protocol:
+  folds: 5
+  seeds: [42, 153, 264, 375, 486, 597]
+  leakage_control: subject_level_split
+  missing_data_policy: fail_on_missing_required_probability_columns
