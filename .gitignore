@@ -9,7 +9,6 @@ __pycache__/
 .DS_Store
 .vizenv/
 tmp_pdf_reference/
-frontend/qa_*.png
 
 # Local environments and caches
 .venv/
@@ -37,18 +36,16 @@ cache_real/
 *.ckpt
 
 # Restricted dataset-derived row-level outputs
-reports/**/final_subject_predictions_enriched.csv
-reports/**/*top_confident_errors.csv
-frontend/assets/**/final_subject_predictions_enriched.csv
-frontend/assets/**/*top_confident_errors.csv
-reports/**/oasis_locked*_predictions.csv
-reports/**/manifest_v4_oasis_locked_summary.json
+**/final_subject_predictions_enriched.csv
+**/*top_confident_errors.csv
+**/oasis_locked*_predictions.csv
+**/manifest_*locked_summary.json
 
 # Transient DOCX extraction / visual QA media
-reports/**/extracted_*_media/
+**/extracted_*_media/
 
 # Full private summaries may include subject/scan identifiers.
-reports/v6_final_model/final_rescue_model_summary.json
+**/final_rescue_model_summary.json
 
 # Temporary archives
 *.tgz
