@@ -1,7 +1,0 @@
-{
-  "figure1_revised_study_design": "Revised v4 workflow with subject-level splitting, AIBL adaptation and locked heldout testing, IXI healthy negative-control evaluation, OASIS stress testing, and atlas-region biological validation.",
-  "figure2_external_classification_improvement": "External performance improvement across the failed v3 baseline, atlas-only and cascade baselines, the main atlas+clinical model, and a clinical-only comparator.",
-  "figure3_aibl_confusion_matrices": "AIBL locked heldout confusion matrices for the main atlas+clinical HGB model and the clinical-only RF comparator.",
-  "figure4_neurodegeneration_consistency": "MRI neurodegeneration consistency analysis showing AD-key volume signal concentration and AIBL heldout regional gradients in ventricles, hippocampus, and amygdala.",
-  "figure5_oasis_stress_test": "OASIS stress-test results, reported explicitly as an unresolved transfer limitation rather than hidden."
-}

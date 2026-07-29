@@ -1,4 +1,0 @@
-run,aibl_heldout_bacc_mean,aibl_heldout_bacc_std,aibl_heldout_auc_mean,ixi_cn_retention_mean,ixi_cn_retention_std,n
-atlas_biomarker_enhanced__hgb,0.7031398952136355,0.0,0.9422017728411358,0.9965576592082617,0.0,4
-atlas_core_clinical__hgb,0.7412351911675291,0.0,0.9418087315577356,0.9982788296041308,0.0,4
-clinical_core_only__rf_balanced,0.8304502907722895,0.0027233503263661587,0.9571907910554893,1.0,0.0,4
