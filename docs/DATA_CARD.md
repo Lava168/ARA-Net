@@ -2,19 +2,29 @@
 
 ## Data Sources
 
-The revised ARA-Net analyses use ADNI, AIBL, OASIS, and IXI data. Raw data are not redistributed in this repository.
+The final ARA-Net manuscript uses structural MRI and clinical data from ADNI, AIBL, OASIS, and IXI. The manuscript reports 4,388 structural MRI scans corresponding to 2,023 subjects according to the data-partition manifest. Raw MRI volumes and restricted clinical data are not redistributed in this repository.
 
 ## Public Repository Data
 
-This repository includes aggregate metrics, figures, and manuscript-level summaries. It intentionally excludes:
+This repository includes code, aggregate metrics, manuscript-level summaries, generated figures, model/data cards, and de-identified examples. It intentionally excludes:
 
 - raw MRI files
-- clinical spreadsheets from source datasets
-- subject-level prediction files
-- scan-level prediction files
-- subject IDs and scan IDs from restricted datasets
+- source clinical spreadsheets
+- subject-level prediction files from restricted cohorts
+- scan-level prediction files from restricted cohorts
+- restricted subject IDs or scan IDs
+- private training checkpoints
 
-## Split Summary
+## Cohort Roles
+
+| Cohort | Role in manuscript-facing package |
+|---|---|
+| ADNI | Development, validation, internal testing, and directional structural checks |
+| AIBL | External-domain adaptation/validation and locked external heldout testing |
+| IXI | Healthy-control negative-control specificity testing |
+| OASIS | External stress test for domain-shift and applicability-boundary analysis |
+
+## Split Summary From Public Documentation
 
 | split | scans | subjects | role |
 |---|---:|---:|---|
@@ -27,7 +37,7 @@ This repository includes aggregate metrics, figures, and manuscript-level summar
 | OASIS external | 99 | 99 | stress test |
 | IXI external | 581 | 581 | healthy negative-control test |
 
-These subject counts are unique-participant split-inventory counts. Final metric tables may report evaluable subject-level endpoint units after repeated-scan probability aggregation; in longitudinal cohorts, a participant can contribute distinct diagnostic-state endpoint units over time.
+Subject counts above are split-inventory counts. Manuscript metric tables may report evaluable subject-level endpoint units after repeated-scan probability aggregation.
 
 ## Access Requirements
 
@@ -35,4 +45,4 @@ Users must obtain raw data access through the original data providers and comply
 
 ## Reproducibility Boundary
 
-The public code can reproduce the final ensemble logic, figures, and aggregate reports when supplied with authorized prediction and feature files. It cannot reproduce raw-data preprocessing without access to the underlying datasets.
+The public code can reproduce the final RC-SPE probability-fusion logic, deployment wrapper behavior, and aggregate reporting when supplied with authorized probability and feature files. It cannot reproduce raw-data preprocessing without access to the underlying datasets.
