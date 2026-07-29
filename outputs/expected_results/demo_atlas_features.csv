@@ -1,5 +1,5 @@
-subject_id,scan_id,dataset,split,y_true,atlas_hippocampus_volume,atlas_amygdala_volume,atlas_lateral_ventricle_volume,atlas_ad_like_z
-DEMO_CN,DEMO_CN_scan01,synthetic,development,CN,0.0084,0.0033,0.032,-0.1
-DEMO_MCI,DEMO_MCI_scan01,synthetic,development,MCI,0.0078,0.003,0.043,0.6
-DEMO_AD,DEMO_AD_scan01,synthetic,development,AD,0.0073,0.0029,0.057,1.25
-DEMO_AD,DEMO_AD_scan02,synthetic,development,AD,0.0073,0.0029,0.057,1.25
+subject_id,scan_id,dataset,split,y_true,atlas_hippocampus_volume,atlas_amygdala_volume,atlas_lateral_ventricle_volume,atlas_cortex_volume,atlas_ad_like_z
+DEMO_CN,DEMO_CN_scan01,synthetic,development,CN,0.008400,0.003300,0.032000,0.420000,-0.100000
+DEMO_MCI,DEMO_MCI_scan01,synthetic,development,MCI,0.007800,0.003000,0.043000,0.405000,0.600000
+DEMO_AD,DEMO_AD_scan01,synthetic,development,AD,0.007300,0.002900,0.057000,0.390000,1.250000
+DEMO_AD,DEMO_AD_scan02,synthetic,development,AD,0.007300,0.002900,0.057000,0.390000,1.250000

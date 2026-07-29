@@ -126,20 +126,27 @@ The README figure set below was regenerated from the final manuscript figure dir
 
 ## Repository Map
 
+This repository follows the **`atlas-guided-ad-staging/`** MedIA submission layout
+(see [`docs/SUBMISSION_LAYOUT.md`](docs/SUBMISSION_LAYOUT.md)).
+
 ```text
 configs/                  Dataset-specific protocol YAML files
 src/data/                 Probability-stream CSV validation helpers
-src/atlas/                FreeSurfer/FastSurfer AD-key label definitions
-src/models/               Public base-model stream metadata
+src/atlas/                21-region atlas + AD-key / secondary pathology labels
+src/models/               Six locked base-model probability-stream metadata
 src/fusion/               RC-SPE log-probability fusion
-src/calibration/          Temperature and class-offset calibration helpers
+src/calibration/          Temperature, offsets, NLL/ECE helpers
 src/constraints/          Specificity and severe-error guardrails
 src/aggregation/          Subject-level probability averaging
 src/evaluation/           Metrics and public evaluation workflow
-src/interpretation/       Aggregate atlas-evidence summaries
+src/interpretation/       AD-key concentration / atlas-evidence summaries
+scripts/                  prepare → train demo streams → fit RC-SPE → evaluate → figures
 deployment/               Research inference CLI, API wrapper, and Docker entrypoint
 docs/                     Manuscript overview, model card, data card, validation notes
 assets/manuscript_figures/ README figures aligned to the final manuscript
+data/                     Example metadata + synthetic smoke assets
+tests/                    Fusion / aggregation / metrics / atlas unit tests
+outputs/expected_results/ Locked demo metrics and figure manifests
 ```
 
 The public code operates on base-model probability streams and aggregate atlas features. It does not redistribute restricted MRI scans, dataset-derived subject tables, or private model checkpoints.

@@ -10,14 +10,14 @@ from __future__ import annotations
 
 import argparse
 import csv
+import sys
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-TEMPLATE = {
-    "CN": (0.0084, 0.0033, 0.0320, -0.10),
-    "MCI": (0.0078, 0.0030, 0.0430, 0.60),
-    "AD": (0.0073, 0.0029, 0.0570, 1.25),
-}
+from src.atlas import feature_row_from_label
 
 
 def main() -> None:
@@ -39,24 +39,24 @@ def main() -> None:
         "atlas_hippocampus_volume",
         "atlas_amygdala_volume",
         "atlas_lateral_ventricle_volume",
+        "atlas_cortex_volume",
         "atlas_ad_like_z",
     ]
     with args.output.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         for row in rows:
-            hippo, amygdala, ventricle, ad_like = TEMPLATE[row["y_true"]]
-            writer.writerow({
-                "subject_id": row["subject_id"],
-                "scan_id": row["scan_id"],
-                "dataset": row["dataset"],
-                "split": row["split"],
-                "y_true": row["y_true"],
-                "atlas_hippocampus_volume": hippo,
-                "atlas_amygdala_volume": amygdala,
-                "atlas_lateral_ventricle_volume": ventricle,
-                "atlas_ad_like_z": ad_like,
-            })
+            feats = feature_row_from_label(row["y_true"])
+            writer.writerow(
+                {
+                    "subject_id": row["subject_id"],
+                    "scan_id": row["scan_id"],
+                    "dataset": row["dataset"],
+                    "split": row["split"],
+                    "y_true": row["y_true"],
+                    **{k: f"{v:.6f}" if isinstance(v, float) else v for k, v in feats.items()},
+                }
+            )
     print(f"[saved] {args.output}")
 
 

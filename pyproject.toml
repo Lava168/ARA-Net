@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas-guided-ad-staging"
+version = "0.6.0"
+description = "ARA-Net / RC-SPE public research package for atlas-guided multimodal AD staging"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "ARA-Net authors" }]
+keywords = [
+  "Alzheimer's disease",
+  "structural MRI",
+  "atlas-guided",
+  "RC-SPE",
+  "medical image analysis",
+]
+dependencies = [
+  "numpy>=1.23",
+  "matplotlib>=3.7",
+  "scipy>=1.9",
+  "scikit-learn>=1.2",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+torch = ["torch>=2.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
