@@ -1,27 +1,58 @@
 cff-version: 1.2.0
-title: "ARA-Net: Atlas-Guided Region Attention for Interpretable Alzheimer's Disease Diagnosis from Structural MRI"
-message: "If you use this software, please cite our paper."
+title: "ARA-Net: Atlas-Guided Multimodal Alzheimer's Disease Staging with Locked External Subject-Level Validation and Structural Neurodegeneration Consistency"
+message: "If you use this software, please cite the ARA-Net manuscript and repository."
 type: software
 authors:
   - family-names: "Zhao"
     given-names: "Yuanqin"
-    affiliation: "ARA-Net authors"
+  - family-names: "Mao"
+    given-names: "Jian"
+  - family-names: "Hu"
+    given-names: "Jinghong"
+  - family-names: "Wang"
+    given-names: "Xiuwen"
+  - family-names: "Zhang"
+    given-names: "Xiaoyue"
+  - family-names: "Zhou"
+    given-names: "Bisong"
+  - family-names: "Song"
+    given-names: "Zhuoyao"
+  - family-names: "Guo"
+    given-names: "Tengfei"
+  - family-names: "Ma"
+    given-names: "Shaohua"
 repository-code: "https://github.com/Lava168/ARA-Net"
 license: Apache-2.0
 keywords:
-  - alzheimer's disease
+  - Alzheimer's disease
   - structural MRI
-  - 3D CNN
-  - attention mechanism
-  - anatomical atlas
-  - interpretable deep learning
-  - medical image analysis
+  - atlas-guided features
+  - multimodal staging
+  - subject-level validation
+  - probability ensemble
+  - RC-SPE
+  - neurodegeneration consistency
 preferred-citation:
   type: article
-  title: "ARA-Net: Atlas-Guided Region Attention for Interpretable Alzheimer's Disease Diagnosis from Structural MRI"
+  title: "ARA-Net: Atlas-Guided Multimodal Alzheimer's Disease Staging with Locked External Subject-Level Validation and Structural Neurodegeneration Consistency"
   authors:
     - family-names: "Zhao"
       given-names: "Yuanqin"
+    - family-names: "Mao"
+      given-names: "Jian"
+    - family-names: "Hu"
+      given-names: "Jinghong"
+    - family-names: "Wang"
+      given-names: "Xiuwen"
+    - family-names: "Zhang"
+      given-names: "Xiaoyue"
+    - family-names: "Zhou"
+      given-names: "Bisong"
+    - family-names: "Song"
+      given-names: "Zhuoyao"
+    - family-names: "Guo"
+      given-names: "Tengfei"
+    - family-names: "Ma"
+      given-names: "Shaohua"
   year: 2026
-  journal: "Medical Image Analysis (under review)"
-  notes: "Final journal reference will be updated upon acceptance."
+  notes: "Final journal or preprint reference will be updated upon release."
