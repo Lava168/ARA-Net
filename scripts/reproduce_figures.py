@@ -27,10 +27,11 @@ def main() -> None:
         "figure_dir": str(args.figure_dir),
         "n_figures": len(figures),
         "formats": sorted({Path(path).suffix.lstrip(".") for path in figures}),
+        "note": "Final README figures are manuscript-level public SVG assets.",
         "figures": figures,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    args.output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"[saved] {args.output}")
 
 

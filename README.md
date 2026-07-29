@@ -82,47 +82,67 @@ OASIS is treated as a stress-test boundary rather than a tuning cohort. Its dist
 
 ## Manuscript Figures
 
-The README figure set below was regenerated from the final manuscript figure directory on 2026-07-29.
+The README figure set below uses the ten final SVG figures supplied with the manuscript package on 2026-07-29. Additional source-file mapping and figure notes are available in `docs/FIGURE_NOTES.md`.
 
 ### Figure 1. Atlas-guided multimodal AD staging
 
 ![Figure 1. Atlas-guided staging](assets/manuscript_figures/figure1_atlas_guided_staging.svg)
 
+End-to-end overview of the ARA-Net staging task, linking structural MRI, atlas-guided regional representation, clinical variables, and subject-level CN/MCI/AD prediction.
+
 ### Figure 2. Atlas visualization and RC-SPE performance overview
 
 ![Figure 2. RC-SPE performance](assets/manuscript_figures/figure2_rc_spe_performance.svg)
+
+Summary of the atlas-guided evidence view and the locked external validation performance used to frame the main manuscript result.
 
 ### Figure 3. Probability ensemble strategy comparison
 
 ![Figure 3. Ensemble comparison](assets/manuscript_figures/figure3_ensemble_comparison.svg)
 
+Comparison of the probability-fusion strategies, highlighting how full RC-SPE improves balanced accuracy while preserving healthy-control specificity.
+
 ### Figure 4. Subject-level probability aggregation
 
 ![Figure 4. Subject-level aggregation](assets/manuscript_figures/figure4_subject_level_aggregation.svg)
+
+Illustration of scan-level probability fusion followed by subject-level aggregation for repeated-scan endpoints.
 
 ### Figure 5. Error-structure analysis and atlas evidence
 
 ![Figure 5. Error structure](assets/manuscript_figures/figure5_error_structure.svg)
 
+Analysis of residual errors after locked validation, emphasizing that remaining mistakes are concentrated at the MCI/AD boundary rather than AD/CN confusion.
+
 ### Figure 6. Directional validation of brain atlas structures
 
 ![Figure 6. Structural consistency](assets/manuscript_figures/figure6_structural_consistency.svg)
+
+Structural-consistency evidence for AD-key regions, including hippocampal, amygdalar, and lateral-ventricular directions across cohorts.
 
 ### Figure 7. Complete ARA-Net workflow
 
 ![Figure 7. Overall workflow](assets/manuscript_figures/figure7_overall_workflow.svg)
 
+Workflow diagram covering cohort preparation, atlas-feature extraction, probability-stream generation, RC-SPE fusion, and external validation.
+
 ### Figure 8. Atlas-guided regional feature extraction and multimodal fusion
 
 ![Figure 8. Feature extraction](assets/manuscript_figures/figure8_feature_extraction.svg)
+
+Feature-system schematic showing how atlas-derived MRI evidence and clinical variables enter the multimodal staging pipeline.
 
 ### Figure 9. Multi-cohort standardization and missing-variable workflow
 
 ![Figure 9. Data standardization](assets/manuscript_figures/figure9_data_standardization.svg)
 
+Multi-cohort harmonization and missing-variable handling workflow used to keep the public claim boundary clear across ADNI, AIBL, IXI, and OASIS.
+
 ### Figure 10. RC-SPE workflow
 
 ![Figure 10. RC-SPE workflow](assets/manuscript_figures/figure10_rc_spe_workflow.svg)
+
+Deployment-side RC-SPE flow for six base probability streams, non-negative log pooling, class offsets, temperature scaling, and subject-level output.
 
 ## Repository Map
 

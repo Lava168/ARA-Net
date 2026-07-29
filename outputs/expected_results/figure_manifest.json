@@ -4,6 +4,7 @@
   "formats": [
     "svg"
   ],
+  "note": "Final README figures are manuscript-level public SVG assets.",
   "figures": [
     "assets/manuscript_figures/figure1_atlas_guided_staging.svg",
     "assets/manuscript_figures/figure2_rc_spe_performance.svg",

@@ -1,11 +1,1214 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-label="Figure 4: Subject-level probability aggregation">
-  <rect width="1200" height="520" fill="#f7f9fb"/>
-  <rect x="36" y="36" width="1128" height="448" rx="28" fill="#ffffff" stroke="#d6dee8" stroke-width="2"/>
-  <rect x="36" y="36" width="1128" height="88" rx="28" fill="#6b4bb8"/>
-  <rect x="36" y="92" width="1128" height="32" fill="#6b4bb8"/>
-  <text x="72" y="92" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#ffffff">Figure 4 | Subject-level probability aggregation</text>
-  <text x="72" y="168" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#263238">Repeated MRI scans are averaged before final subject-level prediction</text>
-  <line x1="72" y1="195" x2="1128" y2="195" stroke="#dfe7ef" stroke-width="2"/>
-  <g font-family="Arial, Helvetica, sans-serif"><g transform="translate(72 225)"><circle cx="0" cy="-6" r="7" fill="#6b4bb8" opacity="0.9"/><text x="22" y="0" font-size="25" fill="#263238">Scan probabilities</text></g><g transform="translate(72 279)"><circle cx="0" cy="-6" r="7" fill="#6b4bb8" opacity="0.9"/><text x="22" y="0" font-size="25" fill="#263238">Subject mean probability</text></g><g transform="translate(72 333)"><circle cx="0" cy="-6" r="7" fill="#6b4bb8" opacity="0.9"/><text x="22" y="0" font-size="25" fill="#263238">Final CN/MCI/AD label</text></g><g transform="translate(72 387)"><circle cx="0" cy="-6" r="7" fill="#6b4bb8" opacity="0.9"/><text x="22" y="0" font-size="25" fill="#263238">Confidence and margin</text></g></g>
-  <text x="72" y="452" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#607080">README-ready manuscript figure card regenerated from manuscript metadata, 2026-07-29</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1123.5 463.5">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #243746;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-4, .cls-5 {
+        stroke-width: 1.88px;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-7 {
+        isolation: isolate;
+      }
+
+      .cls-8 {
+        fill: #d55e00;
+      }
+
+      .cls-9 {
+        fill: #3b82c4;
+      }
+
+      .cls-10 {
+        stroke: #d2dde3;
+      }
+
+      .cls-10, .cls-11 {
+        fill: #fff;
+      }
+
+      .cls-10, .cls-11, .cls-3 {
+        stroke-width: 1.5px;
+      }
+
+      .cls-12 {
+        fill: #e69f00;
+      }
+
+      .cls-13 {
+        fill: #0072b2;
+      }
+
+      .cls-14 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-15 {
+        fill: #334155;
+      }
+
+      .cls-11 {
+        stroke: #526b7a;
+      }
+
+      .cls-16 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-17 {
+        fill: #243746;
+      }
+
+      .cls-18 {
+        fill: #17212b;
+      }
+
+      .cls-3 {
+        stroke: #64748b;
+      }
+
+      .cls-19 {
+        fill: #475569;
+      }
+
+      .cls-4 {
+        fill: #edf5fc;
+        stroke: #2775b7;
+      }
+
+      .cls-5 {
+        fill: #f2f8ed;
+        stroke: #6c985a;
+      }
+
+      .cls-20 {
+        fill: #fafafa;
+        stroke: #aab8c2;
+        stroke-width: 1.35px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x="126.75" y="120.92" width="58.5" height="64.16"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-2" x="126.75" y="229.67" width="58.5" height="64.16"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="cls-2" x="126.75" y="347.42" width="58.5" height="64.16"/>
+    </clipPath>
+    <image id="image" width="62" height="68" xlink:href="data:image/png;base64,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"/>
+  </defs>
+  <path class="cls-10" d="M.75,.75H1122.75V462.75H.75V.75Z"/>
+  <path class="cls-9" d="M51.75,72.75c0,4.97-4.03,9-9,9s-9-4.03-9-9,4.03-9,9-9,9,4.03,9,9Z"/>
+  <path class="cls-9" d="M29.25,96.75c.75-12.75,26.25-12.75,27,0H29.25Z"/>
+  <g>
+    <g id="glyph-0-0">
+      <path class="cls-18" d="M80.67,68.88c-.02-2.72-1.83-4.22-5.14-4.22s-4.97,1.48-4.97,4.03c0,2.05,1.03,3.03,3.69,3.53l1.84,.36c1.8,.34,2.45,.84,2.45,1.91s-1,1.77-2.64,1.77c-1.84,0-2.86-.77-2.95-2.17h-2.62c.16,2.81,2.08,4.33,5.44,4.33s5.38-1.56,5.38-4.23c0-2.08-1.05-3.16-3.47-3.62l-2.05-.39c-1.94-.38-2.48-.77-2.48-1.72s.86-1.61,2.27-1.61c1.7,0,2.66,.72,2.75,2.05h2.52Z"/>
+    </g>
+    <g id="glyph-0-1">
+      <path class="cls-18" d="M91.49,78v-9.72h-2.52v6.08c0,1.16-.8,1.91-2.03,1.91-1.08,0-1.62-.56-1.62-1.73v-6.25h-2.52v6.77c0,2.16,1.17,3.36,3.25,3.36,1.31,0,2.2-.45,2.92-1.56v1.16h2.52Z"/>
+    </g>
+    <g id="glyph-0-2">
+      <path class="cls-18" d="M93.82,64.88v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-0-3">
+      <path class="cls-18" d="M107.48,68.28h-2.52v10.86c0,.55-.2,.75-.75,.75-.16,0-.28-.02-.44-.08v2.02c.48,.06,1.09,.09,1.48,.09,1.56,0,2.22-.64,2.22-2.23v-11.41Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-4">
+      <path class="cls-18" d="M118.14,73.94c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-5">
+      <path class="cls-18" d="M128.1,71.92c-.17-2.38-1.73-3.8-4.19-3.8-2.92,0-4.59,1.91-4.59,5.22s1.67,5.06,4.56,5.06c2.36,0,3.98-1.45,4.22-3.77h-2.41c-.31,1.25-.81,1.73-1.81,1.73-1.28,0-2.05-1.12-2.05-3.03,0-.94,.19-1.78,.5-2.36,.28-.55,.84-.83,1.56-.83,1.02,0,1.52,.48,1.8,1.77h2.41Z"/>
+    </g>
+    <g id="glyph-0-6">
+      <path class="cls-18" d="M134.14,68.48h-1.41v-2.61h-2.52v2.61h-1.25v1.67h1.25v5.97c0,1.53,.8,2.28,2.45,2.28,.58,0,1-.05,1.47-.19v-1.77c-.25,.03-.38,.05-.58,.05-.67,0-.83-.19-.83-1.06v-5.28h1.41v-1.67Z"/>
+    </g>
+    <g id="glyph-0-8">
+      <path class="cls-18" d="M148.81,71.41c-.05-2.05-1.62-3.28-4.23-3.28-2.47,0-4,1.23-4,3.23,0,.64,.2,1.2,.55,1.58,.34,.34,.64,.52,1.58,.81l3.02,.94c.62,.2,.84,.39,.84,.8,0,.59-.7,.95-1.88,.95-.67,0-1.17-.11-1.5-.34-.27-.2-.38-.39-.48-.92h-2.47c.08,2.14,1.64,3.23,4.59,3.23,1.36,0,2.38-.28,3.09-.86s1.16-1.47,1.16-2.42c0-1.27-.62-2.08-1.91-2.45l-3.19-.92c-.7-.22-.88-.36-.88-.75,0-.55,.56-.91,1.45-.91,1.2,0,1.8,.44,1.81,1.31h2.44Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-0">
+      <path class="cls-15" d="M75.66,91.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-1">
+      <path class="cls-15" d="M83.72,96.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-2">
+      <path class="cls-15" d="M84.94,89.67v7.08h1.14v-4.44c0-1.03,.75-1.86,1.66-1.86,.84,0,1.31,.52,1.31,1.42v4.88h1.14v-4.44c0-1.03,.73-1.86,1.66-1.86,.83,0,1.31,.53,1.31,1.42v4.88h1.12v-5.31c0-1.27-.72-1.97-2.05-1.97-.94,0-1.52,.28-2.17,1.08-.42-.75-.98-1.08-1.91-1.08s-1.58,.36-2.17,1.2v-1h-1.05Z"/>
+    </g>
+    <g id="glyph-1-3">
+      <path class="cls-15" d="M102.17,93.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-0-2" data-name="glyph-1-0">
+      <path class="cls-15" d="M112.42,91.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-5">
+      <path class="cls-15" d="M119.76,96.75v-7.08h-1.11v4.02c0,1.44-.77,2.39-1.94,2.39-.89,0-1.45-.55-1.45-1.39v-5.02h-1.12v5.45c0,1.17,.88,1.94,2.25,1.94,1.05,0,1.7-.36,2.38-1.3v.98h1Z"/>
+    </g>
+    <g id="glyph-1-6">
+      <path class="cls-15" d="M121.5,86.91v9.84h1v-.91c.55,.83,1.27,1.22,2.25,1.22,1.86,0,3.08-1.53,3.08-3.88s-1.16-3.72-3.03-3.72c-.97,0-1.66,.38-2.19,1.17v-3.73h-1.11Zm3.09,3.62c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.84,2.69-2.06,2.69s-1.98-1.08-1.98-2.73,.78-2.73,1.98-2.73Z"/>
+    </g>
+    <g id="glyph-1-7">
+      <path class="cls-15" d="M129.21,89.67v8.11c0,.7-.2,.92-.91,.92-.08,0-.12,0-.28-.02v.97c.14,.02,.2,.03,.39,.03,1.27,0,1.92-.5,1.92-1.47v-8.55h-1.12Zm1.12-2.77h-1.12v1.42h1.12v-1.42Z"/>
+    </g>
+    <g id="glyph-1-3-2" data-name="glyph-1-3">
+      <path class="cls-15" d="M138.19,93.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-8">
+      <path class="cls-15" d="M145.13,92.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-9">
+    <path class="cls-15" d="M149.04,89.67h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-10">
+      <path class="cls-15" d="M150.33,95.34v1.41h.81v.25c0,.92-.17,1.19-.81,1.22v.52c.89,.03,1.42-.62,1.42-1.77v-1.62h-1.42Z"/>
+    </g>
+    <g id="glyph-1-11">
+      <path class="cls-15" d="M157.6,89.67v7.08h1.12v-3.67c.02-1.7,.72-2.45,2.27-2.42v-1.14c-.19-.03-.3-.05-.42-.05-.73,0-1.28,.44-1.94,1.48v-1.28h-1.03Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-3-3" data-name="glyph-1-3">
+      <path class="cls-15" d="M167.95,93.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-12">
+      <path class="cls-15" d="M169.26,99.69h1.12v-3.69c.59,.73,1.27,1.06,2.17,1.06,1.84,0,3.03-1.47,3.03-3.73s-1.16-3.86-3.05-3.86c-.95,0-1.72,.44-2.25,1.28v-1.08h-1.03v10.02Zm3.09-9.16c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.83,2.69-2.06,2.69s-1.97-1.08-1.97-2.73,.77-2.73,1.97-2.73Z"/>
+    </g>
+    <g id="glyph-1-3-4" data-name="glyph-1-3">
+      <path class="cls-15" d="M182.96,93.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-1-2" data-name="glyph-1-1">
+    <path class="cls-15" d="M190.67,96.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+  </g>
+  <g id="glyph-1-9-2" data-name="glyph-1-9">
+    <path class="cls-15" d="M194.23,89.67h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-3-5" data-name="glyph-1-3">
+      <path class="cls-15" d="M201.29,93.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-13">
+      <path class="cls-15" d="M208.56,86.91h-1.12v3.66c-.47-.72-1.23-1.09-2.17-1.09-1.84,0-3.05,1.47-3.05,3.73,0,2.39,1.17,3.86,3.08,3.86,.98,0,1.66-.36,2.27-1.25v.94h1v-9.84Zm-3.11,3.62c1.22,0,1.98,1.06,1.98,2.77s-.78,2.7-1.97,2.7c-1.25,0-2.06-1.09-2.06-2.73s.81-2.73,2.05-2.73Z"/>
+    </g>
+    <g id="glyph-1-0-3" data-name="glyph-1-0">
+      <path class="cls-15" d="M219.04,91.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-8-2" data-name="glyph-1-8">
+      <path class="cls-15" d="M226.24,92.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-1-3" data-name="glyph-1-1">
+      <path class="cls-15" d="M233.95,96.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-14">
+      <path class="cls-15" d="M235.17,89.67v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-0-4" data-name="glyph-1-0">
+      <path class="cls-15" d="M247.65,91.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-15">
+    <path class="cls-13" d="M267.69,117.95c-.39-2.16-1.64-3.2-3.8-3.2-1.31,0-2.39,.42-3.11,1.22-.89,.98-1.39,2.38-1.39,3.97s.5,3.02,1.42,3.97c.77,.8,1.75,1.16,3.03,1.16,2.41,0,3.75-1.3,4.05-3.91h-1.3c-.11,.67-.25,1.14-.45,1.53-.39,.81-1.23,1.27-2.28,1.27-1.97,0-3.2-1.56-3.2-4.02s1.17-4.08,3.09-4.08c.8,0,1.53,.22,1.94,.61,.36,.34,.56,.75,.72,1.48h1.28Z"/>
+  </g>
+  <g id="glyph-1-16">
+    <path class="cls-13" d="M277.21,114.9h-1.19v8.05l-5.14-8.05h-1.36v9.84h1.19v-7.98l5.08,7.98h1.42v-9.84Z"/>
+  </g>
+  <g id="glyph-1-17">
+    <path class="cls-12" d="M322.81,124.75l2.77-8.25v8.25h1.2v-9.84h-1.75l-2.86,8.58-2.92-8.58h-1.73v9.84h1.19v-8.25l2.8,8.25h1.31Z"/>
+  </g>
+  <g id="glyph-1-15-2" data-name="glyph-1-15">
+    <path class="cls-12" d="M336.68,117.95c-.39-2.16-1.64-3.2-3.8-3.2-1.31,0-2.39,.42-3.11,1.22-.89,.98-1.39,2.38-1.39,3.97s.5,3.02,1.42,3.97c.77,.8,1.75,1.16,3.03,1.16,2.41,0,3.75-1.3,4.05-3.91h-1.3c-.11,.67-.25,1.14-.45,1.53-.39,.81-1.23,1.27-2.28,1.27-1.97,0-3.2-1.56-3.2-4.02s1.17-4.08,3.09-4.08c.8,0,1.53,.22,1.94,.61,.36,.34,.56,.75,.72,1.48h1.28Z"/>
+  </g>
+  <g id="glyph-1-18">
+    <path class="cls-12" d="M340.12,114.9h-1.28v9.84h1.28v-9.84Z"/>
+  </g>
+  <g id="glyph-1-19">
+    <path class="cls-8" d="M383.65,121.79l1,2.95h1.41l-3.45-9.84h-1.62l-3.5,9.84h1.33l1.05-2.95h3.8Zm-.36-1.06h-3.12l1.61-4.47,1.52,4.47Z"/>
+  </g>
+  <g id="glyph-1-20">
+    <path class="cls-8" d="M387.46,124.75h3.8c2.48,0,4-1.86,4-4.92s-1.5-4.92-4-4.92h-3.8v9.84Zm1.25-1.11v-7.62h2.33c1.94,0,2.97,1.31,2.97,3.83s-1.03,3.8-2.97,3.8h-2.33Z"/>
+  </g>
+  <g>
+    <g id="glyph-2-0">
+      <path class="cls-18" d="M64.89,155.39c0-.8-.05-1.02-.3-1.55-.64-1.33-1.97-2.02-3.91-2.02-2.53,0-4.08,1.3-4.08,3.38,0,1.39,.73,2.28,2.25,2.67l2.84,.77c1.47,.38,2.11,.95,2.11,1.84,0,.62-.33,1.25-.81,1.59-.45,.33-1.19,.5-2.11,.5-1.27,0-2.09-.31-2.66-.97-.42-.5-.61-1.05-.59-1.77h-1.39c.02,1.06,.22,1.75,.69,2.38,.78,1.09,2.11,1.64,3.86,1.64,1.36,0,2.48-.31,3.22-.88,.78-.62,1.27-1.64,1.27-2.64,0-1.41-.88-2.45-2.44-2.88l-2.89-.77c-1.38-.39-1.89-.83-1.89-1.7,0-1.17,1.03-1.94,2.58-1.94,1.83,0,2.84,.81,2.86,2.33h1.39Z"/>
+    </g>
+    <g id="glyph-2-1">
+      <path class="cls-18" d="M73.43,158.02c-.06-.8-.23-1.31-.56-1.78-.56-.77-1.55-1.22-2.7-1.22-2.23,0-3.67,1.77-3.67,4.5s1.42,4.34,3.66,4.34c1.97,0,3.22-1.17,3.38-3.19h-1.33c-.22,1.31-.89,1.98-2.02,1.98-1.45,0-2.31-1.19-2.31-3.14,0-2.06,.84-3.3,2.28-3.3,1.11,0,1.8,.66,1.95,1.8h1.33Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-2-2">
+      <path class="cls-18" d="M82.41,162.73c-.14,.03-.2,.03-.28,.03-.45,0-.7-.23-.7-.66v-4.84c0-1.47-1.08-2.25-3.11-2.25-1.2,0-2.17,.34-2.73,.95-.38,.42-.53,.91-.56,1.72h1.31c.11-1,.72-1.47,1.94-1.47s1.84,.45,1.84,1.23v.34c-.02,.56-.3,.77-1.38,.92-1.86,.23-2.14,.3-2.64,.5-.95,.41-1.45,1.12-1.45,2.2,0,1.5,1.05,2.44,2.72,2.44,1.03,0,1.88-.36,2.8-1.2,.09,.84,.5,1.2,1.36,1.2,.28,0,.45-.03,.89-.14v-.98Zm-2.3-1.83c0,.44-.12,.7-.52,1.06-.53,.48-1.19,.75-1.95,.75-1.03,0-1.62-.5-1.62-1.33,0-.88,.56-1.31,1.98-1.52,1.41-.19,1.67-.25,2.11-.45v1.48Z"/>
+    </g>
+    <g id="glyph-2-3">
+      <path class="cls-18" d="M83.86,155.25v8.25h1.31v-4.55c0-1.69,.89-2.8,2.23-2.8,1.05,0,1.7,.64,1.7,1.62v5.72h1.31v-6.23c0-1.38-1.03-2.25-2.61-2.25-1.23,0-2.02,.47-2.75,1.62v-1.39h-1.2Z"/>
+    </g>
+    <g id="glyph-2-5">
+      <path class="cls-18" d="M99.96,155.39v8.11h1.39v-11.39h-.92c-.48,1.75-.8,1.98-2.94,2.27v1.02h2.47Z"/>
+    </g>
+  </g>
+  <g class="cls-16">
+    <use id="source-5" class="cls-7" transform="translate(126.75 120.92) scale(.94)" xlink:href="#image"/>
+  </g>
+  <path class="cls-1" d="M195.75,153h42"/>
+  <path class="cls-17" d="M226.59,146.44l13.12,6.56-13.12,6.56v-13.12Z"/>
+  <path class="cls-11" d="M243,129h202.5v48H243v-48Z"/>
+  <path class="cls-13" d="M251.25,137.25h48v31.5h-48v-31.5Z"/>
+  <path class="cls-12" d="M299.25,137.25h61.5v31.5h-61.5v-31.5Z"/>
+  <path class="cls-8" d="M360.75,137.25h76.5v31.5h-76.5v-31.5Z"/>
+  <g>
+    <g id="glyph-2-0-2" data-name="glyph-2-0">
+      <path class="cls-18" d="M64.89,264.14c0-.8-.05-1.02-.3-1.55-.64-1.33-1.97-2.02-3.91-2.02-2.53,0-4.08,1.3-4.08,3.38,0,1.39,.73,2.28,2.25,2.67l2.84,.77c1.47,.38,2.11,.95,2.11,1.84,0,.62-.33,1.25-.81,1.59-.45,.33-1.19,.5-2.11,.5-1.27,0-2.09-.31-2.66-.97-.42-.5-.61-1.05-.59-1.77h-1.39c.02,1.06,.22,1.75,.69,2.38,.78,1.09,2.11,1.64,3.86,1.64,1.36,0,2.48-.31,3.22-.88,.78-.62,1.27-1.64,1.27-2.64,0-1.41-.88-2.45-2.44-2.88l-2.89-.77c-1.38-.39-1.89-.83-1.89-1.7,0-1.17,1.03-1.94,2.58-1.94,1.83,0,2.84,.81,2.86,2.33h1.39Z"/>
+    </g>
+    <g id="glyph-2-1-2" data-name="glyph-2-1">
+      <path class="cls-18" d="M73.43,266.77c-.06-.8-.23-1.31-.56-1.78-.56-.77-1.55-1.22-2.7-1.22-2.23,0-3.67,1.77-3.67,4.5s1.42,4.34,3.66,4.34c1.97,0,3.22-1.17,3.38-3.19h-1.33c-.22,1.31-.89,1.98-2.02,1.98-1.45,0-2.31-1.19-2.31-3.14,0-2.06,.84-3.3,2.28-3.3,1.11,0,1.8,.66,1.95,1.8h1.33Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-2-2-2" data-name="glyph-2-2">
+      <path class="cls-18" d="M82.41,271.48c-.14,.03-.2,.03-.28,.03-.45,0-.7-.23-.7-.66v-4.84c0-1.47-1.08-2.25-3.11-2.25-1.2,0-2.17,.34-2.73,.95-.38,.42-.53,.91-.56,1.72h1.31c.11-1,.72-1.47,1.94-1.47s1.84,.45,1.84,1.23v.34c-.02,.56-.3,.77-1.38,.92-1.86,.23-2.14,.3-2.64,.5-.95,.41-1.45,1.12-1.45,2.2,0,1.5,1.05,2.44,2.72,2.44,1.03,0,1.88-.36,2.8-1.2,.09,.84,.5,1.2,1.36,1.2,.28,0,.45-.03,.89-.14v-.98Zm-2.3-1.83c0,.44-.12,.7-.52,1.06-.53,.48-1.19,.75-1.95,.75-1.03,0-1.62-.5-1.62-1.33,0-.88,.56-1.31,1.98-1.52,1.41-.19,1.67-.25,2.11-.45v1.48Z"/>
+    </g>
+    <g id="glyph-2-3-2" data-name="glyph-2-3">
+      <path class="cls-18" d="M83.86,264v8.25h1.31v-4.55c0-1.69,.89-2.8,2.23-2.8,1.05,0,1.7,.64,1.7,1.62v5.72h1.31v-6.23c0-1.38-1.03-2.25-2.61-2.25-1.23,0-2.02,.47-2.75,1.62v-1.39h-1.2Z"/>
+    </g>
+  </g>
+  <g id="glyph-2-6">
+    <path class="cls-18" d="M103.85,270.88h-5.88c.14-.94,.64-1.53,2.02-2.38l1.58-.88c1.56-.88,2.36-2.03,2.36-3.44,0-.95-.38-1.83-1.03-2.44-.67-.61-1.48-.89-2.55-.89-1.41,0-2.47,.5-3.08,1.48-.39,.59-.58,1.31-.61,2.45h1.39c.05-.77,.14-1.22,.33-1.61,.36-.69,1.09-1.11,1.92-1.11,1.27,0,2.2,.91,2.2,2.14,0,.91-.52,1.7-1.5,2.27l-1.45,.86c-2.33,1.33-3.02,2.41-3.14,4.89h7.44v-1.36Z"/>
+  </g>
+  <g class="cls-14">
+    <use id="source-8" class="cls-7" transform="translate(126.75 229.67) scale(.94)" xlink:href="#image"/>
+  </g>
+  <path class="cls-1" d="M195.75,261.75h42"/>
+  <path class="cls-17" d="M226.59,255.19l13.12,6.56-13.12,6.56v-13.12Z"/>
+  <path class="cls-11" d="M243,237.75h202.5v48H243v-48Z"/>
+  <path class="cls-13" d="M251.25,246h52.5v31.5h-52.5v-31.5Z"/>
+  <path class="cls-12" d="M303.75,246h57v31.5h-57v-31.5Z"/>
+  <path class="cls-8" d="M360.75,246h76.5v31.5h-76.5v-31.5Z"/>
+  <g id="glyph-3-0">
+    <path class="cls-18" d="M151.42,334.8h3.16v3.41h-3.16v-3.41Zm0-5.28h3.16v3.41h-3.16v-3.41Zm0,10.56h3.16v3.41h-3.16v-3.41Z"/>
+  </g>
+  <g>
+    <g id="glyph-2-0-3" data-name="glyph-2-0">
+      <path class="cls-18" d="M64.89,381.89c0-.8-.05-1.02-.3-1.55-.64-1.33-1.97-2.02-3.91-2.02-2.53,0-4.08,1.3-4.08,3.38,0,1.39,.73,2.28,2.25,2.67l2.84,.77c1.47,.38,2.11,.95,2.11,1.84,0,.62-.33,1.25-.81,1.59-.45,.33-1.19,.5-2.11,.5-1.27,0-2.09-.31-2.66-.97-.42-.5-.61-1.05-.59-1.77h-1.39c.02,1.06,.22,1.75,.69,2.38,.78,1.09,2.11,1.64,3.86,1.64,1.36,0,2.48-.31,3.22-.88,.78-.62,1.27-1.64,1.27-2.64,0-1.41-.88-2.45-2.44-2.88l-2.89-.77c-1.38-.39-1.89-.83-1.89-1.7,0-1.17,1.03-1.94,2.58-1.94,1.83,0,2.84,.81,2.86,2.33h1.39Z"/>
+    </g>
+    <g id="glyph-2-1-3" data-name="glyph-2-1">
+      <path class="cls-18" d="M73.43,384.52c-.06-.8-.23-1.31-.56-1.78-.56-.77-1.55-1.22-2.7-1.22-2.23,0-3.67,1.77-3.67,4.5s1.42,4.34,3.66,4.34c1.97,0,3.22-1.17,3.38-3.19h-1.33c-.22,1.31-.89,1.98-2.02,1.98-1.45,0-2.31-1.19-2.31-3.14,0-2.06,.84-3.3,2.28-3.3,1.11,0,1.8,.66,1.95,1.8h1.33Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-2-2-3" data-name="glyph-2-2">
+      <path class="cls-18" d="M82.41,389.23c-.14,.03-.2,.03-.28,.03-.45,0-.7-.23-.7-.66v-4.84c0-1.47-1.08-2.25-3.11-2.25-1.2,0-2.17,.34-2.73,.95-.38,.42-.53,.91-.56,1.72h1.31c.11-1,.72-1.47,1.94-1.47s1.84,.45,1.84,1.23v.34c-.02,.56-.3,.77-1.38,.92-1.86,.23-2.14,.3-2.64,.5-.95,.41-1.45,1.12-1.45,2.2,0,1.5,1.05,2.44,2.72,2.44,1.03,0,1.88-.36,2.8-1.2,.09,.84,.5,1.2,1.36,1.2,.28,0,.45-.03,.89-.14v-.98Zm-2.3-1.83c0,.44-.12,.7-.52,1.06-.53,.48-1.19,.75-1.95,.75-1.03,0-1.62-.5-1.62-1.33,0-.88,.56-1.31,1.98-1.52,1.41-.19,1.67-.25,2.11-.45v1.48Z"/>
+    </g>
+    <g id="glyph-2-3-3" data-name="glyph-2-3">
+      <path class="cls-18" d="M83.86,381.75v8.25h1.31v-4.55c0-1.69,.89-2.8,2.23-2.8,1.05,0,1.7,.64,1.7,1.62v5.72h1.31v-6.23c0-1.38-1.03-2.25-2.61-2.25-1.23,0-2.02,.47-2.75,1.62v-1.39h-1.2Z"/>
+    </g>
+    <g id="glyph-2-3-4" data-name="glyph-2-3">
+      <path class="cls-18" d="M96.99,381.75v8.25h1.31v-4.55c0-1.69,.89-2.8,2.23-2.8,1.05,0,1.7,.64,1.7,1.62v5.72h1.31v-6.23c0-1.38-1.03-2.25-2.61-2.25-1.23,0-2.02,.47-2.75,1.62v-1.39h-1.2Z"/>
+    </g>
+  </g>
+  <g id="glyph-4-0">
+    <path class="cls-18" d="M109.56,388.9c0-1.16-.77-1.81-2.12-1.81s-2.27,.7-2.27,1.8c0,.92,.47,1.36,1.86,1.7l.89,.22c.64,.16,.91,.39,.91,.8,0,.56-.55,.94-1.38,.94-.5,0-.94-.14-1.17-.39-.14-.17-.22-.34-.27-.75h-1c.05,1.36,.81,2.02,2.36,2.02s2.42-.73,2.42-1.88c0-.88-.48-1.36-1.66-1.64l-.91-.22c-.77-.17-1.09-.42-1.09-.84,0-.55,.48-.89,1.25-.89s1.17,.33,1.19,.95h.98Z"/>
+  </g>
+  <g class="cls-6">
+    <image id="source-11" class="cls-7" width="62" height="68" transform="translate(126.75 347.42) scale(.94)" xlink:href="data:image/png;base64,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"/>
+  </g>
+  <path class="cls-1" d="M195.75,379.5h42"/>
+  <path class="cls-17" d="M226.59,372.94l13.12,6.56-13.12,6.56v-13.12Z"/>
+  <path class="cls-11" d="M243,355.5h202.5v48H243v-48Z"/>
+  <path class="cls-13" d="M251.25,363.75h43.5v31.5h-43.5v-31.5Z"/>
+  <path class="cls-12" d="M294.75,363.75h60v31.5h-60v-31.5Z"/>
+  <path class="cls-8" d="M354.75,363.75h82.5v31.5h-82.5v-31.5Z"/>
+  <path class="cls-3" d="M452.25,153h34.5v226.5h-34.5m34.5-144.75h40.5"/>
+  <path class="cls-4" d="M530.85,123.87h187.5v229.5h-187.5V123.87Z"/>
+  <g>
+    <g id="glyph-0-9">
+      <path class="cls-18" d="M538.23,150.56h3.38c2.41,0,3.95-1.7,3.95-4.36s-1.48-4.08-4.23-4.08h-5.78v13.12h2.69v-4.69Zm0-2.25v-3.94h2.53c1.44,0,2.09,.64,2.09,1.97s-.66,1.97-2.09,1.97h-2.53Z"/>
+    </g>
+    <g id="glyph-0-10">
+      <path class="cls-18" d="M547.31,145.53v9.72h2.52v-5.17c0-1.47,.73-2.2,2.22-2.2,.27,0,.44,.02,.78,.06v-2.55c-.14-.02-.19-.02-.3-.02-1.16,0-2.14,.75-2.7,2.06v-1.91h-2.52Z"/>
+    </g>
+    <g id="glyph-0-11">
+      <path class="cls-18" d="M558.6,145.38c-2.97,0-4.8,1.95-4.8,5.14s1.83,5.14,4.81,5.14,4.8-1.94,4.8-5.06c0-3.3-1.78-5.22-4.81-5.22Zm.02,2.03c1.39,0,2.28,1.23,2.28,3.14s-.94,3.08-2.28,3.08-2.28-1.23-2.28-3.11,.91-3.11,2.28-3.11Z"/>
+    </g>
+    <g id="glyph-0-2-2" data-name="glyph-0-2">
+      <path class="cls-18" d="M565.24,142.12v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+    <g id="glyph-0-12">
+      <path class="cls-18" d="M584.61,154.94c-.44-.41-.58-.7-.58-1.19v-5.39c0-1.98-1.36-2.98-3.98-2.98s-4,1.11-4.16,3.36h2.44c.12-1.02,.53-1.33,1.78-1.33,.97,0,1.45,.31,1.45,.97,0,.33-.16,.59-.44,.75q-.34,.19-1.58,.39l-1.02,.17c-1.92,.33-2.86,1.31-2.86,3.06s1.17,2.91,2.95,2.91c1.08,0,2.06-.44,2.95-1.38,0,.5,.06,.69,.3,.97h2.73v-.31Zm-3.05-3.59c0,1.45-.72,2.28-2,2.28-.84,0-1.36-.44-1.36-1.17s.39-1.11,1.44-1.33l.86-.16c.67-.12,.78-.17,1.06-.31v.69Z"/>
+    </g>
+    <g id="glyph-0-2-3" data-name="glyph-0-2">
+      <path class="cls-18" d="M586.24,142.12v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+    <g id="glyph-0-13">
+      <path class="cls-18" d="M599.9,145.53h-2.52v9.72h2.52v-9.72Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-14">
+      <path class="cls-18" d="M604.9,142.12h-2.52v13.12h2.52v-13.12Z"/>
+    </g>
+    <g id="glyph-0-13-2" data-name="glyph-0-13">
+      <path class="cls-18" d="M609.9,145.53h-2.52v9.72h2.52v-9.72Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-6-2" data-name="glyph-0-6">
+      <path class="cls-18" d="M616.61,145.73h-1.41v-2.61h-2.52v2.61h-1.25v1.67h1.25v5.97c0,1.53,.8,2.28,2.45,2.28,.58,0,1-.05,1.47-.19v-1.77c-.25,.03-.38,.05-.58,.05-.67,0-.83-.19-.83-1.06v-5.28h1.41v-1.67Z"/>
+    </g>
+  </g>
+  <g id="glyph-0-15">
+    <path class="cls-18" d="M624.51,145.53l-2.02,7.08-2.14-7.08h-2.78l3.62,10.11c0,1.02-.62,1.7-1.56,1.7-.2,0-.36-.05-.67-.11v1.89c.38,.05,.59,.06,.91,.06,.64,0,1.36-.12,1.81-.3,.7-.3,1.02-.69,1.42-1.86l4-11.5h-2.59Z"/>
+  </g>
+  <g id="glyph-0-12-2" data-name="glyph-0-12">
+    <path class="cls-18" d="M641.87,154.94c-.44-.41-.58-.7-.58-1.19v-5.39c0-1.98-1.36-2.98-3.98-2.98s-4,1.11-4.16,3.36h2.44c.12-1.02,.53-1.33,1.78-1.33,.97,0,1.45,.31,1.45,.97,0,.33-.16,.59-.44,.75q-.34,.19-1.58,.39l-1.02,.17c-1.92,.33-2.86,1.31-2.86,3.06s1.17,2.91,2.95,2.91c1.08,0,2.06-.44,2.95-1.38,0,.5,.06,.69,.3,.97h2.73v-.31Zm-3.05-3.59c0,1.45-.72,2.28-2,2.28-.84,0-1.36-.44-1.36-1.17s.39-1.11,1.44-1.33l.86-.16c.67-.12,.78-.17,1.06-.31v.69Z"/>
+  </g>
+  <g id="glyph-0-16">
+    <path class="cls-18" d="M648.39,155.25l3.34-9.72h-2.66l-1.97,7.11-2.09-7.11h-2.67l3.41,9.72h2.64Z"/>
+  </g>
+  <g>
+    <g id="glyph-0-4-2" data-name="glyph-0-4">
+      <path class="cls-18" d="M661.24,151.19c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-10-2" data-name="glyph-0-10">
+      <path class="cls-18" d="M662.95,145.53v9.72h2.52v-5.17c0-1.47,.73-2.2,2.22-2.2,.27,0,.44,.02,.78,.06v-2.55c-.14-.02-.19-.02-.3-.02-1.16,0-2.14,.75-2.7,2.06v-1.91h-2.52Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-0-12-3" data-name="glyph-0-12">
+      <path class="cls-18" d="M678.34,154.94c-.44-.41-.58-.7-.58-1.19v-5.39c0-1.98-1.36-2.98-3.98-2.98s-4,1.11-4.16,3.36h2.44c.12-1.02,.53-1.33,1.78-1.33,.97,0,1.45,.31,1.45,.97,0,.33-.16,.59-.44,.75q-.34,.19-1.58,.39l-1.02,.17c-1.92,.33-2.86,1.31-2.86,3.06s1.17,2.91,2.95,2.91c1.08,0,2.06-.44,2.95-1.38,0,.5,.06,.69,.3,.97h2.73v-.31Zm-3.05-3.59c0,1.45-.72,2.28-2,2.28-.84,0-1.36-.44-1.36-1.17s.39-1.11,1.44-1.33l.86-.16c.67-.12,.78-.17,1.06-.31v.69Z"/>
+    </g>
+    <g id="glyph-0-17">
+      <path class="cls-18" d="M686.11,145.53v1.5c-.7-1.14-1.48-1.66-2.5-1.66-.88,0-1.83,.42-2.48,1.12-.98,1.02-1.48,2.41-1.48,4.12,0,2.98,1.59,5.03,3.91,5.03,1.05,0,1.67-.33,2.56-1.39v1.31c0,1.17-.83,1.97-2.02,1.97-.91,0-1.47-.39-1.66-1.12h-2.59c.02,.75,.28,1.28,.95,1.81,.77,.64,1.83,.94,3.2,.94,2.81,0,4.5-1.34,4.5-3.59v-10.05h-2.39Zm-2.03,1.94c1.19,0,2.06,1.31,2.06,3.12s-.84,2.97-2.11,2.97c-1.09,0-1.86-1.2-1.86-2.97s.77-3.12,1.91-3.12Z"/>
+    </g>
+    <g id="glyph-0-13-3" data-name="glyph-0-13">
+      <path class="cls-18" d="M693.62,145.53h-2.52v9.72h2.52v-9.72Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-18">
+      <path class="cls-18" d="M696.05,145.53v9.72h2.52v-5.83c0-1.16,.8-1.91,2.03-1.91,1.08,0,1.62,.59,1.62,1.73v6h2.52v-6.52c0-2.16-1.17-3.36-3.27-3.36-1.31,0-2.19,.47-2.91,1.56v-1.41h-2.52Z"/>
+    </g>
+  </g>
+  <g id="glyph-0-17-2" data-name="glyph-0-17">
+    <path class="cls-18" d="M713.04,145.53v1.5c-.7-1.14-1.48-1.66-2.5-1.66-.88,0-1.83,.42-2.48,1.12-.98,1.02-1.48,2.41-1.48,4.12,0,2.98,1.59,5.03,3.91,5.03,1.05,0,1.67-.33,2.56-1.39v1.31c0,1.17-.83,1.97-2.02,1.97-.91,0-1.47-.39-1.66-1.12h-2.59c.02,.75,.28,1.28,.95,1.81,.77,.64,1.83,.94,3.2,.94,2.81,0,4.5-1.34,4.5-3.59v-10.05h-2.39Zm-2.03,1.94c1.19,0,2.06,1.31,2.06,3.12s-.84,2.97-2.11,2.97c-1.09,0-1.86-1.2-1.86-2.97s.77-3.12,1.91-3.12Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-1-4" data-name="glyph-1-1">
+      <path class="cls-15" d="M593.31,180.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-8-3" data-name="glyph-1-8">
+      <path class="cls-15" d="M599.96,176.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+    <g id="glyph-1-11-2" data-name="glyph-1-11">
+      <path class="cls-15" d="M601.29,173.67v7.08h1.12v-3.67c.02-1.7,.72-2.45,2.27-2.42v-1.14c-.19-.03-.3-.05-.42-.05-.73,0-1.28,.44-1.94,1.48v-1.28h-1.03Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-21">
+      <path class="cls-15" d="M608.44,173.47c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-0-5" data-name="glyph-1-0">
+      <path class="cls-15" d="M618.18,175.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-0-6" data-name="glyph-1-0">
+      <path class="cls-15" d="M624.93,175.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-0-7" data-name="glyph-1-0">
+      <path class="cls-15" d="M635.43,175.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-8-4" data-name="glyph-1-8">
+      <path class="cls-15" d="M642.63,176.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-1-5" data-name="glyph-1-1">
+      <path class="cls-15" d="M650.36,180.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-14-2" data-name="glyph-1-14">
+      <path class="cls-15" d="M651.59,173.67v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-0-8" data-name="glyph-1-0">
+      <path class="cls-15" d="M664.06,175.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+  </g>
+  <g id="glyph-9-0">
+    <path class="cls-19" d="M574.04,305.62l.91,2.62h1.25l-3.08-8.75h-1.44l-3.12,8.75h1.19l.92-2.62h3.38Zm-.31-.94h-2.78l1.44-3.98,1.34,3.98Z"/>
+  </g>
+  <g id="glyph-9-1">
+    <path class="cls-19" d="M579.42,308.25l2.41-6.28h-1.12l-1.78,5.09-1.67-5.09h-1.12l2.2,6.28h1.09Z"/>
+  </g>
+  <g>
+    <g id="glyph-9-2">
+      <path class="cls-19" d="M587.92,305.44c0-.95-.08-1.53-.25-2-.41-1.03-1.38-1.66-2.55-1.66-1.75,0-2.88,1.33-2.88,3.41s1.08,3.34,2.86,3.34c1.44,0,2.42-.83,2.69-2.19h-1.02c-.28,.83-.84,1.27-1.64,1.27-.64,0-1.17-.3-1.52-.83-.23-.36-.33-.72-.33-1.34h4.62Zm-4.61-.81c.08-1.16,.8-1.92,1.8-1.92s1.73,.8,1.73,1.92h-3.53Z"/>
+    </g>
+    <g id="glyph-9-3">
+      <path class="cls-19" d="M589.26,301.97v6.28h1.02v-3.27c0-1.52,.62-2.19,2.02-2.14v-1.03c-.17-.02-.27-.03-.39-.03-.66,0-1.14,.39-1.72,1.33v-1.14h-.92Z"/>
+    </g>
+  </g>
+  <g id="glyph-9-4">
+    <path class="cls-19" d="M598.8,307.66c-.11,.03-.16,.03-.22,.03-.34,0-.55-.19-.55-.5v-3.69c0-1.12-.81-1.72-2.36-1.72-.92,0-1.66,.27-2.08,.73-.3,.33-.42,.69-.44,1.31h1c.09-.78,.55-1.12,1.48-1.12s1.41,.34,1.41,.94v.27c-.02,.44-.23,.59-1.05,.7-1.42,.17-1.64,.22-2.02,.38-.73,.31-1.11,.86-1.11,1.69,0,1.14,.8,1.86,2.06,1.86,.8,0,1.44-.28,2.14-.92,.08,.64,.39,.92,1.03,.92,.22,0,.34-.03,.69-.11v-.77Zm-1.75-1.39c0,.34-.09,.55-.41,.83-.41,.36-.89,.56-1.48,.56-.78,0-1.23-.38-1.23-1.02s.44-1,1.52-1.16c1.06-.14,1.27-.19,1.61-.34v1.12Z"/>
+  </g>
+  <g id="glyph-9-5">
+    <path class="cls-19" d="M603.81,301.97v.91c-.5-.75-1.05-1.09-1.84-1.09-1.53,0-2.58,1.42-2.58,3.44,0,1.05,.25,1.81,.8,2.45,.47,.55,1.06,.86,1.7,.86,.77,0,1.3-.34,1.83-1.14v.33c0,1.69-.47,2.31-1.72,2.31-.84,0-1.3-.34-1.39-1.06h-1.02c.09,1.17,1.02,1.89,2.39,1.89,.92,0,1.69-.3,2.09-.8,.48-.59,.66-1.38,.66-2.84v-5.25h-.92Zm-1.75,.73c1.06,0,1.66,.89,1.66,2.48s-.61,2.42-1.66,2.42-1.62-.91-1.62-2.45,.59-2.45,1.62-2.45Z"/>
+  </g>
+  <g id="glyph-9-2-2" data-name="glyph-9-2">
+    <path class="cls-19" d="M611.74,305.44c0-.95-.08-1.53-.25-2-.41-1.03-1.38-1.66-2.55-1.66-1.75,0-2.88,1.33-2.88,3.41s1.08,3.34,2.86,3.34c1.44,0,2.42-.83,2.69-2.19h-1.02c-.28,.83-.84,1.27-1.64,1.27-.64,0-1.17-.3-1.52-.83-.23-.36-.33-.72-.33-1.34h4.62Zm-4.61-.81c.08-1.16,.8-1.92,1.8-1.92s1.73,.8,1.73,1.92h-3.53Z"/>
+  </g>
+  <g>
+    <g id="glyph-9-6">
+      <path class="cls-19" d="M616.23,310.86h1.02v-3.27c.53,.64,1.11,.94,1.94,.94,1.62,0,2.69-1.31,2.69-3.31,0-2.11-1.03-3.44-2.7-3.44-.86,0-1.53,.39-2,1.12v-.94h-.94v8.89Zm2.77-8.14c1.11,0,1.83,.97,1.83,2.47s-.73,2.41-1.83,2.41-1.75-.97-1.75-2.44,.69-2.44,1.75-2.44Z"/>
+    </g>
+    <g id="glyph-9-3-2" data-name="glyph-9-3">
+      <path class="cls-19" d="M623.09,301.97v6.28h1.02v-3.27c0-1.52,.62-2.19,2.02-2.14v-1.03c-.17-.02-.27-.03-.39-.03-.66,0-1.14,.39-1.72,1.33v-1.14h-.92Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-9-7">
+      <path class="cls-19" d="M629.45,301.78c-1.78,0-2.83,1.27-2.83,3.38s1.05,3.38,2.84,3.38,2.84-1.27,2.84-3.33c0-2.19-1.03-3.42-2.86-3.42Zm.02,.92c1.12,0,1.8,.92,1.8,2.48s-.7,2.42-1.8,2.42-1.81-.94-1.81-2.45,.69-2.45,1.81-2.45Z"/>
+    </g>
+    <g id="glyph-9-8">
+      <path class="cls-19" d="M633.5,299.5v8.75h.91v-.8c.48,.72,1.11,1.08,2,1.08,1.66,0,2.73-1.36,2.73-3.45s-1.03-3.3-2.69-3.3c-.88,0-1.48,.33-1.95,1.03v-3.31h-1Zm2.75,3.22c1.12,0,1.84,.97,1.84,2.47s-.75,2.41-1.84,2.41-1.75-.97-1.75-2.44,.69-2.44,1.75-2.44Z"/>
+    </g>
+    <g id="glyph-9-4-2" data-name="glyph-9-4">
+      <path class="cls-19" d="M645.95,307.66c-.11,.03-.16,.03-.22,.03-.34,0-.55-.19-.55-.5v-3.69c0-1.12-.81-1.72-2.36-1.72-.92,0-1.66,.27-2.08,.73-.3,.33-.42,.69-.44,1.31h1c.09-.78,.55-1.12,1.48-1.12s1.41,.34,1.41,.94v.27c-.02,.44-.23,.59-1.05,.7-1.42,.17-1.64,.22-2.02,.38-.73,.31-1.11,.86-1.11,1.69,0,1.14,.8,1.86,2.06,1.86,.8,0,1.44-.28,2.14-.92,.08,.64,.39,.92,1.03,.92,.22,0,.34-.03,.69-.11v-.77Zm-1.75-1.39c0,.34-.09,.55-.41,.83-.41,.36-.89,.56-1.48,.56-.78,0-1.23-.38-1.23-1.02s.44-1,1.52-1.16c1.06-.14,1.27-.19,1.61-.34v1.12Z"/>
+    </g>
+    <g id="glyph-9-8-2" data-name="glyph-9-8">
+      <path class="cls-19" d="M646.84,299.5v8.75h.91v-.8c.48,.72,1.11,1.08,2,1.08,1.66,0,2.73-1.36,2.73-3.45s-1.03-3.3-2.69-3.3c-.88,0-1.48,.33-1.95,1.03v-3.31h-1Zm2.75,3.22c1.12,0,1.84,.97,1.84,2.47s-.75,2.41-1.84,2.41-1.75-.97-1.75-2.44,.69-2.44,1.75-2.44Z"/>
+    </g>
+    <g id="glyph-9-9">
+      <path class="cls-19" d="M654.67,301.97h-1v6.28h1v-6.28Zm0-2.47h-1v1.27h1v-1.27Z"/>
+    </g>
+    <g id="glyph-9-10">
+      <path class="cls-19" d="M657.36,299.5h-1.02v8.75h1.02v-8.75Z"/>
+    </g>
+    <g id="glyph-9-9-2" data-name="glyph-9-9">
+      <path class="cls-19" d="M660,301.97h-1v6.28h1v-6.28Zm0-2.47h-1v1.27h1v-1.27Z"/>
+    </g>
+    <g id="glyph-9-11">
+      <path class="cls-19" d="M663.91,301.97h-1.03v-1.73h-1v1.73h-.84v.81h.84v4.75c0,.64,.44,1,1.22,1,.27,0,.48-.03,.81-.09v-.83c-.14,.03-.28,.05-.48,.05-.42,0-.55-.12-.55-.56v-4.31h1.03v-.81Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-9-9-3" data-name="glyph-9-9">
+      <path class="cls-19" d="M665.94,301.97h-1v6.28h1v-6.28Zm0-2.47h-1v1.27h1v-1.27Z"/>
+    </g>
+    <g id="glyph-9-2-3" data-name="glyph-9-2">
+      <path class="cls-19" d="M672.96,305.44c0-.95-.08-1.53-.25-2-.41-1.03-1.38-1.66-2.55-1.66-1.75,0-2.88,1.33-2.88,3.41s1.08,3.34,2.86,3.34c1.44,0,2.42-.83,2.69-2.19h-1.02c-.28,.83-.84,1.27-1.64,1.27-.64,0-1.17-.3-1.52-.83-.23-.36-.33-.72-.33-1.34h4.62Zm-4.61-.81c.08-1.16,.8-1.92,1.8-1.92s1.73,.8,1.73,1.92h-3.53Z"/>
+    </g>
+  </g>
+  <g id="glyph-9-12">
+    <path class="cls-19" d="M678.68,303.72c0-1.23-.83-1.94-2.28-1.94s-2.41,.75-2.41,1.92c0,.98,.5,1.45,2,1.81l.92,.22c.7,.17,.98,.42,.98,.88,0,.59-.59,1-1.47,1-.55,0-1-.16-1.25-.42-.16-.19-.22-.36-.28-.81h-1.06c.05,1.45,.86,2.16,2.52,2.16s2.59-.78,2.59-2c0-.94-.53-1.45-1.78-1.75l-.97-.23c-.81-.19-1.16-.45-1.16-.89,0-.59,.52-.95,1.33-.95s1.23,.34,1.27,1.02h1.05Z"/>
+  </g>
+  <g id="glyph-9-13">
+    <path class="cls-19" d="M680.35,307v1.25h.72v.22c0,.83-.16,1.06-.72,1.09v.45c.8,.02,1.25-.55,1.25-1.58v-1.44h-1.25Z"/>
+  </g>
+  <g>
+    <g id="glyph-9-14">
+      <path class="cls-19" d="M584.58,319.97v6.28h1v-3.47c0-1.28,.67-2.12,1.7-2.12,.8,0,1.3,.48,1.3,1.23v4.36h1v-4.75c0-1.05-.78-1.72-1.98-1.72-.94,0-1.55,.36-2.09,1.23v-1.05h-.92Z"/>
+    </g>
+    <g id="glyph-9-7-2" data-name="glyph-9-7">
+      <path class="cls-19" d="M593.68,319.78c-1.78,0-2.83,1.27-2.83,3.38s1.05,3.38,2.84,3.38,2.84-1.27,2.84-3.33c0-2.19-1.03-3.42-2.86-3.42Zm.02,.92c1.12,0,1.8,.92,1.8,2.48s-.7,2.42-1.8,2.42-1.81-.94-1.81-2.45,.69-2.45,1.81-2.45Z"/>
+    </g>
+  </g>
+  <g id="glyph-9-11-2" data-name="glyph-9-11">
+    <path class="cls-19" d="M600.02,319.97h-1.03v-1.73h-1v1.73h-.84v.81h.84v4.75c0,.64,.44,1,1.22,1,.27,0,.48-.03,.81-.09v-.83c-.14,.03-.28,.05-.48,.05-.42,0-.55-.12-.55-.56v-4.31h1.03v-.81Z"/>
+  </g>
+  <g>
+    <g id="glyph-9-15">
+      <path class="cls-19" d="M609.26,326.25l2.47-7.33v7.33h1.05v-8.75h-1.55l-2.53,7.62-2.59-7.62h-1.55v8.75h1.05v-7.33l2.48,7.33h1.17Z"/>
+    </g>
+    <g id="glyph-9-16">
+      <path class="cls-19" d="M615.88,322.48h2.88c1,0,1.44,.48,1.44,1.56v.78c0,.53,.09,1.06,.25,1.42h1.34v-.28c-.41-.28-.5-.59-.52-1.77-.02-1.44-.25-1.86-1.19-2.27,.98-.5,1.38-1.09,1.38-2.09,0-1.52-.94-2.34-2.67-2.34h-4.03v8.75h1.12v-3.77Zm0-.98v-3.02h2.7c.62,0,.98,.09,1.25,.34,.3,.25,.45,.64,.45,1.16,0,1.05-.52,1.52-1.7,1.52h-2.7Z"/>
+    </g>
+  </g>
+  <g id="glyph-9-17">
+    <path class="cls-19" d="M624.43,317.5h-1.12v8.75h1.12v-8.75Z"/>
+  </g>
+  <g>
+    <g id="glyph-9-9-4" data-name="glyph-9-9">
+      <path class="cls-19" d="M630.57,319.97h-1v6.28h1v-6.28Zm0-2.47h-1v1.27h1v-1.27Z"/>
+    </g>
+    <g id="glyph-9-18">
+      <path class="cls-19" d="M632.28,319.97v6.28h1v-3.95c0-.91,.67-1.64,1.48-1.64,.73,0,1.16,.45,1.16,1.27v4.33h1.02v-3.95c0-.91,.66-1.64,1.47-1.64,.73,0,1.17,.47,1.17,1.27v4.33h1v-4.72c0-1.12-.64-1.75-1.83-1.75-.83,0-1.34,.25-1.92,.95-.38-.67-.88-.95-1.69-.95s-1.41,.31-1.94,1.06v-.88h-.92Z"/>
+    </g>
+    <g id="glyph-9-4-3" data-name="glyph-9-4">
+      <path class="cls-19" d="M647.86,325.66c-.11,.03-.16,.03-.22,.03-.34,0-.55-.19-.55-.5v-3.69c0-1.12-.81-1.72-2.36-1.72-.92,0-1.66,.27-2.08,.73-.3,.33-.42,.69-.44,1.31h1c.09-.78,.55-1.12,1.48-1.12s1.41,.34,1.41,.94v.27c-.02,.44-.23,.59-1.05,.7-1.42,.17-1.64,.22-2.02,.38-.73,.31-1.11,.86-1.11,1.69,0,1.14,.8,1.86,2.06,1.86,.8,0,1.44-.28,2.14-.92,.08,.64,.39,.92,1.03,.92,.22,0,.34-.03,.69-.11v-.77Zm-1.75-1.39c0,.34-.09,.55-.41,.83-.41,.36-.89,.56-1.48,.56-.78,0-1.23-.38-1.23-1.02s.44-1,1.52-1.16c1.06-.14,1.27-.19,1.61-.34v1.12Z"/>
+    </g>
+  </g>
+  <g id="glyph-9-5-2" data-name="glyph-9-5">
+    <path class="cls-19" d="M652.87,319.97v.91c-.5-.75-1.05-1.09-1.84-1.09-1.53,0-2.58,1.42-2.58,3.44,0,1.05,.25,1.81,.8,2.45,.47,.55,1.06,.86,1.7,.86,.77,0,1.3-.34,1.83-1.14v.33c0,1.69-.47,2.31-1.72,2.31-.84,0-1.3-.34-1.39-1.06h-1.02c.09,1.17,1.02,1.89,2.39,1.89,.92,0,1.69-.3,2.09-.8,.48-.59,.66-1.38,.66-2.84v-5.25h-.92Zm-1.75,.73c1.06,0,1.66,.89,1.66,2.48s-.61,2.42-1.66,2.42-1.62-.91-1.62-2.45,.59-2.45,1.62-2.45Z"/>
+  </g>
+  <g id="glyph-9-2-4" data-name="glyph-9-2">
+    <path class="cls-19" d="M660.79,323.44c0-.95-.08-1.53-.25-2-.41-1.03-1.38-1.66-2.55-1.66-1.75,0-2.88,1.33-2.88,3.41s1.08,3.34,2.86,3.34c1.44,0,2.42-.83,2.69-2.19h-1.02c-.28,.83-.84,1.27-1.64,1.27-.64,0-1.17-.3-1.52-.83-.23-.36-.33-.72-.33-1.34h4.62Zm-4.61-.81c.08-1.16,.8-1.92,1.8-1.92s1.73,.8,1.73,1.92h-3.53Z"/>
+  </g>
+  <g id="glyph-9-12-2" data-name="glyph-9-12">
+    <path class="cls-19" d="M666.51,321.72c0-1.23-.83-1.94-2.28-1.94s-2.41,.75-2.41,1.92c0,.98,.5,1.45,2,1.81l.92,.22c.7,.17,.98,.42,.98,.88,0,.59-.59,1-1.47,1-.55,0-1-.16-1.25-.42-.16-.19-.22-.36-.28-.81h-1.06c.05,1.45,.86,2.16,2.52,2.16s2.59-.78,2.59-2c0-.94-.53-1.45-1.78-1.75l-.97-.23c-.81-.19-1.16-.45-1.16-.89,0-.59,.52-.95,1.33-.95s1.23,.34,1.27,1.02h1.05Z"/>
+  </g>
+  <path class="cls-1" d="M721.5,234.75h39"/>
+  <path class="cls-17" d="M749.34,228.19l13.12,6.56-13.12,6.56v-13.12Z"/>
+  <g>
+    <g id="glyph-0-0-2" data-name="glyph-0-0">
+      <path class="cls-18" d="M752.37,132.62c-.02-2.72-1.83-4.22-5.14-4.22s-4.97,1.48-4.97,4.03c0,2.05,1.03,3.03,3.69,3.53l1.84,.36c1.8,.34,2.45,.84,2.45,1.91s-1,1.77-2.64,1.77c-1.84,0-2.86-.77-2.95-2.17h-2.62c.16,2.81,2.08,4.33,5.44,4.33s5.38-1.56,5.38-4.23c0-2.08-1.05-3.16-3.47-3.62l-2.05-.39c-1.94-.38-2.48-.77-2.48-1.72s.86-1.61,2.27-1.61c1.7,0,2.66,.72,2.75,2.05h2.52Z"/>
+    </g>
+    <g id="glyph-0-1-2" data-name="glyph-0-1">
+      <path class="cls-18" d="M763.19,141.75v-9.72h-2.52v6.08c0,1.16-.8,1.91-2.03,1.91-1.08,0-1.62-.56-1.62-1.73v-6.25h-2.52v6.77c0,2.16,1.17,3.36,3.25,3.36,1.31,0,2.2-.45,2.92-1.56v1.16h2.52Z"/>
+    </g>
+    <g id="glyph-0-2-4" data-name="glyph-0-2">
+      <path class="cls-18" d="M765.52,128.62v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-0-3-2" data-name="glyph-0-3">
+      <path class="cls-18" d="M779.18,132.03h-2.52v10.86c0,.55-.2,.75-.75,.75-.16,0-.28-.02-.44-.08v2.02c.48,.06,1.09,.09,1.48,.09,1.56,0,2.22-.64,2.22-2.23v-11.41Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-4-3" data-name="glyph-0-4">
+      <path class="cls-18" d="M789.84,137.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-5-2" data-name="glyph-0-5">
+      <path class="cls-18" d="M799.8,135.67c-.17-2.38-1.73-3.8-4.19-3.8-2.92,0-4.59,1.91-4.59,5.22s1.67,5.06,4.56,5.06c2.36,0,3.98-1.45,4.22-3.77h-2.41c-.31,1.25-.81,1.73-1.81,1.73-1.28,0-2.05-1.12-2.05-3.03,0-.94,.19-1.78,.5-2.36,.28-.55,.84-.83,1.56-.83,1.02,0,1.52,.48,1.8,1.77h2.41Z"/>
+    </g>
+    <g id="glyph-0-6-3" data-name="glyph-0-6">
+      <path class="cls-18" d="M805.84,132.23h-1.41v-2.61h-2.52v2.61h-1.25v1.67h1.25v5.97c0,1.53,.8,2.28,2.45,2.28,.58,0,1-.05,1.47-.19v-1.77c-.25,.03-.38,.05-.58,.05-.67,0-.83-.19-.83-1.06v-5.28h1.41v-1.67Z"/>
+    </g>
+    <g id="glyph-0-19">
+      <path class="cls-18" d="M811.77,135.59h-4.89v2.44h4.89v-2.44Z"/>
+    </g>
+    <g id="glyph-0-14-2" data-name="glyph-0-14">
+      <path class="cls-18" d="M816.13,128.62h-2.52v13.12h2.52v-13.12Z"/>
+    </g>
+    <g id="glyph-0-4-4" data-name="glyph-0-4">
+      <path class="cls-18" d="M826.85,137.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+  </g>
+  <g id="glyph-0-16-2" data-name="glyph-0-16">
+    <path class="cls-18" d="M833.36,141.75l3.34-9.72h-2.66l-1.97,7.11-2.09-7.11h-2.67l3.41,9.72h2.64Z"/>
+  </g>
+  <g>
+    <g id="glyph-0-4-5" data-name="glyph-0-4">
+      <path class="cls-18" d="M846.2,137.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-14-3" data-name="glyph-0-14">
+      <path class="cls-18" d="M850.49,128.62h-2.52v13.12h2.52v-13.12Z"/>
+    </g>
+    <g id="glyph-0-20">
+      <path class="cls-18" d="M860.34,132.03h-2.52v13.64h2.52v-5.08c.61,1.08,1.48,1.59,2.7,1.59,2.34,0,4.06-2.2,4.06-5.16,0-1.36-.39-2.73-1.05-3.64-.64-.91-1.84-1.52-3.02-1.52s-2.09,.52-2.7,1.59v-1.44Zm2.12,1.94c1.28,0,2.12,1.23,2.12,3.09s-.86,3.02-2.12,3.02-2.12-1.22-2.12-3.05,.84-3.06,2.12-3.06Z"/>
+    </g>
+    <g id="glyph-0-10-3" data-name="glyph-0-10">
+      <path class="cls-18" d="M868.92,132.03v9.72h2.52v-5.17c0-1.47,.73-2.2,2.22-2.2,.27,0,.44,.02,.78,.06v-2.55c-.14-.02-.19-.02-.3-.02-1.16,0-2.14,.75-2.7,2.06v-1.91h-2.52Z"/>
+    </g>
+    <g id="glyph-0-11-2" data-name="glyph-0-11">
+      <path class="cls-18" d="M880.2,131.88c-2.97,0-4.8,1.95-4.8,5.14s1.83,5.14,4.81,5.14,4.8-1.94,4.8-5.06c0-3.3-1.78-5.22-4.81-5.22Zm.02,2.03c1.39,0,2.28,1.23,2.28,3.14s-.94,3.08-2.28,3.08-2.28-1.23-2.28-3.11,.91-3.11,2.28-3.11Z"/>
+    </g>
+    <g id="glyph-0-2-5" data-name="glyph-0-2">
+      <path class="cls-18" d="M886.84,128.62v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+    <g id="glyph-0-12-4" data-name="glyph-0-12">
+      <path class="cls-18" d="M906.21,141.44c-.44-.41-.58-.7-.58-1.19v-5.39c0-1.98-1.36-2.98-3.98-2.98s-4,1.11-4.16,3.36h2.44c.12-1.02,.53-1.33,1.78-1.33,.97,0,1.45,.31,1.45,.97,0,.33-.16,.59-.44,.75q-.34,.19-1.58,.39l-1.02,.17c-1.92,.33-2.86,1.31-2.86,3.06s1.17,2.91,2.95,2.91c1.08,0,2.06-.44,2.95-1.38,0,.5,.06,.69,.3,.97h2.73v-.31Zm-3.05-3.59c0,1.45-.72,2.28-2,2.28-.84,0-1.36-.44-1.36-1.17s.39-1.11,1.44-1.33l.86-.16c.67-.12,.78-.17,1.06-.31v.69Z"/>
+    </g>
+    <g id="glyph-0-2-6" data-name="glyph-0-2">
+      <path class="cls-18" d="M907.85,128.62v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+    <g id="glyph-0-13-4" data-name="glyph-0-13">
+      <path class="cls-18" d="M921.5,132.03h-2.52v9.72h2.52v-9.72Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-14-4" data-name="glyph-0-14">
+      <path class="cls-18" d="M926.5,128.62h-2.52v13.12h2.52v-13.12Z"/>
+    </g>
+    <g id="glyph-0-13-5" data-name="glyph-0-13">
+      <path class="cls-18" d="M931.51,132.03h-2.52v9.72h2.52v-9.72Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-6-4" data-name="glyph-0-6">
+      <path class="cls-18" d="M938.21,132.23h-1.41v-2.61h-2.52v2.61h-1.25v1.67h1.25v5.97c0,1.53,.8,2.28,2.45,2.28,.58,0,1-.05,1.47-.19v-1.77c-.25,.03-.38,.05-.58,.05-.67,0-.83-.19-.83-1.06v-5.28h1.41v-1.67Z"/>
+    </g>
+  </g>
+  <g id="glyph-0-15-2" data-name="glyph-0-15">
+    <path class="cls-18" d="M946.13,132.03l-2.02,7.08-2.14-7.08h-2.78l3.62,10.11c0,1.02-.62,1.7-1.56,1.7-.2,0-.36-.05-.67-.11v1.89c.38,.05,.59,.06,.91,.06,.64,0,1.36-.12,1.81-.3,.7-.3,1.02-.69,1.42-1.86l4-11.5h-2.59Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-15-3" data-name="glyph-1-15">
+      <path class="cls-13" d="M791.19,166.45c-.39-2.16-1.64-3.2-3.8-3.2-1.31,0-2.39,.42-3.11,1.22-.89,.98-1.39,2.38-1.39,3.97s.5,3.02,1.42,3.97c.77,.8,1.75,1.16,3.03,1.16,2.41,0,3.75-1.3,4.05-3.91h-1.3c-.11,.67-.25,1.14-.45,1.53-.39,.81-1.23,1.27-2.28,1.27-1.97,0-3.2-1.56-3.2-4.02s1.17-4.08,3.09-4.08c.8,0,1.53,.22,1.94,.61,.36,.34,.56,.75,.72,1.48h1.28Z"/>
+    </g>
+    <g id="glyph-1-16-2" data-name="glyph-1-16">
+      <path class="cls-13" d="M800.72,163.41h-1.19v8.05l-5.14-8.05h-1.36v9.84h1.19v-7.98l5.08,7.98h1.42v-9.84Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-17-2" data-name="glyph-1-17">
+      <path class="cls-12" d="M845.56,173.25l2.77-8.25v8.25h1.2v-9.84h-1.75l-2.86,8.58-2.92-8.58h-1.73v9.84h1.19v-8.25l2.8,8.25h1.31Z"/>
+    </g>
+    <g id="glyph-1-15-4" data-name="glyph-1-15">
+      <path class="cls-12" d="M859.43,166.45c-.39-2.16-1.64-3.2-3.8-3.2-1.31,0-2.39,.42-3.11,1.22-.89,.98-1.39,2.38-1.39,3.97s.5,3.02,1.42,3.97c.77,.8,1.75,1.16,3.03,1.16,2.41,0,3.75-1.3,4.05-3.91h-1.3c-.11,.67-.25,1.14-.45,1.53-.39,.81-1.23,1.27-2.28,1.27-1.97,0-3.2-1.56-3.2-4.02s1.17-4.08,3.09-4.08c.8,0,1.53,.22,1.94,.61,.36,.34,.56,.75,.72,1.48h1.28Z"/>
+    </g>
+    <g id="glyph-1-18-2" data-name="glyph-1-18">
+      <path class="cls-12" d="M862.87,163.41h-1.28v9.84h1.28v-9.84Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-19-2" data-name="glyph-1-19">
+      <path class="cls-8" d="M907.16,170.3l1,2.95h1.41l-3.45-9.84h-1.62l-3.5,9.84h1.33l1.05-2.95h3.8Zm-.36-1.06h-3.12l1.61-4.47,1.52,4.47Z"/>
+    </g>
+    <g id="glyph-1-20-2" data-name="glyph-1-20">
+      <path class="cls-8" d="M910.96,173.25h3.8c2.48,0,4-1.86,4-4.92s-1.5-4.92-4-4.92h-3.8v9.84Zm1.25-1.11v-7.62h2.33c1.94,0,2.97,1.31,2.97,3.83s-1.03,3.8-2.97,3.8h-2.33Z"/>
+    </g>
+  </g>
+  <path class="cls-11" d="M764.25,184.5h187.5v57h-187.5v-57Z"/>
+  <path class="cls-13" d="M773.25,193.5h41.25v39h-41.25v-39Z"/>
+  <path class="cls-12" d="M814.5,193.5h54v39h-54v-39Z"/>
+  <path class="cls-8" d="M868.5,193.5h74.25v39h-74.25v-39Z"/>
+  <path class="cls-1" d="M845.25,246.75v30.75"/>
+  <path class="cls-17" d="M851.81,266.34l-6.56,13.12-6.56-13.12h13.12Z"/>
+  <g>
+    <g id="glyph-1-1-6" data-name="glyph-1-1">
+      <path class="cls-15" d="M829.84,299.34c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-11-3" data-name="glyph-1-11">
+      <path class="cls-15" d="M831.07,292.92v7.08h1.12v-3.67c.02-1.7,.72-2.45,2.27-2.42v-1.14c-.19-.03-.3-.05-.42-.05-.73,0-1.28,.44-1.94,1.48v-1.28h-1.03Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-22">
+      <path class="cls-15" d="M840.04,292.92v1.03c-.56-.86-1.19-1.23-2.08-1.23-1.72,0-2.91,1.59-2.91,3.86,0,1.19,.28,2.06,.89,2.78,.53,.61,1.2,.95,1.94,.95,.84,0,1.45-.38,2.05-1.27v.36c0,1.89-.53,2.59-1.92,2.59-.97,0-1.47-.38-1.58-1.19h-1.14c.11,1.31,1.14,2.12,2.69,2.12,1.03,0,1.91-.33,2.36-.91,.55-.66,.75-1.53,.75-3.19v-5.92h-1.05Zm-1.97,.84c1.19,0,1.86,1,1.86,2.8,0,1.7-.69,2.7-1.86,2.7s-1.84-1-1.84-2.75,.69-2.75,1.84-2.75Z"/>
+    </g>
+    <g id="glyph-1-2-2" data-name="glyph-1-2">
+      <path class="cls-15" d="M843.03,292.92v7.08h1.14v-4.44c0-1.03,.75-1.86,1.66-1.86,.84,0,1.31,.52,1.31,1.42v4.88h1.14v-4.44c0-1.03,.73-1.86,1.66-1.86,.83,0,1.31,.53,1.31,1.42v4.88h1.12v-5.31c0-1.27-.72-1.97-2.05-1.97-.94,0-1.52,.28-2.17,1.08-.42-.75-.98-1.08-1.91-1.08s-1.58,.36-2.17,1.2v-1h-1.05Z"/>
+    </g>
+    <g id="glyph-1-1-7" data-name="glyph-1-1">
+      <path class="cls-15" d="M860.56,299.34c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-23">
+    <path class="cls-15" d="M865.06,296.34l2.38-3.42h-1.27l-1.7,2.56-1.7-2.56h-1.28l2.38,3.47-2.5,3.61h1.28l1.8-2.72,1.77,2.72h1.31l-2.45-3.66Z"/>
+  </g>
+  <path class="cls-1" d="M845.25,306.75v21"/>
+  <path class="cls-17" d="M851.81,316.59l-6.56,13.12-6.56-13.12h13.12Z"/>
+  <path class="cls-5" d="M758.25,331.5h202.5v97.5h-202.5v-97.5Z"/>
+  <g>
+    <g id="glyph-0-0-3" data-name="glyph-0-0">
+      <path class="cls-18" d="M774.75,351.62c-.02-2.72-1.83-4.22-5.14-4.22s-4.97,1.48-4.97,4.03c0,2.05,1.03,3.03,3.69,3.53l1.84,.36c1.8,.34,2.45,.84,2.45,1.91s-1,1.77-2.64,1.77c-1.84,0-2.86-.77-2.95-2.17h-2.62c.16,2.81,2.08,4.33,5.44,4.33s5.38-1.56,5.38-4.23c0-2.08-1.05-3.16-3.47-3.62l-2.05-.39c-1.94-.38-2.48-.77-2.48-1.72s.86-1.61,2.27-1.61c1.7,0,2.66,.72,2.75,2.05h2.52Z"/>
+    </g>
+    <g id="glyph-0-1-3" data-name="glyph-0-1">
+      <path class="cls-18" d="M785.57,360.75v-9.72h-2.52v6.08c0,1.16-.8,1.91-2.03,1.91-1.08,0-1.62-.56-1.62-1.73v-6.25h-2.52v6.77c0,2.16,1.17,3.36,3.25,3.36,1.31,0,2.2-.45,2.92-1.56v1.16h2.52Z"/>
+    </g>
+    <g id="glyph-0-2-7" data-name="glyph-0-2">
+      <path class="cls-18" d="M787.9,347.62v13.12h2.52v-.98c.61,.95,1.47,1.39,2.69,1.39,2.33,0,4.08-2.2,4.08-5.14,0-1.31-.39-2.64-1.03-3.58-.67-.95-1.86-1.56-3.05-1.56s-2.08,.44-2.69,1.42v-4.67h-2.52Zm4.64,5.34c1.25,0,2.12,1.27,2.12,3.06s-.86,3.03-2.12,3.03-2.12-1.2-2.12-3.08,.88-3.02,2.12-3.02Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-0-3-3" data-name="glyph-0-3">
+      <path class="cls-18" d="M801.56,351.03h-2.52v10.86c0,.55-.2,.75-.75,.75-.16,0-.28-.02-.44-.08v2.02c.48,.06,1.09,.09,1.48,.09,1.56,0,2.22-.64,2.22-2.23v-11.41Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-4-6" data-name="glyph-0-4">
+      <path class="cls-18" d="M812.22,356.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-5-3" data-name="glyph-0-5">
+      <path class="cls-18" d="M822.18,354.67c-.17-2.38-1.73-3.8-4.19-3.8-2.92,0-4.59,1.91-4.59,5.22s1.67,5.06,4.56,5.06c2.36,0,3.98-1.45,4.22-3.77h-2.41c-.31,1.25-.81,1.73-1.81,1.73-1.28,0-2.05-1.12-2.05-3.03,0-.94,.19-1.78,.5-2.36,.28-.55,.84-.83,1.56-.83,1.02,0,1.52,.48,1.8,1.77h2.41Z"/>
+    </g>
+    <g id="glyph-0-6-5" data-name="glyph-0-6">
+      <path class="cls-18" d="M828.22,351.23h-1.41v-2.61h-2.52v2.61h-1.25v1.67h1.25v5.97c0,1.53,.8,2.28,2.45,2.28,.58,0,1-.05,1.47-.19v-1.77c-.25,.03-.38,.05-.58,.05-.67,0-.83-.19-.83-1.06v-5.28h1.41v-1.67Z"/>
+    </g>
+    <g id="glyph-0-19-2" data-name="glyph-0-19">
+      <path class="cls-18" d="M834.15,354.59h-4.89v2.44h4.89v-2.44Z"/>
+    </g>
+    <g id="glyph-0-14-5" data-name="glyph-0-14">
+      <path class="cls-18" d="M838.5,347.62h-2.52v13.12h2.52v-13.12Z"/>
+    </g>
+    <g id="glyph-0-4-7" data-name="glyph-0-4">
+      <path class="cls-18" d="M849.23,356.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+  </g>
+  <g id="glyph-0-16-3" data-name="glyph-0-16">
+    <path class="cls-18" d="M855.73,360.75l3.34-9.72h-2.66l-1.97,7.11-2.09-7.11h-2.67l3.41,9.72h2.64Z"/>
+  </g>
+  <g>
+    <g id="glyph-0-4-8" data-name="glyph-0-4">
+      <path class="cls-18" d="M868.58,356.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-14-6" data-name="glyph-0-14">
+      <path class="cls-18" d="M872.87,347.62h-2.52v13.12h2.52v-13.12Z"/>
+    </g>
+    <g id="glyph-0-4-9" data-name="glyph-0-4">
+      <path class="cls-18" d="M888.59,356.69c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+    <g id="glyph-0-18-2" data-name="glyph-0-18">
+      <path class="cls-18" d="M890.3,351.03v9.72h2.52v-5.83c0-1.16,.8-1.91,2.03-1.91,1.08,0,1.62,.59,1.62,1.73v6h2.52v-6.52c0-2.16-1.17-3.36-3.27-3.36-1.31,0-2.19,.47-2.91,1.56v-1.41h-2.52Z"/>
+    </g>
+    <g id="glyph-0-21">
+      <path class="cls-18" d="M907.46,360.75h2.52v-13.12h-2.52v4.67c-.64-.98-1.47-1.42-2.69-1.42-2.33,0-4.09,2.22-4.09,5.16,0,1.31,.41,2.66,1.05,3.58,.67,.95,1.86,1.55,3.05,1.55s2.05-.42,2.69-1.39v.98Zm-2.12-7.78c1.27,0,2.12,1.23,2.12,3.09s-.88,3-2.12,3-2.12-1.25-2.12-3.03,.86-3.06,2.12-3.06Z"/>
+    </g>
+    <g id="glyph-0-20-2" data-name="glyph-0-20">
+      <path class="cls-18" d="M914.72,351.03h-2.52v13.64h2.52v-5.08c.61,1.08,1.48,1.59,2.7,1.59,2.34,0,4.06-2.2,4.06-5.16,0-1.36-.39-2.73-1.05-3.64-.64-.91-1.84-1.52-3.02-1.52s-2.09,.52-2.7,1.59v-1.44Zm2.12,1.94c1.28,0,2.12,1.23,2.12,3.09s-.86,3.02-2.12,3.02-2.12-1.22-2.12-3.05,.84-3.06,2.12-3.06Z"/>
+    </g>
+    <g id="glyph-0-11-3" data-name="glyph-0-11">
+      <path class="cls-18" d="M927.58,350.88c-2.97,0-4.8,1.95-4.8,5.14s1.83,5.14,4.81,5.14,4.8-1.94,4.8-5.06c0-3.3-1.78-5.22-4.81-5.22Zm.02,2.03c1.39,0,2.28,1.23,2.28,3.14s-.94,3.08-2.28,3.08-2.28-1.23-2.28-3.11,.91-3.11,2.28-3.11Z"/>
+    </g>
+    <g id="glyph-0-13-6" data-name="glyph-0-13">
+      <path class="cls-18" d="M936.87,351.03h-2.52v9.72h2.52v-9.72Zm0-3.41h-2.52v2.25h2.52v-2.25Z"/>
+    </g>
+    <g id="glyph-0-18-3" data-name="glyph-0-18">
+      <path class="cls-18" d="M939.3,351.03v9.72h2.52v-5.83c0-1.16,.8-1.91,2.03-1.91,1.08,0,1.62,.59,1.62,1.73v6h2.52v-6.52c0-2.16-1.17-3.36-3.27-3.36-1.31,0-2.19,.47-2.91,1.56v-1.41h-2.52Z"/>
+    </g>
+    <g id="glyph-0-6-6" data-name="glyph-0-6">
+      <path class="cls-18" d="M954.58,351.23h-1.41v-2.61h-2.52v2.61h-1.25v1.67h1.25v5.97c0,1.53,.8,2.28,2.45,2.28,.58,0,1-.05,1.47-.19v-1.77c-.25,.03-.38,.05-.58,.05-.67,0-.83-.19-.83-1.06v-5.28h1.41v-1.67Z"/>
+    </g>
+  </g>
+  <g id="glyph-2-7">
+    <path class="cls-18" d="M771.06,385.52h5.48v-1.28h-5.48v-3.67h6.25v-1.3h-7.7v11.48h1.45v-5.23Z"/>
+  </g>
+  <g>
+    <g id="glyph-2-8">
+      <path class="cls-18" d="M780.01,382.5h-1.3v8.25h1.3v-8.25Zm0-3.23h-1.31v1.66h1.31v-1.66Z"/>
+    </g>
+    <g id="glyph-2-3-5" data-name="glyph-2-3">
+      <path class="cls-18" d="M782.25,382.5v8.25h1.31v-4.55c0-1.69,.89-2.8,2.23-2.8,1.05,0,1.7,.64,1.7,1.62v5.72h1.31v-6.23c0-1.38-1.03-2.25-2.61-2.25-1.23,0-2.02,.47-2.75,1.62v-1.39h-1.2Z"/>
+    </g>
+    <g id="glyph-2-2-4" data-name="glyph-2-2">
+      <path class="cls-18" d="M798.32,389.98c-.14,.03-.2,.03-.28,.03-.45,0-.7-.23-.7-.66v-4.84c0-1.47-1.08-2.25-3.11-2.25-1.2,0-2.17,.34-2.73,.95-.38,.42-.53,.91-.56,1.72h1.31c.11-1,.72-1.47,1.94-1.47s1.84,.45,1.84,1.23v.34c-.02,.56-.3,.77-1.38,.92-1.86,.23-2.14,.3-2.64,.5-.95,.41-1.45,1.12-1.45,2.2,0,1.5,1.05,2.44,2.72,2.44,1.03,0,1.88-.36,2.8-1.2,.09,.84,.5,1.2,1.36,1.2,.28,0,.45-.03,.89-.14v-.98Zm-2.3-1.83c0,.44-.12,.7-.52,1.06-.53,.48-1.19,.75-1.95,.75-1.03,0-1.62-.5-1.62-1.33,0-.88,.56-1.31,1.98-1.52,1.41-.19,1.67-.25,2.11-.45v1.48Z"/>
+    </g>
+    <g id="glyph-2-9">
+      <path class="cls-18" d="M801.05,379.27h-1.31v11.48h1.31v-11.48Z"/>
+    </g>
+    <g id="glyph-2-1-4" data-name="glyph-2-1">
+      <path class="cls-18" d="M813.95,385.27c-.06-.8-.23-1.31-.56-1.78-.56-.77-1.55-1.22-2.7-1.22-2.23,0-3.67,1.77-3.67,4.5s1.42,4.34,3.66,4.34c1.97,0,3.22-1.17,3.38-3.19h-1.33c-.22,1.31-.89,1.98-2.02,1.98-1.45,0-2.31-1.19-2.31-3.14,0-2.06,.84-3.3,2.28-3.3,1.11,0,1.8,.66,1.95,1.8h1.33Z"/>
+    </g>
+    <g id="glyph-2-9-2" data-name="glyph-2-9">
+      <path class="cls-18" d="M816.8,379.27h-1.31v11.48h1.31v-11.48Z"/>
+    </g>
+    <g id="glyph-2-2-5" data-name="glyph-2-2">
+      <path class="cls-18" d="M826.33,389.98c-.14,.03-.2,.03-.28,.03-.45,0-.7-.23-.7-.66v-4.84c0-1.47-1.08-2.25-3.11-2.25-1.2,0-2.17,.34-2.73,.95-.38,.42-.53,.91-.56,1.72h1.31c.11-1,.72-1.47,1.94-1.47s1.84,.45,1.84,1.23v.34c-.02,.56-.3,.77-1.38,.92-1.86,.23-2.14,.3-2.64,.5-.95,.41-1.45,1.12-1.45,2.2,0,1.5,1.05,2.44,2.72,2.44,1.03,0,1.88-.36,2.8-1.2,.09,.84,.5,1.2,1.36,1.2,.28,0,.45-.03,.89-.14v-.98Zm-2.3-1.83c0,.44-.12,.7-.52,1.06-.53,.48-1.19,.75-1.95,.75-1.03,0-1.62-.5-1.62-1.33,0-.88,.56-1.31,1.98-1.52,1.41-.19,1.67-.25,2.11-.45v1.48Z"/>
+    </g>
+    <g id="glyph-2-10">
+      <path class="cls-18" d="M833.57,384.8c-.03-1.62-1.09-2.53-3-2.53s-3.17,.98-3.17,2.52c0,1.3,.67,1.91,2.62,2.38l1.22,.3c.92,.22,1.28,.56,1.28,1.14,0,.78-.77,1.31-1.92,1.31-.7,0-1.31-.22-1.64-.56-.2-.23-.3-.47-.38-1.05h-1.39c.06,1.91,1.14,2.81,3.3,2.81s3.41-1.02,3.41-2.61c0-1.23-.7-1.91-2.34-2.3l-1.25-.3c-1.08-.27-1.53-.61-1.53-1.19,0-.77,.67-1.25,1.75-1.25s1.62,.47,1.66,1.33h1.39Z"/>
+    </g>
+  </g>
+  <g id="glyph-2-10-2" data-name="glyph-2-10">
+    <path class="cls-18" d="M841.49,384.8c-.03-1.62-1.09-2.53-3-2.53s-3.17,.98-3.17,2.52c0,1.3,.67,1.91,2.62,2.38l1.22,.3c.92,.22,1.28,.56,1.28,1.14,0,.78-.77,1.31-1.92,1.31-.7,0-1.31-.22-1.64-.56-.2-.23-.3-.47-.38-1.05h-1.39c.06,1.91,1.14,2.81,3.3,2.81s3.41-1.02,3.41-2.61c0-1.23-.7-1.91-2.34-2.3l-1.25-.3c-1.08-.27-1.53-.61-1.53-1.19,0-.77,.67-1.25,1.75-1.25s1.62,.47,1.66,1.33h1.39Z"/>
+  </g>
+  <g>
+    <g id="glyph-2-11">
+      <path class="cls-18" d="M845.68,389.11h-1.64v1.64h1.64v-1.64Zm0-6.61h-1.64v1.64h1.64v-1.64Z"/>
+    </g>
+    <g id="glyph-2-12">
+      <path class="cls-18" d="M861.48,382.83c-.45-2.52-1.91-3.75-4.42-3.75-1.55,0-2.78,.48-3.64,1.44-1.03,1.12-1.61,2.77-1.61,4.62s.59,3.52,1.66,4.64c.91,.91,2.03,1.33,3.53,1.33,2.8,0,4.38-1.52,4.72-4.55h-1.5c-.12,.78-.28,1.33-.53,1.78-.47,.94-1.44,1.48-2.67,1.48-2.28,0-3.73-1.83-3.73-4.7s1.38-4.75,3.61-4.75c.92,0,1.8,.27,2.27,.72,.42,.39,.66,.88,.84,1.73h1.48Z"/>
+    </g>
+    <g id="glyph-2-13">
+      <path class="cls-18" d="M872.6,379.27h-1.39v9.39l-6-9.39h-1.58v11.48h1.38v-9.31l5.94,9.31h1.66v-11.48Z"/>
+    </g>
+    <g id="glyph-2-14">
+      <path class="cls-18" d="M881.79,379.27l-3.73,11.8h.86l3.73-11.8h-.86Z"/>
+    </g>
+    <g id="glyph-2-15">
+      <path class="cls-18" d="M894.31,390.75l3.22-9.62v9.62h1.39v-11.48h-2.03l-3.34,10-3.39-10h-2.03v11.48h1.38v-9.62l3.27,9.62h1.55Z"/>
+    </g>
+    <g id="glyph-2-12-2" data-name="glyph-2-12">
+      <path class="cls-18" d="M910.48,382.83c-.45-2.52-1.91-3.75-4.42-3.75-1.55,0-2.78,.48-3.64,1.44-1.03,1.12-1.61,2.77-1.61,4.62s.59,3.52,1.66,4.64c.91,.91,2.03,1.33,3.53,1.33,2.8,0,4.38-1.52,4.72-4.55h-1.5c-.12,.78-.28,1.33-.53,1.78-.47,.94-1.44,1.48-2.67,1.48-2.28,0-3.73-1.83-3.73-4.7s1.38-4.75,3.61-4.75c.92,0,1.8,.27,2.27,.72,.42,.39,.66,.88,.84,1.73h1.48Z"/>
+    </g>
+    <g id="glyph-2-16">
+      <path class="cls-18" d="M914.49,379.27h-1.48v11.48h1.48v-11.48Z"/>
+    </g>
+    <g id="glyph-2-14-2" data-name="glyph-2-14">
+      <path class="cls-18" d="M923.79,379.27l-3.73,11.8h.86l3.73-11.8h-.86Z"/>
+    </g>
+    <g id="glyph-2-17">
+      <path class="cls-18" d="M936.41,387.3l1.17,3.45h1.64l-4.03-11.48h-1.89l-4.09,11.48h1.56l1.22-3.45h4.42Zm-.41-1.22h-3.66l1.89-5.23,1.77,5.23Z"/>
+    </g>
+    <g id="glyph-2-18">
+      <path class="cls-18" d="M940.85,390.75h4.42c2.89,0,4.67-2.17,4.67-5.75s-1.77-5.73-4.67-5.73h-4.42v11.48Zm1.45-1.3v-8.89h2.72c2.27,0,3.47,1.53,3.47,4.45s-1.2,4.44-3.47,4.44h-2.72Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-15-5" data-name="glyph-1-15">
+      <path class="cls-15" d="M780.98,407.95c-.39-2.16-1.64-3.2-3.8-3.2-1.31,0-2.39,.42-3.11,1.22-.89,.98-1.39,2.38-1.39,3.97s.5,3.02,1.42,3.97c.77,.8,1.75,1.16,3.03,1.16,2.41,0,3.75-1.3,4.05-3.91h-1.3c-.11,.67-.25,1.14-.45,1.53-.39,.81-1.23,1.27-2.28,1.27-1.97,0-3.2-1.56-3.2-4.02s1.17-4.08,3.09-4.08c.8,0,1.53,.22,1.94,.61,.36,.34,.56,.75,.72,1.48h1.28Z"/>
+    </g>
+    <g id="glyph-1-21-2" data-name="glyph-1-21">
+      <path class="cls-15" d="M785.46,407.47c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-14-3" data-name="glyph-1-14">
+      <path class="cls-15" d="M790.23,407.67v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+  </g>
+  <g id="glyph-10-0">
+    <path class="cls-15" d="M800.21,407.67h-1.17v-1.11c0-.47,.25-.7,.78-.7h.39v-.92c-.27-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.95v.92h.95v6.16h1.12v-6.16h1.17v-.92Zm2.48,0h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.12v1.42h1.12v-1.42Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-13-2" data-name="glyph-1-13">
+      <path class="cls-15" d="M810.24,404.91h-1.12v3.66c-.47-.72-1.23-1.09-2.17-1.09-1.84,0-3.05,1.47-3.05,3.73,0,2.39,1.17,3.86,3.08,3.86,.98,0,1.66-.36,2.27-1.25v.94h1v-9.84Zm-3.11,3.62c1.22,0,1.98,1.06,1.98,2.77s-.78,2.7-1.97,2.7c-1.25,0-2.06-1.09-2.06-2.73s.81-2.73,2.05-2.73Z"/>
+    </g>
+    <g id="glyph-1-3-6" data-name="glyph-1-3">
+      <path class="cls-15" d="M817.98,411.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-14-4" data-name="glyph-1-14">
+      <path class="cls-15" d="M819.5,407.67v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-8-5" data-name="glyph-1-8">
+      <path class="cls-15" d="M832.43,410.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-3-7" data-name="glyph-1-3">
+      <path class="cls-15" d="M839.79,411.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-24">
+      <path class="cls-15" d="M851.33,409.98h-6.53v.94h6.53v-.94Zm0,2.33h-6.53v.94h6.53v-.94Z"/>
+    </g>
+    <g id="glyph-1-2-3" data-name="glyph-1-2">
+      <path class="cls-15" d="M856.7,407.67v7.08h1.14v-4.44c0-1.03,.75-1.86,1.66-1.86,.84,0,1.31,.52,1.31,1.42v4.88h1.14v-4.44c0-1.03,.73-1.86,1.66-1.86,.83,0,1.31,.53,1.31,1.42v4.88h1.12v-5.31c0-1.27-.72-1.97-2.05-1.97-.94,0-1.52,.28-2.17,1.08-.42-.75-.98-1.08-1.91-1.08s-1.58,.36-2.17,1.2v-1h-1.05Z"/>
+    </g>
+    <g id="glyph-1-1-8" data-name="glyph-1-1">
+      <path class="cls-15" d="M874.23,414.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-23-2" data-name="glyph-1-23">
+      <path class="cls-15" d="M878.74,411.09l2.38-3.42h-1.27l-1.7,2.56-1.7-2.56h-1.28l2.38,3.47-2.5,3.61h1.28l1.8-2.72,1.77,2.72h1.31l-2.45-3.66Z"/>
+    </g>
+    <g id="glyph-1-12-2" data-name="glyph-1-12">
+      <path class="cls-15" d="M886.04,417.69h1.12v-3.69c.59,.73,1.27,1.06,2.17,1.06,1.84,0,3.03-1.47,3.03-3.73s-1.16-3.86-3.05-3.86c-.95,0-1.72,.44-2.25,1.28v-1.08h-1.03v10.02Zm3.09-9.16c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.83,2.69-2.06,2.69s-1.97-1.08-1.97-2.73,.77-2.73,1.97-2.73Z"/>
+    </g>
+    <g id="glyph-1-11-4" data-name="glyph-1-11">
+      <path class="cls-15" d="M893.75,407.67v7.08h1.12v-3.67c.02-1.7,.72-2.45,2.27-2.42v-1.14c-.19-.03-.3-.05-.42-.05-.73,0-1.28,.44-1.94,1.48v-1.28h-1.03Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-21-3" data-name="glyph-1-21">
+      <path class="cls-15" d="M900.9,407.47c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-6-2" data-name="glyph-1-6">
+      <path class="cls-15" d="M905.47,404.91v9.84h1v-.91c.55,.83,1.27,1.22,2.25,1.22,1.86,0,3.08-1.53,3.08-3.88s-1.16-3.72-3.03-3.72c-.97,0-1.66,.38-2.19,1.17v-3.73h-1.11Zm3.09,3.62c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.84,2.69-2.06,2.69s-1.98-1.08-1.98-2.73,.78-2.73,1.98-2.73Z"/>
+    </g>
+    <g id="glyph-1-1-9" data-name="glyph-1-1">
+      <path class="cls-15" d="M919.46,414.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-6-3" data-name="glyph-1-6">
+      <path class="cls-15" d="M920.48,404.91v9.84h1v-.91c.55,.83,1.27,1.22,2.25,1.22,1.86,0,3.08-1.53,3.08-3.88s-1.16-3.72-3.03-3.72c-.97,0-1.66,.38-2.19,1.17v-3.73h-1.11Zm3.09,3.62c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.84,2.69-2.06,2.69s-1.98-1.08-1.98-2.73,.78-2.73,1.98-2.73Z"/>
+    </g>
+    <g id="glyph-1-25">
+      <path class="cls-15" d="M929.28,407.67h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-26">
+      <path class="cls-15" d="M932.29,404.91h-1.12v9.84h1.12v-9.84Z"/>
+    </g>
+    <g id="glyph-1-25-2" data-name="glyph-1-25">
+      <path class="cls-15" d="M935.28,407.67h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-9-3" data-name="glyph-1-9">
+      <path class="cls-15" d="M939.66,407.67h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-27">
+    <path class="cls-15" d="M945.44,407.67l-1.95,5.52-1.81-5.52h-1.2l2.39,7.11-.42,1.11c-.2,.5-.44,.7-.91,.7-.19,0-.36-.03-.59-.09v1.02c.22,.12,.45,.17,.75,.17,.36,0,.75-.11,1.05-.33,.36-.27,.56-.56,.78-1.12l3.14-8.56h-1.22Z"/>
+  </g>
+  <path class="cls-20" d="M986.25,122.25h106.5c4.98,0,9,4.02,9,9v211.5c0,4.98-4.02,9-9,9h-106.5c-4.98,0-9-4.02-9-9V131.25c0-4.98,4.02-9,9-9Z"/>
+  <g>
+    <g id="glyph-0-9-2" data-name="glyph-0-9">
+      <path class="cls-18" d="M1007.55,148.31h3.38c2.41,0,3.95-1.7,3.95-4.36s-1.48-4.08-4.23-4.08h-5.78v13.12h2.69v-4.69Zm0-2.25v-3.94h2.53c1.44,0,2.09,.64,2.09,1.97s-.66,1.97-2.09,1.97h-2.53Z"/>
+    </g>
+    <g id="glyph-0-1-4" data-name="glyph-0-1">
+      <path class="cls-18" d="M1025.23,153v-9.72h-2.52v6.08c0,1.16-.8,1.91-2.03,1.91-1.08,0-1.62-.56-1.62-1.73v-6.25h-2.52v6.77c0,2.16,1.17,3.36,3.25,3.36,1.31,0,2.2-.45,2.92-1.56v1.16h2.52Z"/>
+    </g>
+    <g id="glyph-0-10-4" data-name="glyph-0-10">
+      <path class="cls-18" d="M1027.64,143.28v9.72h2.52v-5.17c0-1.47,.73-2.2,2.22-2.2,.27,0,.44,.02,.78,.06v-2.55c-.14-.02-.19-.02-.3-.02-1.16,0-2.14,.75-2.7,2.06v-1.91h-2.52Z"/>
+    </g>
+    <g id="glyph-0-20-3" data-name="glyph-0-20">
+      <path class="cls-18" d="M1037.06,143.28h-2.52v13.64h2.52v-5.08c.61,1.08,1.48,1.59,2.7,1.59,2.34,0,4.06-2.2,4.06-5.16,0-1.36-.39-2.73-1.05-3.64-.64-.91-1.84-1.52-3.02-1.52s-2.09,.52-2.7,1.59v-1.44Zm2.12,1.94c1.28,0,2.12,1.23,2.12,3.09s-.86,3.02-2.12,3.02-2.12-1.22-2.12-3.05,.84-3.06,2.12-3.06Z"/>
+    </g>
+    <g id="glyph-0-11-4" data-name="glyph-0-11">
+      <path class="cls-18" d="M1049.92,143.12c-2.97,0-4.8,1.95-4.8,5.14s1.83,5.14,4.81,5.14,4.8-1.94,4.8-5.06c0-3.3-1.78-5.22-4.81-5.22Zm.02,2.03c1.39,0,2.28,1.23,2.28,3.14s-.94,3.08-2.28,3.08-2.28-1.23-2.28-3.11,.91-3.11,2.28-3.11Z"/>
+    </g>
+    <g id="glyph-0-8-2" data-name="glyph-0-8">
+      <path class="cls-18" d="M1064.59,146.41c-.05-2.05-1.62-3.28-4.23-3.28-2.47,0-4,1.23-4,3.23,0,.64,.2,1.2,.55,1.58,.34,.34,.64,.52,1.58,.81l3.02,.94c.62,.2,.84,.39,.84,.8,0,.59-.7,.95-1.88,.95-.67,0-1.17-.11-1.5-.34-.27-.2-.38-.39-.48-.92h-2.47c.08,2.14,1.64,3.23,4.59,3.23,1.36,0,2.38-.28,3.09-.86s1.16-1.47,1.16-2.42c0-1.27-.62-2.08-1.91-2.45l-3.19-.92c-.7-.22-.88-.36-.88-.75,0-.55,.56-.91,1.45-.91,1.2,0,1.8,.44,1.81,1.31h2.44Z"/>
+    </g>
+    <g id="glyph-0-4-10" data-name="glyph-0-4">
+      <path class="cls-18" d="M1074.94,148.94c.02-.22,.02-.31,.02-.44,0-.97-.14-1.88-.38-2.56-.66-1.75-2.22-2.81-4.19-2.81-2.78,0-4.5,2.02-4.5,5.27s1.7,5.02,4.45,5.02c2.17,0,3.94-1.22,4.5-3.14h-2.48c-.31,.77-1.02,1.22-1.92,1.22-.72,0-1.3-.3-1.66-.84-.23-.36-.33-.8-.36-1.7h6.52Zm-6.48-1.67c.16-1.5,.8-2.22,1.91-2.22s1.84,.77,1.97,2.22h-3.88Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-28">
+    <path class="cls-15" d="M989.46,185.52h3.23c1.12,0,1.62,.53,1.62,1.75l-.02,.88c0,.61,.11,1.2,.28,1.61h1.53v-.31c-.48-.33-.58-.67-.59-1.98-.02-1.62-.28-2.11-1.34-2.56,1.11-.55,1.55-1.22,1.55-2.34,0-1.7-1.05-2.64-2.98-2.64h-4.55v9.84h1.27v-4.23Zm0-1.11v-3.39h3.03c.7,0,1.11,.11,1.42,.38,.33,.28,.52,.73,.52,1.31,0,1.17-.59,1.7-1.94,1.7h-3.03Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-3-8" data-name="glyph-1-3">
+      <path class="cls-15" d="M1003.48,186.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-13-3" data-name="glyph-1-13">
+      <path class="cls-15" d="M1010.75,179.91h-1.12v3.66c-.47-.72-1.23-1.09-2.17-1.09-1.84,0-3.05,1.47-3.05,3.73,0,2.39,1.17,3.86,3.08,3.86,.98,0,1.66-.36,2.27-1.25v.94h1v-9.84Zm-3.11,3.62c1.22,0,1.98,1.06,1.98,2.77s-.78,2.7-1.97,2.7c-1.25,0-2.06-1.09-2.06-2.73s.81-2.73,2.05-2.73Z"/>
+    </g>
+    <g id="glyph-1-5-2" data-name="glyph-1-5">
+      <path class="cls-15" d="M1018.07,189.75v-7.08h-1.11v4.02c0,1.44-.77,2.39-1.94,2.39-.89,0-1.45-.55-1.45-1.39v-5.02h-1.12v5.45c0,1.17,.88,1.94,2.25,1.94,1.05,0,1.7-.36,2.38-1.3v.98h1Z"/>
+    </g>
+    <g id="glyph-1-8-6" data-name="glyph-1-8">
+      <path class="cls-15" d="M1025.43,185.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-3-9" data-name="glyph-1-3">
+      <path class="cls-15" d="M1032.83,186.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-3-10" data-name="glyph-1-3">
+      <path class="cls-15" d="M1044.09,186.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+  </g>
+  <g id="glyph-10-1">
+    <path class="cls-15" d="M1048.19,182.67h-1.19v-1.11c0-.47,.27-.7,.8-.7h.39v-.92c-.27-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.95v.92h.95v6.16h1.11v-6.16h1.19v-.92Zm3.62,0h-1.17v-1.11c0-.47,.25-.7,.78-.7h.39v-.92c-.25-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.94v.92h.94v6.16h1.12v-6.16h1.17v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-3-11" data-name="glyph-1-3">
+      <path class="cls-15" d="M1059.1,186.59c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-8-7" data-name="glyph-1-8">
+      <path class="cls-15" d="M1066.04,185.05c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-9-4" data-name="glyph-1-9">
+      <path class="cls-15" d="M1069.96,182.67h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+    </g>
+    <g id="glyph-1-0-9" data-name="glyph-1-0">
+      <path class="cls-15" d="M1076.2,184.64c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-21-4" data-name="glyph-1-21">
+      <path class="cls-15" d="M1084.47,182.47c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-29">
+      <path class="cls-15" d="M1091.79,182.67h-1.17v-1.11c0-.47,.25-.7,.78-.7h.39v-.92c-.27-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.94v.92h.94v6.16h1.12v-6.16h1.17v-.92Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-0-10" data-name="glyph-1-0">
+      <path class="cls-15" d="M1008.21,207.89c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+    </g>
+    <g id="glyph-1-8-8" data-name="glyph-1-8">
+      <path class="cls-15" d="M1015.42,208.3c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-1-10" data-name="glyph-1-1">
+      <path class="cls-15" d="M1023.12,212.34c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-14-5" data-name="glyph-1-14">
+      <path class="cls-15" d="M1024.35,205.92v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-30">
+      <path class="cls-15" d="M1041.35,215.94v-10.02h-1v.95c-.53-.75-1.33-1.16-2.27-1.16-1.86,0-3.08,1.53-3.08,3.88s1.16,3.72,3.03,3.72c.98,0,1.66-.36,2.19-1.12v3.75h1.12Zm-3.09-9.16c1.2,0,1.97,1.06,1.97,2.78,0,1.61-.78,2.69-1.97,2.69-1.25,0-2.06-1.09-2.06-2.73s.81-2.73,2.06-2.73Z"/>
+    </g>
+    <g id="glyph-1-5-3" data-name="glyph-1-5">
+      <path class="cls-15" d="M1048.67,213v-7.08h-1.11v4.02c0,1.44-.77,2.39-1.94,2.39-.89,0-1.45-.55-1.45-1.39v-5.02h-1.12v5.45c0,1.17,.88,1.94,2.25,1.94,1.05,0,1.7-.36,2.38-1.3v.98h1Z"/>
+    </g>
+    <g id="glyph-1-1-11" data-name="glyph-1-1">
+      <path class="cls-15" d="M1056.9,212.34c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-26-2" data-name="glyph-1-26">
+      <path class="cls-15" d="M1059.23,203.16h-1.12v9.84h1.12v-9.84Z"/>
+    </g>
+    <g id="glyph-1-25-3" data-name="glyph-1-25">
+      <path class="cls-15" d="M1062.21,205.92h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-9-5" data-name="glyph-1-9">
+      <path class="cls-15" d="M1066.6,205.92h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-27-2" data-name="glyph-1-27">
+    <path class="cls-15" d="M1072.38,205.92l-1.95,5.52-1.81-5.52h-1.2l2.39,7.11-.42,1.11c-.2,.5-.44,.7-.91,.7-.19,0-.36-.03-.59-.09v1.02c.22,.12,.45,.17,.75,.17,.36,0,.75-.11,1.05-.33,.36-.27,.56-.56,.78-1.12l3.14-8.56h-1.22Z"/>
+  </g>
+  <g id="glyph-1-10-2" data-name="glyph-1-10">
+    <path class="cls-15" d="M1074.11,211.59v1.41h.81v.25c0,.92-.17,1.19-.81,1.22v.52c.89,.03,1.42-.62,1.42-1.77v-1.62h-1.42Z"/>
+  </g>
+  <g id="glyph-1-9-6" data-name="glyph-1-9">
+    <path class="cls-15" d="M1013.24,229.17h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-25-4" data-name="glyph-1-25">
+      <path class="cls-15" d="M1015.54,229.17h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-2-4" data-name="glyph-1-2">
+      <path class="cls-15" d="M1017.44,229.17v7.08h1.14v-4.44c0-1.03,.75-1.86,1.66-1.86,.84,0,1.31,.52,1.31,1.42v4.88h1.14v-4.44c0-1.03,.73-1.86,1.66-1.86,.83,0,1.31,.53,1.31,1.42v4.88h1.12v-5.31c0-1.27-.72-1.97-2.05-1.97-.94,0-1.52,.28-2.17,1.08-.42-.75-.98-1.08-1.91-1.08s-1.58,.36-2.17,1.2v-1h-1.05Z"/>
+    </g>
+    <g id="glyph-1-3-12" data-name="glyph-1-3">
+      <path class="cls-15" d="M1034.67,233.09c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-31">
+      <path class="cls-15" d="M1039.24,232.03h-3.2v.98h3.2v-.98Z"/>
+    </g>
+    <g id="glyph-1-12-3" data-name="glyph-1-12">
+      <path class="cls-15" d="M1040.65,239.19h1.12v-3.69c.59,.73,1.27,1.06,2.17,1.06,1.84,0,3.03-1.47,3.03-3.73s-1.16-3.86-3.05-3.86c-.95,0-1.72,.44-2.25,1.28v-1.08h-1.03v10.02Zm3.09-9.16c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.83,2.69-2.06,2.69s-1.97-1.08-1.97-2.73,.77-2.73,1.97-2.73Z"/>
+    </g>
+    <g id="glyph-1-21-5" data-name="glyph-1-21">
+      <path class="cls-15" d="M1051.09,228.97c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-25-5" data-name="glyph-1-25">
+      <path class="cls-15" d="M1056.95,229.17h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-14-6" data-name="glyph-1-14">
+      <path class="cls-15" d="M1058.86,229.17v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-9-7" data-name="glyph-1-9">
+      <path class="cls-15" d="M1068.85,229.17h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-13-4" data-name="glyph-1-13">
+      <path class="cls-15" d="M998.28,249.66h-1.12v3.66c-.47-.72-1.23-1.09-2.17-1.09-1.84,0-3.05,1.47-3.05,3.73,0,2.39,1.17,3.86,3.08,3.86,.98,0,1.66-.36,2.27-1.25v.94h1v-9.84Zm-3.11,3.62c1.22,0,1.98,1.06,1.98,2.77s-.78,2.7-1.97,2.7c-1.25,0-2.06-1.09-2.06-2.73s.81-2.73,2.05-2.73Z"/>
+    </g>
+    <g id="glyph-1-25-6" data-name="glyph-1-25">
+      <path class="cls-15" d="M1001.13,252.42h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+  </g>
+  <g id="glyph-10-1-2" data-name="glyph-10-1">
+    <path class="cls-15" d="M1005.61,252.42h-1.19v-1.11c0-.47,.27-.7,.8-.7h.39v-.92c-.27-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.95v.92h.95v6.16h1.11v-6.16h1.19v-.92Zm3.62,0h-1.17v-1.11c0-.47,.25-.7,.78-.7h.39v-.92c-.25-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.94v.92h.94v6.16h1.12v-6.16h1.17v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-3-13" data-name="glyph-1-3">
+      <path class="cls-15" d="M1016.53,256.34c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-11-5" data-name="glyph-1-11">
+      <path class="cls-15" d="M1018.05,252.42v7.08h1.12v-3.67c.02-1.7,.72-2.45,2.27-2.42v-1.14c-.19-.03-.3-.05-.42-.05-.73,0-1.28,.44-1.94,1.48v-1.28h-1.03Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-3-14" data-name="glyph-1-3">
+      <path class="cls-15" d="M1028.39,256.34c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+    </g>
+    <g id="glyph-1-14-7" data-name="glyph-1-14">
+      <path class="cls-15" d="M1029.91,252.42v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-8-9" data-name="glyph-1-8">
+      <path class="cls-15" d="M1042.84,254.8c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-3-15" data-name="glyph-1-3">
+    <path class="cls-15" d="M1050.24,256.34c0-1.08-.08-1.73-.28-2.25-.45-1.17-1.53-1.88-2.86-1.88-1.97,0-3.23,1.5-3.23,3.84s1.2,3.75,3.2,3.75c1.62,0,2.75-.92,3.03-2.45h-1.14c-.31,.92-.94,1.41-1.84,1.41-.72,0-1.33-.31-1.7-.91-.27-.41-.36-.81-.38-1.52h5.2Zm-5.19-.92c.11-1.31,.89-2.16,2.03-2.16s1.94,.89,1.94,2.16h-3.97Z"/>
+  </g>
+  <g id="glyph-1-0-11" data-name="glyph-1-0">
+    <path class="cls-15" d="M1056.67,254.39c0-1.39-.92-2.17-2.56-2.17s-2.7,.86-2.7,2.17c0,1.09,.56,1.62,2.23,2.03l1.05,.25c.8,.2,1.09,.48,1.09,.98,0,.67-.66,1.11-1.64,1.11-.61,0-1.12-.17-1.41-.47-.17-.2-.25-.41-.33-.91h-1.19c.06,1.64,.98,2.42,2.83,2.42s2.92-.88,2.92-2.25c0-1.05-.59-1.62-2-1.97l-1.08-.25c-.92-.22-1.31-.52-1.31-1.02,0-.66,.58-1.06,1.5-1.06s1.39,.39,1.41,1.12h1.19Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-10-3" data-name="glyph-1-10">
+      <path class="cls-15" d="M1058.55,258.09v1.41h.81v.25c0,.92-.17,1.19-.81,1.22v.52c.89,.03,1.42-.62,1.42-1.77v-1.62h-1.42Z"/>
+    </g>
+    <g id="glyph-1-1-12" data-name="glyph-1-1">
+      <path class="cls-15" d="M1072.11,258.84c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-14-8" data-name="glyph-1-14">
+      <path class="cls-15" d="M1073.33,252.42v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+    <g id="glyph-1-13-5" data-name="glyph-1-13">
+      <path class="cls-15" d="M1086.59,249.66h-1.12v3.66c-.47-.72-1.23-1.09-2.17-1.09-1.84,0-3.05,1.47-3.05,3.73,0,2.39,1.17,3.86,3.08,3.86,.98,0,1.66-.36,2.27-1.25v.94h1v-9.84Zm-3.11,3.62c1.22,0,1.98,1.06,1.98,2.77s-.78,2.7-1.97,2.7c-1.25,0-2.06-1.09-2.06-2.73s.81-2.73,2.05-2.73Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-12-4" data-name="glyph-1-12">
+      <path class="cls-15" d="M1009.41,285.69h1.12v-3.69c.59,.73,1.27,1.06,2.17,1.06,1.84,0,3.03-1.47,3.03-3.73s-1.16-3.86-3.05-3.86c-.95,0-1.72,.44-2.25,1.28v-1.08h-1.03v10.02Zm3.09-9.16c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.83,2.69-2.06,2.69s-1.97-1.08-1.97-2.73,.77-2.73,1.97-2.73Z"/>
+    </g>
+    <g id="glyph-1-11-6" data-name="glyph-1-11">
+      <path class="cls-15" d="M1017.12,275.67v7.08h1.12v-3.67c.02-1.7,.72-2.45,2.27-2.42v-1.14c-.19-.03-.3-.05-.42-.05-.73,0-1.28,.44-1.94,1.48v-1.28h-1.03Z"/>
+    </g>
+  </g>
+  <g>
+    <g id="glyph-1-21-6" data-name="glyph-1-21">
+      <path class="cls-15" d="M1024.27,275.47c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-6-4" data-name="glyph-1-6">
+      <path class="cls-15" d="M1028.83,272.91v9.84h1v-.91c.55,.83,1.27,1.22,2.25,1.22,1.86,0,3.08-1.53,3.08-3.88s-1.16-3.72-3.03-3.72c-.97,0-1.66,.38-2.19,1.17v-3.73h-1.11Zm3.09,3.62c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.84,2.69-2.06,2.69s-1.98-1.08-1.98-2.73,.78-2.73,1.98-2.73Z"/>
+    </g>
+    <g id="glyph-1-1-13" data-name="glyph-1-1">
+      <path class="cls-15" d="M1042.82,282.09c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+    <g id="glyph-1-6-5" data-name="glyph-1-6">
+      <path class="cls-15" d="M1043.85,272.91v9.84h1v-.91c.55,.83,1.27,1.22,2.25,1.22,1.86,0,3.08-1.53,3.08-3.88s-1.16-3.72-3.03-3.72c-.97,0-1.66,.38-2.19,1.17v-3.73h-1.11Zm3.09,3.62c1.25,0,2.06,1.09,2.06,2.78,0,1.59-.84,2.69-2.06,2.69s-1.98-1.08-1.98-2.73,.78-2.73,1.98-2.73Z"/>
+    </g>
+    <g id="glyph-1-25-7" data-name="glyph-1-25">
+      <path class="cls-15" d="M1052.65,275.67h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-26-3" data-name="glyph-1-26">
+      <path class="cls-15" d="M1055.66,272.91h-1.12v9.84h1.12v-9.84Z"/>
+    </g>
+    <g id="glyph-1-25-8" data-name="glyph-1-25">
+      <path class="cls-15" d="M1058.64,275.67h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-9-8" data-name="glyph-1-9">
+      <path class="cls-15" d="M1063.03,275.67h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-27-3" data-name="glyph-1-27">
+    <path class="cls-15" d="M1068.81,275.67l-1.95,5.52-1.81-5.52h-1.2l2.39,7.11-.42,1.11c-.2,.5-.44,.7-.91,.7-.19,0-.36-.03-.59-.09v1.02c.22,.12,.45,.17,.75,.17,.36,0,.75-.11,1.05-.33,.36-.27,.56-.56,.78-1.12l3.14-8.56h-1.22Z"/>
+  </g>
+  <g id="glyph-10-2">
+    <path class="cls-15" d="M1012.28,298.92h-1.17v-1.11c0-.47,.25-.7,.78-.7h.39v-.92c-.25-.06-.41-.06-.64-.06-1.03,0-1.66,.59-1.66,1.59v1.2h-.94v.92h.94v6.16h1.12v-6.16h1.17v-.92Zm2.34-2.77h-1.12v9.84h1.12v-9.84Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-5-4" data-name="glyph-1-5">
+      <path class="cls-15" d="M1022.06,306v-7.08h-1.11v4.02c0,1.44-.77,2.39-1.94,2.39-.89,0-1.45-.55-1.45-1.39v-5.02h-1.12v5.45c0,1.17,.88,1.94,2.25,1.94,1.05,0,1.7-.36,2.38-1.3v.98h1Z"/>
+    </g>
+    <g id="glyph-1-8-10" data-name="glyph-1-8">
+      <path class="cls-15" d="M1029.43,301.3c-.06-.69-.2-1.12-.47-1.52-.48-.67-1.34-1.06-2.33-1.06-1.92,0-3.14,1.52-3.14,3.86s1.22,3.73,3.12,3.73c1.69,0,2.75-1.02,2.89-2.75h-1.12c-.2,1.14-.78,1.7-1.73,1.7-1.25,0-1.98-1-1.98-2.69s.73-2.81,1.95-2.81c.95,0,1.55,.55,1.67,1.53h1.14Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-9-9" data-name="glyph-1-9">
+    <path class="cls-15" d="M1033.35,298.92h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-5-5" data-name="glyph-1-5">
+      <path class="cls-15" d="M1040.13,306v-7.08h-1.11v4.02c0,1.44-.77,2.39-1.94,2.39-.89,0-1.45-.55-1.45-1.39v-5.02h-1.12v5.45c0,1.17,.88,1.94,2.25,1.94,1.05,0,1.7-.36,2.38-1.3v.98h1Z"/>
+    </g>
+    <g id="glyph-1-1-14" data-name="glyph-1-1">
+      <path class="cls-15" d="M1048.35,305.34c-.12,.02-.17,.02-.23,.02-.39,0-.61-.2-.61-.55v-4.16c0-1.25-.92-1.94-2.66-1.94-1.05,0-1.88,.3-2.36,.83-.31,.36-.45,.77-.48,1.47h1.14c.09-.86,.61-1.25,1.66-1.25s1.58,.38,1.58,1.05v.3c-.02,.48-.25,.67-1.17,.78-1.59,.2-1.84,.27-2.27,.44-.83,.34-1.25,.97-1.25,1.89,0,1.28,.89,2.09,2.33,2.09,.89,0,1.61-.31,2.41-1.05,.08,.73,.42,1.05,1.16,1.05,.25,0,.39-.03,.77-.12v-.84Zm-1.97-1.58c0,.39-.11,.61-.44,.92-.47,.42-1.02,.64-1.69,.64-.88,0-1.39-.42-1.39-1.14s.5-1.11,1.7-1.3c1.2-.16,1.44-.22,1.81-.39v1.27Z"/>
+    </g>
+  </g>
+  <g id="glyph-1-9-10" data-name="glyph-1-9">
+    <path class="cls-15" d="M1051.91,298.92h-1.16v-1.94h-1.12v1.94h-.95v.92h.95v5.34c0,.73,.5,1.12,1.38,1.12,.3,0,.53-.03,.91-.09v-.95c-.16,.05-.3,.06-.53,.06-.48,0-.62-.14-.62-.64v-4.84h1.16v-.92Z"/>
+  </g>
+  <g>
+    <g id="glyph-1-25-9" data-name="glyph-1-25">
+      <path class="cls-15" d="M1054.21,298.92h-1.12v7.08h1.12v-7.08Zm0-2.77h-1.14v1.42h1.14v-1.42Z"/>
+    </g>
+    <g id="glyph-1-21-7" data-name="glyph-1-21">
+      <path class="cls-15" d="M1058.85,298.72c-2,0-3.19,1.42-3.19,3.8s1.19,3.8,3.2,3.8,3.2-1.42,3.2-3.73c0-2.47-1.17-3.86-3.22-3.86Zm.02,1.05c1.27,0,2.02,1.03,2.02,2.8,0,1.67-.78,2.7-2.02,2.7s-2.03-1.03-2.03-2.75,.78-2.75,2.03-2.75Z"/>
+    </g>
+    <g id="glyph-1-14-9" data-name="glyph-1-14">
+      <path class="cls-15" d="M1063.62,298.92v7.08h1.14v-3.91c0-1.44,.75-2.39,1.92-2.39,.89,0,1.45,.55,1.45,1.39v4.91h1.12v-5.34c0-1.17-.88-1.94-2.25-1.94-1.05,0-1.72,.41-2.34,1.39v-1.19h-1.05Z"/>
+    </g>
+  </g>
+  <g id="f4a_figure_1" data-name="f4a figure 1">
+    <g id="f4a_patch_1" data-name="f4a patch 1">
+      <path class="cls-2" d="M466.77,260.58h328.98v-52.82H466.77v52.82Z"/>
+    </g>
+    <g id="f4a_axes_1" data-name="f4a axes 1">
+      <g id="f4a_text_1" data-name="f4a text 1">
+        <g>
+          <path id="f4a_STIXGeneral-Regular-304" data-name="f4a STIXGeneral-Regular-304" d="M562.57,217.67h-8.47v-1.37h8.47v1.37Z"/>
+          <path id="f4a_STIXGeneral-Italic-70" data-name="f4a STIXGeneral-Italic-70" d="M554.87,221.17l-.79,2.54c1.36-1.91,2.91-2.87,4.66-2.87,1,0,1.77,.28,2.31,.84s.82,1.34,.82,2.34c0,2.08-.85,3.99-2.55,5.71-1.7,1.72-3.54,2.59-5.54,2.59-.65,0-1.28-.14-1.88-.43-.73,2.79-1.09,4.2-1.09,4.21,0,.27,.12,.46,.37,.57,.25,.11,.69,.17,1.32,.17v.4h-5.53v-.4c.58-.02,1-.14,1.24-.36,.24-.22,.45-.63,.61-1.25l3.13-10.97c.29-.98,.44-1.59,.44-1.81,0-.46-.4-.69-1.2-.69h-.6l-.06-.38,4.25-.56c.09,0,.14,.03,.14,.1-.02,.08-.04,.16-.06,.23Zm4.55,2.92c0-.75-.13-1.29-.4-1.64s-.7-.52-1.29-.52c-.71,0-1.42,.29-2.13,.87-.71,.57-1.22,1.25-1.55,2.03-.4,.97-.8,2.11-1.19,3.43-.39,1.32-.58,2.19-.58,2.61,0,.29,.12,.52,.37,.7,.25,.18,.56,.27,.94,.27,1.42,0,2.73-.8,3.95-2.41,1.25-1.63,1.88-3.4,1.88-5.33Z"/>
+          <path id="f4a_STIXGeneral-Italic-73" data-name="f4a STIXGeneral-Italic-73" d="M571.31,227.54l-.38,2.49h-.3c-.18-1.37-.74-2.06-1.7-2.06-.34,0-.61,.09-.82,.27-.2,.18-.3,.43-.3,.75,0,.45,.34,1.05,1.03,1.81,.87,.94,1.3,1.74,1.3,2.42,0,.72-.26,1.3-.77,1.73-.51,.43-1.17,.65-1.97,.65-.37,0-.72-.06-1.05-.18-.27-.11-.55-.16-.84-.16-.25,0-.44,.12-.55,.37h-.31l.38-2.82h.31c.25,1.61,.89,2.42,1.91,2.42,.46,0,.81-.12,1.07-.36,.25-.24,.38-.57,.38-1.01,0-.53-.36-1.21-1.07-2.04-.8-.94-1.2-1.71-1.2-2.33s.21-1.06,.63-1.4c.42-.34,.98-.52,1.68-.52,.25,0,.61,.06,1.07,.18,.28,.08,.51,.12,.69,.12,.25,0,.44-.11,.57-.32h.27Z"/>
+          <path id="f4a_STIXGeneral-Regular-2c" data-name="f4a STIXGeneral-Regular-2c" d="M573.33,237.9l-.19-.34c1.05-.66,1.58-1.3,1.58-1.9,0-.15-.09-.23-.27-.23-.05,0-.14,.01-.26,.03-.12,.02-.22,.04-.29,.04-.74,0-1.11-.3-1.11-.91,0-.31,.1-.55,.31-.74,.21-.19,.49-.28,.83-.28,.43,0,.8,.15,1.09,.44,.29,.29,.44,.66,.44,1.11,0,.54-.19,1.07-.58,1.58-.39,.51-.91,.91-1.55,1.19Z"/>
+          <path id="f4a_STIXGeneral-Italic-6b" data-name="f4a STIXGeneral-Italic-6b" d="M588.05,227.79v.28c-.46,.02-.94,.2-1.45,.52s-1.46,1.06-2.84,2.21l.71,1.56c.7,1.53,1.21,2.29,1.55,2.29,.27,0,.55-.25,.86-.75,.06-.09,.16-.25,.29-.46l.29,.2c-.44,.75-.81,1.26-1.11,1.53-.29,.27-.63,.41-1.01,.41-.28,0-.53-.1-.75-.31-.22-.21-.49-.59-.79-1.14-.38-.69-.76-1.52-1.14-2.51l-.76,.57-.91,3.2h-1.43l2.69-9.39c.18-.59,.29-1.11,.34-1.56-.04-.29-.36-.43-.97-.43h-.34v-.28c.95-.11,1.95-.27,2.99-.48l.12,.11-2.29,8.11,.82-.59c1.82-1.3,2.73-2.13,2.73-2.49,0-.21-.24-.32-.71-.32h-.27v-.28h3.41Z"/>
+          <path id="f4a_STIXGeneral-Regular-3d" data-name="f4a STIXGeneral-Regular-3d" d="M610.21,223.91h-16.04v-1.67h16.04v1.67Zm0,5.08h-16.04v-1.67h16.04v1.67Z"/>
+          <path id="f4a_STIXGeneral-Regular-31" data-name="f4a STIXGeneral-Regular-31" d="M625.96,222.44h-5.26v-.27c.7-.04,1.18-.16,1.43-.36,.25-.21,.38-.56,.38-1.06v-7.98c0-.58-.19-.87-.57-.87-.18,0-.46,.07-.86,.21l-.52,.18v-.25l3.41-1.62,.17,.05v10.61c0,.39,.13,.67,.38,.84,.25,.16,.73,.25,1.43,.25v.27Z"/>
+          <path id="f4a_STIXGeneral-Italic-6e" data-name="f4a STIXGeneral-Italic-6e" d="M624.22,236.13l.27,.23c-.65,.83-1.15,1.37-1.49,1.63-.34,.26-.73,.38-1.18,.38-.25,0-.47-.08-.64-.24-.17-.16-.26-.4-.26-.72,0-.19,.1-.63,.3-1.33l.84-2.88c.18-.64,.27-1.11,.27-1.4,0-.34-.15-.52-.46-.52-.37,0-.77,.2-1.21,.61-.44,.41-.97,1.05-1.61,1.91-.42,.58-.73,1.1-.93,1.56-.2,.46-.52,1.41-.98,2.84h-1.43l1.83-6.22c.03-.12,.04-.22,.04-.3,0-.18-.09-.3-.26-.36-.17-.06-.5-.1-.98-.12v-.28c.49-.09,1.05-.19,1.66-.29,.61-.1,1.09-.19,1.43-.26l.07,.03-1.28,3.88c.94-1.4,1.75-2.4,2.44-3.01,.69-.6,1.34-.91,1.97-.91,.39,0,.7,.1,.91,.29,.22,.19,.32,.46,.32,.79,0,.3-.06,.65-.19,1.07l-1.07,3.61c-.18,.59-.27,.95-.27,1.09,0,.21,.1,.32,.3,.32,.24,0,.63-.31,1.16-.94,.09-.1,.22-.25,.4-.46Z"/>
+          <path id="f4a_STIXGeneral-Italic-73-2" data-name="f4a STIXGeneral-Italic-73" d="M629.86,235.06l-.27,1.74h-.21c-.13-.96-.52-1.44-1.19-1.44-.24,0-.43,.06-.57,.19-.14,.12-.21,.3-.21,.52,0,.31,.24,.74,.72,1.27,.61,.66,.91,1.22,.91,1.69,0,.51-.18,.91-.54,1.21-.36,.3-.82,.45-1.38,.45-.26,0-.5-.04-.73-.12-.19-.07-.38-.11-.59-.11-.18,0-.31,.09-.39,.26h-.21l.27-1.98h.21c.18,1.13,.62,1.69,1.33,1.69,.32,0,.57-.08,.75-.25,.18-.17,.27-.4,.27-.71,0-.37-.25-.85-.75-1.43-.56-.65-.84-1.2-.84-1.63s.15-.74,.44-.98c.29-.24,.68-.36,1.17-.36,.18,0,.43,.04,.75,.12,.2,.06,.36,.09,.48,.09,.18,0,.31-.07,.4-.22h.19Z"/>
+          <path id="f4a_STIXGeneral-Regular-2211" data-name="f4a STIXGeneral-Regular-2211" d="M667.53,231.02l-1.44,7.59h-20.29l10.68-12.95-10-13h20.34v6.37h-.82c-.29-1.78-.79-3.01-1.51-3.68-.72-.68-1.96-1.02-3.72-1.02h-8.71l7.9,9.93-9.15,11.02h11.27c1.42,0,2.46-.36,3.13-1.07,.67-.71,1.17-1.77,1.5-3.2h.82Z"/>
+          <path id="f4a_STIXGeneral-Italic-69" data-name="f4a STIXGeneral-Italic-69" d="M639.45,244.5c0,.25-.09,.46-.28,.64s-.4,.27-.66,.27c-.28,0-.5-.09-.67-.26s-.25-.4-.25-.68,.09-.5,.26-.68c.17-.18,.39-.27,.64-.27s.48,.1,.67,.29c.19,.2,.29,.42,.29,.68Zm-.8,8.62l.25,.2c-.53,.77-.99,1.3-1.36,1.59-.37,.29-.79,.43-1.26,.43-.62,0-.93-.33-.93-.98,0-.34,.14-1,.42-1.97l.92-3.15c.11-.38,.17-.64,.17-.78,0-.18-.07-.29-.22-.34-.14-.05-.48-.08-1-.09v-.28c.58-.05,1.6-.2,3.05-.44l.07,.05-1.79,6.1c-.13,.4-.19,.66-.19,.78,0,.18,.09,.27,.27,.27,.32,0,.85-.46,1.6-1.39Z"/>
+          <path id="f4a_STIXGeneral-Regular-2208" data-name="f4a STIXGeneral-Regular-2208" d="M654.38,255.63h-5.55c-1.5,0-2.75-.49-3.74-1.47-.99-.98-1.49-2.14-1.49-3.49s.49-2.52,1.47-3.49c.98-.98,2.21-1.47,3.7-1.47h5.61v1.17h-5.53c-.95,0-1.81,.32-2.56,.95-.75,.63-1.21,1.38-1.37,2.25h9.45v1.17h-9.48c.16,.87,.62,1.62,1.37,2.25s1.6,.95,2.56,.95h5.55v1.17Z"/>
+          <path id="f4a_STIXNonUnicode-Italic-e235" data-name="f4a STIXNonUnicode-Italic-e235" d="M669.55,243.38l-.11,.43c-.52,0-.91,.01-1.18,.04-.27,.03-.54,.11-.83,.25-.29,.14-.52,.34-.69,.62-.17,.28-.33,.67-.49,1.16l-2.25,7.29c-.04,.14-.06,.28-.06,.42,0,.38,.3,.57,.91,.57,1.16,0,2.22-.43,3.2-1.3l.34,.34c-.77,.7-1.6,1.2-2.48,1.49-.88,.3-1.89,.44-3.03,.44h-3.89l.12-.43c.37,0,.64,0,.82-.02,.18-.01,.4-.05,.66-.11,.26-.07,.47-.17,.61-.3,.15-.14,.3-.33,.47-.59,.16-.26,.3-.58,.42-.97l1.98-6.44c.23-.75,.34-1.2,.34-1.35,0-.38-.3-.57-.91-.57-.46,0-1.01,.12-1.64,.36-.64,.24-1.16,.55-1.56,.94l-.32-.34c.75-.69,1.56-1.18,2.43-1.49,.87-.31,2.06-.46,3.56-.46h3.58Z"/>
+          <path id="f4a_STIXGeneral-Italic-73-3" data-name="f4a STIXGeneral-Italic-73" d="M674.42,252l-.27,1.74h-.21c-.13-.96-.52-1.44-1.19-1.44-.24,0-.43,.06-.57,.19-.14,.12-.21,.3-.21,.52,0,.31,.24,.74,.72,1.27,.61,.66,.91,1.22,.91,1.69,0,.51-.18,.91-.54,1.21-.36,.3-.82,.45-1.38,.45-.26,0-.5-.04-.73-.12-.19-.07-.38-.11-.59-.11-.18,0-.31,.09-.39,.26h-.21l.27-1.98h.21c.18,1.13,.62,1.69,1.33,1.69,.32,0,.57-.08,.75-.25,.18-.17,.27-.4,.27-.71,0-.37-.25-.85-.75-1.43-.56-.65-.84-1.2-.84-1.63s.15-.74,.44-.98c.29-.24,.68-.36,1.17-.36,.18,0,.43,.04,.75,.12,.2,.06,.36,.09,.48,.09,.18,0,.31-.07,.4-.22h.19Z"/>
+          <path id="f4a_STIXGeneral-Regular-303" data-name="f4a STIXGeneral-Regular-303" d="M688.58,214.98h.79c-.29,.97-.65,1.66-1.09,2.07-.44,.41-1.03,.62-1.77,.62-.58,0-1.32-.2-2.2-.61-.84-.37-1.42-.56-1.74-.56-.64,0-1.1,.39-1.39,1.17h-.79c.2-.83,.53-1.46,1.01-1.9,.47-.44,1.05-.66,1.74-.66,.62,0,1.25,.15,1.91,.46,1,.47,1.7,.71,2.1,.71,.31,0,.57-.1,.78-.29,.21-.2,.43-.53,.66-1Z"/>
+          <path id="f4a_STIXGeneral-Italic-70-2" data-name="f4a STIXGeneral-Italic-70" d="M681.42,221.17l-.79,2.54c1.36-1.91,2.91-2.87,4.66-2.87,1,0,1.77,.28,2.31,.84s.82,1.34,.82,2.34c0,2.08-.85,3.99-2.55,5.71-1.7,1.72-3.54,2.59-5.54,2.59-.65,0-1.28-.14-1.88-.43-.73,2.79-1.09,4.2-1.09,4.21,0,.27,.12,.46,.37,.57,.25,.11,.69,.17,1.32,.17v.4h-5.53v-.4c.58-.02,1-.14,1.24-.36,.24-.22,.45-.63,.61-1.25l3.13-10.97c.29-.98,.44-1.59,.44-1.81,0-.46-.4-.69-1.2-.69h-.6l-.06-.38,4.25-.56c.09,0,.14,.03,.14,.1-.02,.08-.04,.16-.06,.23Zm4.55,2.92c0-.75-.13-1.29-.4-1.64s-.7-.52-1.29-.52c-.71,0-1.42,.29-2.13,.87-.71,.57-1.22,1.25-1.55,2.03-.4,.97-.8,2.11-1.19,3.43-.39,1.32-.58,2.19-.58,2.61,0,.29,.12,.52,.37,.7,.25,.18,.56,.27,.94,.27,1.42,0,2.73-.8,3.95-2.41,1.25-1.63,1.88-3.4,1.88-5.33Z"/>
+          <path id="f4a_STIXGeneral-Italic-69-2" data-name="f4a STIXGeneral-Italic-69" d="M695.92,224.75c0,.25-.09,.46-.28,.64s-.4,.27-.66,.27c-.28,0-.5-.09-.67-.26s-.25-.4-.25-.68,.09-.5,.26-.68c.17-.18,.39-.27,.64-.27s.48,.1,.67,.29c.19,.2,.29,.42,.29,.68Zm-.8,8.62l.25,.2c-.53,.77-.99,1.3-1.36,1.59-.37,.29-.79,.43-1.26,.43-.62,0-.93-.33-.93-.98,0-.34,.14-1,.42-1.97l.92-3.15c.11-.38,.17-.64,.17-.78,0-.18-.07-.29-.22-.34-.14-.05-.48-.08-1-.09v-.28c.58-.05,1.6-.2,3.05-.44l.07,.05-1.79,6.1c-.13,.4-.19,.66-.19,.78,0,.18,.09,.27,.27,.27,.32,0,.85-.46,1.6-1.39Z"/>
+          <path id="f4a_STIXGeneral-Regular-2c-2" data-name="f4a STIXGeneral-Regular-2c" d="M697.76,237.9l-.19-.34c1.05-.66,1.58-1.3,1.58-1.9,0-.15-.09-.23-.27-.23-.05,0-.14,.01-.26,.03-.12,.02-.22,.04-.29,.04-.74,0-1.11-.3-1.11-.91,0-.31,.1-.55,.31-.74,.21-.19,.49-.28,.83-.28,.43,0,.8,.15,1.09,.44,.29,.29,.44,.66,.44,1.11,0,.54-.19,1.07-.58,1.58-.39,.51-.91,.91-1.55,1.19Z"/>
+          <path id="f4a_STIXGeneral-Italic-6b-2" data-name="f4a STIXGeneral-Italic-6b" d="M712.49,227.79v.28c-.46,.02-.94,.2-1.45,.52s-1.46,1.06-2.84,2.21l.71,1.56c.7,1.53,1.21,2.29,1.55,2.29,.27,0,.55-.25,.86-.75,.06-.09,.16-.25,.29-.46l.29,.2c-.44,.75-.81,1.26-1.11,1.53-.29,.27-.63,.41-1.01,.41-.28,0-.53-.1-.75-.31-.22-.21-.49-.59-.79-1.14-.38-.69-.76-1.52-1.14-2.51l-.76,.57-.91,3.2h-1.43l2.69-9.39c.18-.59,.29-1.11,.34-1.56-.04-.29-.36-.43-.97-.43h-.34v-.28c.95-.11,1.95-.27,2.99-.48l.12,.11-2.29,8.11,.82-.59c1.82-1.3,2.73-2.13,2.73-2.49,0-.21-.24-.32-.71-.32h-.27v-.28h3.41Z"/>
+          <path d="M615.45,228.79v-1.59h15.56v1.59h-15.56Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
 </svg>
