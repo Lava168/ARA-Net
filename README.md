@@ -11,7 +11,7 @@ ARA-Net is a research-grade framework for subject-level Alzheimer’s disease st
 - Atlas-guided MRI regional representation for 21 anatomical brain regions.
 - Multimodal feature workflow combining MRI atlas features with age, sex, education, APOE4, MMSE, and CDR-SB.
 - RC-SPE probability fusion with non-negative weights, class offsets, temperature scaling, and subject-level aggregation.
-- Manuscript-aligned figures, tables, model cards, deployment wrappers, and research UI assets.
+- Manuscript-aligned figures, tables, model cards, and deployment wrappers.
 - Public aggregate evidence only. Restricted MRI volumes, row-level subject tables, and private checkpoints are not redistributed.
 
 ## Manuscript Snapshot
@@ -138,13 +138,15 @@ src/aggregation/          Subject-level probability averaging
 src/evaluation/           Metrics and public evaluation workflow
 src/interpretation/       Aggregate atlas-evidence summaries
 deployment/               Research inference CLI, API wrapper, and Docker entrypoint
-frontend/                 Browser-based research UI prototypes
 docs/                     Manuscript overview, model card, data card, validation notes
-reports/                  Aggregate manuscript-supporting reports and prior figure assets
-assets/manuscript_figures/ README-ready figures regenerated from the final manuscript folder
+assets/manuscript_figures/ README figures aligned to the final manuscript
 ```
 
 The public code operates on base-model probability streams and aggregate atlas features. It does not redistribute restricted MRI scans, dataset-derived subject tables, or private model checkpoints.
+
+## Repository Cleanup
+
+Legacy draft-report folders, old prototype UI screenshots, earlier manuscript figures, and early unrelated experiment folders have been removed from the public `master` branch. The README now uses only the current manuscript-aligned figures under `assets/manuscript_figures/`.
 
 ## Quick Start: Probability-Level Research Inference
 
