@@ -5,18 +5,28 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
+
+
+def figure_sort_key(path: Path) -> tuple[int, str]:
+    match = re.search(r"figure(\d+)", path.name)
+    return (int(match.group(1)) if match else 999, path.name)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--figure-dir", type=Path, default=Path("reports/v6_final_model/manual_paper_figures"))
+    parser.add_argument("--figure-dir", type=Path, default=Path("assets/manuscript_figures"))
     parser.add_argument("--output", type=Path, default=Path("outputs/expected_results/figure_manifest.json"))
     args = parser.parse_args()
-    figures = sorted(str(path) for path in args.figure_dir.glob("*.png"))
+    figures = []
+    for pattern in ("*.svg", "*.png", "*.jpg", "*.jpeg", "*.webp"):
+        figures.extend(args.figure_dir.glob(pattern))
+    figures = [str(path) for path in sorted(figures, key=figure_sort_key)]
     payload = {
         "figure_dir": str(args.figure_dir),
         "n_figures": len(figures),
+        "formats": sorted({Path(path).suffix.lstrip(".") for path in figures}),
         "figures": figures,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

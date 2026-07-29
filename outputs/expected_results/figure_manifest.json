@@ -1,14 +1,19 @@
 {
-  "figure_dir": "reports/v6_final_model/manual_paper_figures",
-  "n_figures": 8,
+  "figure_dir": "assets/manuscript_figures",
+  "n_figures": 10,
+  "formats": [
+    "svg"
+  ],
   "figures": [
-    "reports/v6_final_model/manual_paper_figures/figure1_atlas_guided_staging_overview.png",
-    "reports/v6_final_model/manual_paper_figures/figure2_locked_external_performance.png",
-    "reports/v6_final_model/manual_paper_figures/figure3_subject_level_error_structure.png",
-    "reports/v6_final_model/manual_paper_figures/figure4_research_workbench_ui.png",
-    "reports/v6_final_model/manual_paper_figures/figure5_atlas_feature_evidence_panel.png",
-    "reports/v6_final_model/manual_paper_figures/figure6_end_to_end_workflow.png",
-    "reports/v6_final_model/manual_paper_figures/figure7_rcspe_probability_ensemble_ui.png",
-    "reports/v6_final_model/manual_paper_figures/supplement_subgroup_robustness_summary.png"
+    "assets/manuscript_figures/figure1_atlas_guided_staging.svg",
+    "assets/manuscript_figures/figure2_rc_spe_performance.svg",
+    "assets/manuscript_figures/figure3_ensemble_comparison.svg",
+    "assets/manuscript_figures/figure4_subject_level_aggregation.svg",
+    "assets/manuscript_figures/figure5_error_structure.svg",
+    "assets/manuscript_figures/figure6_structural_consistency.svg",
+    "assets/manuscript_figures/figure7_overall_workflow.svg",
+    "assets/manuscript_figures/figure8_feature_extraction.svg",
+    "assets/manuscript_figures/figure9_data_standardization.svg",
+    "assets/manuscript_figures/figure10_rc_spe_workflow.svg"
   ]
 }

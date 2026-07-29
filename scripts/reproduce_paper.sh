@@ -1,39 +1,58 @@
 #!/usr/bin/env bash
-# -----------------------------------------------------------------------------
-# Reproduce the manuscript-reported ARA-Net benchmark.
+# Reproduce the public ARA-Net RC-SPE smoke-test package.
 #
-# Manuscript §2.5: 6 random seeds × 5 stratified subject-level folds = 30 runs
-#                  AdamW (lr 5e-4 → 1e-6 cosine), weight-decay 1e-3,
-#                  gradient clipping 1.0, 5-epoch linear warm-up, 80 epochs.
-#
-# Usage (from repository root):
-#   bash scripts/reproduce_paper.sh /path/to/cache_real
-#
-# Notes:
-#   * `DATA_ROOT` should contain `cache_real/` populated by
-#     `chapter1_foundation/preprocess_adni15t.py` and `preprocess_oasis.py`.
-#   * `--quick` mode is provided for smoke testing on a single fold/seed.
-#   * Results are written to ./experiment_results/ .
-# -----------------------------------------------------------------------------
+# This script intentionally works only with redistributable synthetic or
+# aggregate inputs. It does not run private raw-MRI preprocessing or train
+# restricted checkpoints.
 set -euo pipefail
 
-DATA_ROOT="${1:-sample_data}"
-OUTPUT_DIR="${OUTPUT_DIR:-experiment_results}"
-EPOCHS="${EPOCHS:-80}"
-GPU="${GPU:-0}"
+PYTHON="${PYTHON:-python3}"
+OUTPUT_DIR="${OUTPUT_DIR:-outputs/expected_results}"
 
-echo "=============================================================="
-echo " ARA-Net :: full paper benchmark"
-echo "   data root : ${DATA_ROOT}"
-echo "   output    : ${OUTPUT_DIR}"
-echo "   epochs    : ${EPOCHS}"
-echo "   gpu       : ${GPU}"
-echo "=============================================================="
+mkdir -p "${OUTPUT_DIR}"
 
-python -m chapter1_foundation.run_experiment_v3 \
-    --config configs/default.yaml \
-    --data_root "${DATA_ROOT}" \
-    --output_dir "${OUTPUT_DIR}" \
-    --epochs "${EPOCHS}" \
-    --gpu "${GPU}" \
-    --tensorboard
+echo "ARA-Net public reproduction"
+echo "  output: ${OUTPUT_DIR}"
+
+"${PYTHON}" scripts/prepare_features.py \
+  --metadata data/example_metadata.csv \
+  --output "${OUTPUT_DIR}/demo_atlas_features.csv"
+
+"${PYTHON}" scripts/train_base_models.py \
+  --features "${OUTPUT_DIR}/demo_atlas_features.csv" \
+  --output "${OUTPUT_DIR}/demo_probability_streams.csv"
+
+"${PYTHON}" scripts/fit_rc_spe.py \
+  --input-csv "${OUTPUT_DIR}/demo_probability_streams.csv" \
+  --config deployment/final_ensemble_config.json \
+  --output "${OUTPUT_DIR}/locked_rc_spe_config.json"
+
+"${PYTHON}" scripts/evaluate_aibl.py \
+  --input-csv "${OUTPUT_DIR}/demo_probability_streams.csv" \
+  --config deployment/final_ensemble_config.json \
+  --unit subject \
+  --output "${OUTPUT_DIR}/aibl_demo_predictions.csv" \
+  --metrics-json "${OUTPUT_DIR}/aibl_demo_metrics.json"
+
+"${PYTHON}" scripts/evaluate_ixi.py \
+  --input-csv "${OUTPUT_DIR}/demo_probability_streams.csv" \
+  --config deployment/final_ensemble_config.json \
+  --unit subject \
+  --output "${OUTPUT_DIR}/ixi_demo_predictions.csv" \
+  --metrics-json "${OUTPUT_DIR}/ixi_demo_metrics.json"
+
+"${PYTHON}" scripts/evaluate_oasis.py \
+  --input-csv "${OUTPUT_DIR}/demo_probability_streams.csv" \
+  --config deployment/final_ensemble_config.json \
+  --unit subject \
+  --output "${OUTPUT_DIR}/oasis_demo_predictions.csv" \
+  --metrics-json "${OUTPUT_DIR}/oasis_demo_metrics.json"
+
+"${PYTHON}" scripts/reproduce_ablation.py \
+  --output "${OUTPUT_DIR}/rc_spe_ablation_summary.json"
+
+"${PYTHON}" scripts/reproduce_figures.py \
+  --figure-dir assets/manuscript_figures \
+  --output "${OUTPUT_DIR}/figure_manifest.json"
+
+echo "Done."
