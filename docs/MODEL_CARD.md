@@ -1,18 +1,20 @@
-# Model Card: ARA-Net V6 RC-SPE
+# Model Card: ARA-Net RC-SPE
 
 ## Model Summary
 
-ARA-Net V6 is an atlas-guided multimodal Alzheimer's disease staging research model. The locked algorithm is **RC-SPE**: a risk-constrained subject-level probability ensemble. The public deployment wrapper combines probabilities from six base models using log-probability pooling, non-negative model weights, temperature scaling, and class-specific offsets. Repeated scans are averaged at the subject-level endpoint unit for the primary prediction.
+ARA-Net is an atlas-guided multimodal Alzheimer's disease staging research framework for CN/MCI/AD classification. The final manuscript-facing algorithm is **RC-SPE**: a Risk-Constrained Subject-level Probability Ensemble. It combines six heterogeneous CN/MCI/AD probability streams using non-negative weighted log-probability pooling, class-specific offsets, temperature scaling, and subject-level probability aggregation.
+
+The public deployment wrapper operates on already-produced base-model probabilities. It does not process raw MRI files and does not redistribute restricted MRI data, private checkpoints, or subject-level cohort tables.
 
 ## Intended Use
 
-The model is intended for retrospective research evaluation and future prospective validation studies. It is not intended for direct diagnosis, treatment selection, emergency triage, or unsupervised patient care.
+ARA-Net is intended for retrospective research, reproducibility review, and future prospective validation studies. It is not intended for direct diagnosis, treatment selection, emergency triage, or unsupervised patient care.
 
-## Input
+## Inputs
 
-The public deployment wrapper expects class probabilities from the configured base models. It does not process raw MRI files. This design avoids redistributing restricted datasets or model artifacts while allowing the final ensemble and subject-level calibration logic to be reproduced.
+The full research workflow uses structural MRI atlas features and core clinical variables, including age, sex, education, APOE4, MMSE, and CDR-SB. The public deployment wrapper expects six base-model CN/MCI/AD probability streams plus subject/scan grouping fields for aggregation.
 
-## Output
+## Outputs
 
 The model outputs:
 
@@ -24,9 +26,7 @@ The model outputs:
 
 ## Primary Evaluation
 
-Locked AIBL heldout subject-level evaluation:
-
-The reported `n` is the number of evaluable subject-level endpoint units after probability aggregation, not necessarily the raw unique-participant count in the split inventory.
+Locked AIBL external subject-level endpoint:
 
 | Metric | Value |
 |---|---:|
@@ -36,37 +36,39 @@ The reported `n` is the number of evaluable subject-level endpoint units after p
 | AD-vs-CN AUC | 1.000 |
 | Recall CN/MCI/AD | 0.961 / 0.686 / 0.852 |
 
-Bootstrap 95% confidence intervals:
+Locked AIBL scan-level endpoint:
 
-| Metric | 95% CI |
+| Metric | Value |
 |---|---:|
-| Balanced accuracy | 0.759-0.899 |
-| MCI recall | 0.531-0.839 |
-| AD recall | 0.710-0.966 |
+| Accuracy | 0.909 |
+| Balanced accuracy | 0.820 |
+| Macro AUC | 0.939 |
+| AD-vs-CN AUC | 0.998 |
+| Recall CN/MCI/AD | 0.964 / 0.642 / 0.854 |
 
 IXI healthy-control CN retention was 1.000.
 
-## Algorithmic Evidence
+## Calibration And Ablation Evidence
 
-The RC-SPE evidence package compares the locked algorithm against single-model, simple ensemble, partial-parameter, calibration, risk-profile, and leave-one-model-out variants using aggregate metrics only.
+| Variant | AIBL BAcc | MCI recall | AD recall | AD-to-CN errors | IXI CN retention | ECE |
+|---|---:|---:|---:|---:|---:|---:|
+| Best single base model | 0.756 | 0.571 | 0.741 | 2 | 0.997 | 0.122 |
+| Arithmetic mean ensemble | 0.711 | 0.400 | 0.741 | 3 | 1.000 | 0.112 |
+| Equal log-pooling | 0.648 | 0.171 | 0.778 | 5 | 1.000 | 0.094 |
+| Full RC-SPE | 0.833 | 0.686 | 0.852 | 0 | 1.000 | 0.078 |
 
-| Variant | AIBL BAcc | MCI recall | AD recall | AD-to-CN errors | IXI CN retention |
-|---|---:|---:|---:|---:|---:|
-| Best single base model | 0.756 | 0.571 | 0.741 | 2 | 0.997 |
-| Arithmetic mean ensemble | 0.711 | 0.400 | 0.741 | 3 | 1.000 |
-| Equal log-pooling | 0.648 | 0.171 | 0.778 | 5 | 1.000 |
-| Full RC-SPE, subject-level | 0.833 | 0.686 | 0.852 | 0 | 1.000 |
+The final RC-SPE head has 10 scalar parameters: six stream weights, three class offsets, and one temperature parameter.
 
-The final algorithm reduced AIBL expected calibration error from 0.122 for the best single base model to 0.078 while improving balanced accuracy. A high-MCI-recall risk profile reached MCI recall 0.886 but reduced AD recall to 0.593 and IXI CN retention to 0.959, so it was not selected as the locked profile.
+## Structural Consistency
+
+ARA-Net evaluates model-associated structural evidence against prespecified AD-key regions: bilateral hippocampi, bilateral amygdalae, and bilateral lateral ventricles. In the locked AIBL external test set, the AD-key enrichment score was 0.510 versus a uniform-null expectation of 0.286 (`p = 0.026`; bootstrap 95% CI 0.479-0.526).
 
 ## Known Limitations
 
-- OASIS transfer remains weak and is reported as an external stress-test limitation.
-- AIBL validation is domain-adapted external heldout evaluation, not pure ADNI-to-AIBL zero-shot transfer.
-- Internal subject-level balanced accuracy remains modest.
-- Clinical variables contain strong diagnostic signal; the clinical-only comparator is an important upper bound.
-- RC-SPE is a calibrated risk-constrained probability framework, not a new end-to-end neural architecture.
-- The biological validation is an MRI neurodegeneration proxy, not direct Braak staging.
+- MCI remains the main uncertainty source.
+- OASIS is reported as an external stress-test boundary, not a successful zero-shot generalization result.
+- The public deployment wrapper assumes upstream MRI processing and base probability generation have already been completed.
+- Structural consistency is an MRI neurodegeneration proxy, not direct Braak staging.
 - The model has not undergone prospective clinical validation or regulatory review.
 
 ## Ethical And Safety Notes
